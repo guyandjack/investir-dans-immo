@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0px auto;
+  background-color: #f3f3f3;
+}

@@ -1,0 +1,29 @@
+//Règle de style complementaire pour l'application
+
+//Import de la charte de couleur
+@import "../../utils/colors-rule/colors-rule.scss";
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  //font-family: 'Oswald', sans-serif; //title
+  font-family: "Source Sans Pro", sans-serif; //text
+  font-size: 1em;
+  font-weight: 500;
+}
+
+body{
+  height: 100%;
+}
+
+#root {
+  //height: 100vh;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0px auto;
+  background-color: lighten(map-get($colors-rule, fourth-color), 80%);
+  //overflow-x: hidden;
+}

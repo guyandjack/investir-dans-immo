@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>calculer ses mensualitées</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../style/CSS/index.css" />
+
+    <script src="../javascript/calculmensualite.js" defer></script>
+  </head>
+  <body>
+    <div class="container-page">
+      <h1>Investir dans l'immobilier</h1>
+      <p>Ce que cela coute en réalité</p>
+      <div></div>
+      <form class="calculette-mensualite" action="calculmensualite.js">
+        <fieldset class="fieldset">
+          <h3 class="titre-calculette">Calculer vos mensualitées</h3>
+          <div class="main-container-input">
+            <label class="label">Prix du bien:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-prix"
+                value="150000"
+                max="1000000"
+                min="1000"
+                step="1000"
+                required
+              />
+              <span id="price" class="calculette-span">€</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-prix"
+                max="1000000"
+                step="1000"
+              />
+            </div>
+          </div>
+
+          <div class="main-container-input">
+            <label class="label">Apport personnel (20% recommandé):</label>
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-apport"
+                max="1000000"
+                min="0"
+                step="1000"
+                required
+              />
+              <span id="gain" class="calculette-span">€</span>
+            </div>
+            <div class="gain-advice"></div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-apport"
+                max="1000000"
+                step="1000"
+              />
+            </div>
+          </div>
+
+          <div class="main-container-input">
+            <label class="label">Taux annuel effectif global:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-taeg"
+                value="3.9"
+                max="8"
+                min="0.1"
+                step="0.01"
+                required
+              />
+              <span id="rate" class="calculette-span">%</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-taeg"
+                max="8"
+                step="0.01"
+              />
+            </div>
+          </div>
+          <div class="main-container-input">
+            <label class="label">Durée:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-duree"
+                value="20"
+                max="30"
+                step="1"
+                required
+              />
+              <span id="periode" class="calculette-span">Ans</span>
+            </div>
+            <div class="container-input-range">
+              <label class="label"></label>
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-duree"
+                max="30"
+                min="1"
+                step="1"
+              />
+            </div>
+          </div>
+
+          <div class="container-resultat">
+            <p class="resultat"></p>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset">
+          <h3 class="titre-calculette">Charges et taxes</h3>
+          <div class="main-container-input">
+            <label class="label"> Charges de coproprietée:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-copro"
+                value="800"
+                max="10000"
+                min="0"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-copro"
+                max="10000"
+                min="0"
+                step="100"
+              />
+            </div>
+          </div>
+          <div class="main-container-input">
+            <label class="label">Taxe foncière:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-foncier"
+                value="800"
+                max="10000"
+                min="0"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-foncier"
+                max="10000"
+                min="0"
+                step="100"
+              />
+            </div>
+          </div>
+          <div class="main-container-input">
+            <label class="label">Taxe d'habitation:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-habitation"
+                value="800"
+                max="10000"
+                min="0"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-habitation"
+                max="10000"
+                min="0"
+                step="100"
+              />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset">
+          <h3 class="titre-calculette">Tranche d'imposition sur revenu</h3>
+          <div class="main-container-input-radio">
+            <div class="container-radio">
+              <label class="label" for="0%" value="0">0% </label>
+              <input
+                id="0%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="11%" value="11">11% </label>
+              <input
+                id="11%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="30%" value="30">30% </label>
+              <input
+                id="30%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="41%" value="41">41% </label>
+              <input
+                id="41%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="45%" value="45">45% </label>
+              <input
+                id="45%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+          </div>
+        </fieldset>
+        <h3 class="titre-calculette">Choix du type d'imposition sur revenu immobilier</h3>
+        <div class="container-radio">
+              <label class="label" for="45%" value="45">Réel </label>
+              <input
+                id="45%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="45%" value="45">Forfaitaire </label>
+              <input
+                id="45%"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+              />
+            </div>
+        <fieldset>
+
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
