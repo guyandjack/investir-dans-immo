@@ -509,6 +509,9 @@ input[type="range"]:focus::-moz-range-thumb {
   text-transform: uppercase;
 }
 
+/****************************************************************************************
+/*****************  Style de la partie affichage input radio***************************/
+/****start******************************************************************************/
 .main-container-input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -575,6 +578,11 @@ input[type="range"]:focus::-moz-range-thumb {
   background-color: lightgreen;
 }
 
+/*****************  Style de la partie affichage input radio***************************/
+/****end******************************************************************************/
+/****************************************************************************************
+/*****************  Style de la partie affichage input number et input range**************/
+/****start******************************************************************************/
 .label {
   padding: 0.5em;
   font-weight: 700;
@@ -667,10 +675,15 @@ input[type="range"]:focus::-moz-range-thumb {
   font-size: 1.3em;
 }
 
-.gain-advice {
+.gain-advice, .income-year {
   padding-left: 1em;
 }
 
+/***************  Style de la partie affichage input number et input range***********
+******end****************************************************************************/
+/****************************************************************************************
+/*****************  Style de la partie affichage resultat ******************************/
+/****start******************************************************************************/
 #cont-result {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;

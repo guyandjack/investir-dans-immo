@@ -16,7 +16,7 @@
       <p>Ce que cela coute en réalité</p>
       <div></div>
       <form class="calculette-mensualite" action="calculmensualite.js">
-        <fieldset class="fieldset">
+        <fieldset id="calculette-mensualite" class="fieldset">
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
             <label class="label">Prix du bien:</label>
@@ -26,9 +26,8 @@
                 class="calculette-number"
                 type="number"
                 name="number-prix"
-                value="150000"
                 max="1000000"
-                min="1000"
+                min="0"
                 step="1000"
                 required
               />
@@ -81,7 +80,6 @@
                 class="calculette-number"
                 type="number"
                 name="number-taeg"
-                value="3.9"
                 max="8"
                 min="0.1"
                 step="0.01"
@@ -108,7 +106,6 @@
                 class="calculette-number"
                 type="number"
                 name="number-duree"
-                value="20"
                 max="30"
                 step="1"
                 required
@@ -128,52 +125,54 @@
             </div>
           </div>
 
-          <div id ="cont-result" class="container-resultat">
+          <!-- ******************* container resultat calculette ***********************-->
+
+          <div id="cont-result" class="container-resultat">
             <div class="resultat">
               <span id="mensualite-text-start" class="text-resultat"></span>
               <span id="mensualite"></span>
               <span id="mensualite-text-end" class="text-resultat"></span>
             </div>
-            <div id="cont-interest" class="resultat ">
+            <div id="cont-interest" class="resultat">
               <span id="interest-text-start" class="text-resultat"></span>
               <span id="interest"></span>
               <span id="interest-text-end" class="text-resultat"></span>
             </div>
           </div>
         </fieldset>
-        <fieldset class="fieldset">
-           <h3 class="titre-calculette">Revenus immobiliers</h3>
+        <fieldset id="revenu-locatif" class="fieldset">
+          <h3 class="titre-calculette">Revenus immobiliers</h3>
           <div class="main-container-input">
-            <label class="label">Revenus immobilier hors charge</label>
+            <label class="label">Loyers hors charge</label>
 
             <div class="container-input-number">
               <input
                 class="calculette-number"
                 type="number"
                 name="number-revenu"
-                value="800"
-                max="30000"
+                
+                max="5000"
                 min="0"
-                step="100"
+                step="50"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / Mois</span>
             </div>
+            <div class="income-year"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
                 class="calculette-range"
                 type="range"
                 name="range-revenu"
-                max="30000"
+                max="5000"
                 min="0"
-                step="100"
+                step="50"
               />
             </div>
           </div>
-
         </fieldset>
-        <fieldset class="fieldset">
+        <fieldset id="charge-taxe" class="fieldset">
           <h3 class="titre-calculette">Charges et taxes</h3>
           <div class="main-container-input">
             <label class="label"> Charges de coproprietée:</label>
@@ -183,7 +182,7 @@
                 class="calculette-number"
                 type="number"
                 name="number-copro"
-                value="800"
+                
                 max="30000"
                 min="0"
                 step="100"
@@ -203,28 +202,34 @@
               />
             </div>
           </div>
-          <h3 class="titre-calculette">
-          Gestion locative (estimation moyenne à 10% des revenus locatifs)
-        </h3>
-          <div class="main-container-input-radio">
-            <div class="container-radio">
-              <label class="label" for="gestion">Oui</label>
+
+          <div class="main-container-input">
+            <label class="label">Gestion locative </label>
+
+            <div class="container-input-number">
               <input
-                id="gl"
-                class="input-radio"
-                type="radio"
-                name="gestion"
+                class="calculette-number"
+                type="number"
+                name="number-gestion"
+                max="3000"
+                min="0"
+                step="50"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-gestion"
+                max="3000"
+                min="0"
+                step="50"
               />
             </div>
-            <div class="container-radio">
-              <label class="label" for="gestion">Non</label>
-              <input
-                id="nogl"
-                class="input-radio"
-                type="radio"
-                name="gestion"
-              />
-            </div>
+          </div>
           <div class="main-container-input">
             <label class="label">Assurance propriétaire non occupant </label>
 
@@ -233,7 +238,6 @@
                 class="calculette-number"
                 type="number"
                 name="number-apno"
-                value="400"
                 max="1000"
                 min="0"
                 step="50"
@@ -254,33 +258,33 @@
             </div>
           </div>
 
-          <label class="label">Assurance loyers impayés</label>
-
-          <div class="container-input-number">
-            <input
-              class="calculette-number"
-              type="number"
-              name="number-ali"
-              value="800"
-              max="2000"
-              min="0"
-              step="50"
-              required
-            />
-            <span class="calculette-span">€ / Ans</span>
+          <div class="main-container-input">
+            <label class="label">Assurance loyers impayés</label>
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-ali"
+                
+                max="2000"
+                min="0"
+                step="50"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-ali"
+                max="2000"
+                min="0"
+                step="50"
+              />
+            </div>
           </div>
-          <label class="label"></label>
-          <div class="container-input-range">
-            <input
-              class="calculette-range"
-              type="range"
-              name="range-ali"
-              max="2000"
-              min="0"
-              step="50"
-            />
-          </div>
-
           <div class="main-container-input">
             <label class="label">Taxe foncière:</label>
 
@@ -289,7 +293,7 @@
                 class="calculette-number"
                 type="number"
                 name="number-foncier"
-                value="800"
+               
                 max="10000"
                 min="0"
                 step="100"
@@ -317,7 +321,7 @@
                 class="calculette-number"
                 type="number"
                 name="number-habitation"
-                value="800"
+                
                 max="10000"
                 min="0"
                 step="100"
@@ -336,6 +340,22 @@
                 step="100"
               />
             </div>
+
+            <!--************** container resultat charge*************************
+            ***********************************************************************-->
+
+            <div id="cont-result-charge" class="container-resultat">
+            <div class="resultat">
+              <span id="charge-text-start" class="text-resultat"></span>
+              <span id="charge"></span>
+              <span id="charge-text-end" class="text-resultat"></span>
+            </div>
+            <div id="cont-re" class="resultat">
+              <span id="equilibre-text-start" class="text-resultat"></span>
+              <span id="equilibre"></span>
+              <span id="equilibre-text-end" class="text-resultat"></span>
+            </div>
+          </div>
           </div>
         </fieldset>
         <fieldset class="fieldset">
@@ -393,9 +413,7 @@
           </h3>
           <div class="main-container-input-radio">
             <div class="container-radio">
-              <label class="label" for="impot-reel"
-                >Régime réel
-              </label>
+              <label class="label" for="impot-reel">Régime réel </label>
               <input
                 id="impot-reel"
                 class="input-radio"
@@ -404,7 +422,7 @@
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="impot-forfaitaire" 
+              <label class="label" for="impot-forfaitaire"
                 >Régime forfaitaire
               </label>
               <input
