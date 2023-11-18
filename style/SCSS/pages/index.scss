@@ -9,9 +9,6 @@
 @import "../vendors/normalize.scss";
 @import "../vendors/input-range.scss";
 
-
-
-
 .container-page {
   display: flex;
   flex-flow: column nowrap;
@@ -30,6 +27,7 @@
   align-items: center;
 
   border-radius: 1em;
+  margin: 1em 0em;
 
   width: 100%;
   background-color: lighten(map-get($colors-rule, first-color), 60%);
@@ -56,6 +54,10 @@
 
 .titre-calculette {
   font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+
+  text-transform: uppercase;
 }
 
 .main-container-input {
@@ -65,36 +67,36 @@
   align-items: flex-start;
 
   width: 100%;
-  margin: 1.5em 0em;
+  margin: 1em 0em;
 }
 
-.main-container-input-radio{
+.main-container-input-radio {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
-.container-radio{
+.container-radio {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
 
-  flex: 0 0 auto; 
-  margin: 1.5em;
+  flex: 0 0 auto;
+  margin: 1.5em 0.5em;
 }
 
-.input-radio{
- border: 2px solid lightgreen;
- width: 1.5em;
- height: 1.5em;
- border-radius: 50%;
+.input-radio {
+  border: 2px solid lighten(map-get($colors-rule, first-color), 30%);
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
 
- &:checked{
-   border: 2px solid lighten(map-get($colors-rule, first-color ), 30%);
- }
+  &:checked {
+    border: 2px solid lightgreen;
+    background-color: lightgreen;
+  }
 }
 
 .label {
@@ -163,26 +165,49 @@
   padding-left: 1em;
 }
 
-.container-resultat {
+#cont-result {
   align-self: center;
   margin: 1em 0em;
   height: fit-content;
+  padding: 1.5em;
+  border-radius: 2em;
 }
 
-.resultat,
-.resultat-error {
-  padding: 0.5em;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-.resultat {
-  //background-color: map-get($colors-rule, first-color );
+.container-resultat {
   background-color: lightgreen;
 }
 
+.container-resultat-error {
+  background-color: orange;
+}
+
+.resultat {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1em 0em;
+  color: black;
+}
+
 .resultat-error {
-  background-color: red;
   color: white;
+}
+
+.text-resultat {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+#mensualite,
+#interest {
+  margin-left: 0.5em;
+  margin-right: 0.2em;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
 }
 

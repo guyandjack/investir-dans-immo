@@ -466,6 +466,7 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 1em;
+  margin: 1em 0em;
   width: 100%;
   background-color: #f6fbff;
 }
@@ -503,6 +504,9 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .titre-calculette {
   font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
 }
 
 .main-container-input {
@@ -520,7 +524,7 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 100%;
-  margin: 1.5em 0em;
+  margin: 1em 0em;
 }
 
 .main-container-input-radio {
@@ -556,18 +560,19 @@ input[type="range"]:focus::-moz-range-thumb {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  margin: 1.5em;
+  margin: 1.5em 0.5em;
 }
 
 .input-radio {
-  border: 2px solid lightgreen;
+  border: 2px solid #5fb3fd;
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
 }
 
 .input-radio:checked {
-  border: 2px solid #5fb3fd;
+  border: 2px solid lightgreen;
+  background-color: lightgreen;
 }
 
 .label {
@@ -666,7 +671,7 @@ input[type="range"]:focus::-moz-range-thumb {
   padding-left: 1em;
 }
 
-.container-resultat {
+#cont-result {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -674,20 +679,53 @@ input[type="range"]:focus::-moz-range-thumb {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  padding: 1.5em;
+  border-radius: 2em;
 }
 
-.resultat,
-.resultat-error {
-  padding: 0.5em;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-.resultat {
+.container-resultat {
   background-color: lightgreen;
 }
 
+.container-resultat-error {
+  background-color: orange;
+}
+
+.resultat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em 0em;
+  color: black;
+}
+
 .resultat-error {
-  background-color: red;
   color: white;
+}
+
+.text-resultat {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+#mensualite,
+#interest {
+  margin-left: 0.5em;
+  margin-right: 0.2em;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
 }

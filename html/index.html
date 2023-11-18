@@ -128,9 +128,50 @@
             </div>
           </div>
 
-          <div class="container-resultat">
-            <p class="resultat"></p>
+          <div id ="cont-result" class="container-resultat">
+            <div class="resultat">
+              <span id="mensualite-text-start" class="text-resultat"></span>
+              <span id="mensualite"></span>
+              <span id="mensualite-text-end" class="text-resultat"></span>
+            </div>
+            <div id="cont-interest" class="resultat ">
+              <span id="interest-text-start" class="text-resultat"></span>
+              <span id="interest"></span>
+              <span id="interest-text-end" class="text-resultat"></span>
+            </div>
           </div>
+        </fieldset>
+        <fieldset class="fieldset">
+           <h3 class="titre-calculette">Revenus immobiliers</h3>
+          <div class="main-container-input">
+            <label class="label">Revenus immobilier hors charge</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-revenu"
+                value="800"
+                max="30000"
+                min="0"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-revenu"
+                max="30000"
+                min="0"
+                step="100"
+              />
+            </div>
+          </div>
+
         </fieldset>
         <fieldset class="fieldset">
           <h3 class="titre-calculette">Charges et taxes</h3>
@@ -143,7 +184,7 @@
                 type="number"
                 name="number-copro"
                 value="800"
-                max="10000"
+                max="30000"
                 min="0"
                 step="100"
                 required
@@ -156,12 +197,90 @@
                 class="calculette-range"
                 type="range"
                 name="range-copro"
-                max="10000"
+                max="30000"
                 min="0"
                 step="100"
               />
             </div>
           </div>
+          <h3 class="titre-calculette">
+          Gestion locative (estimation moyenne à 10% des revenus locatifs)
+        </h3>
+          <div class="main-container-input-radio">
+            <div class="container-radio">
+              <label class="label" for="gestion">Oui</label>
+              <input
+                id="gl"
+                class="input-radio"
+                type="radio"
+                name="gestion"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="gestion">Non</label>
+              <input
+                id="nogl"
+                class="input-radio"
+                type="radio"
+                name="gestion"
+              />
+            </div>
+          <div class="main-container-input">
+            <label class="label">Assurance propriétaire non occupant </label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-apno"
+                value="400"
+                max="1000"
+                min="0"
+                step="50"
+                required
+              />
+              <span class="calculette-span">€ / Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-apno"
+                max="1000"
+                min="0"
+                step="50"
+              />
+            </div>
+          </div>
+
+          <label class="label">Assurance loyers impayés</label>
+
+          <div class="container-input-number">
+            <input
+              class="calculette-number"
+              type="number"
+              name="number-ali"
+              value="800"
+              max="2000"
+              min="0"
+              step="50"
+              required
+            />
+            <span class="calculette-span">€ / Ans</span>
+          </div>
+          <label class="label"></label>
+          <div class="container-input-range">
+            <input
+              class="calculette-range"
+              type="range"
+              name="range-ali"
+              max="2000"
+              min="0"
+              step="50"
+            />
+          </div>
+
           <div class="main-container-input">
             <label class="label">Taxe foncière:</label>
 
@@ -223,7 +342,7 @@
           <h3 class="titre-calculette">Tranche d'imposition sur revenu</h3>
           <div class="main-container-input-radio">
             <div class="container-radio">
-              <label class="label" for="0%" value="0">0% </label>
+              <label class="label" for="0%">0% </label>
               <input
                 id="0%"
                 class="input-radio"
@@ -232,7 +351,7 @@
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="11%" value="11">11% </label>
+              <label class="label" for="11%">11%</label>
               <input
                 id="11%"
                 class="input-radio"
@@ -241,7 +360,7 @@
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="30%" value="30">30% </label>
+              <label class="label" for="30%">30% </label>
               <input
                 id="30%"
                 class="input-radio"
@@ -250,7 +369,7 @@
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="41%" value="41">41% </label>
+              <label class="label" for="41%">41% </label>
               <input
                 id="41%"
                 class="input-radio"
@@ -259,7 +378,7 @@
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="45%" value="45">45% </label>
+              <label class="label" for="45%">45% </label>
               <input
                 id="45%"
                 class="input-radio"
@@ -268,28 +387,34 @@
               />
             </div>
           </div>
-        </fieldset>
-        <h3 class="titre-calculette">Choix du type d'imposition sur revenu immobilier</h3>
-        <div class="container-radio">
-              <label class="label" for="45%" value="45">Réel </label>
+
+          <h3 class="titre-calculette">
+            Choix du regime fiscal sur les revenus immobiliers
+          </h3>
+          <div class="main-container-input-radio">
+            <div class="container-radio">
+              <label class="label" for="impot-reel"
+                >Régime réel
+              </label>
               <input
-                id="45%"
+                id="impot-reel"
                 class="input-radio"
                 type="radio"
-                name="taux-impot"
+                name="regime-fiscal"
               />
             </div>
             <div class="container-radio">
-              <label class="label" for="45%" value="45">Forfaitaire </label>
+              <label class="label" for="impot-forfaitaire" 
+                >Régime forfaitaire
+              </label>
               <input
-                id="45%"
+                id="impot-forfaitaire"
                 class="input-radio"
                 type="radio"
-                name="taux-impot"
+                name="regime-fiscal"
               />
             </div>
-        <fieldset>
-
+          </div>
         </fieldset>
       </form>
     </div>

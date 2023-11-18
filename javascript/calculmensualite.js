@@ -19,8 +19,27 @@ const gainAdvice = document.querySelector(".gain-advice");
 const uniteGain = document.querySelector("#gain");
 
 
-//Element contenant le resultat
-const resultat = document.querySelector(".resultat");
+//Element contenant les resultat
+const containerResultat = document.querySelector("#cont-result");
+
+const mensualiteTextStart = document.querySelector("#mensualite-text-start");
+const resultat = document.querySelector("#mensualite");
+const mensualiteTextEnd = document.querySelector("#mensualite-text-end");
+
+const containerInterest = document.querySelector("#cont-interest");
+
+const interestTextStart = document.querySelector("#interest-text-start");
+const interestCredit = document.querySelector("#interest");
+const interestTextEnd = document.querySelector("#interest-text-end");
+
+
+//Objet qui contient toutes les valeurs de calculée relatif au pret
+let globalValue = {
+  capital:0,
+  mensualite: 0,
+  interet:0,
+  
+}
 
 //function linkInput
 //Modifie les valeurs des inputs en fonction du slider range
@@ -58,6 +77,7 @@ function addEventOnInput() {
         inputNumberTaeg.value,
         inputNumberDuree.value
       );
+      coutDuCredit();
       changeColor();
     });
   });
@@ -65,12 +85,42 @@ function addEventOnInput() {
 
 // Fonction permettant de calculer les mesualites d'un credit immo
 function mensualite(montant, apport, taeg, periode) {
+  let capitalEmprunte = montant - apport;
+  globalValue.capital = parseInt(capitalEmprunte,10);
   let result =
-    ((montant - apport) * taeg) /
+    (capitalEmprunte * taeg) /
     100 /
     12 /
     (1 - Math.pow(1 + taeg / 100 / 12, -periode * 12));
-  resultat.innerHTML = "Vos mensualitées: " + result.toFixed(2) + " €";
+  
+  //Insertion dans l'objet globalResult
+  globalValue.mensualite = parseFloat(result).toFixed(2);
+
+  //Insertion dans le DOM
+  mensualiteTextStart.innerHTML = "Vos mensualités: ";
+  resultat.innerHTML = result.toFixed(2);
+  mensualiteTextEnd.innerHTML = " €"
+}
+
+//fonction qui calcule le cout des interrest sur la periode d' emprunt
+function coutDuCredit() {
+  let capital = globalValue.capital;
+  let mensualite = globalValue.mensualite;
+  let duree = parseInt(inputNumberDuree.value,10);
+
+  let interest = (mensualite * (duree * 12)) - capital;
+  let result = parseFloat(interest).toFixed(2);
+  
+  //Insertion dans l'objet globalresult
+  globalValue.interet = result;
+  
+  //Insertion dans elemnt du DOM
+  interestTextStart.innerHTML = "Coût de l'emprunt: ";
+  interestCredit.innerHTML = result;
+  interestTextEnd.innerHTML = " €";
+
+  
+  
 }
 
 //Function apport
@@ -91,14 +141,16 @@ function initRangeValue() {
 
 //Function de verification des valeurs utilisateurs
 function checkValueUser(evt) {
-  console.log("input user modifié: " + evt.target.name);
-  console.log("prix du bien: " + inputNumberPrix.value);
-  console.log("valeur de l'apport: " + inputNumberApport.value);
-
+  
   //Test si la valeurs de l'input user est un nombre
   let isNumber = testIfNumber(evt.target.value);
   console.log("etat de testIfNnumber: " + isNumber);
   if (!isNumber) {
+    containerResultat.classList.add("container-resultat-error");
+    resultat.innerHTML = "Veuillez entrer une valeur valide !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
@@ -110,21 +162,33 @@ function checkValueUser(evt) {
     inputNumberPrix.value == "" ||
     inputNumberPrix.value == null
   ) {
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Veuillez entrer un prix valide !";
+    containerResultat.classList.add("container-resultat-error");//backgcolor orange
+    resultat.classList.add("resultat-error");//color white
+    resultat.innerHTML = "Veuillez entrer un prix valide !";//error message
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseInt(inputNumberPrix.value,10) < 0) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Le montant de l'emprunt doit etre positif !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseInt(inputNumberPrix.value,10) < parseInt(inputNumberApport.value,10)) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML =
       "Le prix du bien doit etre superieur à l'apport !";
+      containerInterest.classList.add("hide");
+      mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
   
@@ -136,19 +200,31 @@ function checkValueUser(evt) {
     inputNumberApport.value == "" ||
     inputNumberApport.value == null
   ) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Veuillez entrer une valeur d'apport valide !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
   if (parseInt(inputNumberApport.value,10) > parseInt(inputNumberPrix.value,10)) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre apport est supérieur au prix du bien !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseInt(inputNumberApport.value,10) < 0) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre apport ne peut pas être negatif !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
   
@@ -161,20 +237,32 @@ function checkValueUser(evt) {
     inputNumberTaeg.value == "" ||
     inputNumberTaeg.value == null
   ) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Veuillez entrer un taux valide !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseFloat(inputNumberTaeg.value,10) < 0) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre taux d'emprunt ne peut pas être negatif !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseFloat(inputNumberTaeg.value,10) > 8) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre taux d'emprunt ne peut pas superieur à 8% !";
+    containerInterest.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
   
@@ -187,26 +275,41 @@ function checkValueUser(evt) {
     inputNumberDuree.value == "" ||
     inputNumberDuree.value == null
   ) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "veuillez entrer une durée valide!";
+    interestCredit.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
 
   if (parseInt(inputNumberDuree.value,10) < 0) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre duré d'emprunt ne peut pas être negative!";
+    interestCredit.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
 
   if (parseInt(inputNumberDuree.value,10) > 30) {
+    containerResultat.classList.add("container-resultat-error");
     resultat.classList.add("resultat-error");
     resultat.innerHTML = "Votre durée d'emprunt ne peut pas superieur à 30ans!";
+    interestCredit.classList.add("hide");
+    mensualiteTextStart.classList.add("hide");
+    mensualiteTextEnd.classList.add("hide");
     return false;
   }
-  
-
+  containerResultat.classList.remove("container-resultat-error");
   resultat.classList.remove("resultat-error");
+  interestCredit.classList.remove("hide");
+  containerInterest.classList.remove("hide");
+  mensualiteTextStart.classList.remove("hide");
+  mensualiteTextEnd.classList.remove("hide");
   return true;
 }
 
@@ -295,5 +398,6 @@ mensualite(
   parseInt(inputNumberTaeg.value,10),
   parseInt(inputNumberDuree.value,10)
 );
+coutDuCredit();
 changeColor();
 addEventOnInput();
