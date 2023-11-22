@@ -110,7 +110,7 @@
                 step="1"
                 required
               />
-              <span id="periode" class="calculette-span">Ans</span>
+              <span id="periode" class="calculette-span">Années</span>
             </div>
             <div class="container-input-range">
               <label class="label"></label>
@@ -127,7 +127,7 @@
 
           <!-- ******************* container resultat calculette ***********************-->
 
-          <div id="cont-result" class="container-resultat">
+          <div id="cont-result" class="container-resultat valid">
             <div class="resultat">
               <span id="mensualite-text-start" class="text-resultat"></span>
               <span id="mensualite"></span>
@@ -150,10 +150,9 @@
                 class="calculette-number"
                 type="number"
                 name="number-revenu"
-                
                 max="5000"
                 min="0"
-                step="50"
+                step="1"
                 required
               />
               <span class="calculette-span">€ / Mois</span>
@@ -167,7 +166,7 @@
                 name="range-revenu"
                 max="5000"
                 min="0"
-                step="50"
+                step="1"
               />
             </div>
           </div>
@@ -175,20 +174,19 @@
         <fieldset id="charge-taxe" class="fieldset">
           <h3 class="titre-calculette">Charges et taxes</h3>
           <div class="main-container-input">
-            <label class="label"> Charges de coproprietée:</label>
+            <label class="label"> Charges de coproprieté:</label>
 
             <div class="container-input-number">
               <input
                 class="calculette-number"
                 type="number"
                 name="number-copro"
-                
                 max="30000"
                 min="0"
                 step="100"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -216,7 +214,7 @@
                 step="50"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -231,7 +229,7 @@
             </div>
           </div>
           <div class="main-container-input">
-            <label class="label">Assurance propriétaire non occupant </label>
+            <label class="label">Assurance propriétaire non occupant</label>
 
             <div class="container-input-number">
               <input
@@ -243,7 +241,7 @@
                 step="50"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -265,13 +263,12 @@
                 class="calculette-number"
                 type="number"
                 name="number-ali"
-                
                 max="2000"
                 min="0"
                 step="50"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -293,13 +290,12 @@
                 class="calculette-number"
                 type="number"
                 name="number-foncier"
-               
                 max="10000"
                 min="0"
                 step="100"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -321,13 +317,12 @@
                 class="calculette-number"
                 type="number"
                 name="number-habitation"
-                
                 max="10000"
                 min="0"
                 step="100"
                 required
               />
-              <span class="calculette-span">€ / Ans</span>
+              <span class="calculette-span">€ / An</span>
             </div>
             <label class="label"></label>
             <div class="container-input-range">
@@ -341,25 +336,21 @@
               />
             </div>
 
-            <!--************** container resultat charge*************************
+            <!--************** container resultat equilibre revenu et charge*************************
             ***********************************************************************-->
 
-            <div id="cont-result-charge" class="container-resultat">
-            <div class="resultat">
-              <span id="charge-text-start" class="text-resultat"></span>
-              <span id="charge"></span>
-              <span id="charge-text-end" class="text-resultat"></span>
+            <div id="cont-result-equilibre" class="container-resultat valid">
+              <div id="cont-equilibre" class="resultat wrap">
+                <span id="equilibre-text-start" class="text-resultat"></span>
+                <span id="equilibre"></span>
+                <span id="equilibre-text-end" class="text-resultat"></span>
+              </div>
             </div>
-            <div id="cont-re" class="resultat">
-              <span id="equilibre-text-start" class="text-resultat"></span>
-              <span id="equilibre"></span>
-              <span id="equilibre-text-end" class="text-resultat"></span>
-            </div>
-          </div>
           </div>
         </fieldset>
-        <fieldset class="fieldset">
-          <h3 class="titre-calculette">Tranche d'imposition sur revenu</h3>
+        <fieldset id="fiscal" class="fieldset">
+          <h3 class="titre-calculette">Imposition sur revenus</h3>
+          
           <div class="main-container-input-radio">
             <div class="container-radio">
               <label class="label" for="0%">0% </label>
@@ -368,6 +359,7 @@
                 class="input-radio"
                 type="radio"
                 name="taux-impot"
+                value="0"
               />
             </div>
             <div class="container-radio">
@@ -377,6 +369,7 @@
                 class="input-radio"
                 type="radio"
                 name="taux-impot"
+                value="11"
               />
             </div>
             <div class="container-radio">
@@ -386,6 +379,8 @@
                 class="input-radio"
                 type="radio"
                 name="taux-impot"
+                value="30"
+                checked
               />
             </div>
             <div class="container-radio">
@@ -395,6 +390,7 @@
                 class="input-radio"
                 type="radio"
                 name="taux-impot"
+                value="41"
               />
             </div>
             <div class="container-radio">
@@ -404,24 +400,27 @@
                 class="input-radio"
                 type="radio"
                 name="taux-impot"
+                value="45"
               />
             </div>
           </div>
 
-          <h3 class="titre-calculette">
-            Choix du regime fiscal sur les revenus immobiliers
+          <h3 id="title-regime-fiscal" class="titre-calculette">
+            
           </h3>
-          <div class="main-container-input-radio">
+          <div id="regime-fiscal-container-radio" class="main-container-input-radio">
             <div class="container-radio">
-              <label class="label" for="impot-reel">Régime réel </label>
+              <label class="label" for="impot-reel">Régime réel</label>
               <input
                 id="impot-reel"
                 class="input-radio"
                 type="radio"
                 name="regime-fiscal"
+                value="reel"
               />
-            </div>
-            <div class="container-radio">
+              
+              </div>
+            <div id="container-radio-forfaitaire" class="container-radio">
               <label class="label" for="impot-forfaitaire"
                 >Régime forfaitaire
               </label>
@@ -430,9 +429,49 @@
                 class="input-radio"
                 type="radio"
                 name="regime-fiscal"
+                value="forfaitaire"
               />
             </div>
           </div>
+          <div id="regime-fiscal-container-input" class="main-container-input">
+            <label class="label">Charges déductibles:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-deductible"
+                max="30000"
+                min="0"
+                value="5000"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / An</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-deductible"
+                max="30000"
+                min="0"
+                value="5000"
+                step="100"
+              />
+            </div>
+          </div>
+
+          <!--************** container resultat bilan apres imposition  *************************
+            **********************************************************************************-->
+          <div id="cont-result-bilan" class="container-resultat valid">
+              <div id="cont-bilan" class="resultat wrap">
+                <span id="bilan-text-start" class="text-resultat"></span>
+                <span id="bilan"></span>
+                <span id="bilan-text-end" class="text-resultat"></span>
+              </div>
+            </div>
         </fieldset>
       </form>
     </div>

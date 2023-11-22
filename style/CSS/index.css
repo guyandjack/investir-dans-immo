@@ -469,6 +469,7 @@ input[type="range"]:focus::-moz-range-thumb {
   margin: 1em 0em;
   width: 100%;
   background-color: #f6fbff;
+  border: 2px solid blue;
 }
 
 .calculette-mensualite {
@@ -486,7 +487,7 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: start;
           align-items: flex-start;
   border-radius: 1em;
-  width: 60%;
+  width: 80%;
   padding: 1em;
 }
 
@@ -526,6 +527,7 @@ input[type="range"]:focus::-moz-range-thumb {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  border: 2px solid purple;
   width: 100%;
   margin: 1em 0em;
 }
@@ -588,6 +590,13 @@ input[type="range"]:focus::-moz-range-thumb {
   font-weight: 700;
 }
 
+.start {
+  margin-left: 0em;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 .container-input-range,
 .container-input-number {
   display: -webkit-box;
@@ -604,6 +613,7 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  border: 2px solid blue;
 }
 
 .container-input-range > span,
@@ -622,8 +632,8 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 30%;
-          flex: 0 0 30%;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
   height: 100%;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
@@ -646,19 +656,19 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .container-input-number {
+  width: 100%;
   height: 3em;
 }
 
 .calculette-range,
 .calculette-number {
-  width: 100%;
   margin: 1em 0em;
 }
 
 .calculette-range {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 80%;
-          flex: 0 0 80%;
+      -ms-flex: 0 0 90%;
+          flex: 0 0 90%;
   -ms-grid-column-align: center;
       justify-self: center;
 }
@@ -682,9 +692,9 @@ input[type="range"]:focus::-moz-range-thumb {
 /***************  Style de la partie affichage input number et input range***********
 ******end****************************************************************************/
 /****************************************************************************************
-/*****************  Style de la partie affichage resultat ******************************/
+/********  Style de la partie affichage resultat calculette mensualite ******************/
 /****start******************************************************************************/
-#cont-result {
+.container-resultat {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -694,14 +704,19 @@ input[type="range"]:focus::-moz-range-thumb {
   height: fit-content;
   padding: 1.5em;
   border-radius: 2em;
+  width: 70%;
 }
 
-.container-resultat {
+.valid {
   background-color: lightgreen;
 }
 
-.container-resultat-error {
+.error, .negativ {
   background-color: orange;
+}
+
+.equal {
+  background-color: lightskyblue;
 }
 
 .resultat {
@@ -720,6 +735,7 @@ input[type="range"]:focus::-moz-range-thumb {
           align-items: center;
   margin: 1em 0em;
   color: black;
+  width: 100%;
 }
 
 .resultat-error {
@@ -735,10 +751,23 @@ input[type="range"]:focus::-moz-range-thumb {
 #interest {
   margin-left: 0.5em;
   margin-right: 0.2em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
 }
 
 .hide {
   display: none;
+}
+
+.wrap {
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+/****************************************************************************************
+/********  Style de la partie affichage resultat charges et taxe ******************/
+/****start******************************************************************************/
+.disabled {
+  background-color: gray;
+  opacity: 0.3;
 }
