@@ -8,14 +8,35 @@
 
     <link rel="stylesheet" href="../style/CSS/index.css" />
 
-    <script src="../javascript/calculmensualite.js" defer></script>
+    <!--script qui contient ref des elements du Dom-->
+    <script  src="../javascript/utils/refDOM/refDOM.js" defer></script>
+    
+    <!-- script qui contient les objets et tableaux-->
+    <script  src="../javascript/utils/data/data.js" defer></script>
+    
+    <!--script qui contient les fonctions de calcul-->
+
+    
+    <script   type="module" src="../javascript/utils/functions/basicCalcul/basicCalcul.js" defer></script>
+    
+
+    
+    <!--script qui contient les fonctions qui gerent le sequencage de sfonctions de calcul-->
+    <script type="module" src="../javascript/utils/functions/addEvent/addEvent.js" defer></script>
+
+
+
+    <!--script principal-->
+    <script type="module" src="../javascript/calculmensualite.js" defer></script>
+
+
   </head>
   <body>
     <div class="container-page">
       <h1>Investir dans l'immobilier</h1>
       <p>Ce que cela coute en réalité</p>
       <div></div>
-      <form class="calculette-mensualite" action="calculmensualite.js">
+      <form id="calculette" class="calculette-mensualite" action="calculmensualite.js" >
         <fieldset id="calculette-mensualite" class="fieldset">
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
@@ -143,7 +164,7 @@
         <fieldset id="revenu-locatif" class="fieldset">
           <h3 class="titre-calculette">Revenus immobiliers</h3>
           <div class="main-container-input">
-            <label class="label">Loyers hors charge</label>
+            <label class="label">Loyers charges comprises</label>
 
             <div class="container-input-number">
               <input
@@ -171,10 +192,10 @@
             </div>
           </div>
         </fieldset>
-        <fieldset id="charge-taxe" class="fieldset">
+        <fieldset id="charge-taxe" class="fieldset display">
           <h3 class="titre-calculette">Charges et taxes</h3>
           <div class="main-container-input">
-            <label class="label"> Charges de coproprieté:</label>
+            <label class="label">Charges de coproprieté</label>
 
             <div class="container-input-number">
               <input
@@ -340,7 +361,12 @@
             ***********************************************************************-->
 
             <div id="cont-result-equilibre" class="container-resultat valid">
-              <div id="cont-equilibre" class="resultat wrap">
+              <div id="cont-equilibre-total" class="resultat wrap">
+                <span id="equilibre-total-revenu" class="text-resultat"></span>
+                
+                <span id="equilibre-total-charge" class="text-resultat"></span>
+              </div>
+              <div id="cont-equilibre-text" class="resultat wrap">
                 <span id="equilibre-text-start" class="text-resultat"></span>
                 <span id="equilibre"></span>
                 <span id="equilibre-text-end" class="text-resultat"></span>
@@ -349,7 +375,7 @@
           </div>
         </fieldset>
         <fieldset id="fiscal" class="fieldset">
-          <h3 class="titre-calculette">Imposition sur revenus</h3>
+          <h3 class="titre-calculette">Tranche d'imposition sur revenus</h3>
           
           <div class="main-container-input-radio">
             <div class="container-radio">
@@ -408,7 +434,7 @@
           <h3 id="title-regime-fiscal" class="titre-calculette">
             
           </h3>
-          <div id="regime-fiscal-container-radio" class="main-container-input-radio">
+          <div id="regime-fiscal-container-radio" class="main-container-input-radio display">
             <div class="container-radio">
               <label class="label" for="impot-reel">Régime réel</label>
               <input
@@ -433,7 +459,7 @@
               />
             </div>
           </div>
-          <div id="regime-fiscal-container-input" class="main-container-input">
+          <div id="regime-fiscal-container-input" class="main-container-input hide">
             <label class="label">Charges déductibles:</label>
 
             <div class="container-input-number">
@@ -466,9 +492,19 @@
           <!--************** container resultat bilan apres imposition  *************************
             **********************************************************************************-->
           <div id="cont-result-bilan" class="container-resultat valid">
-              <div id="cont-bilan" class="resultat wrap">
+              <div id="cont-bilan-a" class="resultat wrap">
+                <span id="revenu-text-start" class="text-resultat"></span>
+                <span id="revenu" class="number-resultat"></span>
+                <span id="revenu-text-revenu-end" class="text-resultat"></span>
+              </div>
+              <div id="cont-bilan-b" class="resultat wrap">
+                <span id="impot-text-start" class="text-resultat"></span>
+                <span id="impot" class="number-resultat"></span>
+                <span id="impot-text-end" class="text-resultat"></span>
+              </div>
+              <div id="cont-bilan-c" class="resultat wrap">
                 <span id="bilan-text-start" class="text-resultat"></span>
-                <span id="bilan"></span>
+                <span id="bilan" class="number-resultat"></span>
                 <span id="bilan-text-end" class="text-resultat"></span>
               </div>
             </div>

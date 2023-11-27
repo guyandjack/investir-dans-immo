@@ -448,7 +448,6 @@ input[type="range"]:focus::-moz-range-thumb {
           align-items: center;
   width: 100%;
   margin: 0 auto;
-  border: 2px solid red;
 }
 
 .fieldset {
@@ -469,7 +468,6 @@ input[type="range"]:focus::-moz-range-thumb {
   margin: 1em 0em;
   width: 100%;
   background-color: #f6fbff;
-  border: 2px solid blue;
 }
 
 .calculette-mensualite {
@@ -487,20 +485,14 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: start;
           align-items: flex-start;
   border-radius: 1em;
-  width: 80%;
+  /*width: 80%;
   padding: 1em;
-}
-
-@media screen and (min-width: 769px) {
-  .calculette-mensualite {
+  @include upper-medium-screen {
     width: 40%;
   }
-}
-
-@media screen and (min-width: 993px) {
-  .calculette-mensualite {
+  @include upper-large-screen {
     width: 35%;
-  }
+  }*/
 }
 
 .titre-calculette {
@@ -527,7 +519,6 @@ input[type="range"]:focus::-moz-range-thumb {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  border: 2px solid purple;
   width: 100%;
   margin: 1em 0em;
 }
@@ -566,6 +557,10 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin: 1.5em 0.5em;
+}
+
+.container-radio:hover {
+  cursor: pointer;
 }
 
 .input-radio {
@@ -613,7 +608,6 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  border: 2px solid blue;
 }
 
 .container-input-range > span,
@@ -685,7 +679,8 @@ input[type="range"]:focus::-moz-range-thumb {
   font-size: 1.3em;
 }
 
-.gain-advice, .income-year {
+.gain-advice,
+.income-year {
   padding-left: 1em;
 }
 
@@ -711,7 +706,8 @@ input[type="range"]:focus::-moz-range-thumb {
   background-color: lightgreen;
 }
 
-.error, .negativ {
+.error,
+.negativ {
   background-color: orange;
 }
 
@@ -756,7 +752,20 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .hide {
-  display: none;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  -webkit-transition: max-height 250ms linear 0s;
+  -o-transition: max-height 250ms linear 0s;
+  transition: max-height 250ms linear 0s;
+}
+
+.display {
+  max-height: 1500px;
+  overflow: hidden;
+  -webkit-transition: max-height 300ms linear 0s;
+  -o-transition: max-height 300ms linear 0s;
+  transition: max-height 300ms linear 0s;
 }
 
 .wrap {

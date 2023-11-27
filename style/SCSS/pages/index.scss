@@ -17,7 +17,7 @@
 
   width: 100%;
   margin: 0 auto;
-  border: 2px solid red;
+  //border: 2px solid red;
 }
 
 .fieldset {
@@ -31,7 +31,7 @@
 
   width: 100%;
   background-color: lighten(map-get($colors-rule, first-color), 60%);
-   border: 2px solid blue;
+  //border: 2px solid blue;
 }
 
 .calculette-mensualite {
@@ -43,14 +43,14 @@
   //border: 4px solid green;
 
   border-radius: 1em;
-  width: 80%;
+  /*width: 80%;
   padding: 1em;
   @include upper-medium-screen {
     width: 40%;
   }
   @include upper-large-screen {
     width: 35%;
-  }
+  }*/
 }
 
 .titre-calculette {
@@ -70,7 +70,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-   border: 2px solid purple;
+  //border: 2px solid purple;
 
   width: 100%;
   margin: 1em 0em;
@@ -91,6 +91,10 @@
 
   flex: 0 0 auto;
   margin: 1.5em 0.5em;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .input-radio {
@@ -108,7 +112,6 @@
 /*****************  Style de la partie affichage input radio***************************/
 /****end******************************************************************************/
 
-
 /****************************************************************************************
 /*****************  Style de la partie affichage input number et input range**************/
 /****start******************************************************************************/
@@ -118,7 +121,7 @@
   font-weight: 700;
 }
 
-.start{
+.start {
   margin-left: 0em;
   align-items: flex-start;
 }
@@ -131,7 +134,7 @@
   align-items: center;
 
   width: 100%;
-  border: 2px solid blue;
+  //border: 2px solid blue;
 
   & > span {
     display: flex;
@@ -148,6 +151,8 @@
   }
 }
 
+
+
 .container-input-range {
   flex-flow: row nowrap;
   justify-content: center;
@@ -162,7 +167,7 @@
 
 .calculette-range,
 .calculette-number {
- // width: 100%;
+  // width: 100%;
   margin: 1em 0em;
 }
 
@@ -181,14 +186,13 @@
   font-size: 1.3em;
 }
 
-.gain-advice, .income-year {
+.gain-advice,
+.income-year {
   padding-left: 1em;
-  
 }
 
 /***************  Style de la partie affichage input number et input range***********
 ******end****************************************************************************/
-
 
 /****************************************************************************************
 /********  Style de la partie affichage resultat calculette mensualite ******************/
@@ -200,22 +204,22 @@
   height: fit-content;
   padding: 1.5em;
   border-radius: 2em;
- 
+
   width: 70%;
 }
 
-.valid{
-   background-color: lightgreen;
+.valid {
+  background-color: lightgreen;
 }
 
-.error, .negativ {
+.error,
+.negativ {
   background-color: orange;
 }
 
-.equal{
+.equal {
   background-color: lightskyblue;
 }
-
 
 .resultat {
   display: flex;
@@ -246,21 +250,30 @@
 }
 
 .hide {
-  display: none;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  transition: max-height 250ms linear 0s;
+  
 }
 
-.wrap{
+
+
+.display {
+  max-height: 1500px;
+  overflow: hidden;
+  transition: max-height 300ms linear 0s;
+}
+
+.wrap {
   flex-flow: wrap;
 }
-
 
 /****************************************************************************************
 /********  Style de la partie affichage resultat charges et taxe ******************/
 /****start******************************************************************************/
 
-.disabled{
-  
+.disabled {
   background-color: gray;
   opacity: 0.3;
-
 }
