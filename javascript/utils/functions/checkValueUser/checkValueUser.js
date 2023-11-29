@@ -286,4 +286,50 @@ function checkValueUserDuty() {
   return true;
 }
 
-export { testIfNumber, checkValueUserMonthly, checkValueUserDuty, checkValueUserIncome };
+
+
+/**
+ * test si le user a cocher une "tranche d' imposition" et un "regime d' imposition"
+ * 
+ * @return {} boolean 
+ */
+function checkValueUserRadioFiscal() {
+    
+    //condition 1 une tranche d' imposition doit etre choisi
+    let inputRadioChoiceImpot = document.querySelectorAll(
+        "#fiscal input[name='taux-impot']:checked"
+    );
+
+    if (inputRadioChoiceImpot.length < 1) {
+        bilanResultat.innerHTML = "Veuillez sélectionner une tranche d'imposition.";
+        return false
+    }
+
+    //condition 2 un regime d' imposition sur revenu foncier doit etre choisi
+    let inputRadioChoiceFiscal = document.querySelectorAll(
+        "#fiscal input[name='regime-fiscal']:checked"
+    );
+
+    if (inputRadioChoiceFiscal.length < 1) {
+        bilanResultat.innerHTML =
+            "Veuillez sélectionner un régime fiscal réel ou forfaitaire";
+        return false
+    }
+
+    return true
+}
+
+
+
+
+
+
+
+export {
+    testIfNumber,
+    checkValueUserMonthly,
+    checkValueUserDuty,
+    checkValueUserIncome,
+    checkValueUserRadioFiscal,
+    
+};

@@ -8,20 +8,24 @@ import {
   addEventOnInputIncome,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
-  addEventOnInputFiscal,
+  
 } from "./utils/functions/addEvent/addEvent.js";
 
 
 
 import {
   initInputValue,
+  initResultatFiscal,
   mensualite,
   coutDuCredit,
   incomeByYear,
   balance,
-  calculeImpotRevenuFoncier
+  calculeImpotRevenuFoncier,
+  
   
 } from "./utils/functions/basicCalcul/basicCalcul.js"
+
+import { checkValueUserRadioFiscal } from "./utils/functions/checkValueUser/checkValueUser.js";
 
 import {
   
@@ -44,6 +48,9 @@ import {
 //initialisation des inputs user
 initInputValue();
 
+//Initialisation resultat fiscal
+initResultatFiscal();
+
 //Calcul des mensualite et cout du credit en fonction des valeurs d' initialisation
 mensualite(
   parseInt(inputNumberPrix.value, 10),
@@ -59,8 +66,19 @@ changeColor();
 //Calcule le revenu sur un an avec les valeurs d'initialiasation
 incomeByYear();
 
+/*// affiche ou suprime des elements en fonction du montant des revenus foncier sur l^'année
+let choice = controlValueOfIncome();
+if (choice === "choice") {
+  //etabli un bilan avant imposition (revenu - charge courante - mensualite)
+  balance();
+}*/
+
 //etabli un bilan avant imposition (revenu - charge courante - mensualite)
 balance();
+
+
+//Test si au moins une input "tranche d'imposition" et "choix du regime fiscal" a ete selectionnée
+checkValueUserRadioFiscal();
 
 //Calcul le bilan apres imposition
 calculeImpotRevenuFoncier();

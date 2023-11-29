@@ -6,7 +6,11 @@
  * *************************************************************************/
 
 //import des fonctions
-import { displayInputFiscal, hideInputFiscal } from "../other/other.js";
+import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal } from "../other/other.js";
+
+import { addEventOnInputFiscal } from "../addEvent/addEvent.js";
+
+
 
 
  /**
@@ -113,6 +117,12 @@ function initInputValue() {
   inputRangeHabitation.value = inputNumberHabitation.value;
 }
 
+//initialisation du div resultat impot foncier
+function initResultatFiscal() {
+  //Modifie le titre
+  containerFiscaltitle.innerHTML = "Choix du regime fiscal";
+}
+
 
 //fonction qui calcule les revenus locatif sur un an
 function incomeByYear() {
@@ -124,52 +134,74 @@ function incomeByYear() {
   //insertion dans le DOM dans le bilan aavant imposition
   totalRevenu.innerHTML = "Total revenu: " + income + " €/an";
 
-
-
   //insertion dans l'objet
   calculatedValue.income = income;
 
-  if (income > 15300) {
-    console.log("income: " + income);
-    //Modification du titre
-    containerFiscaltitle.innerHTML = "Regime fiscal 'réel' obligatoire";
+  
+}
 
-    //cache les inputs de type radio
-    if (containerInputRadioFiscal.classList.contains("display")) {
-      containerInputRadioFiscal.classList.replace("display", "hide");
+
+/**
+ * affiche ou cache des elemnts en fonction de la valeur de "incomeUser"
+ *
+ */
+function controlValueOfIncome() {
+    let income = calculatedValue.income;
+
+    if (income > 15300) {
+        //Modification du choix fiscal
+        calculatedValue.fiscalChoice = "reel";
+
+        //Modification du titre
+        containerFiscaltitle.innerHTML = "Regime micro-foncier obligatoire";
+
+        //cache les inputs du fieldset "taxe et charge"
+        hideChargeAndTaxe();
+
+        //cache les inputs de type radio "choix du regime fiscal"
+        if (containerInputRadioFiscal.classList.contains("display")) {
+            containerInputRadioFiscal.classList.replace("display", "hide");
+        }
+
+        //Affiche les inputs fiscal "number et range" charge deductible
+        let inputDisplayed = displayInputFiscal();
+
+
+        inputDisplayed
+            .then(() => {
+                addEventOnInputFiscal();
+
+                
+            })
+            .catch((error) => {
+                console.log("error: " + error);
+            });
+        
+        return "no-choice"
     }
 
-    //Affiche les inputs fiscal number et range
-    let inputDisplayed = displayInputFiscal();
-    inputDisplayed
-      .then(() => {
-        //Lie les valeurs des inputs range et number
-        addEventOnInputFiscal();
+    if (income <= 15300) {
+        //Modification du choix fiscal
+        calculatedValue.fiscalChoice == "forfaitaire";
 
-        //Lance le control des inputs user fiscal
-        //checkValueUserFiscal();
-        console.log("check des data user fiscal");
-      })
-      .catch((error) => {
-        console.log("error: " + error);
-      });
-  }
+        //Modifie le titre
+        containerFiscaltitle.innerHTML = "Choix du regime fiscal.";
 
-  if (income <= 15300) {
-    console.log("income: " + income);
-    //Modifie le titre
-    containerFiscaltitle.innerHTML = "Choix du regime fiscal.";
+        //Affiche les inputs du fieldset charge et taxes
+        displayChargeAndTaxe();
 
-    //Affiche les inputs de type radio
-    if (containerInputRadioFiscal.classList.contains("hide")) {
-      containerInputRadioFiscal.classList.replace("hide", "display");
+        //Affiche les inputs de type radio
+        if (containerInputRadioFiscal.classList.contains("hide")) {
+            containerInputRadioFiscal.classList.replace("hide", "display");
+        }
+
+        //Cache les inputs de type number et range
+        if (containerInputFiscal.classList.contains("display")) {
+            containerInputFiscal.classList.replace("display", "hide");
+        }
+
+        return "choice"
     }
-
-    //Cache les inputs de type number et range
-    if (containerInputFiscal.classList.contains("display")) {
-      containerInputFiscal.classList.replace("display", "hide");
-    }
-  }
 }
 
 //fonction qui etabli un bilan entre charge moins revenu locatif moins emprunt
@@ -225,29 +257,7 @@ function balance() {
 }
 
 function calculeImpotRevenuFoncier() {
-  //Deux conditions pour lancer la fonction "calculeimpotrevenufoncier":
-  //condition 1 une tranche d' imposition doit etre choisi
-  let inputRadioChoiceImpot = document.querySelectorAll(
-    "#fiscal input[name='taux-impot']:checked"
-  );
-
-  if (inputRadioChoiceImpot.length < 1) {
-    bilanResultat.innerHTML = "Veuillez sélectionner une tranche d'imposition.";
-  }
-
-  //condition 2 un regime d' imposition sur revenu foncier doit etre choisi
-  let inputRadioChoiceFiscal = document.querySelectorAll(
-    "#fiscal input[name='regime-fiscal']:checked"
-  );
-
-  if (inputRadioChoiceFiscal.length < 1) {
-    bilanResultat.innerHTML =
-      "Veuillez sélectionner un régime fiscal réel ou forfaitaire";
-  }
-
-  if (inputRadioChoiceFiscal.length < 1 || inputRadioChoiceImpot.length < 1) {
-    return;
-  }
+  
 
   //recupere la valeur de l'input radio "tranche imposition"
   let inputRadio = document.querySelector("input[name='taux-impot']:checked");
@@ -294,8 +304,8 @@ function calculeImpotRevenuFoncier() {
 
     if (balance > 0) {
       let rate = calculatedValue.rateIncome + dataValue.tauxImpoFoncier;
-      let impotFoncier = (balance * rate) / 100;
-        bilan = balance - impotFoncier;
+      let impotFoncier = parseInt((balance * rate) / 100,10);
+        bilan =parseInt(balance - impotFoncier,10);
 
         revenuImpotStart.innerHTML = "Vos revenus fonciers: "   ;
         revenuImpot.innerHTML = calculatedValue.income;
@@ -315,12 +325,12 @@ function calculeImpotRevenuFoncier() {
       revenuImpotEnd.innerHTML = " €";
 
       montantImpotStart.innerHTML = "Déficite foncier: ";
-      montantImpot.innerHTML = "";
-      montantImpotEnd.innerHTML = " pas d'imposition";
+      montantImpot.innerHTML = balance;
+      montantImpotEnd.innerHTML = " €";
 
-      bilanTextStart.innerHTML = "";
+      bilanTextStart.innerHTML = "Bilan après imposition: ";
       bilanResultat.innerHTML = "";
-      bilanTextEnd.innerHTML = "";
+      bilanTextEnd.innerHTML = " non imposable";
     }
   }
 
@@ -358,7 +368,9 @@ export {
     mensualite,
     coutDuCredit,
     initInputValue,
+    initResultatFiscal,
     incomeByYear,
+    controlValueOfIncome,
     balance,
     calculeImpotRevenuFoncier
 }

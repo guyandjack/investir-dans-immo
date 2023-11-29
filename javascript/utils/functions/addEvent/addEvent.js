@@ -27,7 +27,8 @@ import {
   initInputValue,
   mensualite,
   coutDuCredit,
-  incomeByYear,
+    incomeByYear,
+  controlValueOfIncome,
   balance,
   calculeImpotRevenuFoncier,
 } from "../basicCalcul/basicCalcul.js";
@@ -37,6 +38,7 @@ import {
   checkValueUserIncome,
   checkValueUserDuty,
   testIfNumber,
+  checkValueUserRadioFiscal,
 } from "../checkValueUser/checkValueUser.js";
 
 /**
@@ -65,8 +67,11 @@ function addEventOnInputMonthly() {
       );
       coutDuCredit();
       changeColor();
-      balance();
-      calculeImpotRevenuFoncier();
+        balance();
+        let checked = checkValueUserRadioFiscal()
+        if (checked) {
+            calculeImpotRevenuFoncier();
+        }
     });
   });
 }
@@ -83,16 +88,41 @@ function addEventOnInputIncome() {
     "#revenu-locatif input[type='number'], #revenu-locatif input[type='range']"
   );
   inputs.forEach((input, index) => {
-    input.addEventListener("input", (e) => {
-      linkInput(e);
-      let isValidIncome = checkValueUserIncome(e);
-      let isValidBalance = checkValueUserDuty();
-      if (!isValidIncome || !isValidBalance) {
-        return;
-      }
-      incomeByYear();
-      balance();
-      calculeImpotRevenuFoncier();
+      input.addEventListener("input", (e) => {
+        //lie les inputs "range et "number"
+        linkInput(e);
+
+        //test la validite de l'input "revenu foncier"
+        let isValidIncome = checkValueUserIncome(e);
+
+        if (!isValidIncome) {
+            return
+        }
+          
+        //Calcul des revenus fonciers sur une année
+        incomeByYear();
+        
+        //En fonction des revenus foncier on applique differente methode
+        let choice = controlValueOfIncome();
+
+        if (choice === "choice") {
+            
+            let isValidBalance = checkValueUserDuty();
+            if (!isValidBalance) {
+                return
+            }
+            balance();
+            calculeImpotRevenuFoncier();
+            return
+        }
+
+        if (choice === "no-choice") {
+            calculatedValue.fiscalChoice == "reel";
+            calculeImpotRevenuFoncier();
+            return
+        }
+
+        
     });
   });
 }
@@ -117,7 +147,10 @@ function addEventOnInputDuty() {
         return;
       }
       balance();
-      calculeImpotRevenuFoncier();
+      let checked = checkValueUserRadioFiscal();
+      if (checked) {
+        calculeImpotRevenuFoncier();
+      }
     });
   });
 }
@@ -133,7 +166,10 @@ function addEventOnInputRadioImpot() {
   let inputs = document.querySelectorAll("#fiscal input[name='taux-impot']");
   inputs.forEach((input) => {
     input.addEventListener("click", () => {
-      calculeImpotRevenuFoncier();
+      let checked = checkValueUserRadioFiscal();
+      if (checked) {
+        calculeImpotRevenuFoncier();
+      }
     });
   });
 }
@@ -162,8 +198,11 @@ function addEventOnInputRadioFiscal() {
         inputDisplayed
             .then(() => {
                 addEventOnInputFiscal();
-                balance();
-                calculeImpotRevenuFoncier();
+                //balance();
+                let checked = checkValueUserRadioFiscal();
+                if (checked) {
+                  calculeImpotRevenuFoncier();
+                }
                 hideChargeAndTaxe();
           })
           .catch((error) => {
@@ -178,7 +217,10 @@ function addEventOnInputRadioFiscal() {
           .then(() => {
             removeEventOnInputFiscal();
             balance();
-              calculeImpotRevenuFoncier();
+              let checked = checkValueUserRadioFiscal();
+              if (checked) {
+                calculeImpotRevenuFoncier();
+              }
               displayChargeAndTaxe();
           })
           .catch((error) => {
@@ -198,13 +240,13 @@ function addEventOnInputRadioFiscal() {
 
 function addEventOnInputFiscal() {
   let inputs = document.querySelectorAll(
-    "#fiscal input[type='number'], #fiscal input[type='range']"
+    "#fiscal input[name='number-deductible'], #fiscal input[name='range-deductible']"
   );
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);
-      balance();
       calculeImpotRevenuFoncier();
+      
     });
   });
 }
@@ -223,12 +265,12 @@ function removeEventOnInputFiscal() {
   inputs.forEach((input) => {
     input.removeEventListener("input", (e) => {
       linkInput(e);
-      /*let isValid = true; //checkValueUserDuty();
-      if (!isValid) {
-        return;
-      }*/
+     
       balance();
-      calculeImpotRevenuFoncier();
+      let checked = checkValueUserRadioFiscal();
+      if (checked) {
+        calculeImpotRevenuFoncier();
+      }
     });
   });
 }
