@@ -98,14 +98,17 @@
 }
 
 .input-radio {
-  border: 2px solid lighten(map-get($colors-rule, first-color), 30%);
+  //border: 4px solid map-get($colors-rule, first-color);
+  background-color: map-get($colors-rule, first-color);
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
-
+  
   &:checked {
-    border: 2px solid lightgreen;
-    background-color: lightgreen;
+    outline: 2px solid map-get($colors-rule, third-color);
+    outline-offset: 0.125rem;
+    background-color: map-get($colors-rule, third-color);
+    
   }
 }
 
@@ -147,7 +150,7 @@
     border-bottom-right-radius: 1em;
     border-top-right-radius: 1em;
     font-weight: 700;
-    background-color: lighten(map-get($colors-rule, first-color), 30%);
+    background-color: map-get($colors-rule, first-color);
   }
 }
 
@@ -182,7 +185,7 @@
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
   padding-left: 1em;
-  background-color: lightgray;
+  background-color: lighten(map-get($colors-rule, fourth-color),60%);
   font-size: 1.3em;
 }
 
@@ -209,16 +212,16 @@
 }
 
 .valid {
-  background-color: lightgreen;
+  background-color: map-get($colors-rule, third-color);
 }
 
 .error,
 .negativ {
-  background-color: orange;
+  background-color: map-get($colors-rule, second-color);
 }
 
 .equal {
-  background-color: lightskyblue;
+  background-color:map-get($colors-rule, first-color);
 }
 
 .resultat {
@@ -227,13 +230,13 @@
   justify-content: flex-start;
   align-items: center;
   margin: 1em 0em;
-  color: black;
+  color: map-get($colors-rule, fourth-color);
 
   width: 100%;
 }
 
 .resultat-error {
-  color: white;
+  color: map-get($colors-rule, fifth-color);
 }
 
 .text-resultat {
@@ -274,6 +277,6 @@
 /****start******************************************************************************/
 
 .disabled {
-  background-color: gray;
+  //background-color: lighten(map-get($colors-rule, fourth-color,30%));
   opacity: 0.3;
 }

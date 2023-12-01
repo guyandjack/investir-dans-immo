@@ -72,18 +72,21 @@ async function hideInputFiscal() {
   return true;
 }
 
-//Met à jour le bilan avant imposition en fonction de la valeur charge deductible
-function hideChargeAndTaxe() {
+//Cache le container des charges
+ function hideChargeAndTaxe() {
   
     if (containerChargeTaxe.classList.contains("display")) {
       containerChargeTaxe.classList.replace("display", "hide");
     }
+    return true
 }
 
-function displayChargeAndTaxe() {
+// Affiche le container des charges
+ function displayChargeAndTaxe() {
     if (containerChargeTaxe.classList.contains("hide")) {
       containerChargeTaxe.classList.replace("hide", "display");
     }
+    return true
 }
 
 export {

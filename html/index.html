@@ -9,34 +9,125 @@
     <link rel="stylesheet" href="../style/CSS/index.css" />
 
     <!--script qui contient ref des elements du Dom-->
-    <script  src="../javascript/utils/refDOM/refDOM.js" defer></script>
-    
+    <script src="../javascript/utils/refDOM/refDOM.js" defer></script>
+
     <!-- script qui contient les objets et tableaux-->
-    <script  src="../javascript/utils/data/data.js" defer></script>
-    
+    <script src="../javascript/utils/data/data.js" defer></script>
+
     <!--script qui contient les fonctions de calcul-->
 
-    
-    <script   type="module" src="../javascript/utils/functions/basicCalcul/basicCalcul.js" defer></script>
-    
+    <script
+      type="module"
+      src="../javascript/utils/functions/basicCalcul/basicCalcul.js"
+      defer
+    ></script>
 
-    
     <!--script qui contient les fonctions qui gerent le sequencage de sfonctions de calcul-->
-    <script type="module" src="../javascript/utils/functions/addEvent/addEvent.js" defer></script>
-
-
+    <script
+      type="module"
+      src="../javascript/utils/functions/addEvent/addEvent.js"
+      defer
+    ></script>
 
     <!--script principal-->
-    <script type="module" src="../javascript/calculmensualite.js" defer></script>
-
-
+    <script
+      type="module"
+      src="../javascript/calculmensualite.js"
+      defer
+    ></script>
   </head>
   <body>
     <div class="container-page">
       <h1>Investir dans l'immobilier</h1>
       <p>Ce que cela coute en réalité</p>
+      <div class="container-text">
+        <h2 class="title-h2">Calculer les mensualités d'un prêt ammortissable à taux fixe</h2>
+        <p class="intro">Ceux sont des mensualités d'un montant fixe tout au long de la période d'emprunt.
+          Elle incluent à la fois le capital et les intérêts.</p>
+        <p class="contenu-text">
+          Les prêts amortissables à taux fixe sont les plus courant.
+          Ils permettend' avoir une vision claire et simplifiée des mensualitées.En effet le montant des mensualitées reste constant.
+          Il est plus facile de prevoir un endettement lorsque les charges sont fixes tout au long de l'année.
+          Calculer le montant de la mensualité de crédit permet ainsi de définir la faisabilité de votre projet.
+          
+        </p>
+      </div>
+      <div class="container-text">
+        <h3 class="title-h3">Le projet de financement</h3>
+        <p class="intro">C'est l'ensemble des frais des qui regroupe, le prix du bien, les frais de travaux, les frais de notaire, frais de banque...
+          </p>
+        <p class="contenu-text">
+          Il est consei
+          
+        </p>
+      </div>
+      <div class="container-text">
+        <h3 class="title-h3">Votre apport</h3>
+        <p class="intro">C'est le montant que vous apportrer pour la réalisation de votre projet
+          </p>
+        <p class="contenu-text">
+          Plus l' apport est conséquent mieux c'est.
+          Votre cédibilité auprès des banques passent en grande partie par votre apport au projet.
+          Pour les banques plus l' apport est important, moins il y a de risque, moins le cout du credit est important.
+          Selon les banques et le context economique, il est conseiller au minimun d' apporter 10% du montant financable.
+          
+        </p>
+      </div>
+      <div class="container-text">
+        <h3 class="title-h3">Le taux TAEG (Taux Annuel Effectif Global)</h3>
+        <p class="intro">C'est le taux d'interret appliquer par les banques 
+          </p>
+        <p class="contenu-text">
+         C' est le premier moyen, qui permet de comparer les etablissements financiers,
+          car le TAEG comprends tous les frais qui sont aplliqués a votre projet.</p>
+         <p>il comprend:</p> 
+          <ul>
+            <li>taux d'interêt bancaire</li>
+            <li>fris de dossier</li>
+            <li>frais d'hypoteeque</li>
+            <li>taux d' assurance...</li>
+          </ul>
+        <p>Pour notre simulateur nous utileserons donc le TAEG</p>  
+        
+      </div>
+      <div class="container-text">
+        <h3 class="title-h3">Vos mensualités</h3>
+        <p class="intro">C'est le taux d'interret appliquer par les banques 
+          </p>
+        <p class="contenu-text">
+         
+         <p></p> 
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        <p></p>  
+        
+      </div>
+      <div class="container-text">
+        <h3 class="title-h3">Cout du credit</h3>
+        <p class="intro">C'est la somme des interets versé à la banque. 
+          </p>
+        <p class="contenu-text">
+         Le cout du credit depend de plusieur facteurs
+         <p></p> 
+          <ul>
+            <li>le taeg</li>
+            <li>la durée du credit</li>
+            <li></li>
+            <li></li>
+          </ul>
+        <p></p>  
+        
+      </div>
       <div></div>
-      <form id="calculette" class="calculette-mensualite" action="calculmensualite.js" >
+      <form
+        id="calculette"
+        class="calculette-mensualite"
+        action="calculmensualite.js"
+      >
         <fieldset id="calculette-mensualite" class="fieldset">
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
@@ -363,7 +454,7 @@
             <div id="cont-result-equilibre" class="container-resultat valid">
               <div id="cont-equilibre-total" class="resultat wrap">
                 <span id="equilibre-total-revenu" class="text-resultat"></span>
-                
+
                 <span id="equilibre-total-charge" class="text-resultat"></span>
               </div>
               <div id="cont-equilibre-text" class="resultat wrap">
@@ -376,7 +467,7 @@
         </fieldset>
         <fieldset id="fiscal" class="fieldset">
           <h3 class="titre-calculette">Tranche d'imposition sur revenus</h3>
-          
+
           <div class="main-container-input-radio">
             <div class="container-radio">
               <label class="label" for="0%">0% </label>
@@ -431,10 +522,11 @@
             </div>
           </div>
 
-          <h3 id="title-regime-fiscal" class="titre-calculette">
-            
-          </h3>
-          <div id="regime-fiscal-container-radio" class="main-container-input-radio display">
+          <h3 id="title-regime-fiscal" class="titre-calculette"></h3>
+          <div
+            id="regime-fiscal-container-radio"
+            class="main-container-input-radio display"
+          >
             <div class="container-radio">
               <label class="label" for="impot-reel">Régime réel</label>
               <input
@@ -444,8 +536,7 @@
                 name="regime-fiscal"
                 value="reel"
               />
-              
-              </div>
+            </div>
             <div id="container-radio-forfaitaire" class="container-radio">
               <label class="label" for="impot-forfaitaire"
                 >Régime forfaitaire
@@ -459,7 +550,10 @@
               />
             </div>
           </div>
-          <div id="regime-fiscal-container-input" class="main-container-input hide">
+          <div
+            id="regime-fiscal-container-input"
+            class="main-container-input hide"
+          >
             <label class="label">Charges déductibles:</label>
 
             <div class="container-input-number">
@@ -492,22 +586,22 @@
           <!--************** container resultat bilan apres imposition  *************************
             **********************************************************************************-->
           <div id="cont-result-bilan" class="container-resultat valid">
-              <div id="cont-bilan-a" class="resultat wrap">
-                <span id="revenu-text-start" class="text-resultat"></span>
-                <span id="revenu" class="number-resultat"></span>
-                <span id="revenu-text-end" class="text-resultat"></span>
-              </div>
-              <div id="cont-bilan-b" class="resultat wrap">
-                <span id="impot-text-start" class="text-resultat"></span>
-                <span id="impot" class="number-resultat"></span>
-                <span id="impot-text-end" class="text-resultat"></span>
-              </div>
-              <div id="cont-bilan-c" class="resultat wrap">
-                <span id="bilan-text-start" class="text-resultat"></span>
-                <span id="bilan" class="number-resultat"></span>
-                <span id="bilan-text-end" class="text-resultat"></span>
-              </div>
+            <div id="cont-bilan-a" class="resultat wrap">
+              <span id="revenu-text-start" class="text-resultat"></span>
+              <span id="revenu" class="number-resultat"></span>
+              <span id="revenu-text-end" class="text-resultat"></span>
             </div>
+            <div id="cont-bilan-b" class="resultat wrap">
+              <span id="impot-text-start" class="text-resultat"></span>
+              <span id="impot" class="number-resultat"></span>
+              <span id="impot-text-end" class="text-resultat"></span>
+            </div>
+            <div id="cont-bilan-c" class="resultat wrap">
+              <span id="bilan-text-start" class="text-resultat"></span>
+              <span id="bilan" class="number-resultat"></span>
+              <span id="bilan-text-end" class="text-resultat"></span>
+            </div>
+          </div>
         </fieldset>
       </form>
     </div>

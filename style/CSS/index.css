@@ -467,7 +467,7 @@ input[type="range"]:focus::-moz-range-thumb {
   border-radius: 1em;
   margin: 1em 0em;
   width: 100%;
-  background-color: #f6fbff;
+  background-color: #f5fcff;
 }
 
 .calculette-mensualite {
@@ -564,15 +564,16 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .input-radio {
-  border: 2px solid #5fb3fd;
+  background-color: #068ebc;
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
 }
 
 .input-radio:checked {
-  border: 2px solid lightgreen;
-  background-color: lightgreen;
+  outline: 2px solid #24e05d;
+  outline-offset: 0.125rem;
+  background-color: #24e05d;
 }
 
 /*****************  Style de la partie affichage input radio***************************/
@@ -632,7 +633,7 @@ input[type="range"]:focus::-moz-range-thumb {
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
   font-weight: 700;
-  background-color: #5fb3fd;
+  background-color: #068ebc;
 }
 
 .container-input-range {
@@ -675,7 +676,7 @@ input[type="range"]:focus::-moz-range-thumb {
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
   padding-left: 1em;
-  background-color: lightgray;
+  background-color: silver;
   font-size: 1.3em;
 }
 
@@ -703,16 +704,16 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .valid {
-  background-color: lightgreen;
+  background-color: #24e05d;
 }
 
 .error,
 .negativ {
-  background-color: orange;
+  background-color: #EFA00B;
 }
 
 .equal {
-  background-color: lightskyblue;
+  background-color: #068ebc;
 }
 
 .resultat {
@@ -730,12 +731,12 @@ input[type="range"]:focus::-moz-range-thumb {
       -ms-flex-align: center;
           align-items: center;
   margin: 1em 0em;
-  color: black;
+  color: #272727;
   width: 100%;
 }
 
 .resultat-error {
-  color: white;
+  color: #FBFFFE;
 }
 
 .text-resultat {
@@ -777,6 +778,5 @@ input[type="range"]:focus::-moz-range-thumb {
 /********  Style de la partie affichage resultat charges et taxe ******************/
 /****start******************************************************************************/
 .disabled {
-  background-color: gray;
   opacity: 0.3;
 }

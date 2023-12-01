@@ -27,7 +27,7 @@ import {
   initInputValue,
   mensualite,
   coutDuCredit,
-    incomeByYear,
+  incomeByYear,
   controlValueOfIncome,
   balance,
   calculeImpotRevenuFoncier,
@@ -67,11 +67,11 @@ function addEventOnInputMonthly() {
       );
       coutDuCredit();
       changeColor();
-        balance();
-        let checked = checkValueUserRadioFiscal()
-        if (checked) {
-            calculeImpotRevenuFoncier();
-        }
+      balance();
+      let checked = checkValueUserRadioFiscal();
+      if (checked) {
+        calculeImpotRevenuFoncier();
+      }
     });
   });
 }
@@ -88,41 +88,38 @@ function addEventOnInputIncome() {
     "#revenu-locatif input[type='number'], #revenu-locatif input[type='range']"
   );
   inputs.forEach((input, index) => {
-      input.addEventListener("input", (e) => {
-        //lie les inputs "range et "number"
-        linkInput(e);
+    input.addEventListener("input", (e) => {
+      //lie les inputs "range et "number"
+      linkInput(e);
 
-        //test la validite de l'input "revenu foncier"
-        let isValidIncome = checkValueUserIncome(e);
+      //test la validite de l'input "revenu foncier"
+      let isValidIncome = checkValueUserIncome(e);
 
-        if (!isValidIncome) {
-            return
+      if (!isValidIncome) {
+        return;
+      }
+
+      //Calcul des revenus fonciers sur une année
+      incomeByYear();
+
+      //En fonction des revenus foncier on applique differente methode
+      let choice = controlValueOfIncome();
+
+      if (choice === "choice") {
+        let isValidBalance = checkValueUserDuty();
+        if (!isValidBalance) {
+          return;
         }
-          
-        //Calcul des revenus fonciers sur une année
-        incomeByYear();
-        
-        //En fonction des revenus foncier on applique differente methode
-        let choice = controlValueOfIncome();
+        balance();
+        calculeImpotRevenuFoncier();
+        return;
+      }
 
-        if (choice === "choice") {
-            
-            let isValidBalance = checkValueUserDuty();
-            if (!isValidBalance) {
-                return
-            }
-            balance();
-            calculeImpotRevenuFoncier();
-            return
-        }
-
-        if (choice === "no-choice") {
-            calculatedValue.fiscalChoice == "reel";
-            calculeImpotRevenuFoncier();
-            return
-        }
-
-        
+      if (choice === "no-choice") {
+        calculatedValue.fiscalChoice == "reel";
+        calculeImpotRevenuFoncier();
+        return;
+      }
     });
   });
 }
@@ -188,6 +185,8 @@ function addEventOnInputRadioFiscal() {
   );
   inputs.forEach((input) => {
     input.addEventListener("click", (e) => {
+      let target = e.target;
+      console.log("input radio checked: " + target);
       let result = e.target.value;
       calculatedValue.fiscalChoice = result;
       console.log("choix fiscal: " + result);
@@ -196,14 +195,18 @@ function addEventOnInputRadioFiscal() {
       if (result == "reel") {
         let inputDisplayed = displayInputFiscal();
         inputDisplayed
-            .then(() => {
-                addEventOnInputFiscal();
-                //balance();
-                let checked = checkValueUserRadioFiscal();
-                if (checked) {
-                  calculeImpotRevenuFoncier();
-                }
-                hideChargeAndTaxe();
+          .then(() => {
+            addEventOnInputFiscal();
+            //balance();
+            let checked = checkValueUserRadioFiscal();
+            if (checked) {
+              calculeImpotRevenuFoncier();
+            }
+
+            hideChargeAndTaxe();
+            containerChargeTaxe.addEventListener("transitionend", () => {
+              target.scrollIntoView({ behavior: "smooth" });
+            });
           })
           .catch((error) => {
             console.log("error: " + error);
@@ -217,11 +220,14 @@ function addEventOnInputRadioFiscal() {
           .then(() => {
             removeEventOnInputFiscal();
             balance();
-              let checked = checkValueUserRadioFiscal();
-              if (checked) {
-                calculeImpotRevenuFoncier();
-              }
-              displayChargeAndTaxe();
+            let checked = checkValueUserRadioFiscal();
+            if (checked) {
+              calculeImpotRevenuFoncier();
+            }
+            displayChargeAndTaxe();
+            containerChargeTaxe.addEventListener("transitionend", () => {
+              target.scrollIntoView({ behavior: "smooth" });
+            });
           })
           .catch((error) => {
             console.log("error: " + error);
@@ -246,7 +252,6 @@ function addEventOnInputFiscal() {
     input.addEventListener("input", (e) => {
       linkInput(e);
       calculeImpotRevenuFoncier();
-      
     });
   });
 }
@@ -265,7 +270,7 @@ function removeEventOnInputFiscal() {
   inputs.forEach((input) => {
     input.removeEventListener("input", (e) => {
       linkInput(e);
-     
+
       balance();
       let checked = checkValueUserRadioFiscal();
       if (checked) {
