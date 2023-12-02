@@ -170,6 +170,28 @@ function addEventOnInputRadioImpot() {
     });
   });
 }
+/**
+ *  Ajoute des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (type location)
+
+ * @param {} void
+ * @return {} void
+ */
+
+function addEventOnInputRadioTypeLocation() {
+  let inputs = document.querySelectorAll(
+    "#location-type-container-radio input[name='type-location']"
+  );
+  inputs.forEach((input) => {
+    input.addEventListener("click", (e) => {
+      //insertion dans lôbjet calculatedValue
+      calculatedValue.locationType = e.target.value;
+      let checked = checkValueUserRadioFiscal();
+      if (checked) {
+        calculeImpotRevenuFoncier();
+      }
+    });
+  });
+}
 
 /**
  *  Ajoute des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
@@ -284,6 +306,7 @@ export {
   addEventOnInputMonthly,
   addEventOnInputDuty,
   addEventOnInputIncome,
+  addEventOnInputRadioTypeLocation,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnInputFiscal,

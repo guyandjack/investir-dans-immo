@@ -6,6 +6,7 @@ import {
   addEventOnInputMonthly,
   addEventOnInputDuty,
   addEventOnInputIncome,
+  addEventOnInputRadioTypeLocation,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   
@@ -92,5 +93,6 @@ calculeImpotRevenuFoncier();
 addEventOnInputMonthly();
 addEventOnInputIncome();
 addEventOnInputDuty();
+addEventOnInputRadioTypeLocation();
 addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();

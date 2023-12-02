@@ -1,27 +1,4 @@
 /*******    feuille de style page calculette   ************/
-* {
-  margin: 0px;
-  padding: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  list-style-type: none;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1em;
-  font-weight: 500;
-}
-
-body {
-  height: 100%;
-}
-
-#root {
-  width: 100%;
-  max-width: 1500px;
-  margin: 0px auto;
-  background-color: #f3f3f3;
-}
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -432,6 +409,56 @@ input[type="range"]:focus::-moz-range-thumb {
   outline-offset: 0.125rem;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.title {
+  font-family: 'Baskervville', serif;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.h2 {
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.h3 {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
 .container-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -446,8 +473,107 @@ input[type="range"]:focus::-moz-range-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
+}
+
+.introduction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em 0em;
+}
+
+.introduction-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em 0em;
+  width: 100%;
+  height: 150px;
+  background-image: url(../../../Asset/petite-maison-lego-500px.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-width: 769px) {
+  .introduction-img {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    width: 100%;
+    height: 160px;
+    background-image: url(../../../Asset/petite-maison-lego-1000px.png);
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .introduction-img {
+    width: 100%;
+    height: 160px;
+    background-image: url(../../../Asset/petite-maison-lego-1500px.png);
+  }
+}
+
+.introduction-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 1em;
+  overflow: visible;
+  border-radius: 50%;
+  background-color: #068ebc;
+  outline: 2px solid #068ebc;
+  outline-offset: 5px;
+}
+
+.icon-text {
+  position: relative;
+  font-size: 1em;
+  text-transform: capitalize;
+  color: #FBFFFE;
+}
+
+.icon-end-text {
+  margin-left: 0.2em;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #FBFFFE;
 }
 
 .fieldset {

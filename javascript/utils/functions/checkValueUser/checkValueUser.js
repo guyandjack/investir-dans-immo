@@ -289,13 +289,24 @@ function checkValueUserDuty() {
 
 
 /**
- * test si le user a cocher une "tranche d' imposition" et un "regime d' imposition"
+ * test si le user a cocher un "type de location", "tranche d' imposition" et un "regime d' imposition"
  * 
  * @return {} boolean 
  */
 function checkValueUserRadioFiscal() {
     
-    //condition 1 une tranche d' imposition doit etre choisi
+    //condition 1 un type de location doit etre choisi
+    let inputRadioTypeLocation = document.querySelectorAll(
+      "#location-type-container-radio input[name='type-location']:checked"
+    );
+    if (inputRadioTypeLocation.length < 1) {
+      bilanResultat.innerHTML =
+        "Veuillez sélectionner un type de location.";
+      return false;
+    }
+
+
+    //condition 2 une tranche d' imposition doit etre choisi
     let inputRadioChoiceImpot = document.querySelectorAll(
         "#fiscal input[name='taux-impot']:checked"
     );
@@ -305,7 +316,7 @@ function checkValueUserRadioFiscal() {
         return false
     }
 
-    //condition 2 un regime d' imposition sur revenu foncier doit etre choisi
+    //condition 3 un regime d' imposition sur revenu foncier doit etre choisi
     let inputRadioChoiceFiscal = document.querySelectorAll(
         "#fiscal input[name='regime-fiscal']:checked"
     );

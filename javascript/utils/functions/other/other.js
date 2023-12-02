@@ -89,9 +89,26 @@ async function hideInputFiscal() {
     return true
 }
 
+//recupere le type de location  choisi par l'utilisteur 
+function getLocationType() {
+    let inputs = document.querySelectorAll("#fiscal input[name='type-location']:checked");
+    if (inputs.length < 1) {
+        revenuImpotStart.innerHTML = " Veuillez selectionner un type de location 'nue' ou 'meublé'";
+        return false
+    }
+    let locationTypeValue = inputs[0].value;
+
+    //insertion danss l'objet calculatedValue
+    calculatedValue.locationType = locationTypeValue;
+    return true
+}
+
+
+
 export {
   changeColor,
-  linkInput,
+    linkInput,
+  getLocationType,
   displayInputFiscal,
   hideInputFiscal,
   hideChargeAndTaxe,

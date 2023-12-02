@@ -6,9 +6,10 @@
  * *************************************************************************/
 
 //import des fonctions
-import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal } from "../other/other.js";
+import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal, getLocationType } from "../other/other.js";
 
 import { addEventOnInputFiscal } from "../addEvent/addEvent.js";
+import { testIfNumber } from "../checkValueUser/checkValueUser.js";
 
 
 
@@ -85,7 +86,9 @@ function initInputValue() {
   inputNumberDuree.value = parseInt(dataValue.periode, 10);
 
   //revenu immobilier
-  inputNumberRevenu.value = parseInt(dataValue.income, 10);
+    inputNumberRevenu.value = parseInt(dataValue.income, 10);
+    inputNumberRevenuCharge.value = parseInt(dataValue.incomeCharge, 10);
+    
 
   //charges et taxes
   inputNumberCopro.value = parseInt(dataValue.copro, 10);
@@ -127,15 +130,17 @@ function initResultatFiscal() {
 //fonction qui calcule les revenus locatif sur un an
 function incomeByYear() {
   let income = parseInt(inputNumberRevenu.value * 12, 10);
+  let incomeCharge = parseInt(inputNumberRevenuCharge.value * 12, 10);
 
-  //insertion dans le DOM sous l' input revenu
+  //insertion dans le DOM sous l'input revenu
   incomeOnYear.innerHTML = income + " €/an";
 
-  //insertion dans le DOM dans le bilan aavant imposition
-  totalRevenu.innerHTML = "Total revenu: " + income + " €/an";
+  //insertion dans le DOM dans le bilan avant imposition
+  //totalRevenu.innerHTML = "Total revenu: " + income + " €/an";
 
   //insertion dans l'objet
   calculatedValue.income = income;
+  calculatedValue.incomeCharge = incomeCharge;
 
   
 }
@@ -146,14 +151,34 @@ function incomeByYear() {
  *
  */
 function controlValueOfIncome() {
-    let income = calculatedValue.income;
+    //Verifie si l'utilisateur a choisi un type de location
+    let isSelected = getLocationType();
+    if (!isSelected) {
+        return
+    }
+    //En fonction du type de location nue ou meublé le seuil regime réel diffère
+    let income = 0;
+    let seuil = 0;
+    let typeLocation = calculatedValue.locationType;
 
-    if (income > 15300) {
+    if (typeLocation == "nue") {
+        income = parseInt(calculatedValue.income,10);
+        seuil = 15300;
+    }
+
+    if (typeLocation == "meuble") {
+        income = parseInt(calculatedValue.income + calculatedValue.incomeCharge, 10);
+        seuil = 77700;
+    }
+
+    
+
+    if (income > seuil) {
         //Modification du choix fiscal
         calculatedValue.fiscalChoice = "reel";
 
         //Modification du titre
-        containerFiscaltitle.innerHTML = "Regime micro-foncier obligatoire";
+        containerFiscaltitle.innerHTML = "Regime réel obligatoire";
 
         //cache les inputs du fieldset "taxe et charge"
         hideChargeAndTaxe();
@@ -180,7 +205,7 @@ function controlValueOfIncome() {
         return "no-choice"
     }
 
-    if (income <= 15300) {
+    if (income <= seuil) {
         //Modification du choix fiscal
         calculatedValue.fiscalChoice == "forfaitaire";
 
@@ -204,6 +229,24 @@ function controlValueOfIncome() {
     }
 }
 
+//permet de calculer les revenu en fonction du type de location
+function getIncome() {
+    let trueIncome = 0;
+    //pour une location meublée revenu c'est loyer charges comprises
+      if (calculatedValue.locationType == "meuble") {
+          trueIncome = parseInt(calculatedValue.income + calculatedValue.incomeCharge, 10);
+          return trueIncome
+      }
+      
+      //Pour une location nue les revenu sont les loyers brut
+      if (calculatedValue.locationType == "nue") {
+          trueIncome = parseInt(calculatedValue.income, 10);
+          return trueIncome
+    }
+    
+    return false
+}
+
 //fonction qui etabli un bilan entre charge moins revenu locatif moins emprunt
 //bilan avant imposition
 function balance() {
@@ -220,10 +263,11 @@ function balance() {
   console.log("total des charges:" + duty);
   calculatedValue.duty = duty;
   //insertion dans le DOM bilan avant imposition
-  totalCharge.innerHTML = "Total charge: " + duty + " €/an";
-  let income = calculatedValue.income;
+    totalCharge.innerHTML = "Total charge: " + duty + " €/an";
 
-  let balance = income - duty;
+    let trueIncome = getIncome();
+
+  let balance = trueIncome - duty;
   calculatedValue.balance = balance;
 
   if (balance < 0) {
@@ -256,8 +300,33 @@ function balance() {
   }
 }
 
+//determination de l'assiette imposable en fonction du "type de location" et du "regime d'imposition"
+function getAssietteImposable() {
+    let assietteImposable = 0;
+
+    //-1- location nue regime forfaitaire
+    if (calculatedValue.fiscalChoice == "forfaitaire" && calculatedValue.locationType == "nue") {
+        assietteImposable = parseInt((calculatedValue.income * 7 / 10),10);
+        return assietteImposable
+    }
+
+    //-2- location meublé regime micro bic ou forfaitaire
+    if (calculatedValue.fiscalChoice == "forfaitaire" && calculatedValue.locationType == "meuble") {
+        assietteImposable = parseInt((calculatedValue.income + calculatedValue.incomeCharge) * 5 / 10,10);
+        return assietteImposable
+    }
+    return false
+}
+
 function calculeImpotRevenuFoncier() {
-  
+    let assietteImposable = getAssietteImposable();
+    let result = testIfNumber(assietteImposable);
+    
+    if (!result) {
+        alert("assiette forfaitaire n' est pas un nombre")
+        return
+    }
+    console.log("assiette imposable: " + assietteImposable)
 
   //recupere la valeur de l'input radio "tranche imposition"
   let inputRadio = document.querySelector("input[name='taux-impot']:checked");
@@ -268,14 +337,12 @@ function calculeImpotRevenuFoncier() {
 
   //Regime "micro foncier" ou  forfaitaire
   if (calculatedValue.fiscalChoice == "forfaitaire") {
-    let assietteImposable = calculatedValue.income * 0.7;
-
     console.log("assiette imposable: " + assietteImposable);
     let rate = rateIncome + dataValue.tauxImpoFoncier;
-      let impotFoncier = parseInt((assietteImposable * rate) / 100);
-      montantImpotStart.innerHTML = "Votre impôt foncier est de: ";
-      montantImpot.innerHTML = impotFoncier;
-      montantImpotEnd.innerHTML = " €"
+    let impotFoncier = parseInt((assietteImposable * rate) / 100);
+    montantImpotStart.innerHTML = "Votre impôt foncier est de: ";
+    montantImpot.innerHTML = impotFoncier;
+    montantImpotEnd.innerHTML = " €";
     console.log("impot foncier: " + impotFoncier);
 
     // si la tranche d' imposition est de 0%
@@ -283,45 +350,46 @@ function calculeImpotRevenuFoncier() {
       impotFoncier = 0;
     }
 
-    bilan = parseFloat(calculatedValue.balance - impotFoncier);
+    bilan = parseInt(calculatedValue.balance - impotFoncier, 10);
   }
 
   //Regime "reel"
   if (calculatedValue.fiscalChoice == "reel") {
     let chargeDeductible = document.querySelector(
       "#fiscal input[type='number']"
-      ).value;
-     
-      //reinitialisation du bilan
-     montantImpotStart.innerHTML = "";
-     montantImpot.innerHTML = "";
-        montantImpotEnd.innerHTML = "";
+    ).value;
+
+    //reinitialisation du bilan
+    montantImpotStart.innerHTML = "";
+    montantImpot.innerHTML = "";
+      montantImpotEnd.innerHTML = "";
+      
+    //recupere le montant des revenus locatifs
+    let trueIncome = getIncome();
 
     //bilan avant imposition: revenu - charges deductibles
-    let balance = calculatedValue.income - chargeDeductible;
-
-    
+    let balance = trueIncome - chargeDeductible;
 
     if (balance > 0) {
       let rate = calculatedValue.rateIncome + dataValue.tauxImpoFoncier;
-      let impotFoncier = parseInt((balance * rate) / 100,10);
-        bilan =parseInt(balance - impotFoncier,10);
+      let impotFoncier = parseInt((balance * rate) / 100, 10);
+      bilan = parseInt(balance - impotFoncier, 10);
 
-        revenuImpotStart.innerHTML = "Vos revenus fonciers: "   ;
-        revenuImpot.innerHTML = calculatedValue.income;
-        revenuImpotEnd.innerHTML = " €";
-        
-        montantImpotStart.innerHTML = "Vos impôts fonciers: ";
-        montantImpot.innerHTML = impotFoncier;
-        montantImpotEnd.innerHTML = " €";
-        
-        bilanTextStart.innerHTML = "Bilan après imposition: ";
-        bilanResultat.innerHTML = bilan;
-        bilanTextEnd.innerHTML =  " €";
+      revenuImpotStart.innerHTML = "Vos revenus fonciers: ";
+      revenuImpot.innerHTML = trueIncome;
+      revenuImpotEnd.innerHTML = " €";
+
+      montantImpotStart.innerHTML = "Vos impôts fonciers: ";
+      montantImpot.innerHTML = impotFoncier;
+      montantImpotEnd.innerHTML = " €";
+
+      bilanTextStart.innerHTML = "Bilan après imposition: ";
+      bilanResultat.innerHTML = bilan;
+      bilanTextEnd.innerHTML = " €";
     }
     if (balance <= 0) {
       revenuImpotStart.innerHTML = "Vos revenus fonciers: ";
-      revenuImpot.innerHTML = calculatedValue.income;
+      revenuImpot.innerHTML = trueIncome;
       revenuImpotEnd.innerHTML = " €";
 
       montantImpotStart.innerHTML = "Déficite foncier: ";
@@ -334,6 +402,7 @@ function calculeImpotRevenuFoncier() {
     }
   }
 
+  //bilan apres imposition: balance - impot foncier
   if (bilan < 0) {
     //supprime les eventuelles class ajoutées sur un calcul précédent
     containerResultatBilan.classList.remove("negativ", "equal");
@@ -371,6 +440,7 @@ export {
     initResultatFiscal,
     incomeByYear,
     controlValueOfIncome,
+    getIncome,
     balance,
     calculeImpotRevenuFoncier
 }

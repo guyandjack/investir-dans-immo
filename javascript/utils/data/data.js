@@ -3,11 +3,15 @@ let calculatedValue = {
   //mensualite
   capital: 0,
   mensualite: 0,
-  interet: 0,
-  income: 0,
+    interet: 0,
+  //revenus locatif 
+    income: 0,//Hors charge
+    incomeCharge:0, //charges locatives
   //charges et taxes
   duty: 0,
-  balance: 0,
+    balance: 0,
+  //type de location
+    locationType:"",
   //impot
   rateIncome: 0,
   fiscalChoice: "",
@@ -23,7 +27,8 @@ let dataValue = {
   taeg: 4,
   periode: 20,
   //revenu
-  income: 500,
+    income: 500,
+  incomeCharge: 100,
   //charges et taxes
   copro: 1200,
   rateGestion: 10,

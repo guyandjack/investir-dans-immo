@@ -51,11 +51,13 @@
 
     //Input de type "Number"
     const inputNumberRevenu = document.querySelector("input[name='number-revenu']");
+    const inputNumberRevenuCharge = document.querySelector("input[name='number-charge']");
 
     //Input de type "Range"
     const inputRangeRevenu = document.querySelector("input[name='range-revenu']");
+    const inputRangeRevenuCharge = document.querySelector("input[name='range-charge']");
 
-    // conteneur de rappel ou on affiche le revenu locatif à l' année.(sous input number)
+    // conteneur de rappel ou on affiche le revenu locatif à l'année.(sous input number)
     const incomeOnYear = document.querySelector(".income-year");
 
 
