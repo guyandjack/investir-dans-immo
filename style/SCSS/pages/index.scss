@@ -336,9 +336,22 @@
 }
 
 .display {
-  max-height: 1500px;
+  max-height: 150px;
   overflow: hidden;
-  transition: max-height 400ms linear 0s;
+  transition: max-height 300ms linear 0s;
+}
+
+.hide-taxe {
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  transition: max-height 300ms linear 0s;
+}
+
+.display-taxe {
+  max-height: 1500px;
+  //overflow: hidden;
+  transition: max-height 300ms linear 0s;
 }
 
 .wrap {

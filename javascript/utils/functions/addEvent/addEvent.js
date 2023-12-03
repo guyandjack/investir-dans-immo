@@ -21,6 +21,8 @@ import {
   hideInputFiscal,
   hideChargeAndTaxe,
   displayChargeAndTaxe,
+  displayInputCfe,
+  hideInputCfe,
 } from "../other/other.js";
 
 import {
@@ -31,6 +33,7 @@ import {
   controlValueOfIncome,
   balance,
   calculeImpotRevenuFoncier,
+  getIncome,
 } from "../basicCalcul/basicCalcul.js";
 
 import {
@@ -182,13 +185,95 @@ function addEventOnInputRadioTypeLocation() {
     "#location-type-container-radio input[name='type-location']"
   );
   inputs.forEach((input) => {
-    input.addEventListener("click", (e) => {
+    input.addEventListener("click", (evt) => {
+      let inputValue = evt.target.value;
+      console.log("input radio type location value: " + inputValue);
       //insertion dans lôbjet calculatedValue
-      calculatedValue.locationType = e.target.value;
-      let checked = checkValueUserRadioFiscal();
-      if (checked) {
-        calculeImpotRevenuFoncier();
+      calculatedValue.locationType = inputValue;
+
+      //si location meublee est checked
+      if (inputValue == "meuble") {
+        let isDisplay = displayInputCfe(); //affiche les inputs number et range CFE
+        isDisplay
+          .then(() => {
+            addEventOnInputCfe(); // ajoute ecouteur évènement sur inputs number CFE
+            let checked = checkValueUserRadioFiscal();
+            if (checked) {
+              controlValueOfIncome();
+              //calculeImpotRevenuFoncier();
+            }
+          })
+          .catch((e) => {
+            console.log("error: " + e);
+          });
       }
+      //si location nue est checked
+      if (inputValue == "nue") {
+        removeEventOnInputCfe();
+        let isDisplay = hideInputCfe();
+        isDisplay
+          .then(() => {
+            let checked = checkValueUserRadioFiscal();
+            if (checked) {
+              controlValueOfIncome();
+              calculeImpotRevenuFoncier();
+            }
+          })
+          .catch((e) => {
+            console.log("error: " + e);
+          });
+      }
+    });
+  });
+}
+
+/**
+ *  Ajoute des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
+
+ * @param {} void
+ * @return {} void
+ */
+function addEventOnInputCfe() {
+  let inputs = document.querySelectorAll(
+    "#fiscal input[name='number-cfe'], #fiscal input[name='range-cfe']"
+  );
+  inputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let isDisplayed = displayInputCfe();
+      isDisplayed
+        .then(() => {
+          linkInput(e);
+
+          calculeImpotRevenuFoncier();
+        })
+        .catch((e) => {
+          console.log("error: " + e);
+        });
+    });
+  });
+}
+/**
+ *  supprime des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
+
+ * @param {} void
+ * @return {} void
+ */
+function removeEventOnInputCfe() {
+  let inputs = document.querySelectorAll(
+    "#fiscal input[name='number-cfe'], #fiscal input[name='range-cfe']"
+  );
+  inputs.forEach((input) => {
+    input.removeEventListener("input", (e) => {
+      let isDisplayed = displayInputCfe();
+      isDisplayed
+        .then(() => {
+          linkInput(e);
+
+          calculeImpotRevenuFoncier();
+        })
+        .catch((e) => {
+          console.log("error: " + e);
+        });
     });
   });
 }
@@ -203,7 +288,7 @@ function addEventOnInputRadioTypeLocation() {
 //Ajoute des ecouteurs evènement sur les inputs fiscal de type radio
 function addEventOnInputRadioFiscal() {
   let inputs = document.querySelectorAll(
-    "#regime-fiscal-container-radio input[type='radio']"
+    "#regime-fiscal-container-radio input[name='regime-fiscal']"
   );
   inputs.forEach((input) => {
     input.addEventListener("click", (e) => {
@@ -219,7 +304,7 @@ function addEventOnInputRadioFiscal() {
         inputDisplayed
           .then(() => {
             addEventOnInputFiscal();
-            //balance();
+
             let checked = checkValueUserRadioFiscal();
             if (checked) {
               calculeImpotRevenuFoncier();
@@ -235,13 +320,14 @@ function addEventOnInputRadioFiscal() {
           });
       }
 
-      //si l' input radio "forfaitaire" est cochée
+      //si l'input radio "forfaitaire" est cochée
       if (result == "forfaitaire") {
         let inputDisplayed = hideInputFiscal();
         inputDisplayed
           .then(() => {
             removeEventOnInputFiscal();
             balance();
+
             let checked = checkValueUserRadioFiscal();
             if (checked) {
               calculeImpotRevenuFoncier();
@@ -273,6 +359,10 @@ function addEventOnInputFiscal() {
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);
+      let isValid = checkValueUserRadioFiscal();
+      if (!isValid) {
+        return;
+      }
       calculeImpotRevenuFoncier();
     });
   });
@@ -307,6 +397,7 @@ export {
   addEventOnInputDuty,
   addEventOnInputIncome,
   addEventOnInputRadioTypeLocation,
+  addEventOnInputCfe,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnInputFiscal,

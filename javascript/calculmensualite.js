@@ -82,14 +82,15 @@ balance();
 checkValueUserRadioFiscal();
 
 //Calcul le bilan apres imposition
-calculeImpotRevenuFoncier();
+
+//calculeImpotRevenuFoncier();
 
 /**** Routine d'initialisation /
  /** end **/
 
 
 //Ajoute les écouteurs d'évènements pour un calcul automatique des impots sur revenus foncier
-//
+
 addEventOnInputMonthly();
 addEventOnInputIncome();
 addEventOnInputDuty();

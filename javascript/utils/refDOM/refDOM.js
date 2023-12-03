@@ -117,6 +117,9 @@ const containerText = document.querySelector("#cont-equilibre-text");
 
     //titre container fiscal
     const containerFiscaltitle = document.querySelector("#title-regime-fiscal");
+    
+    //element container input "number" et "range" cfe
+    const containerInputCfe = document.querySelector("#impot-cfe-container-input");
 
     //Element container imput radio "choix regime imposition"
     const containerInputRadioFiscal = document.querySelector("#regime-fiscal-container-radio");

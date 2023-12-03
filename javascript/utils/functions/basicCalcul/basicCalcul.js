@@ -6,7 +6,7 @@
  * *************************************************************************/
 
 //import des fonctions
-import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal, getLocationType } from "../other/other.js";
+import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal, getLocationType,getTauxMarginalImposition } from "../other/other.js";
 
 import { addEventOnInputFiscal } from "../addEvent/addEvent.js";
 import { testIfNumber } from "../checkValueUser/checkValueUser.js";
@@ -210,7 +210,7 @@ function controlValueOfIncome() {
         calculatedValue.fiscalChoice == "forfaitaire";
 
         //Modifie le titre
-        containerFiscaltitle.innerHTML = "Choix du regime fiscal.";
+        containerFiscaltitle.innerHTML = "Choix du regime d'imposition.";
 
         //Affiche les inputs du fieldset charge et taxes
         displayChargeAndTaxe();
@@ -220,10 +220,7 @@ function controlValueOfIncome() {
             containerInputRadioFiscal.classList.replace("hide", "display");
         }
 
-        //Cache les inputs de type number et range
-        if (containerInputFiscal.classList.contains("display")) {
-            containerInputFiscal.classList.replace("display", "hide");
-        }
+        
 
         return "choice"
     }
@@ -243,7 +240,7 @@ function getIncome() {
           trueIncome = parseInt(calculatedValue.income, 10);
           return trueIncome
     }
-    
+    console.log("revenu locatif: " + trueIncome)
     return false
 }
 
@@ -304,14 +301,14 @@ function balance() {
 function getAssietteImposable() {
     let assietteImposable = 0;
 
-    //-1- location nue regime forfaitaire
-    if (calculatedValue.fiscalChoice == "forfaitaire" && calculatedValue.locationType == "nue") {
+    //-1- location nue 
+    if ( calculatedValue.locationType == "nue") {
         assietteImposable = parseInt((calculatedValue.income * 7 / 10),10);
         return assietteImposable
     }
 
-    //-2- location meublé regime micro bic ou forfaitaire
-    if (calculatedValue.fiscalChoice == "forfaitaire" && calculatedValue.locationType == "meuble") {
+    //-2- location meublée 
+    if (calculatedValue.locationType == "meuble") {
         assietteImposable = parseInt((calculatedValue.income + calculatedValue.incomeCharge) * 5 / 10,10);
         return assietteImposable
     }
@@ -320,19 +317,16 @@ function getAssietteImposable() {
 
 function calculeImpotRevenuFoncier() {
     let assietteImposable = getAssietteImposable();
-    let result = testIfNumber(assietteImposable);
-    
-    if (!result) {
-        alert("assiette forfaitaire n' est pas un nombre")
-        return
-    }
+   
     console.log("assiette imposable: " + assietteImposable)
 
-  //recupere la valeur de l'input radio "tranche imposition"
+    let rateIncome = getTauxMarginalImposition();
+
+  /*//recupere la valeur de l'input radio "tranche imposition"
   let inputRadio = document.querySelector("input[name='taux-impot']:checked");
   let rateIncome = parseInt(inputRadio.value, 10);
   calculatedValue.rateIncome = rateIncome;
-  console.log("tranche impot: " + rateIncome);
+  console.log("tranche impot: " + rateIncome);*/
   let bilan = null;
 
   //Regime "micro foncier" ou  forfaitaire
@@ -354,11 +348,10 @@ function calculeImpotRevenuFoncier() {
   }
 
   //Regime "reel"
-  if (calculatedValue.fiscalChoice == "reel") {
-    let chargeDeductible = document.querySelector(
-      "#fiscal input[type='number']"
-    ).value;
-
+    if (calculatedValue.fiscalChoice == "reel") {
+      //recupere la valeur des charge deductibles
+        let chargeDeductible = calculatedValue.chargeDeductible;
+        
     //reinitialisation du bilan
     montantImpotStart.innerHTML = "";
     montantImpot.innerHTML = "";

@@ -56,7 +56,7 @@ function linkInput(evt) {
   }
 }
 
-//Affiche les inputs "fiscal" number et range
+//Affiche les inputs "fiscal" number et range (charge deductible)
 async function displayInputFiscal() {
   if (containerInputFiscal.classList.contains("hide")) {
     containerInputFiscal.classList.replace("hide", "display");
@@ -64,7 +64,7 @@ async function displayInputFiscal() {
   return true;
 }
 
-//Cache les inputs "fiscal" number et range
+//Cache les inputs "fiscal" number et range (charge deductible)
 async function hideInputFiscal() {
   if (containerInputFiscal.classList.contains("display")) {
     containerInputFiscal.classList.replace("display", "hide");
@@ -72,19 +72,35 @@ async function hideInputFiscal() {
   return true;
 }
 
+// Affiche le container des inputs cfe
+ async function displayInputCfe() {
+    if (containerInputCfe.classList.contains("hide")) {
+      containerInputCfe.classList.replace("hide", "display");
+    }
+    return true
+}
+// Affiche le container des inputs cfe
+ async function hideInputCfe() {
+    if (containerInputCfe.classList.contains("display")) {
+      containerInputCfe.classList.replace("display","hide" );
+    }
+    return true
+}
+
+
 //Cache le container des charges
  function hideChargeAndTaxe() {
   
-    if (containerChargeTaxe.classList.contains("display")) {
-      containerChargeTaxe.classList.replace("display", "hide");
+    if (containerChargeTaxe.classList.contains("display-taxe")) {
+      containerChargeTaxe.classList.replace("display-taxe", "hide-taxe");
     }
     return true
 }
 
 // Affiche le container des charges
  function displayChargeAndTaxe() {
-    if (containerChargeTaxe.classList.contains("hide")) {
-      containerChargeTaxe.classList.replace("hide", "display");
+    if (containerChargeTaxe.classList.contains("hide-taxe")) {
+      containerChargeTaxe.classList.replace("hide-taxe", "display-taxe");
     }
     return true
 }
@@ -103,14 +119,29 @@ function getLocationType() {
     return true
 }
 
+function getTauxMarginalImposition() {
+  //recupere la valeur de l'input radio "tranche imposition"
+  let inputRadio = document.querySelector("input[name='taux-impot']:checked");
+    let rateIncome = parseInt(inputRadio.value, 10);
+
+    //stockage de la valeur dans lobjet calculatedValue
+  calculatedValue.rateIncome = rateIncome;
+  
+    return rateIncome
+}
+
+
 
 
 export {
   changeColor,
     linkInput,
-  getLocationType,
+    getLocationType,
+  getTauxMarginalImposition,
   displayInputFiscal,
   hideInputFiscal,
   hideChargeAndTaxe,
-  displayChargeAndTaxe,
+    displayChargeAndTaxe,
+    displayInputCfe,
+  hideInputCfe
 };

@@ -5,7 +5,7 @@
 
     <meta 
     name="description" 
-    content="En 5 minutes, ce simulateur gratuit, vous permez de calculer les mensualités d'un crédit immobilier, le coût des interêts et d' établir un bilan sur votre investissement locatif. Le calcul des impôts fonciers est également possible, en fonction de votre régime de fiscalité.">
+    content="En 5 minutes, ce simulateur gratuit, vous permez de calculer les mensualités d'un crédit immobilier, le coût des interêts et d' établir un bilan sur votre investissement locatif. Le calcul des impôts fonciers est également possible, en fonction de votre régime d' imposition.">
 
     <meta charset="UTF-8" />
 
@@ -13,8 +13,8 @@
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Roboto+Slab&display=swap" rel="stylesheet">
 
     <!-- Feuilles de style-->
     <link rel="stylesheet" href="../style/CSS/index.css" />
@@ -55,21 +55,26 @@
       </section>
       <section class="introduction">
         <div class="introduction-img">
-          <div class="introduction-icon"><span class="icon-text">Mensualités<span class="icon-end-text">?</span></div>
-          <div class="introduction-icon"><span class="icon-text">Revenus<span class="icon-end-text">?</span></div>
-          <div class="introduction-icon"><span class="icon-text">Imposition<span class="icon-end-text">?</span></div>
-          <div class="introduction-icon"><span class="icon-text">Fiscalité<span class="icon-end-text">?</span></div>
-          <div class="introduction-icon"><span class="icon-text">Bilan<span class="icon-end-text">?</span></div>
+          <div class="introduction-icon">
+            <span class="icon-text">Mensualités<span class="icon-end-text">?</span></span></div>
+          <div class="introduction-icon">
+            <span class="icon-text">Revenus<span class="icon-end-text">?</span></span></div>
+          <div class="introduction-icon">
+            <span class="icon-text">Imposition<span class="icon-end-text">?</span></span></div>
+          <div class="introduction-icon">
+            <span class="icon-text">Fiscalité<span class="icon-end-text">?</span></span></div>
+          <div class="introduction-icon">
+            <span class="icon-text">Bilan<span class="icon-end-text">?</span></span></div>
         </div>
-        <p class="introduction-text">
-          Investir dans l'immobilier, voila une pensée commune qui nous a tous travaersé l'esprit un jour.
+        <div class="introduction-text">
+          Investir dans l'immobilier, voila une pensée commune qui nous a tous traversé l'esprit un jour.
           pour differente raisons, avoir un foyer à nous, prövoyence en vue d'une pension de retrite faible....
           La douce idée de benificier de <strong>rente locative</strong> 
           Daccord, pour les arguments, mais tout cela à un coût et pas des moindre.
           Notre petit <strong>calculateur</strong> va nous simplifier la vie en établissant une <strong>simulation</strong>, de <strong>pret immobilier</strong>, de montant d'imposition et finalement nous indiquer le <strong>cout réel</strong> de notre futur investissement.
           <P>Cela nous permettra de voir un peu plus clair, et de ce fait de prendre de meilleure décision</P>
           <p>Le type de location détermine les modalités de la location et de la fiscalité</p>
-        </p>
+        </div>
       </section>
       <article class="article">
         Louer vide ou meublé : les différences en matière de fiscalité
@@ -443,7 +448,7 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
             </div>
           </div>
         </fieldset>
-        <fieldset id="charge-taxe" class="fieldset display">
+        <fieldset id="charge-taxe" class="fieldset display-taxe">
           <h3 class="titre-calculette">Charges et taxes</h3>
           <div class="main-container-input">
             <label class="label">Charges de coproprieté</label>
@@ -629,10 +634,10 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
           <h3  class="titre-calculette">Type de location</h3>
           <div
             id="location-type-container-radio"
-            class="main-container-input-radio display"
+            class="main-container-input-radio "
           >
             <div class="container-radio">
-              <label class="label" for="impot-reel">Location nue</label>
+              <label class="label" for="location-nue">Location nue</label>
               <input
                 id="location-nue"
                 class="input-radio"
@@ -641,8 +646,8 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
                 value="nue"
               />
             </div>
-            <div id="container-radio-forfaitaire" class="container-radio">
-              <label class="label" for="impot-forfaitaire"
+            <div  class="container-radio">
+              <label class="label" for="location-meuble"
                 >Location meublée
               </label>
               <input
@@ -651,6 +656,39 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
                 type="radio"
                 name="type-location"
                 value="meuble"
+              />
+            </div>
+          </div>
+
+          <div
+            id="impot-cfe-container-input"
+            class="main-container-input hide"
+          >
+            <label class="label">Contribution fonciére des entreprises:</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-cfe"
+                max="3000"
+                min="0"
+                value="500"
+                step="100"
+                required
+              />
+              <span class="calculette-span">€ / An</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-cfe"
+                max="3000"
+                min="0"
+                value="500"
+                step="100"
               />
             </div>
           </div>
@@ -725,7 +763,7 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
                 value="reel"
               />
             </div>
-            <div id="container-radio-forfaitaire" class="container-radio">
+            <div  class="container-radio">
               <label class="label" for="impot-forfaitaire"
                 >Forfaitaire
               </label>
@@ -749,7 +787,7 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
                 class="calculette-number"
                 type="number"
                 name="number-deductible"
-                max="30000"
+                max="100000"
                 min="0"
                 value="5000"
                 step="100"
@@ -763,7 +801,7 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
                 class="calculette-range"
                 type="range"
                 name="range-deductible"
-                max="30000"
+                max="100000"
                 min="0"
                 value="5000"
                 step="100"
@@ -791,6 +829,7 @@ Comment ne pas payer d'impôt location meublée : les cas d'exonération ?</p>
             </div>
           </div>
         </fieldset>
+        
       </form>
       <footer class="footer">
 
