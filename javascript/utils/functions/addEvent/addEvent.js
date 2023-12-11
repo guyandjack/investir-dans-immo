@@ -23,6 +23,15 @@ import {
   displayChargeAndTaxe,
   displayInputCfe,
   hideInputCfe,
+  hideAElement,
+  displayAElement,
+  InsertTextInAElement,
+  getTauxMarginalImposition,
+  getIdOfParentElementHover,
+  createElemntInfoBulle,
+  insertContentInfoBulle,
+  styleOfInfoBulle,
+  deleteElement,
 } from "../other/other.js";
 
 import {
@@ -197,11 +206,20 @@ function addEventOnInputRadioTypeLocation() {
         isDisplay
           .then(() => {
             addEventOnInputCfe(); // ajoute ecouteur évènement sur inputs number CFE
+            //cache l'input revenu-charge
+            hideAElement("#container-inputs-revenu-charge");
+            //On modifie le titre de l'input number revenus locatifs
+            InsertTextInAElement(
+              "#label-revenu-charge",
+              "Loyer charges comprises"
+            );
             let checked = checkValueUserRadioFiscal();
-            if (checked) {
-              controlValueOfIncome();
-              //calculeImpotRevenuFoncier();
+            if (!checked) {
+              return;
             }
+
+            controlValueOfIncome();
+            calculeImpotRevenuFoncier();
           })
           .catch((e) => {
             console.log("error: " + e);
@@ -213,11 +231,16 @@ function addEventOnInputRadioTypeLocation() {
         let isDisplay = hideInputCfe();
         isDisplay
           .then(() => {
+            //affiche l'input revenu-charge
+            displayAElement("#container-inputs-revenu-charge");
+            //On modifie le titre de l'input number revenus locatifs
+            InsertTextInAElement("#label-revenu-charge", "Loyer hors charges ");
             let checked = checkValueUserRadioFiscal();
-            if (checked) {
-              controlValueOfIncome();
-              calculeImpotRevenuFoncier();
+            if (!checked) {
+              return;
             }
+            controlValueOfIncome();
+            calculeImpotRevenuFoncier();
           })
           .catch((e) => {
             console.log("error: " + e);
@@ -235,7 +258,7 @@ function addEventOnInputRadioTypeLocation() {
  */
 function addEventOnInputCfe() {
   let inputs = document.querySelectorAll(
-    "#fiscal input[name='number-cfe'], #fiscal input[name='range-cfe']"
+    "#type-location input[name='number-cfe'], #type-location input[name='range-cfe']"
   );
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
@@ -243,7 +266,13 @@ function addEventOnInputCfe() {
       isDisplayed
         .then(() => {
           linkInput(e);
+          //stockage du montant de la CFE  dans l'objet calculatedValue
+          calculatedValue.cfe = parseInt(e.target.value, 10);
 
+          let isChecked = checkValueUserRadioFiscal();
+          if (!isChecked) {
+            return;
+          }
           calculeImpotRevenuFoncier();
         })
         .catch((e) => {
@@ -363,6 +392,8 @@ function addEventOnInputFiscal() {
       if (!isValid) {
         return;
       }
+      //stockage du choix de regime d'imposition
+      calculatedValue.chargeDeductible = e.target.value;
       calculeImpotRevenuFoncier();
     });
   });
@@ -392,6 +423,46 @@ function removeEventOnInputFiscal() {
   });
 }
 
+/**
+ *
+ *
+ */
+function addEventOnIconInfo() {
+  let listIcon = document.querySelectorAll(".svg-icon-info");
+  listIcon.forEach((icon) => {
+    //affiche les infos bulles au survol
+    icon.addEventListener("mouseover", (evt) => {
+      // recupere l' id parent de  l'element survolé
+      let id = getIdOfParentElementHover(evt);
+      console.log("id icon info: " + id);
+      //creation d'un div infobulle inserré dans l'element parent survolé
+      let elementCreated = createElemntInfoBulle("#" + id);
+      elementCreated
+        .then((element) => {
+          let ele = insertContentInfoBulle(element, id);
+          styleOfInfoBulle(ele);
+        })
+
+        .catch((e) => {
+          console.log("error: " + e);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    });
+
+    icon.addEventListener("mouseout", (evt) => {
+      // recupere l' id parent de  l'element survolé
+      let id = getIdOfParentElementHover(evt);
+      console.log("id de l'element:" + id)
+
+      //suppression du div info bulle
+
+      deleteElement(id);
+    });
+  });
+}
+
 export {
   addEventOnInputMonthly,
   addEventOnInputDuty,
@@ -401,4 +472,5 @@ export {
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnInputFiscal,
+  addEventOnIconInfo,
 };

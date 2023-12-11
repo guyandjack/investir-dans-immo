@@ -1,0 +1,35 @@
+/*******************************************************************************
+******************** class css *************************************************
+**********************************************************************************/
+
+
+/************ flexbox *********************/
+.flex-row-start-center{
+    display: flex;
+    flex-flow: row ;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-row-center-center{
+    display: flex;
+    flex-flow: row ;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-start-center{
+    display: flex;
+    flex-flow: column ;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-column-center-center{
+    display: flex;
+    flex-flow: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+

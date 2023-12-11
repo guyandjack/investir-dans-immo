@@ -409,6 +409,74 @@ input[type="range"]:focus::-moz-range-thumb {
   outline-offset: 0.125rem;
 }
 
+/*******************************************************************************
+******************** class css *************************************************
+**********************************************************************************/
+/************ flexbox *********************/
+.flex-row-start-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-row-center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-column-start-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-column-center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -538,6 +606,45 @@ body {
   }
 }
 
+.svg-icon {
+  width: 250px;
+  height: 250px;
+}
+
+.container-svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2em;
+  height: 2em;
+  border: 2px solid pink;
+}
+
+.svg-icon-info {
+  color: #EFA00B;
+  -webkit-transform: translateY(-30%);
+      -ms-transform: translateY(-30%);
+          transform: translateY(-30%);
+  height: 1.5em;
+  width: 1.5em;
+}
+
+@media screen and (min-width: 993px) {
+  .svg-icon-info {
+    cursor: help;
+  }
+}
+
 .introduction-icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -611,14 +718,20 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   border-radius: 1em;
-  /*width: 80%;
+  width: 80%;
   padding: 1em;
-  @include upper-medium-screen {
+}
+
+@media screen and (min-width: 769px) {
+  .calculette-mensualite {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .calculette-mensualite {
     width: 40%;
   }
-  @include upper-large-screen {
-    width: 35%;
-  }*/
 }
 
 .titre-calculette {
@@ -647,6 +760,32 @@ body {
           align-items: flex-start;
   width: 100%;
   margin: 1em 0em;
+}
+
+.container-label {
+  position: relative;
+}
+
+.info-bulle {
+  position: absolute;
+  top: 120%;
+  left: 20%;
+  z-index: 10;
+  background-color: #EFA00B;
+  width: 400px;
+  padding: 1em 1em 0em 1em;
+  color: #272727;
+  -webkit-box-shadow: 6px 6px 15px black;
+          box-shadow: 6px 6px 15px black;
+}
+
+.info-bulle > h3 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.info-bulle > p {
+  margin-top: 0.5em;
 }
 
 .main-container-input-radio {
@@ -753,8 +892,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 30%;
-          flex: 0 1 30%;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
   height: 100%;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
@@ -796,8 +935,8 @@ body {
 
 .calculette-number {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 80%;
-          flex: 0 1 80%;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
   height: 100%;
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
@@ -921,4 +1060,47 @@ body {
 /****start******************************************************************************/
 .disabled {
   opacity: 0.3;
+}
+
+/****************************************************************************************
+/********  **************** footer **************** ******************/
+/****start******************************************************************************/
+.footer {
+  background-color: #272727;
+  padding: 1em;
+  width: 100%;
+}
+
+.menu-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em 0em;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .menu-footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+.menu-footer-li > a {
+  color: #FBFFFE;
 }

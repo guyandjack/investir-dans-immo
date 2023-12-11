@@ -207,7 +207,7 @@ function controlValueOfIncome() {
 
     if (income <= seuil) {
         //Modification du choix fiscal
-        calculatedValue.fiscalChoice == "forfaitaire";
+        //calculatedValue.fiscalChoice == "forfaitaire";
 
         //Modifie le titre
         containerFiscaltitle.innerHTML = "Choix du regime d'imposition.";
@@ -322,11 +322,14 @@ function calculeImpotRevenuFoncier() {
 
     let rateIncome = getTauxMarginalImposition();
 
-  /*//recupere la valeur de l'input radio "tranche imposition"
-  let inputRadio = document.querySelector("input[name='taux-impot']:checked");
-  let rateIncome = parseInt(inputRadio.value, 10);
-  calculatedValue.rateIncome = rateIncome;
-  console.log("tranche impot: " + rateIncome);*/
+    let cfe = 0;
+
+    let typeDeLocation = calculatedValue.locationType;
+    
+    if (typeDeLocation == "meuble") {
+        cfe = calculatedValue.cfe;
+    }
+  
   let bilan = null;
 
   //Regime "micro foncier" ou  forfaitaire
@@ -335,7 +338,7 @@ function calculeImpotRevenuFoncier() {
     let rate = rateIncome + dataValue.tauxImpoFoncier;
     let impotFoncier = parseInt((assietteImposable * rate) / 100);
     montantImpotStart.innerHTML = "Votre impôt foncier est de: ";
-    montantImpot.innerHTML = impotFoncier;
+    montantImpot.innerHTML = impotFoncier  ;
     montantImpotEnd.innerHTML = " €";
     console.log("impot foncier: " + impotFoncier);
 
@@ -344,18 +347,23 @@ function calculeImpotRevenuFoncier() {
       impotFoncier = 0;
     }
 
-    bilan = parseInt(calculatedValue.balance - impotFoncier, 10);
+    //Bilan apres imposition: bilan avant impot - impot - CFE
+    bilan = parseInt(calculatedValue.balance - impotFoncier - cfe, 10);
   }
 
   //Regime "reel"
     if (calculatedValue.fiscalChoice == "reel") {
       //recupere la valeur des charge deductibles
         let chargeDeductible = calculatedValue.chargeDeductible;
+        let cfe = calculatedValue.cfe;
+
+        console.log("charge deductible: " + calculatedValue.chargeDeductible);
+        console.log("CFE : " + cfe);
         
-    //reinitialisation du bilan
+    /*//reinitialisation du bilan
     montantImpotStart.innerHTML = "";
     montantImpot.innerHTML = "";
-      montantImpotEnd.innerHTML = "";
+      montantImpotEnd.innerHTML = "";*/
       
     //recupere le montant des revenus locatifs
     let trueIncome = getIncome();
@@ -363,6 +371,8 @@ function calculeImpotRevenuFoncier() {
     //bilan avant imposition: revenu - charges deductibles
     let balance = trueIncome - chargeDeductible;
 
+
+        //affichage bilan avant impot
     if (balance > 0) {
       let rate = calculatedValue.rateIncome + dataValue.tauxImpoFoncier;
       let impotFoncier = parseInt((balance * rate) / 100, 10);
@@ -395,7 +405,7 @@ function calculeImpotRevenuFoncier() {
     }
   }
 
-  //bilan apres imposition: balance - impot foncier
+  //affichage bilan apres imposition: balance - impot foncier
   if (bilan < 0) {
     //supprime les eventuelles class ajoutées sur un calcul précédent
     containerResultatBilan.classList.remove("negativ", "equal");
@@ -418,8 +428,8 @@ function calculeImpotRevenuFoncier() {
 
   if (bilan > 0) {
     //supprime les eventuelles class ajoutées sur un calcul précédent
-    containerResultatBilan.classList.remove("negativ", "equal");
-
+      containerResultatBilan.classList.remove("negativ", "equal");
+      
     bilanTextStart.innerHTML = "Bilan après imposition: ";
     bilanResultat.innerHTML = bilan;
     bilanTextEnd.innerHTML = " €";

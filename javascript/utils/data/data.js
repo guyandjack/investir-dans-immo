@@ -10,8 +10,9 @@ let calculatedValue = {
   //charges et taxes
   duty: 0,
     balance: 0,
-  //type de location
+    //type de location
     locationType:"",
+    cfe:0,
   //impot
   rateIncome: 0,
   fiscalChoice: "",
@@ -40,3 +41,5 @@ let dataValue = {
   tauxImpotRevenu: 30,
   tauxImpoFoncier: 17.2,
 };
+
+

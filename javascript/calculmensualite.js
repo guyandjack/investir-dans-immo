@@ -1,5 +1,11 @@
 /**********script page calculette********* */
 
+//import du contenu des infos Bulles
+import {
+  infoBulleCalculMensualite,
+  
+} from "./utils/data/content/infoBulle.js";
+
 //import des fonctions
 
 import {
@@ -9,6 +15,7 @@ import {
   addEventOnInputRadioTypeLocation,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
+  addEventOnIconInfo,
   
 } from "./utils/functions/addEvent/addEvent.js";
 
@@ -97,3 +104,4 @@ addEventOnInputDuty();
 addEventOnInputRadioTypeLocation();
 addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();
+addEventOnIconInfo();
