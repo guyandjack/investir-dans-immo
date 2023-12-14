@@ -463,6 +463,39 @@ function addEventOnIconInfo() {
   });
 }
 
+function addEventOnIconColapseArticle() {
+  let listIconCollapse = document.querySelectorAll(".svg-icon-chevron-colapse");
+
+  listIconCollapse.forEach((icon) => {
+    icon.addEventListener("click", (evt) => {
+
+      let parent = icon.parentElement;
+      console.log("parent: " + parent);
+
+      let grandParent = parent.parentElement;
+      console.log("grand parent: " + grandParent);
+
+      let colapseElement = grandParent.querySelector("div.colapse");
+      console.log("colapse: " + colapseElement);
+
+      // tourne le chevron
+      icon.classList.toggle("chevron-up");
+
+      //deplie ou replie le colapse
+      
+      if (colapseElement.classList.contains("colapse-close")) {
+        colapseElement.classList.replace("colapse-close","colapse-open");
+        return
+      }
+      if (colapseElement.classList.contains("colapse-open")) {
+        colapseElement.classList.replace("colapse-open","colapse-close");
+        return
+      }
+
+    })
+  })
+}
+
 export {
   addEventOnInputMonthly,
   addEventOnInputDuty,
@@ -473,4 +506,5 @@ export {
   addEventOnInputRadioImpot,
   addEventOnInputFiscal,
   addEventOnIconInfo,
+  addEventOnIconColapseArticle
 };

@@ -409,6 +409,56 @@ input[type="range"]:focus::-moz-range-thumb {
   outline-offset: 0.125rem;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.title {
+  font-family: 'Baskervville', serif;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.h2 {
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.h3 {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
 /*******************************************************************************
 ******************** class css *************************************************
 **********************************************************************************/
@@ -461,6 +511,22 @@ input[type="range"]:focus::-moz-range-thumb {
           align-items: center;
 }
 
+.flex-column-start-start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 .flex-column-center-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -477,56 +543,80 @@ input[type="range"]:focus::-moz-range-thumb {
           align-items: center;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  list-style-type: none;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1em;
-  font-weight: 500;
+/****************************************************************************************
+**************************** concerne les svg *******************************************
+** start ********************************************************************************/
+/************* svg icon info ******************/
+/** start **/
+.svg-icon {
+  width: 250px;
+  height: 250px;
 }
 
-body {
+.container-svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: #f3f3f3;
+  width: 2em;
+  height: 2em;
+  border: 2px solid pink;
 }
 
-.title {
-  font-family: 'Baskervville', serif;
+.svg-icon-info {
+  color: #EFA00B;
+  -webkit-transform: translateY(-30%);
+      -ms-transform: translateY(-30%);
+          transform: translateY(-30%);
+  height: 1.5em;
+  width: 1.5em;
 }
 
-.h1 {
-  font-weight: 600;
-  font-size: 2em;
+@media screen and (min-width: 993px) {
+  .svg-icon-info {
+    cursor: help;
+  }
 }
 
-.h2 {
-  font-weight: 500;
-  font-size: 1.5em;
+/************* svg icon info ******************/
+/** end **/
+/************* svg icon chevron collapse ******************/
+/** start **/
+.svg-icon-chevron-colapse {
+  color: #068ebc;
+  height: 1.5em;
+  width: 1.5em;
+  -webkit-transform: rotateZ(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotateZ(90deg);
+  margin-left: 0.5em;
+  -webkit-transition: -webkit-transform 250ms linear;
+  transition: -webkit-transform 250ms linear;
+  -o-transition: transform 250ms linear;
+  transition: transform 250ms linear;
+  transition: transform 250ms linear, -webkit-transform 250ms linear;
 }
 
-.h3 {
-  font-weight: 400;
-  font-size: 1.2em;
+.chevron-up {
+  -webkit-transform: rotateZ(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotateZ(-90deg);
 }
 
+/************* svg icon chevron collapse ******************/
+/** end **/
+/****************************************************************************************
+**************************** concerne les svg *******************************************
+** end ********************************************************************************/
 .container-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -606,42 +696,27 @@ body {
   }
 }
 
-.svg-icon {
-  width: 250px;
-  height: 250px;
-}
-
-.container-svg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 2em;
-  height: 2em;
-  border: 2px solid pink;
-}
-
-.svg-icon-info {
-  color: #EFA00B;
-  -webkit-transform: translateY(-30%);
-      -ms-transform: translateY(-30%);
-          transform: translateY(-30%);
-  height: 1.5em;
-  width: 1.5em;
+.container-introduction-text {
+  width: 80%;
+  font-style: italic;
 }
 
 @media screen and (min-width: 993px) {
-  .svg-icon-info {
-    cursor: help;
+  .container-introduction-text {
+    width: 60%;
+  }
+}
+
+.introduction-text {
+  margin-top: 1em;
+  line-height: 150%;
+  font-size: 1.3em;
+  text-align: justify;
+}
+
+@media screen and (min-width: 993px) {
+  .introduction-text {
+    font-size: 1.5em;
   }
 }
 
@@ -683,6 +758,91 @@ body {
   color: #FBFFFE;
 }
 
+/**************************************************************************************
+************************** concerne les div articles  *************************************
+*** start *****************************************************************************/
+.container-article {
+  padding: 1em;
+  background-color: #FBFFFE;
+}
+
+@media screen and (min-width: 769px) {
+  .container-article {
+    width: 80%;
+  }
+}
+
+.article {
+  width: 100%;
+  margin: 1em 0em;
+}
+
+.title-article {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+@media screen and (min-width: 993px) {
+  .title-article {
+    font-size: 1.5em;
+  }
+}
+
+.container-text-article {
+  color: #272727;
+}
+
+.container-text-article > p,
+.container-text-article .list-li {
+  margin: 0.5em;
+  line-height: 130%;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+@media screen and (min-width: 993px) {
+  .container-text-article > p,
+  .container-text-article .list-li {
+    font-size: 1.3em;
+  }
+}
+
+.container-text-article > ul > li {
+  list-style-type: square;
+  font-style: italic;
+  margin-left: 1em;
+}
+
+.colapse {
+  border-top: 2px solid #068ebc;
+  border-bottom: 2px solid #068ebc;
+  background-color: #f5fcff;
+}
+
+.colapse-open {
+  max-height: 3000px;
+  overflow: hidden;
+  -webkit-transition: max-height 1500ms linear;
+  -o-transition: max-height 1500ms linear;
+  transition: max-height 1500ms linear;
+}
+
+.colapse-close {
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: max-height 300ms linear;
+  -o-transition: max-height 300ms linear;
+  transition: max-height 300ms linear;
+}
+
+.underline-title-h3 {
+  outline: solid, 100%, #068ebc;
+}
+
+/**************************************************************************************
+************************** concerne les articles  *************************************
+*** end *****************************************************************************/
 .fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -891,9 +1051,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 30%;
-          flex: 0 0 30%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 20%;
+          flex: 1 0 20%;
   height: 100%;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
@@ -934,9 +1094,9 @@ body {
 }
 
 .calculette-number {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 60%;
-          flex: 0 0 60%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 75%;
+          flex: 1 0 75%;
   height: 100%;
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;

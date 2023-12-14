@@ -16,6 +16,7 @@ import {
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnIconInfo,
+  addEventOnIconColapseArticle
   
 } from "./utils/functions/addEvent/addEvent.js";
 
@@ -105,3 +106,4 @@ addEventOnInputRadioTypeLocation();
 addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();
 addEventOnIconInfo();
+addEventOnIconColapseArticle();

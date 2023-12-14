@@ -25,6 +25,13 @@
     align-items: center;
 }
 
+.flex-column-start-start{
+    display: flex;
+    flex-flow: column ;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .flex-column-center-center{
     display: flex;
     flex-flow: column ;
