@@ -3,7 +3,11 @@
 **********************************************************************************/
 
 
-/************ flexbox *********************/
+/****************************************************************************************
+/********  **************** flex box **************** ******************/
+/****start******************************************************************************/
+
+//row
 .flex-row-start-center{
     display: flex;
     flex-flow: row ;
@@ -18,6 +22,23 @@
     align-items: center;
 }
 
+.flex-row-space-evenly-center{
+    display: flex;
+    flex-flow: column ;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flex-row-space-evenly-start{
+    display: flex;
+    flex-flow: column ;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+
+//column
 .flex-column-start-center{
     display: flex;
     flex-flow: column ;
@@ -39,4 +60,58 @@
     align-items: center;
 }
 
+/****************************************************************************************
+/********  **************** flex box **************** ******************/
+/**** end ******************************************************************************/
 
+
+/****************************************************************************************
+/********  **************** footer **************** ******************/
+/****start******************************************************************************/
+
+.footer {
+  background-color: map-get($colors-rule, fourth-color);
+
+  padding: 1em;
+  width: 100%;
+  @include upper-medium-screen {
+    display: flex;
+    flex-flow: row ;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+}
+
+
+
+.container-list-footer{
+  padding: 3em 0em ;
+  @include upper-medium-screen{
+    align-items: flex-start;
+  }
+}
+
+.title-list-footer{
+  border-bottom: 2px solid map-get($colors-rule, second-color);
+  color: map-get($colors-rule, fifth-color);
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.menu-footer-li{
+  padding: 1em 0em;
+}
+
+
+.menu-footer-li > a {
+  color: map-get($colors-rule, fifth-color);
+  &:hover{
+    color: map-get($colors-rule, second-color);
+
+  }
+}
+
+/****************************************************************************************
+/********  **************** footer **************** ******************/
+/*** end ******************************************************************************/

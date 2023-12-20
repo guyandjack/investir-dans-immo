@@ -103,16 +103,28 @@ function addEventOnInputIncome() {
     input.addEventListener("input", (e) => {
       //lie les inputs "range et "number"
       linkInput(e);
-
+      //Calcul des revenus fonciers sur une année
+      incomeByYear();
+      console.log("fuonction incomeByYear lancée dans l' event.")
+      
       //test la validite de l'input "revenu foncier"
       let isValidIncome = checkValueUserIncome(e);
-
+      console.log("test validite revenu foncier: " + isValidIncome);
+      
       if (!isValidIncome) {
         return;
       }
+      // bilan avant imposition
+      balance();
+      
+      //test si les inputs radio sont cochées
+      let isChecked = checkValueUserRadioFiscal();
+      console.log("test si les input radio sont selectionnées: : " + isChecked);
+      if (!isChecked) {
+        return
+      }
 
-      //Calcul des revenus fonciers sur une année
-      incomeByYear();
+
 
       //En fonction des revenus foncier on applique differente methode
       let choice = controlValueOfIncome();
@@ -262,9 +274,9 @@ function addEventOnInputCfe() {
   );
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
-      let isDisplayed = displayInputCfe();
-      isDisplayed
-        .then(() => {
+      //let isDisplayed = displayInputCfe();
+      //isDisplayed
+        //.then(() => {
           linkInput(e);
           //stockage du montant de la CFE  dans l'objet calculatedValue
           calculatedValue.cfe = parseInt(e.target.value, 10);
@@ -275,10 +287,10 @@ function addEventOnInputCfe() {
           }
           calculeImpotRevenuFoncier();
         })
-        .catch((e) => {
+        /*.catch((e) => {
           console.log("error: " + e);
-        });
-    });
+        });*/
+    //});
   });
 }
 /**

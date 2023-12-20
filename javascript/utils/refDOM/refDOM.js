@@ -47,7 +47,10 @@
 
 
     /***** fieldset #revenu-locatif *****/
-    /*** start ****/
+/*** start ****/
+    
+//container input revenu
+
 
     //Input de type "Number"
     const inputNumberRevenu = document.querySelector("input[name='number-revenu']");
@@ -58,7 +61,11 @@
     const inputRangeRevenuCharge = document.querySelector("input[name='range-charge']");
 
     // conteneur de rappel ou on affiche le revenu locatif à l'année.(sous input number)
-    const incomeOnYear = document.querySelector(".income-year");
+const incomeOnYear = document.querySelector(".income-year");
+    
+//div error sous input revenu locatif
+const incomeError = document.querySelector(".income-error");
+    
 
 
     /***** fieldset #revenu-locatif *****/

@@ -1,0 +1,50 @@
+/*******    feuille de style page CGU   ************/
+
+//import des fichiers de style
+//fichiers externe
+@import "../vendors/normalize.scss";
+
+//style de base
+@import "../utils/style-rule/style-rule.scss";
+
+//fichier outil
+@import "../utils/breakpoint/breakpoint.scss";
+@import "../utils/colors-rule/colors-rule.scss";
+@import "../utils/mixins/responsive/responsive.scss";
+@import "../utils/class/class.scss";
+
+
+.container-page {
+  
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  //border: 2px solid red;
+}
+
+
+
+.article-cgu{
+    width: 100%;
+    margin: 2em 0em;
+    background-color: map-get($colors-rule, fifth-color);
+    padding: 0.5em;
+}
+
+.article-cgu-container-title{
+    margin-bottom: 1em;
+}
+
+.article-cgu-number, .article-cgu-title{
+    font-size: 1.5em;
+}
+
+.article-cgu-title{
+    margin-left: 1em;
+    color:map-get($colors-rule, first-color)
+}
+
+.text-cgu{
+    line-height: 200%;
+}

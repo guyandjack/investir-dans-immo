@@ -6,10 +6,19 @@
  * *************************************************************************/
 
 //import des fonctions
-import { displayInputFiscal, hideChargeAndTaxe, displayChargeAndTaxe, hideInputFiscal, getLocationType,getTauxMarginalImposition } from "../other/other.js";
+import {
+  displayInputFiscal,
+  hideChargeAndTaxe,
+  displayChargeAndTaxe,
+  hideInputFiscal,
+  getLocationType,
+  getTauxMarginalImposition,
+} from "../other/other.js";
 
 import { addEventOnInputFiscal } from "../addEvent/addEvent.js";
 import { testIfNumber } from "../checkValueUser/checkValueUser.js";
+
+
 
 
 
@@ -136,7 +145,7 @@ function incomeByYear() {
   incomeOnYear.innerHTML = income + " €/an";
 
   //insertion dans le DOM dans le bilan avant imposition
-  //totalRevenu.innerHTML = "Total revenu: " + income + " €/an";
+  totalRevenu.innerHTML = "Total revenu: " + income + " €/an";
 
   //insertion dans l'objet
   calculatedValue.income = income;
@@ -154,7 +163,7 @@ function controlValueOfIncome() {
     //Verifie si l'utilisateur a choisi un type de location
     let isSelected = getLocationType();
     if (!isSelected) {
-        return
+        return null
     }
     //En fonction du type de location nue ou meublé le seuil regime réel diffère
     let income = 0;
@@ -170,7 +179,14 @@ function controlValueOfIncome() {
         income = parseInt(calculatedValue.income + calculatedValue.incomeCharge, 10);
         seuil = 77700;
     }
-
+    
+  if (
+    typeLocation == "" ||
+    typeLocation == "undefined" ||
+    typeLocation == null 
+    ) {
+        return "undefined"
+    }
     
 
     if (income > seuil) {
@@ -231,17 +247,29 @@ function getIncome() {
     let trueIncome = 0;
     //pour une location meublée revenu c'est loyer charges comprises
       if (calculatedValue.locationType == "meuble") {
-          trueIncome = parseInt(calculatedValue.income + calculatedValue.incomeCharge, 10);
+          trueIncome = parseInt(calculatedValue.income , 10);
           return trueIncome
       }
       
-      //Pour une location nue les revenu sont les loyers brut
+          //Pour une location nue les revenu sont les loyers brut
       if (calculatedValue.locationType == "nue") {
-          trueIncome = parseInt(calculatedValue.income, 10);
+        trueIncome = parseInt(calculatedValue.income, 10);
+        return trueIncome
+      }
+        
+      //Si l'input radio type de location n' est pas cochée c'est la valeur de l' input revenu
+        if (
+          calculatedValue.locationType == "" ||
+          calculatedValue.locationType == "undefined" ||
+          calculatedValue.locationType == null 
+
+          ) {
+          trueIncome = parseInt(inputNumberRevenu.value, 10) * 12 ;
           return trueIncome
-    }
+          }
+    
     console.log("revenu locatif: " + trueIncome)
-    return false
+    
 }
 
 //fonction qui etabli un bilan entre charge moins revenu locatif moins emprunt

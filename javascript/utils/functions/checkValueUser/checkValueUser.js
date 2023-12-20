@@ -127,10 +127,10 @@ function checkValueUserMonthly(evt) {
     return false;
   }
 
-  if (parseFloat(inputNumberTaeg.value, 10) < 0) {
+  if (parseFloat(inputNumberTaeg.value, 10) <= 0) {
     containerResultat.classList.add("error");
     resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre taux d'emprunt ne peut pas être negatif !";
+    resultat.innerHTML = "Votre taux d'emprunt ne peut pas être égal ou inférieur à zero !";
     containerInterest.classList.add("hide");
     mensualiteTextStart.classList.add("hide");
     mensualiteTextEnd.classList.add("hide");
@@ -219,6 +219,7 @@ function checkValueUserIncome(evt) {
     incomeOnYear.style.color = "red";
     return false;
   }
+  incomeOnYear.innerHTML = parseInt(inputNumberRevenu.value * 12, 10) +  " €/an";
   incomeOnYear.style.color = "black";
   return true;
 }
@@ -289,7 +290,7 @@ function checkValueUserDuty() {
 
 
 /**
- * test si le user a cocher un "type de location", "tranche d' imposition" et un "regime d' imposition"
+ * test si le user à cocher un "type de location", "tranche d' imposition" et un "regime d' imposition"
  * 
  * @return {} boolean 
  */
@@ -306,7 +307,7 @@ function checkValueUserRadioFiscal() {
     }
 
 
-    //condition 2: une tranche d' imposition doit etre choisi
+    //condition 2: une tranche d'imposition doit etre choisi
     let inputRadioChoiceImpot = document.querySelectorAll(
         "#fiscal input[name='taux-impot']:checked"
     );

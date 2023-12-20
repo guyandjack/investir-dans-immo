@@ -6,7 +6,7 @@ const infoBulleCalculMensualite = {
   financement: {
     titre: "Le projet de financement",
     contenu1:
-      "est le montant total financé par votre emprunt banquaire,il comprend généralement, le prix du bien, les montant des travaux, les frais de notaire, frais d'hypothèque, etc....",
+      "est le montant total financé par votre emprunt bancaire,il comprend généralement, le prix du bien, les montant des travaux, les frais de notaire, frais d'hypothèque, etc....",
     contenu2: "",
     contenu3: "",
   },
@@ -40,7 +40,4 @@ const infoBulleCalculMensualite = {
   },
 };
 
-export {
-  infoBulleCalculMensualite,
-  
-};
+export { infoBulleCalculMensualite };

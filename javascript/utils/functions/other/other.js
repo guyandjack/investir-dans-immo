@@ -4,6 +4,9 @@ import {
   
 } from "../../data/content/infoBulle.js";
 
+//import des referenecce du dom
+ 
+
 //Fonction qui fait varier la couleur de fond des span-unite de mesure
 function changeColor() {
   let value = parseFloat(inputNumberApport.value / inputNumberPrix.value, 10);
@@ -62,6 +65,21 @@ function linkInput(evt) {
   }
 }
 
+//Affiche les inputs "revenus" number et range ()
+async function displayInputRevenu() {
+  if (containerInputFiscal.classList.contains("hide")) {
+    containerInputFiscal.classList.replace("hide", "display");
+  }
+  return true;
+}
+
+//Cache les inputs "revenu" number et range ()
+async function hideInputRevenu() {
+  if (containerInputFiscal.classList.contains("display")) {
+    containerInputFiscal.classList.replace("display", "hide");
+  }
+  return true;
+}
 //Affiche les inputs "fiscal" number et range (charge deductible)
 async function displayInputFiscal() {
   if (containerInputFiscal.classList.contains("hide")) {
@@ -115,7 +133,7 @@ function getLocationType() {
     "#fiscal input[name='type-location']:checked"
   );
   if (inputs.length < 1) {
-    revenuImpotStart.innerHTML =
+    bilanResultat.innerHTML =
       " Veuillez selectionner un type de location 'nue' ou 'meublé'";
     return false;
   }
