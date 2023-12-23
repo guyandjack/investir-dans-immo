@@ -1,10 +1,14 @@
 /********************** expressions regulieres ******************/
 
+
+/***** Permet le controle d'une input  "civilite" ***********/
+
 //Motif qui autorise que trois chaine de carractere Monsiuer,Madame et Mademoiselle
 const masqueCivilite = /^([M][o][n][s][i][e][u][r]||[M][a][d][a][m][e]||[M][a][d][e][m][o][i][s][e][l][l][e])$/;
 
+/***** Permet le controle d'une input  "nom" ou "prenom" ***********/
 
-//Motif qui autorise lettres majuscules, minuscules, undescore,
+//Motif qui autorise lettres majuscules, minuscules, underscore,
 //apostrophe, point, trait d'union et tout caractére d' espacement
 //Nombre de carracteres compris entre  2 et 50.
 const masqueText = /^[A-Za-z_'.-\s]{2,50}$/;
@@ -27,4 +31,4 @@ const masqueMessage = /^[^<>{}\[\]*|]{20,200}$/;
 //Motif qui permet de controler si une expression est un nombre
 const masqueNumber = /^[0-9]/;
 
-export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber };
+module.exports = { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber } 

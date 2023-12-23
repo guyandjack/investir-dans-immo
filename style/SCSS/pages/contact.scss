@@ -1,0 +1,104 @@
+/*******    feuille de style page CGU   ************/
+
+//import des fichiers de style
+//fichiers externe
+@import "../vendors/normalize.scss";
+
+//style de base
+@import "../utils/style-rule/style-rule.scss";
+
+//fichier outil
+@import "../utils/breakpoint/breakpoint.scss";
+@import "../utils/colors-rule/colors-rule.scss";
+@import "../utils/mixins/responsive/responsive.scss";
+@import "../utils/class/class.scss";
+
+
+.container-page {
+  
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  //border: 2px solid red;
+}
+
+.form-contact{
+    position: relative;
+    width: 80%;
+    background-color: lighten(map-get($colors-rule, fourth-color),75%);
+    padding: 1em;
+    @include upper-medium-screen{
+        width: 50%;
+    }
+}
+
+.container{
+    
+    width: 100%;
+    margin: 1em 0em;
+    padding: 0em 1em;
+    //border: 2px solid blue;
+}
+
+
+.label{
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+#civilite{
+    cursor: pointer;
+    width:max-content;
+}
+
+.input-contact{
+    width: 80%;
+    padding:1em;
+    border: 1px solid map-get($colors-rule, fourth-color);
+    background-color: map-get($colors-rule, fifth-color);
+}
+
+
+textarea{
+    height: auto;
+}
+
+.error{
+    color: map-get($colors-rule, second-color);
+}
+
+.hide-error, .hide-valid{
+    display: none;
+}
+
+.display-error, .display-valid{
+    display: block;
+}
+
+.button{
+    padding: 1.5em;
+    background-color:map-get($colors-rule, first-color);
+    text-align: center;
+}
+
+.valid{
+    position: absolute;
+    left: 50%;
+    bottom: 2em ;
+    transform: translateX(-50%);
+    padding: 2em;
+    box-shadow: 10px 10px 10px map-get($colors-rule, fourth-color);
+    background-color: darken(map-get($colors-rule, third-color),20%);
+    color: map-get($colors-rule, fifth-color );
+}
+
+
+
+.closure{
+    position: absolute;
+    top:0.5em;
+    right: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
