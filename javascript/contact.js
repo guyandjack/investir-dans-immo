@@ -2,6 +2,8 @@
  * ******************* controle du formulaire contact *********************
  * ************************************************************************/
 
+
+ // import des regEx
 import {
   masqueCivilite,
   masqueText,
@@ -10,7 +12,7 @@ import {
   masqueNumber,
 } from "./utils/regEx/regEx.js";
 
-//Objet contenant les message d'erreurs
+//Objet contenant les messages d'erreurs
 let listOfMessageError = {
   civilite: "Veuillez indiquer un etat civil valide !",
   lastname: "Veuillez entrer un nom valid !",
@@ -20,7 +22,7 @@ let listOfMessageError = {
   submit: "Veuillez compléter le formulaire !",
 };
 
-//objet contenent le resultat des fonction de controle
+//objet contenent le resultat des fonctions de controle unitaire
 let valueControl = {
   civilite: false,
   lastname: false,
@@ -30,51 +32,105 @@ let valueControl = {
   sujet: false,
 };
 
-//corps de la requette fetch
+
+
+//corps de la requette fetch pour la soumission du formulaire
 let bodyRequest = {
   civilite: "",
   lastname: "",
   firstname: "",
   email: "",
   message: "",
-  sujet: "error",
+  sujet: "",
 };
 
+
+/**
+ * Controle le resultat des fonctions de controle unitaire
+ * @ return void
+ */
+function checkValueControl() {
+  if (
+    !valueControl.civilite ||
+    !valueControl.lastname ||
+    !valueControl.firstname ||
+    !valueControl.email ||
+    !valueControl.message 
+    
+  ){
+    disableButtonSubmit();
+  }
+  else{
+    enableButtonSubmit();
+  }
+}
+
+/**
+ * Selectionne le message d' erreur en fonction de l' input en defaut
+ *
+ * @param {*} id
+ * @return {*} message d' erreur
+ */
 function selectErrorMessage(id) {
   let errorMessageMatch = listOfMessageError[id];
   return errorMessageMatch;
 }
 
-function displayErrorMessage(id, errorMessage) {
-  let divErrorId = "error-" + id;
-  console.log("div error ID: " + divErrorId);
-  let divErrorMatch = document.querySelector(`#${divErrorId}`);
-  console.log("div error element: " + divErrorMatch);
-  divErrorMatch.innerHTML = errorMessage;
 
+/**
+ * insert le message d'erreur dans le divError
+ * affiche le divError
+ *
+ * @param {*} id
+ * @param {*} errorMessage
+ */
+function displayErrorMessage(id, errorMessage) {
+
+  //determination de l' id de l'element qui recoit le message d' erreur
+  let divErrorId = "error-" + id;
+  
+  //selection du div error
+  let divErrorMatch = document.querySelector(`#${divErrorId}`);
+  
+  divErrorMatch.innerHTML = errorMessage;
+  
+  //affichage du diverror
   if (divErrorMatch.classList.contains("hide-error")) {
     divErrorMatch.classList.replace("hide-error", "display-error");
   }
 }
 
+
+/**
+ * suprime le message d'erreur dans le divError
+ * cache le divError
+ * @param {*} id
+ */
 function deleteErrorMessage(id) {
+  //determination de l' id de l'element qui recoit le message d' erreur
   let divErrorId = "error-" + id;
+
+  //selection du div error
   let divErrorMatch = document.querySelector(`#${divErrorId}`);
+
   divErrorMatch.innerHTML = "";
+
+  //cache le diverror
   if (divErrorMatch.classList.contains("display-error")) {
     divErrorMatch.classList.replace("display-error", "hide-error");
   }
 }
 
 /**
- * test la validite de l'input "civilite"
+ * test la validite de l'input "sujet" (pot de miel)
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @return boolean
  */
 async function checkUserValueSujet() {
   let sujetValue = document.querySelector("#sujet").value;
-  console.log("valeur de input hidden: " + sujetValue)
-  
+    
   if (sujetValue.length < 1) {
     valueControl.sujet = true;
     bodyRequest.sujet = "";
@@ -82,40 +138,50 @@ async function checkUserValueSujet() {
   } else {
     
     valueControl.sujet = false;
-    bodyRequest.sujet = "error";
     return false;
   }
 }
 /**
- * test la validite de l'input "civilite"
+ * test la validite de l'input "civilite" 
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @param {} "id" id del'input user 
+ * @param {} "civilite" valeur de l'input user
+ * @return boolean
  */
 function checkUserValueCivilite(id, civilite) {
-  console.log("id civilite: " + id);
+  
   if (masqueCivilite.test(civilite)) {
     deleteErrorMessage(id);
     valueControl.civilite = true;
     bodyRequest.civilite = civilite;
+    checkValueControl();
     return true;
   } else {
     let message = selectErrorMessage(id);
     displayErrorMessage(id, message);
     valueControl.civilite = false;
     bodyRequest.civilite = "";
+    checkValueControl();
     return false;
   }
 }
 /**
- * test la validite de l'input "Nom"
+ * Test la validite de l'input "nom" 
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @param {} "id" id del'input user 
+ * @param {} "lastname" valeur de l'input user
+ * @return boolean
  */
 function checkUserValueLastname(id, lastname) {
   if (masqueText.test(lastname)) {
     deleteErrorMessage(id);
     valueControl.lastname = true;
     bodyRequest.lastname = lastname;
+    checkValueControl();
     return true;
   } else {
     let message = selectErrorMessage(id);
@@ -123,76 +189,95 @@ function checkUserValueLastname(id, lastname) {
     displayErrorMessage(id, message);
     valueControl.lastname = false;
     bodyRequest.lastname = "";
+    checkValueControl();
     return false;
   }
 }
 /**
- * test la validite de l'input "prenom"
+ * Test la validite de l'input "prénom" 
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @param {} "id" id del'input user 
+ * @param {} "firstname" valeur de l'input user
+ * @return boolean
  */
 function checkUserValueFirstname(id, firstname) {
   if (masqueText.test(firstname)) {
     deleteErrorMessage(id);
     valueControl.firstname = true;
     bodyRequest.firstname = firstname;
+    checkValueControl();
     return true;
   } else {
     let message = selectErrorMessage(id);
     displayErrorMessage(id, message);
     valueControl.firstname = false;
     bodyRequest.firstname = "";
+    checkValueControl();
     return false;
   }
 }
 /**
- * test la validite de l'input "email"
+ * Test la validite de l'input "email" 
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @param {} "id" id del'input user 
+ * @param {} "email" valeur de l'input user
+ * @return boolean
  */
 function checkUserValueEmail(id, email) {
   if (masqueMail.test(email)) {
     deleteErrorMessage(id);
     valueControl.email = true;
     bodyRequest.email = email;
+    checkValueControl();
     return true;
   } else {
     let message = selectErrorMessage(id);
     displayErrorMessage(id, message);
     valueControl.email = false;
     bodyRequest.email = "";
+    checkValueControl();
     return false;
   }
 }
 /**
- * test la validite de l'input "message"
+ * Test la validite de l'input "message" 
+ * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour le coprs de la requette
  *
- * @param {*} e
+ * @param {} "id" id del'input user 
+ * @param {} "message" valeur de l'input user
+ * @return boolean
  */
 function checkUserValueMessage(id, message) {
   if (masqueMessage.test(message)) {
     deleteErrorMessage(id);
     valueControl.message = true;
     bodyRequest.message = message;
+    checkValueControl();
     return true;
   } else {
     let message = selectErrorMessage(id);
     displayErrorMessage(id, message);
     valueControl.message = false;
     bodyRequest.message = "";
+    checkValueControl();
     return false;
   }
 }
 
 /**
- *
- *
+ * selectionne la fonction de test unitaire  en fonction de l'input user utilisé
+ *@param {} "objet event"
+ *@return {} le resultat dela fonction unitaire
  */
 function checkUserInputSelected(e) {
   let inputSelectedId = e.target.id;
   let inputSelectedValue = e.target.value;
-  console.log("id de l' input utilisateur: " + inputSelectedId);
-  console.log("value de l' input utilisateur: " + inputSelectedValue);
+  
   let result = false;
   switch (inputSelectedId) {
     case "civilite":
@@ -218,45 +303,20 @@ function checkUserInputSelected(e) {
   return result;
 }
 
-async function checkAllUserInput() {
-  let divErrorsubmit = document.querySelector("#error-submit");
-  console.log(valueControl);
-  if (
-    !valueControl.civilite ||
-    !valueControl.lastname ||
-    !valueControl.firstname ||
-    !valueControl.email ||
-    !valueControl.message 
-    
-  ) {
-    divErrorsubmit.innerHTML = listOfMessageError.submit;
-    if (divErrorsubmit.classList.contains("hide-error")) {
-      divErrorsubmit.classList.replace("hide-error", "display-error");
-    }
-    return false;
-  } else {
-    if (divErrorsubmit.classList.contains("display-error")) {
-      divErrorsubmit.classList.replace("display-error", "hide-error");
-    }
-    return true;
-  }
-}
+
+/**
+ *soumet le formulaire via une requette fetch
+ *
+ * @param {*} objet event
+ */
 
 function submitForm(e) {
   e.preventDefault();
    
-   
-  checkAllUserInput()
-    .then((test1) => {
-      if (!test1) {
-        return
-      }
-      else {
-        return checkUserValueSujet();
-      }
-    })
-    .then((test2) => {
-      if (!test2) {
+    
+  checkUserValueSujet()
+    .then((test) => {
+      if (!test) {
         return;
       } else {
         let urlTestFetch = "http://localhost:5000/contact";
@@ -277,51 +337,133 @@ function submitForm(e) {
 
               .then((data) => {
                 let result = JSON.parse(JSON.stringify(data));
-                console.log(result);
+                
                 if (result.message !== "valide") {
-                  alert(
-                    " Une erreur est survenue lors de l’envoi du message !!! \n Votre message ne nous est pas parvenu."
-                  );
+                  displayValidDiv("Une erreur est survenue... 😞");
+                  
                 } else {
-                  alert("message recu! 👍 \n il sera traité dans les 48h");
+                  displayValidDiv("message reçu! 👍");
+                  
                 }
               });
           })
 
-          /*.then(() => {
-      window.location.reload();
-    })*/
-
           .catch((error) => console.log(error));
-        //console.log("formulaire envoyé !");
+        
       }
   })
   
 
-  
 }
 
-function hideValidDiv(evt) {
-  let validDiv = evt.target.parentElement;
-  if (validDiv.classList.contains("display-valid")) {
+/**
+ * cache le div de confirmation d' envoi du message
+ *
+ * @param {*} validDiv
+ */
+function hideValidDiv(validDiv) {
+  
+  let validText = validDiv.lastElementChild;
+  
+  validText.innerHTML = "";
+    if (validDiv.classList.contains("display-valid")) {
     validDiv.classList.replace("display-valid", "hide-valid");
   }
+
 }
 
-function displayValidDiv() {
+/**
+ * insert le text de validation d' envoi
+ * affiche le div de validation
+ *
+ * @param {*} "text" texte à afficher"
+ */
+function displayValidDiv(text) {
   let validDiv = document.querySelector(".valid");
+  let validText = document.querySelector(".valid-text");
+  
   if (validDiv.classList.contains("hide-valid")) {
     validDiv.classList.replace("hide-valid", "display-valid");
   }
+  validText.innerHTML = text;
 }
 
+
+/**
+ * active le bouton de soumission du formulaire
+ *
+ */
+function enableButtonSubmit() {
+  let button = document.querySelector("#btn");
+  if (button.classList.contains("disabled")) {
+    button.classList.replace("disabled", "enabled");
+  };
+  button.disabled = false;
+}
+
+/**
+ * desactive le bouton de soumission du formulaire
+ *
+ */
+function disableButtonSubmit() {
+  let button = document.querySelector("#btn");
+  if (button.classList.contains("enabled")) {
+    button.classList.replace("enabled","disabled");
+  };
+  
+  button.disabled = true;
+}
+
+
+/**
+ * reinitialise la valeur des inputs user
+ *
+ */
+function resetInput() {
+  let listInputs = document.querySelectorAll(".input-contact");
+  listInputs.forEach((input) => {
+    input.value = "";
+  });
+  
+}
+
+
+/**
+ * réinitialise les resultats des fonctions de test unitaire 
+ *
+ */
+function resetValueControl() {
+  for (let element in valueControl) {
+
+    valueControl[element] = false;
+  }
+  
+}
+
+
+/**
+ * reinitialise le formulaire de contact apres apres validation du user 
+ *
+ */
+function resetForm() {
+  resetInput();
+  resetValueControl();
+  disableButtonSubmit();
+}
+
+
+
+/**
+ * ajoute les ecouteurs d' évènement sur les inputs et bouton du formulaire
+ *
+ */
 function addEventControlOnInput() {
   let listOfInputs = document.querySelectorAll(".input-contact");
   let buttonSubmit = document.querySelector("#btn");
-  let closure = document.querySelector(".closure");
+  let validDiv = document.querySelector(".valid");
 
   listOfInputs.forEach((input) => {
-    input.addEventListener("change", (e) => {
+    input.addEventListener("input", (e) => {
       checkUserInputSelected(e);
     });
   });
@@ -330,8 +472,9 @@ function addEventControlOnInput() {
     submitForm(e);
   });
 
-  closure.addEventListener("click", (e) => {
-    hideValidDiv(e);
+  validDiv.addEventListener("click", () => {
+    hideValidDiv(validDiv);
+    resetForm();
   });
 }
 

@@ -76,11 +76,12 @@
 
         <div class="container">
           <label for="btn" class="label"></label>
-          <button id="btn" type="submit" class="button">Envoyer votre message</button>
+          <button id="btn" type="submit" class="button disabled" disabled>Envoyer votre message</button>
         </div>
-        <div id="error-submit" class="error hide-error"></div>
-        <div id="valid-submit" class="valid hide-valid">Message reçu
+        
+        <div id="valid-submit" class="valid hide-valid">
             <div class="closure">X</div>
+            <div class="valid-text"></div>
         </div>
       </form>
     </div>

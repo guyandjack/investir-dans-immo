@@ -644,6 +644,14 @@ textarea {
   text-align: center;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
+.enabled {
+  opacity: 1;
+}
+
 .valid {
   position: absolute;
   left: 50%;
