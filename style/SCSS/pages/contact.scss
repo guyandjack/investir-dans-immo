@@ -13,9 +13,7 @@
 @import "../utils/mixins/responsive/responsive.scss";
 @import "../utils/class/class.scss";
 
-
 .container-page {
-  
   max-width: 1500px;
   width: 100%;
   margin: 0 auto;
@@ -23,90 +21,155 @@
   //border: 2px solid red;
 }
 
-.form-contact{
-    position: relative;
-    width: 80%;
-    background-color: lighten(map-get($colors-rule, fourth-color),75%);
-    padding: 1em;
-    @include upper-medium-screen{
-        width: 50%;
-    }
+.intro {
+  width: 100%;
+  //border: 2px solid red;
+  margin-bottom: 1em;
 }
 
-.container{
-    
-    width: 100%;
-    margin: 1em 0em;
-    padding: 0em 1em;
-    //border: 2px solid blue;
+.intro-banner {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-image: url("../../../Asset/img-banner-contact-500px.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //border: 2px solid green;
+
+  @include upper-medium-screen {
+    height: 200px;
+    background-image: url("../../../Asset/img-banner-contact-1000px.png");
+  }
+
+  @include upper-large-screen {
+    height: 200px;
+    background-image: url("../../../Asset/img-banner-contact-1500px.png");
+  }
 }
 
+.text-banner {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  transform: translate(-5%, -5%);
 
-.label{
-    font-weight: 600;
-    margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: 600;
+  padding: 0.2em;
+  border-radius: 1em;
+
+  color: map-get($colors-rule, fifth-color);
+
+  //border: 2px solid blue;
+
+  @include upper-medium-screen {
+    font-size: 2.5em;
+    left: 5%;
+  bottom: 5%;
+  transform: translate(-5%, -5%);
+  }
+
+  @include upper-large-screen {
+    font-size: 3.5em ;
+  }
 }
 
-#civilite{
-    cursor: pointer;
-    width:max-content;
+.text-banner::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background-color: map-get($colors-rule, first-color);
+  opacity: 0.7;
+  border-radius: 1em;
 }
 
-.input-contact{
-    width: 80%;
-    padding:1em;
-    border: 1px solid map-get($colors-rule, fourth-color);
-    background-color: map-get($colors-rule, fifth-color);
+.form-contact {
+  position: relative;
+  width: 80%;
+  background-color: lighten(map-get($colors-rule, fourth-color), 75%);
+  padding: 1em;
+  @include upper-medium-screen {
+    width: 50%;
+  }
 }
 
-
-textarea{
-    height: auto;
+.container {
+  width: 100%;
+  margin: 1em 0em;
+  padding: 0em 1em;
+  //border: 2px solid blue;
 }
 
-.error{
-    color: map-get($colors-rule, second-color);
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5em;
 }
 
-.hide-error, .hide-valid{
-    display: none;
+#civilite {
+  cursor: pointer;
+  width: max-content;
 }
 
-.display-error, .display-valid{
-    display: block;
+.input-contact {
+  width: 80%;
+  padding: 1em;
+  border: 1px solid map-get($colors-rule, fourth-color);
+  background-color: map-get($colors-rule, fifth-color);
 }
 
-.button{
-    padding: 1.5em;
-    background-color:map-get($colors-rule, first-color);
-    text-align: center;
+textarea {
+  height: auto;
 }
 
-.disabled{
-    opacity: 0.5;
+.error {
+  color: map-get($colors-rule, second-color);
 }
 
-.enabled{
-    opacity:1;
+.hide-error,
+.hide-valid {
+  display: none;
 }
 
-.valid{
-    position: absolute;
-    left: 50%;
-    bottom: 2em ;
-    transform: translateX(-50%);
-    padding: 2em;
-    box-shadow: 10px 10px 10px map-get($colors-rule, fourth-color);
-    background-color: darken(map-get($colors-rule, third-color),20%);
-    color: map-get($colors-rule, fifth-color );
+.display-error,
+.display-valid {
+  display: block;
 }
 
+.button {
+  padding: 1.5em;
+  background-color: map-get($colors-rule, first-color);
+  text-align: center;
+}
 
+.disabled {
+  opacity: 0.5;
+}
 
-.closure{
-    position: absolute;
-    top:0.5em;
-    right: 0.5em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
+.enabled {
+  opacity: 1;
+}
+
+.valid {
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  transform: translateX(-50%);
+  padding: 2em;
+  box-shadow: 10px 10px 10px map-get($colors-rule, fourth-color);
+  background-color: darken(map-get($colors-rule, third-color), 20%);
+  color: map-get($colors-rule, fifth-color);
+}
+
+.closure {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }

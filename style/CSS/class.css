@@ -1,7 +1,9 @@
 /*******************************************************************************
 ******************** class css *************************************************
 **********************************************************************************/
-/************ flexbox *********************/
+/****************************************************************************************
+/********  **************** flex box **************** ******************/
+/****start******************************************************************************/
 .flex-row-start-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,10 +40,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+      -ms-flex-flow: row;
+          flex-flow: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -54,10 +56,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+      -ms-flex-flow: row;
+          flex-flow: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -113,3 +115,127 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+/****************************************************************************************
+/********  **************** flex box **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+/********  **************** header **************** ******************/
+/**** start ******************************************************************************/
+.header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-bottom: 1em;
+}
+
+.menu-li {
+  position: relative;
+  margin-right: 1.5em;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+.menu-li:hover::before {
+  content: "";
+  opacity: 0.5;
+}
+
+.menu-li-a {
+  color: #FBFFFE;
+}
+
+.menu-li::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  background-color: #068ebc;
+  z-index: -1;
+  opacity: 1;
+}
+
+/****************************************************************************************
+/********  **************** header **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+/********  **************** toggle switch **************** ******************/
+/**** start ******************************************************************************/
+#toggle-switch {
+  display: none;
+}
+
+.label-toggle-switch {
+  display: block;
+  width: 50px;
+  height: 25px;
+  background-color: #068ebc;
+  border-radius: 0.5em;
+}
+
+/****************************************************************************************
+/********  **************** toggle switch **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+/********  **************** footer **************** ******************/
+/**** start ******************************************************************************/
+.footer {
+  background-color: #272727;
+  padding: 1em;
+  width: 100%;
+}
+@media screen and (min-width: 769px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.container-list-footer {
+  padding: 3em 0em;
+}
+@media screen and (min-width: 769px) {
+  .container-list-footer {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.title-list-footer {
+  border-bottom: 2px solid #EFA00B;
+  color: #FBFFFE;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.menu-footer-li {
+  padding: 1em 0em;
+}
+
+.menu-footer-li > a {
+  color: #FBFFFE;
+}
+.menu-footer-li > a:hover {
+  color: #EFA00B;
+}
+
+/****************************************************************************************
+/********  **************** footer **************** ******************/
+/*** end ******************************************************************************/

@@ -209,19 +209,9 @@ function checkAllUserInput() {
   }
 }
 
-/*async function test(req) {
-  let test1 = await isSameOrigin(req);
-  let test2 = await isBodyRequestNotEmpty(req);
-  //let test3 = await checkReqBodyKeys(listOfKeys, tabRefOfKeys);
-  let test9 = await checkUserValueSujet(sujet);
-  let test4 = await checkUserValueCivilite(civilite);
-  let test5 = await checkUserValueLastname(lastname);
-  let test6 = await checkUserValueFirstname(firstname);
-  let test7 = await checkUserValueEmail(email);
-  let test8 = await checkUserValueMessage(message);
-}*/
 
-exports.testForm = (req, res) => {
+
+exports.testForm = (req, res, next) => {
   
   
   //enchainement des fonction de test
@@ -287,8 +277,9 @@ exports.testForm = (req, res) => {
           if (!test8) {
             res.status(450).json({ error: "prb message" });
           }
-          res.status(250).json({ "message": "valide" });
-          console.log("valeurs de control: " + valueControl.civilite);
+          /*res.status(250).json({ "message": "valide" });
+          console.log("valeurs de control: " + valueControl.civilite);*/
+          next();
         })
 
         .catch((error) => {

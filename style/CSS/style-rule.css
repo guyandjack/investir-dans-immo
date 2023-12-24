@@ -5,7 +5,7 @@
           box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-size: 1em;
   font-weight: 500;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 .title {
-  font-family: 'Baskervville', serif;
+  font-family: "Baskervville", serif;
 }
 
 .h1 {

@@ -24,15 +24,33 @@
     <link rel="stylesheet" href="../style/CSS/contact.css" />
 
     <!-- Script de la page "contact"-->
-    <script type="module" src="../javascript/contact.js" ></script>
-
-
-
+    <script type="module" src="../javascript/contact.js"></script>
   </head>
   <body>
     <div class="container-page flex-column-start-center">
-      <div class="banner-contact"></div>
-      <form class="form-contact flex-column-start-start" method="post" action="checkForm.js">
+        <header class="header flex-row-start-center">
+            <nav class="nav">
+                <ul class="menu flex-row-start-center">
+                    <li class="menu-li"><a class="menu-li-a" href="http://127.0.0.1:5500/html/index.html">Accueil</a></li>
+                    <li class="menu-li"><a class="menu-li-a" href="http://127.0.0.1:5500/html/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="container-toggle flex-row-start-center">
+              <label for="toggle-switch" class="label-toggle-switch"></label><span>dark mode</span>
+              <input id="toggle-switch"  type="checkbox" value="dark">
+            </div>
+        </header>
+      <div class="intro">
+        <div class="intro-banner flex-column-center-center">
+            <h1 class="text-banner flex-row-start-center">Contactez-nous...</h1>
+        </div>
+      </div>
+
+      <form
+        class="form-contact flex-column-start-start"
+        method="post"
+        action="checkForm.js"
+      >
         <div class="container flex-column-start-start">
           <label for="civilite" class="label">Civilité</label>
           <select id="civilite" class="input-contact">
@@ -46,72 +64,129 @@
 
         <div class="container flex-column-start-start">
           <label for="lastname" class="label">Nom</label>
-          <input id="lastname" class="input-contact" type="text" min="2" max="25" required  />
+          <input
+            id="lastname"
+            class="input-contact"
+            type="text"
+            min="2"
+            max="25"
+            required
+          />
         </div>
         <div id="error-lastname" class="error hide-error"></div>
 
         <div class="container flex-column-start-start">
           <label for="firstname" class="label">Prenom</label>
-          <input id="firstname" class="input-contact" type="text" min="2" max="25" required  />
+          <input
+            id="firstname"
+            class="input-contact"
+            type="text"
+            min="2"
+            max="25"
+            required
+          />
         </div>
         <div id="error-firstname" class="error hide-error"></div>
 
         <div class="container flex-column-start-start">
           <label for="email" class="label">Email</label>
-          <input id="email" class="input-contact" type="mail" min="8" max="100" required />
+          <input
+            id="email"
+            class="input-contact"
+            type="mail"
+            min="8"
+            max="100"
+            required
+          />
         </div>
         <div id="error-email" class="error hide-error"></div>
 
         <div class="container flex-column-start-start">
           <label for="message" class="label">Message</label>
-          <textarea id="message" class="input-contact" type="text" rows="5" min="20" max="200" required  ></textarea>
+          <textarea
+            id="message"
+            class="input-contact"
+            type="text"
+            rows="5"
+            min="20"
+            max="200"
+            required
+          ></textarea>
         </div>
         <div id="error-message" class="error hide-error"></div>
 
         <div class="container flex-column-start-start">
           <label for="sujet" class="label"></label>
-          <input id="sujet" class="input-contact" type="hidden" value="" max="25" required  />
+          <input
+            id="sujet"
+            class="input-contact"
+            type="hidden"
+            value=""
+            max="25"
+            required
+          />
         </div>
         <div id="error-sujet" class="error hide-error"></div>
 
         <div class="container">
           <label for="btn" class="label"></label>
-          <button id="btn" type="submit" class="button disabled" disabled>Envoyer votre message</button>
+          <button id="btn" type="submit" class="button disabled" disabled>
+            Envoyer votre message
+          </button>
         </div>
-        
+
         <div id="valid-submit" class="valid hide-valid">
-            <div class="closure">X</div>
-            <div class="valid-text"></div>
+          <div class="closure">X</div>
+          <div class="valid-text"></div>
         </div>
       </form>
     </div>
     <footer class="footer flex-row-space-evenly-start">
-        <div class="flex-column-start-start container-list-footer">
-          <div class="title-list-footer ">A propos</div>
-          <ul class="menu-footer">
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/contact.html">Contact</a></li>
-            <li class="menu-footer-li"><a href="lien">Webmaster</a></li>
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/cgu.html">Conditions générales d'utilisation</a></li>
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/cgu.html#mentions-legales">Mentions légales</a></li>
-          </ul>
+      <div class="flex-column-start-start container-list-footer">
+        <div class="title-list-footer">A propos</div>
+        <ul class="menu-footer">
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/contact.html">Contact</a>
+          </li>
+          <li class="menu-footer-li"><a href="lien">Webmaster</a></li>
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/cgu.html"
+              >Conditions générales d'utilisation</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/cgu.html#mentions-legales"
+              >Mentions légales</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="flex-column-start-start container-list-footer">
+        <div class="title-list-footer">
+          Quelques liens pour approfondir le sujet
         </div>
-        <div class="flex-column-start-start container-list-footer ">
-          <div class="title-list-footer ">Quelques liens pour approfondir le sujet</div>
-          <ul class="menu-footer">
-            <li class="menu-footer-li">
-              <a href="https://www.service-public.fr/particuliers/vosdroits/F1165">Servicepublic.fr</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.pap.fr/bailleur/choisir-investissement">Particulier à particulier (PAP)</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html">Meilleurtaux.com</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+        <ul class="menu-footer">
+          <li class="menu-footer-li">
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F1165"
+              >Servicepublic.fr</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
+          </li>
+          <li class="menu-footer-li">
+            <a href="https://www.pap.fr/bailleur/choisir-investissement"
+              >Particulier à particulier (PAP)</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a
+              href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
+              >Meilleurtaux.com</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

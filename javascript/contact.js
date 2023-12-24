@@ -220,7 +220,7 @@ function checkUserValueFirstname(id, firstname) {
 }
 /**
  * Test la validite de l'input "email" 
- * met à jour l' objet qui contient les resultats des test unitaire
+ * met à jour l' objet qui contient les resultats des tests unitaire
  * met à jour le coprs de la requette
  *
  * @param {} "id" id del'input user 
@@ -269,39 +269,7 @@ function checkUserValueMessage(id, message) {
   }
 }
 
-/**
- * selectionne la fonction de test unitaire  en fonction de l'input user utilisé
- *@param {} "objet event"
- *@return {} le resultat dela fonction unitaire
- */
-function checkUserInputSelected(e) {
-  let inputSelectedId = e.target.id;
-  let inputSelectedValue = e.target.value;
-  
-  let result = false;
-  switch (inputSelectedId) {
-    case "civilite":
-      result = checkUserValueCivilite(inputSelectedId, inputSelectedValue);
-      break;
-    case "lastname":
-      result = checkUserValueLastname(inputSelectedId, inputSelectedValue);
-      break;
-    case "firstname":
-      result = checkUserValueFirstname(inputSelectedId, inputSelectedValue);
-      break;
-    case "email":
-      result = checkUserValueEmail(inputSelectedId, inputSelectedValue);
-      break;
-    case "message":
-      result = checkUserValueMessage(inputSelectedId, inputSelectedValue);
-      break;
-    
 
-    default:
-      break;
-  }
-  return result;
-}
 
 
 /**
@@ -338,12 +306,10 @@ function submitForm(e) {
               .then((data) => {
                 let result = JSON.parse(JSON.stringify(data));
                 
-                if (result.message !== "valide") {
+                if (result.message_status !== "sended") {
                   displayValidDiv("Une erreur est survenue... 😞");
-                  
                 } else {
                   displayValidDiv("message reçu! 👍");
-                  
                 }
               });
           })
@@ -458,20 +424,47 @@ function resetForm() {
  *
  */
 function addEventControlOnInput() {
-  let listOfInputs = document.querySelectorAll(".input-contact");
+  
+  let inputCivilite = document.querySelector("#civilite");
+  let inputLastname = document.querySelector("#lastname");
+  let inputFirstname = document.querySelector("#firstname");
+  let inputEmail = document.querySelector("#email");
+  let inputMessage = document.querySelector("#message");
   let buttonSubmit = document.querySelector("#btn");
   let validDiv = document.querySelector(".valid");
 
-  listOfInputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      checkUserInputSelected(e);
-    });
+  //input user
+  inputCivilite.addEventListener("input", (e) => {
+    checkUserValueCivilite(e.target.id, e.target.value);
   });
+  
 
+  inputLastname.addEventListener("input", (e) => {
+    checkUserValueLastname(e.target.id, e.target.value);
+  });
+  
+
+  inputFirstname.addEventListener("input", (e) => {
+    checkUserValueFirstname(e.target.id, e.target.value);
+  });
+  
+
+  inputEmail.addEventListener("input", (e) => {
+    checkUserValueEmail(e.target.id, e.target.value);
+  });
+  
+
+  inputMessage.addEventListener("input", (e) => {
+    checkUserValueMessage(e.target.id, e.target.value);
+  });
+  
+
+  //Bouton de soumission
   buttonSubmit.addEventListener("click", (e) => {
     submitForm(e);
   });
 
+  //fentere status  message
   validDiv.addEventListener("click", () => {
     hideValidDiv(validDiv);
     resetForm();

@@ -17,6 +17,9 @@ const router = express.Router();
 //Import du controler qui gere les donnés du formulaire de la page "contact"
 const checkFieldFormContact = require("../controler/controlerFormContact.js");
 
+//Import du midelware qui envoit un mail
+const mailer = require("../middelware/nodemailer.js");
+
 /************  ensemble des routes  ****************** */
 
 
@@ -25,6 +28,6 @@ const checkFieldFormContact = require("../controler/controlerFormContact.js");
 
 /***** permet d'envoyer un mail   ******* */
 
-router.post("/contact", checkFieldFormContact.testForm);
+router.post("/contact", checkFieldFormContact.testForm, mailer.sendMail);
 
 module.exports = router;
