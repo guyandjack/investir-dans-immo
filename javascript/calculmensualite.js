@@ -20,6 +20,10 @@ import {
   
 } from "./utils/functions/addEvent/addEvent.js";
 
+import { eventToggleSwitch, useThemeColor} from "./utils/functions/other/other.js";
+
+
+
 
 
 import {
@@ -107,3 +111,6 @@ addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();
 addEventOnIconInfo();
 addEventOnIconColapseArticle();
+
+eventToggleSwitch();
+useThemeColor();

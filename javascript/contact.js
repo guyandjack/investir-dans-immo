@@ -3,6 +3,9 @@
  * ************************************************************************/
 
 
+//import des functions
+import { eventToggleSwitch, useThemeColor } from "./utils/functions/other/other.js";
+
  // import des regEx
 import {
   masqueCivilite,
@@ -11,6 +14,8 @@ import {
   masqueMessage,
   masqueNumber,
 } from "./utils/regEx/regEx.js";
+
+
 
 //Objet contenant les messages d'erreurs
 let listOfMessageError = {
@@ -433,6 +438,9 @@ function addEventControlOnInput() {
   let buttonSubmit = document.querySelector("#btn");
   let validDiv = document.querySelector(".valid");
 
+  //switch dark mode
+  eventToggleSwitch()
+
   //input user
   inputCivilite.addEventListener("input", (e) => {
     checkUserValueCivilite(e.target.id, e.target.value);
@@ -473,3 +481,4 @@ function addEventControlOnInput() {
 
 /*************************** script principal **************************/
 addEventControlOnInput();
+useThemeColor();

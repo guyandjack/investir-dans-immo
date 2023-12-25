@@ -518,5 +518,5 @@ export {
   addEventOnInputRadioImpot,
   addEventOnInputFiscal,
   addEventOnIconInfo,
-  addEventOnIconColapseArticle
+  addEventOnIconColapseArticle,
 };

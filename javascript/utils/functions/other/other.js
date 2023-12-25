@@ -269,6 +269,73 @@ function deleteElement(elementId) {
   }
 }
 
+
+
+function moveSwitch(evt) {
+  let switchToggle = document.querySelector(".switch");
+  
+  switchToggle.classList.toggle("move");// deplacement du toggle awitch
+  
+}
+
+function changeTextToggle(text) {
+  let textToggle = document.querySelector(".toggle-text");
+  textToggle.innerHTML = text;
+
+  
+}
+
+function storeThemeColor() {
+
+  let inputCheckBox = document.querySelector("#toggle-switch");
+  let value = JSON.stringify(inputCheckBox.value);
+
+  if (!localStorage.getItem("themeColor")) {
+    localStorage.setItem("themeColor", value);
+    return
+  }
+
+  if (localStorage.getItem("themeColor")) {
+    localStorage.removeItem("themeColor");
+    return
+  }
+
+}
+
+function useThemeColor() {
+
+  let body = document.body;
+
+  if (JSON.parse(localStorage.getItem("themeColor")) == "dark") {
+    
+    
+    if (!body.classList.contains("dark")) {
+      
+      body.classList.add("dark");
+      changeTextToggle("light mode");
+    }
+  }
+
+  if (!localStorage.getItem("themeColor")) {
+    if (body.classList.contains("dark")) {
+      
+      body.classList.remove("dark");
+      changeTextToggle("dark mode");
+    }
+  }
+}
+
+
+function eventToggleSwitch() {
+  let toggleSwitch = document.querySelector(".container-switch");
+  toggleSwitch.addEventListener("click", (e) => {
+    moveSwitch(e);
+    
+    storeThemeColor();
+    useThemeColor();
+  })
+}
+
 export {
   changeColor,
   linkInput,
@@ -288,4 +355,6 @@ export {
   insertContentInfoBulle,
   styleOfInfoBulle,
   deleteElement,
+  eventToggleSwitch,
+  useThemeColor,
 };
