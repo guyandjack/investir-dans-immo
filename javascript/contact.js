@@ -4,7 +4,7 @@
 
 
 //import des functions
-import { eventToggleSwitch, useThemeColor } from "./utils/functions/other/other.js";
+import { eventToggleSwitch, useThemeColor,isToggleMoved } from "./utils/functions/other/other.js";
 
  // import des regEx
 import {
@@ -482,3 +482,4 @@ function addEventControlOnInput() {
 /*************************** script principal **************************/
 addEventControlOnInput();
 useThemeColor();
+isToggleMoved();

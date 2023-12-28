@@ -189,7 +189,7 @@
           transform: translate(-100%, -50%);
 }
 
-body.dark .container-page {
+body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article {
   background-color: #272727;
   color: #FBFFFE;
   -webkit-transition: all 500ms linear;
@@ -200,8 +200,13 @@ body.dark .toggle-text {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
+body.dark .main-title-article {
+  color: #EFA00B;
+  -webkit-transition: color 500ms linear;
+  transition: color 500ms linear;
+}
 
-body .container-page, body .toggle-text {
+body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }

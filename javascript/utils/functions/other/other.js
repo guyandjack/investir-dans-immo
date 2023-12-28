@@ -1,11 +1,7 @@
 //import du contenu des infos bulles
-import {
-  infoBulleCalculMensualite,
-  
-} from "../../data/content/infoBulle.js";
+import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
 
 //import des referenecce du dom
- 
 
 //Fonction qui fait varier la couleur de fond des span-unite de mesure
 function changeColor() {
@@ -238,10 +234,9 @@ async function createElemntInfoBulle(idInsertion) {
   containerDiv.appendChild(para1);
   containerDiv.appendChild(para2);
   containerDiv.appendChild(para3);
-  
 
   insertionPoint.appendChild(containerDiv);
-  
+
   return containerDiv;
 }
 
@@ -270,70 +265,118 @@ function deleteElement(elementId) {
 }
 
 
-
-function moveSwitch(evt) {
+/**
+ * deplace le toggle switch
+ *
+ * @return {*} 
+ */
+function moveSwitch() {
   let switchToggle = document.querySelector(".switch");
-  
-  switchToggle.classList.toggle("move");// deplacement du toggle awitch
-  
+
+  if (switchToggle.classList.contains("move")) {
+    switchToggle.classList.remove("move");
+    localStorage.removeItem("toggle");//memorisation de la position du switch pour les autres pages du site
+    return;
+  }
+
+  if (!switchToggle.classList.contains("move")) {
+    switchToggle.classList.add("move");
+    localStorage.setItem("toggle", "ok"); //memorisation de la position du switch pour les autres pages du site
+    return;
+  }
 }
 
+/**
+ * positionne le toggle switch à l'ouverture de page  en fonction la memorisation de position
+ *
+ * @return {*} 
+ */
+function isToggleMoved() {
+  let switchToggle = document.querySelector(".switch");
+
+  if (localStorage.getItem("toggle") == "ok") {
+    if (!switchToggle.classList.contains("move")) {
+      switchToggle.classList.add("move");
+    }
+    return;
+  }
+
+  if (!localStorage.getItem("toggle") == "ok") {
+    if (switchToggle.classList.contains("move")) {
+      switchToggle.classList.remove("move");
+    }
+    return;
+  }
+}
+
+/**
+ *
+ * change le text du toogle switch en fonction du theme de couleur choisi
+ * @param {*} text
+ */
 function changeTextToggle(text) {
   let textToggle = document.querySelector(".toggle-text");
   textToggle.innerHTML = text;
-
-  
 }
 
-function storeThemeColor() {
 
+/**
+ * memorise le choix du theme de couleur de l' utilisateur
+ *
+ * @return {*} 
+ */
+function storeThemeColor() {
   let inputCheckBox = document.querySelector("#toggle-switch");
   let value = JSON.stringify(inputCheckBox.value);
 
   if (!localStorage.getItem("themeColor")) {
     localStorage.setItem("themeColor", value);
-    return
+    return;
   }
 
   if (localStorage.getItem("themeColor")) {
     localStorage.removeItem("themeColor");
-    return
+    return;
   }
-
 }
 
-function useThemeColor() {
 
+/**
+ * applique le theme de couleur
+ *@return {*} 
+ */
+function useThemeColor() {
   let body = document.body;
 
   if (JSON.parse(localStorage.getItem("themeColor")) == "dark") {
-    
-    
     if (!body.classList.contains("dark")) {
-      
       body.classList.add("dark");
-      changeTextToggle("light mode");
+      changeTextToggle("Theme clair");
     }
+    return
   }
 
   if (!localStorage.getItem("themeColor")) {
     if (body.classList.contains("dark")) {
-      
       body.classList.remove("dark");
-      changeTextToggle("dark mode");
+      changeTextToggle("Theme sombre");
     }
+    return
   }
 }
 
 
+/**
+ * applique un ecouteur d' évènement sur le toggle switch
+ *
+ */
 function eventToggleSwitch() {
   let toggleSwitch = document.querySelector(".container-switch");
   toggleSwitch.addEventListener("click", (e) => {
     moveSwitch(e);
-    
     storeThemeColor();
     useThemeColor();
-  })
+  });
 }
 
 export {
@@ -357,4 +400,5 @@ export {
   deleteElement,
   eventToggleSwitch,
   useThemeColor,
+  isToggleMoved,
 };

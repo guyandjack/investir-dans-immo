@@ -14,7 +14,7 @@
 //row
 .flex-row-start-center {
   display: flex;
-  flex-flow: row;
+  flex-flow:row;
   justify-content: flex-start;
   align-items: center;
 }
@@ -151,7 +151,7 @@ padding:5px;
 
 body.dark{
 
-  .container-page{
+  .container-page, .container-article, .colapse, .container-text-article{
   background-color: map-get($colors-rule, fourth-color);
   color:map-get($colors-rule, fifth-color);
   transition:all 500ms linear;
@@ -161,10 +161,17 @@ body.dark{
     color:map-get($colors-rule, fifth-color);
     transition:all 500ms linear;
   }
+
+  .main-title-article{
+    color: map-get($colors-rule, second-color);
+    transition: color 500ms linear; 
+  }
+
+  
 }
 
 body{
-  .container-page, .toggle-text{
+  .container-page, .toggle-text, .container-article,.colapse, .container-text-article{
     
     transition:all 500ms linear;
     }

@@ -340,7 +340,6 @@ body {
           align-items: center;
   height: 100%;
   width: 100%;
-  background-color: #f3f3f3;
   color: #272727;
 }
 
@@ -362,11 +361,6 @@ body {
 .h3 {
   font-weight: 600;
   font-size: 1.3em;
-}
-
-.theme-light {
-  background-color: #f3f3f3;
-  color: #272727;
 }
 
 /*******************************************************************************
@@ -560,7 +554,7 @@ body {
           transform: translate(-100%, -50%);
 }
 
-body.dark .container-page {
+body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article {
   background-color: #272727;
   color: #FBFFFE;
   -webkit-transition: all 500ms linear;
@@ -571,8 +565,13 @@ body.dark .toggle-text {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
+body.dark .main-title-article {
+  color: #EFA00B;
+  -webkit-transition: color 500ms linear;
+  transition: color 500ms linear;
+}
 
-body .container-page, body .toggle-text {
+body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
