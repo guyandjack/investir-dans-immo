@@ -220,7 +220,7 @@ function checkValueUserIncome(evt) {
     return false;
   }
   incomeOnYear.innerHTML = parseInt(inputNumberRevenu.value * 12, 10) +  " €/an";
-  incomeOnYear.style.color = "black";
+  //incomeOnYear.style.color = "black";
   return true;
 }
 

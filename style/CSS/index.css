@@ -548,6 +548,23 @@ body {
 /********  **************** flex box **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
+/********  **************** container-page + body  **************** ******************/
+/**** start ******************************************************************************/
+.container-page, body {
+  max-width: 1500px;
+  min-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-page {
+  padding: 3em;
+}
+
+/****************************************************************************************
+/********  **************** container-page + body  **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
 /********  **************** header **************** ******************/
 /**** start ******************************************************************************/
 .header {
@@ -617,7 +634,7 @@ body {
           transform: translate(-100%, -50%);
 }
 
-body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article {
+body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article, body.dark .fieldset {
   background-color: #272727;
   color: #FBFFFE;
   -webkit-transition: all 500ms linear;
@@ -779,13 +796,6 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /****************************************************************************************
 **************************** concerne les svg *******************************************
 ** end ********************************************************************************/
-.container-page {
-  max-width: 1500px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .introduction {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1013,19 +1023,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 ************************** concerne les articles  *************************************
 *** end *****************************************************************************/
 .fieldset {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 0px;
   border-radius: 1em;
   margin: 1em 0em;
   width: 100%;
@@ -1033,22 +1031,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 .calculette-mensualite {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   border-radius: 1em;
-  width: 80%;
-  padding: 1em;
+  width: 100%;
 }
 @media screen and (min-width: 769px) {
   .calculette-mensualite {
@@ -1062,6 +1046,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 .titre-calculette {
+  -ms-flex-item-align: center;
+      align-self: center;
   font-weight: 600;
   margin-top: 1em;
   padding: 1em;
@@ -1170,6 +1156,9 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /*****************  Style de la partie affichage input number et input range**************/
 /****start******************************************************************************/
 .label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
   padding: 0.5em;
   font-weight: 700;
 }
@@ -1198,8 +1187,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
           align-items: center;
   width: 100%;
 }
-.container-input-range > span,
-.container-input-number > span {
+
+.calculette-span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1214,8 +1203,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 20%;
-          flex: 1 0 20%;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
   height: 100%;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
@@ -1255,9 +1244,9 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 .calculette-number {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 75%;
-          flex: 1 0 75%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
   height: 100%;
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
@@ -1347,7 +1336,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 
 .display {
   max-height: 150px;
-  overflow: hidden;
+  overflow-y: hidden;
   -webkit-transition: max-height 300ms linear 0s;
   transition: max-height 300ms linear 0s;
 }

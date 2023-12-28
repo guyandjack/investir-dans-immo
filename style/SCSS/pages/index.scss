@@ -65,7 +65,7 @@
   margin-left: 0.5em;
   margin-right: 1em;
   transition: transform 250ms linear;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .chevron-up {
@@ -79,13 +79,7 @@
 **************************** concerne les svg *******************************************
 ** end ********************************************************************************/
 
-.container-page {
-  max-width: 1500px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em;
-  //border: 2px solid red;
-}
+
 
 .introduction {
   display: flex;
@@ -106,7 +100,6 @@
   margin: 1em 0em;
   width: 100%;
   height: 500px;
-  
 
   // border: 2px solid red;
   background-image: url(../../../Asset/petite-maison-lego-500px.png);
@@ -114,16 +107,14 @@
   background-position: center;
   background-size: cover;
 
-  
   @include upper-medium-screen {
-    
     background-image: url(../../../Asset/petite-maison-lego-1000px.png);
   }
-  
-  @include upper-large-screen{
+
+  @include upper-large-screen {
     flex-flow: row nowrap;
     justify-content: space-evenly;
-  align-items: center;
+    align-items: center;
     width: 100%;
     height: 200px;
     background-repeat: no-repeat;
@@ -221,11 +212,11 @@
   }
 }
 
-.subtitle-article{
+.subtitle-article {
   font-size: 1.2em;
   font-weight: 600;
   margin: 50px 0px 2px 0.5em;
-  color:map-get($colors-rule, first-color);
+  color: map-get($colors-rule, first-color);
   @include upper-large-screen {
     font-size: 1.3em;
   }
@@ -288,11 +279,7 @@
 *** end *****************************************************************************/
 
 .fieldset {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-
+  padding: 0px;
   border-radius: 1em;
   margin: 1em 0em;
 
@@ -302,16 +289,10 @@
 }
 
 .calculette-mensualite {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-
   //border: 4px solid green;
 
   border-radius: 1em;
-  width: 80%;
-  padding: 1em;
+  width: 100%;
 
   @include upper-medium-screen {
     width: 50%;
@@ -322,6 +303,7 @@
 }
 
 .titre-calculette {
+  align-self: center;
   font-weight: 600;
   margin-top: 1em;
   padding: 1em;
@@ -413,6 +395,7 @@
 /****start******************************************************************************/
 
 .label {
+  flex: 1 1 100%;
   padding: 0.5em;
   font-weight: 700;
 }
@@ -431,20 +414,20 @@
 
   width: 100%;
   //border: 2px solid blue;
+}
 
-  & > span {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
+.calculette-span {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 
-    flex: 1 0 20%;
-    height: 100%;
-    border-bottom-right-radius: 1em;
-    border-top-right-radius: 1em;
-    font-weight: 700;
-    background-color: map-get($colors-rule, first-color);
-  }
+  flex: 1 0 30%;
+  height: 100%;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  font-weight: 700;
+  background-color: map-get($colors-rule, first-color);
 }
 
 .container-input-range {
@@ -471,7 +454,7 @@
 }
 
 .calculette-number {
-  flex: 1 0 75%;
+  flex: 0 0 60%;
   height: 100%;
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
@@ -552,7 +535,7 @@
 
 .display {
   max-height: 150px;
-  overflow: hidden;
+  overflow-y: hidden;
   transition: max-height 300ms linear 0s;
 }
 
@@ -628,4 +611,3 @@
 
   }
 }*/
-

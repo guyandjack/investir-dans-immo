@@ -554,7 +554,7 @@ body {
           transform: translate(-100%, -50%);
 }
 
-body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article {
+body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article, body.dark .fieldset {
   background-color: #272727;
   color: #FBFFFE;
   -webkit-transition: all 500ms linear;

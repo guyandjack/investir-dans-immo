@@ -600,10 +600,10 @@
 
       <form
         id="calculette"
-        class="calculette-mensualite"
+        class="flex-column-start-start calculette-mensualite"
         action="calculmensualite.js"
       >
-        <fieldset id="calculette-mensualite" class="fieldset">
+        <fieldset id="calculette-mensualite" class="flex-column-start-start fieldset">
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
             <div id="financement" class="container-label flex-row-start-center">
@@ -704,6 +704,36 @@
           <div class="main-container-input">
             <div id="duree" class="container-label flex-row-start-center">
               <label class="label">Durée:</label>
+              
+            </div>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-duree"
+                min="2"
+                max="30"
+                step="1"
+                required
+              />
+              <span id="periode" class="calculette-span">Ans</span>
+            </div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-duree"
+                min="2"
+                max="30"
+                step="1"
+              />
+            </div>
+          </div>
+          <!--<div class="main-container-input">
+            <div id="duree" class="container-label ">
+              <label class="label">Durée:</label>
             </div>
 
             <div class="container-input-number">
@@ -714,7 +744,7 @@
                 max="30"
                 step="1"
                 required
-              />
+              >
               <span id="periode" class="calculette-span">Ans</span>
             </div>
             <label class="label"></label>
@@ -728,7 +758,7 @@
                 step="1"
               />
             </div>
-          </div>
+          </div>-->
 
           <!-- ******************* container resultat calculette ***********************-->
 
@@ -1243,7 +1273,7 @@
 
       
     </div>
-    <footer class="footer flex-row-space-evenly-start">
+    <footer class="footer flex-column-start-center">
         <div class="flex-column-start-start container-list-footer">
           <div class="title-list-footer ">A propos</div>
           <ul class="menu-footer">
