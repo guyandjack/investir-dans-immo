@@ -375,6 +375,17 @@ input[type=range]:focus::-moz-range-thumb {
   outline-offset: 0.125rem;
 }
 
+/**************************************************************
+*************  police pour le site *****************************
+******************************************************************/
+@font-face {
+  font-family: "cantarel";
+  src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
+}
+@font-face {
+  font-family: "fjalla";
+  src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -382,7 +393,7 @@ input[type=range]:focus::-moz-range-thumb {
           box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: "Roboto Slab", serif;
+  font-family: "cantarel", sans-serif;
   font-size: 1em;
   font-weight: 500;
 }
@@ -407,7 +418,7 @@ body {
 }
 
 .title {
-  font-family: "Baskervville", serif;
+  font-family: "fjalla", sans-serif;
 }
 
 .h1 {
@@ -645,13 +656,13 @@ body.dark .toggle-text {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
-body.dark .main-title-article {
-  color: #EFA00B;
-  -webkit-transition: color 500ms linear;
-  transition: color 500ms linear;
+body.dark .calculette-number {
+  background-color: #8d8d8d;
+  -webkit-transition: all 500ms linear;
+  transition: all 500ms linear;
 }
 
-body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article {
+body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
@@ -1071,7 +1082,9 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 100%;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
   margin: 1em 0em;
 }
 
@@ -1113,6 +1126,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 
 .container-radio {
@@ -1132,7 +1147,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  margin: 1.5em 0.5em;
+  margin: 1.5em 0.3em;
 }
 .container-radio:hover {
   cursor: pointer;
@@ -1238,8 +1253,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 
 .calculette-range {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 90%;
-          flex: 0 0 90%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
   justify-self: center;
 }
 
@@ -1264,7 +1279,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 ******end****************************************************************************/
 /****************************************************************************************
 /********  Style de la partie affichage resultat calculette mensualite ******************/
-/****start******************************************************************************/
+/**** start ******************************************************************************/
 .container-resultat {
   -ms-flex-item-align: center;
       align-self: center;
@@ -1361,54 +1376,9 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 /****************************************************************************************
-/********  Style de la partie affichage resultat charges et taxe ******************/
-/****start******************************************************************************/
-.disabled {
-  opacity: 0.3;
+/********  Titre de certains fieldset  ******************/
+/**** start ******************************************************************************/
+#type, #regime {
+  -ms-flex-item-align: center;
+      align-self: center;
 }
-
-/****************************************************************************************
-/********  **************** footer **************** ******************/
-/****start******************************************************************************/
-/*.footer {
-  background-color: map-get($colors-rule, fourth-color);
-
-  padding: 1em;
-  width: 100%;
-  @include upper-medium-screen {
-    display: flex;
-    flex-flow: row ;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  }
-}
-
-
-
-.container-list-footer{
-  padding: 3em 0em ;
-  @include upper-medium-screen{
-    align-items: flex-start;
-  }
-}
-
-.title-list-footer{
-  border-bottom: 2px solid map-get($colors-rule, second-color);
-  color: map-get($colors-rule, fifth-color);
-  font-size: 1.4em;
-  font-weight: 600;
-  margin-bottom: 1em;
-}
-
-.menu-footer-li{
-  padding: 1em 0em;
-}
-
-
-.menu-footer-li > a {
-  color: map-get($colors-rule, fifth-color);
-  &:hover{
-    color: map-get($colors-rule, second-color);
-
-  }
-}*/

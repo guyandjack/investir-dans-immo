@@ -3,6 +3,9 @@
 //Import de la charte de couleur
 @import "../../utils/colors-rule/colors-rule.scss";
 
+//Import des fonts
+@import "../../utils/fonts/font.scss"; 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -10,9 +13,9 @@
   text-decoration: none;
   list-style-type: none;
   
-  //font-family: 'Baskervville', serif; //tittle
   
-  font-family: 'Roboto Slab', serif;//text
+  
+  font-family: 'cantarel', sans-serif; //text
   font-size: 1em;
   font-weight: 500;
 }
@@ -31,7 +34,7 @@ body{
 }
 
 .title{
-  font-family: 'Baskervville', serif; //tittle
+  font-family: 'fjalla', sans-serif; //tittle
 }
 
 .h1{

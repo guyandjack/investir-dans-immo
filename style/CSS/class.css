@@ -217,13 +217,13 @@ body.dark .toggle-text {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
-body.dark .main-title-article {
-  color: #EFA00B;
-  -webkit-transition: color 500ms linear;
-  transition: color 500ms linear;
+body.dark .calculette-number {
+  background-color: #8d8d8d;
+  -webkit-transition: all 500ms linear;
+  transition: all 500ms linear;
 }
 
-body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article {
+body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }

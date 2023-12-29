@@ -183,19 +183,17 @@ body.dark{
     color:map-get($colors-rule, fifth-color);
     transition:all 500ms linear;
   }
-
-  .main-title-article{
-    color: map-get($colors-rule, second-color);
-    transition: color 500ms linear; 
+ 
+  .calculette-number{
+    background-color: lighten(map-get($colors-rule, fourth-color), 40%);
+    transition:all 500ms linear;
   }
-
-  
 
   
 }
 
 body{
-  .container-page, .toggle-text, .container-article,.colapse, .container-text-article{
+  .container-page, .toggle-text, .container-article,.colapse, .container-text-article, .calculette-number{
     
     transition:all 500ms linear;
     }

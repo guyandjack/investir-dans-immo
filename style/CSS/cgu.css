@@ -312,6 +312,17 @@ template {
   display: none;
 }
 
+/**************************************************************
+*************  police pour le site *****************************
+******************************************************************/
+@font-face {
+  font-family: "cantarel";
+  src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
+}
+@font-face {
+  font-family: "fjalla";
+  src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -319,7 +330,7 @@ template {
           box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: "Roboto Slab", serif;
+  font-family: "cantarel", sans-serif;
   font-size: 1em;
   font-weight: 500;
 }
@@ -344,7 +355,7 @@ body {
 }
 
 .title {
-  font-family: "Baskervville", serif;
+  font-family: "fjalla", sans-serif;
 }
 
 .h1 {
@@ -485,6 +496,23 @@ body {
 /********  **************** flex box **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
+/********  **************** container-page + body  **************** ******************/
+/**** start ******************************************************************************/
+.container-page, body {
+  max-width: 1500px;
+  min-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-page {
+  padding: 3em;
+}
+
+/****************************************************************************************
+/********  **************** container-page + body  **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
 /********  **************** header **************** ******************/
 /**** start ******************************************************************************/
 .header {
@@ -565,13 +593,13 @@ body.dark .toggle-text {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
-body.dark .main-title-article {
-  color: #EFA00B;
-  -webkit-transition: color 500ms linear;
-  transition: color 500ms linear;
+body.dark .calculette-number {
+  background-color: #8d8d8d;
+  -webkit-transition: all 500ms linear;
+  transition: all 500ms linear;
 }
 
-body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article {
+body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }

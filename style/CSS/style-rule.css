@@ -1,3 +1,14 @@
+/**************************************************************
+*************  police pour le site *****************************
+******************************************************************/
+@font-face {
+  font-family: "cantarel";
+  src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
+}
+@font-face {
+  font-family: "fjalla";
+  src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -5,7 +16,7 @@
           box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: "Roboto Slab", serif;
+  font-family: "cantarel", sans-serif;
   font-size: 1em;
   font-weight: 500;
 }
@@ -30,7 +41,7 @@ body {
 }
 
 .title {
-  font-family: "Baskervville", serif;
+  font-family: "fjalla", sans-serif;
 }
 
 .h1 {
