@@ -2,6 +2,8 @@
  * Ensemble des fonctions de controle des données utilisateur       ******
  * *************************************************************************/
 
+//Import des regEx
+import { masqueNumber } from "../../regEx/regEx.js";
 
 /**
  *Determine si l'expression' entrée en parametre est un nombre.
@@ -11,10 +13,10 @@
  */
 
 function testIfNumber(expression) {
-  if (Number.isNaN(expression)) {
-    return false;
+  if (masqueNumber.test(expression) == true) {
+    return true;
   }
-  return true;
+  return false;
 }
 
 /**
@@ -26,14 +28,14 @@ function testIfNumber(expression) {
  */
 function checkValueUserMonthly(evt) {
   //Test si la valeurs de l'input user est un nombre
-  let isNumber = testIfNumber(evt.target.value);
-  console.log("etat de testIfNnumber: " + isNumber);
+  let stringToTest = evt.target.value;
+  let isNumber = testIfNumber(stringToTest);
+
   if (!isNumber) {
-    containerResultat.classList.add("error");
-    resultat.innerHTML = "Veuillez entrer une valeur valide !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+    resultatError.innerHTML = "Veuillez entrer une valeur valide !";
     return false;
   }
 
@@ -44,34 +46,35 @@ function checkValueUserMonthly(evt) {
     inputNumberPrix.value == "" ||
     inputNumberPrix.value == null
   ) {
-    containerResultat.classList.add("error"); //backgcolor orange
-    resultat.classList.add("resultat-error"); //color white
-    resultat.innerHTML = "Veuillez entrer un prix valide !"; //error message
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Veuillez entrer un montant à financer valide !";
+
     return false;
   }
 
   if (parseInt(inputNumberPrix.value, 10) < 0) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Le montant de l'emprunt doit etre positif !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Le montant de l'emprunt doit etre positif !";
+
     return false;
   }
 
   if (
     parseInt(inputNumberPrix.value, 10) < parseInt(inputNumberApport.value, 10)
   ) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Le prix du bien doit etre superieur à l'apport !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML =
+      "Le prix du bien doit etre superieur à l'apport !";
+
     return false;
   }
 
@@ -81,33 +84,33 @@ function checkValueUserMonthly(evt) {
     inputNumberApport.value == "" ||
     inputNumberApport.value == null
   ) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Veuillez entrer une valeur d'apport valide !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Veuillez entrer une valeur d'apport valide !";
+
     return false;
   }
   if (
     parseInt(inputNumberApport.value, 10) > parseInt(inputNumberPrix.value, 10)
   ) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre apport est supérieur au prix du bien !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Votre apport est supérieur au prix du bien !";
+
     return false;
   }
 
   if (parseInt(inputNumberApport.value, 10) < 0) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre apport ne peut pas être negatif !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Votre apport doit être positif !";
+
     return false;
   }
 
@@ -118,32 +121,34 @@ function checkValueUserMonthly(evt) {
     inputNumberTaeg.value == "" ||
     inputNumberTaeg.value == null
   ) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Veuillez entrer un taux valide !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Veuillez entrer un taux valide !";
+
     return false;
   }
 
   if (parseFloat(inputNumberTaeg.value, 10) <= 0) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre taux d'emprunt ne peut pas être égal ou inférieur à zero !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML =
+      "Votre taux d'emprunt ne peut pas être égal ou inférieur à zero !";
+
     return false;
   }
 
   if (parseFloat(inputNumberTaeg.value, 10) > 8) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre taux d'emprunt ne peut pas superieur à 8% !";
-    containerInterest.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML =
+      "Votre taux d'emprunt ne peut pas superieur à 8% !";
+
     return false;
   }
 
@@ -154,40 +159,41 @@ function checkValueUserMonthly(evt) {
     inputNumberDuree.value == "" ||
     inputNumberDuree.value == null
   ) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "veuillez entrer une durée valide!";
-    interestCredit.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "veuillez entrer une durée valide!";
+
     return false;
   }
 
   if (parseInt(inputNumberDuree.value, 10) < 0) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre duré d'emprunt ne peut pas être negative!";
-    interestCredit.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML = "Votre duré d'emprunt ne peut pas être negative!";
+
     return false;
   }
 
-  if (parseInt(inputNumberDuree.value, 10) > 30) {
-    containerResultat.classList.add("error");
-    resultat.classList.add("resultat-error");
-    resultat.innerHTML = "Votre durée d'emprunt ne peut pas superieur à 30ans!";
-    interestCredit.classList.add("hide");
-    mensualiteTextStart.classList.add("hide");
-    mensualiteTextEnd.classList.add("hide");
+  if (parseInt(inputNumberDuree.value, 10) > 35) {
+    if (resultatError.classList.contains("hide")) {
+      resultatError.classList.replace("hide", "display-error");
+    }
+
+    resultatError.innerHTML =
+      "Votre durée d'emprunt ne peut pas superieur à 35ans!";
+
     return false;
   }
-  containerResultat.classList.remove("error");
-  resultat.classList.remove("resultat-error");
-  interestCredit.classList.remove("hide");
-  containerInterest.classList.remove("hide");
-  mensualiteTextStart.classList.remove("hide");
-  mensualiteTextEnd.classList.remove("hide");
+
+  //suprime del div resultat-error
+  if (resultatError.classList.contains("display-error")) {
+    resultatError.innerHTML = "";
+    resultatError.classList.replace("display-error", "hide");
+  }
   return true;
 }
 
@@ -219,8 +225,8 @@ function checkValueUserIncome(evt) {
     incomeOnYear.style.color = "red";
     return false;
   }
-  incomeOnYear.innerHTML = parseInt(inputNumberRevenu.value * 12, 10) +  " €/an";
-  //incomeOnYear.style.color = "black";
+  incomeOnYear.innerHTML = parseInt(inputNumberRevenu.value * 12, 10) + " €/an";
+  incomeOnYear.style.color = "inherit";
   return true;
 }
 
@@ -228,120 +234,114 @@ function checkValueUserIncome(evt) {
 function checkValueUserDuty() {
   let errorMessages = [
     "charges de coproprietés",
-    "charges locative",
+    "gestion locative",
     "primes d'assurance (PNO)",
-    "primes d' assurance loyer impayé",
-    "taxe fonciére",
+    "primes d'assurance loyer impayé",
+    "taxe foncière",
     "taxe d'habitation",
   ];
 
-  let inputs = document.querySelectorAll("#charge-taxe input[type='number]");
+  for (let i = 0; i < inputsNumberTaxe.length; i++){
 
-  inputs.forEach((input, index) => {
+    let inputValue = inputsNumberTaxe[i].value;
+    
+    console.log("input value: " + inputValue)
+
     //Test si la valeur est un nombre
-    let isNumber = testIfNumber(input.value);
+    let isNumber = testIfNumber(inputValue);
+    console.log("isnumber: " + isNumber)
+
     if (!isNumber) {
-      containerResultatBalance.classList.remove("error");
-      containerResultatBalance.classList.add("error");
-      equilibreTextStart.innerHTML =
-        "Veuillez entrer un montant dans le champ " + errorMessages[index];
-
+      if (resultatErrorEquilibre.classList.contains("hide")) {
+        resultatErrorEquilibre.classList.replace("hide", "display-error");
+      }
+  
+      resultatErrorEquilibre.innerHTML =
+        "Veuillez entrer un nombre dans le champ " + errorMessages[i];
+      
       return false;
     }
 
-    //test si la valeur est non null
+    //test si la valeur est  null, vide ou undefined
     if (
-      inputNumber.value == "undefined" ||
-      inputNumber.value == "" ||
-      inputNumber.value == null
+      inputValue === "undefined" ||
+      inputValue === "" ||
+      inputValue === null
     ) {
-      containerResultatBalance.classList.remove("error");
-      containerResultatBalance.classList.add("error");
-      equilibreTextStart.innerHTML =
+      if (resultatErrorEquilibre.classList.contains("hide")) {
+        resultatErrorEquilibre.classList.replace("hide", "display-error");
+      }
+  
+      resultatErrorEquilibre.innerHTML =
         "Veuillez entrer une valeur valide dans le champ " +
-        errorMessages[index];
-      errorMessages[index];
+        errorMessages[i];
+  
+      return false;
+    }
+    //test si la valeur est negative
+    if (parseInt(inputValue) < 0) {
+      if (resultatErrorEquilibre.classList.contains("hide")) {
+        resultatErrorEquilibre.classList.replace("hide", "display-error");
+      }
+  
+      resultatErrorEquilibre.innerHTML =
+        "Votre valeur " + errorMessages[i] + " est négative!";
       return false;
     }
 
-    //test si la valeur est positive
-    if (parseInt(input.value) < 0) {
-      containerResultatBalance.classList.remove("error");
-      containerResultatBalance.classList.add("error");
-      equilibreTextStart.innerHTML =
-        "Votre valeur " + errorMessages[index] + " est negative!";
-      return false;
-    }
 
-    //test si la valeur n'est pas supérieur à 10000
-    if (parseInt(input.value) > 10000) {
-      containerResultatBalance.classList.remove("error");
-      containerResultatBalance.classList.add("error");
-      equilibreTextStart.innerHTML =
-        "Votre valeur" + errorMessages[index] + " est supérireur à 10000 ";
-      return false;
-    }
-  });
+  }  
+  if (resultatErrorEquilibre.classList.contains("display-error")) {
+    resultatErrorEquilibre.innerHTML = "";
+    resultatErrorEquilibre.classList.replace("display-error", "hide");
+  }
+  return true;
+  
+}
 
-  containerResultatBalance.classList.remove("error");
+/**
+ * test si le user à cocher un "type de location", "tranche d'imposition" et un "regime d'imposition"
+ *
+ * @return {} boolean
+ */
+function checkValueUserRadioFiscal() {
+  //condition 1: un type de location doit etre choisi
+  let inputRadioTypeLocation = document.querySelectorAll(
+    "#location-type-container-radio input[name='type-location']:checked"
+  );
+  if (inputRadioTypeLocation.length < 1) {
+    bilanResultat.innerHTML = "Veuillez sélectionner un type de location.";
+    return false;
+  }
+
+  //condition 2: une tranche d'imposition doit etre choisi
+  let inputRadioChoiceImpot = document.querySelectorAll(
+    "#fiscal input[name='taux-impot']:checked"
+  );
+
+  if (inputRadioChoiceImpot.length < 1) {
+    bilanResultat.innerHTML = "Veuillez sélectionner une tranche d'imposition.";
+    return false;
+  }
+
+  //condition 3: un regime d' imposition sur revenu foncier doit etre choisi
+  let inputRadioChoiceFiscal = document.querySelectorAll(
+    "#fiscal input[name='regime-fiscal']:checked"
+  );
+
+  if (inputRadioChoiceFiscal.length < 1) {
+    bilanResultat.innerHTML =
+      "Veuillez sélectionner un régime fiscal réel ou forfaitaire";
+    return false;
+  }
+
   return true;
 }
 
-
-
-/**
- * test si le user à cocher un "type de location", "tranche d' imposition" et un "regime d' imposition"
- * 
- * @return {} boolean 
- */
-function checkValueUserRadioFiscal() {
-    
-    //condition 1: un type de location doit etre choisi
-    let inputRadioTypeLocation = document.querySelectorAll(
-      "#location-type-container-radio input[name='type-location']:checked"
-    );
-    if (inputRadioTypeLocation.length < 1) {
-      bilanResultat.innerHTML =
-        "Veuillez sélectionner un type de location.";
-      return false;
-    }
-
-
-    //condition 2: une tranche d'imposition doit etre choisi
-    let inputRadioChoiceImpot = document.querySelectorAll(
-        "#fiscal input[name='taux-impot']:checked"
-    );
-
-    if (inputRadioChoiceImpot.length < 1) {
-        bilanResultat.innerHTML = "Veuillez sélectionner une tranche d'imposition.";
-        return false
-    }
-
-    //condition 3: un regime d' imposition sur revenu foncier doit etre choisi
-    let inputRadioChoiceFiscal = document.querySelectorAll(
-        "#fiscal input[name='regime-fiscal']:checked"
-    );
-
-    if (inputRadioChoiceFiscal.length < 1) {
-        bilanResultat.innerHTML =
-            "Veuillez sélectionner un régime fiscal réel ou forfaitaire";
-        return false
-    }
-
-    return true
-}
-
-
-
-
-
-
-
 export {
-    testIfNumber,
-    checkValueUserMonthly,
-    checkValueUserDuty,
-    checkValueUserIncome,
-    checkValueUserRadioFiscal,
-    
+  testIfNumber,
+  checkValueUserMonthly,
+  checkValueUserDuty,
+  checkValueUserIncome,
+  checkValueUserRadioFiscal,
 };

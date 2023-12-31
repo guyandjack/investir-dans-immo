@@ -12,14 +12,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--google font
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baskervville&family=Roboto+Slab&display=swap"
-      rel="stylesheet"
-    />-->
-
     <!--google icon-->
 
     <!-- Feuilles de style-->
@@ -36,22 +28,16 @@
     <script
       type="module"
       src="../javascript/utils/functions/basicCalcul/basicCalcul.js"
-      defer
     ></script>
 
     <!--script qui contient les fonctions qui gerent le sequencage desfonctions de calcul-->
     <script
       type="module"
       src="../javascript/utils/functions/addEvent/addEvent.js"
-      defer
     ></script>
 
     <!--script principal-->
-    <script
-      type="module"
-      src="../javascript/calculmensualite.js"
-      defer
-    ></script>
+    <script type="module" src="../javascript/calculmensualite.js"></script>
   </head>
 
   <body>
@@ -81,17 +67,29 @@
     </svg>
     <div class="container-page flex-column-start-center">
       <header class="header flex-row-start-center">
-            <nav class="nav">
-                <ul class="menu flex-row-start-center">
-                    <li class="menu-li"><a class="menu-li-a" href="http://127.0.0.1:5500/html/index.html">Accueil</a></li>
-                    <li class="menu-li"><a class="menu-li-a" href="http://127.0.0.1:5500/html/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="container-toggle flex-row-start-center">
-              <label for="toggle-switch" class="container-switch"><span class="switch light"></span></label><span class="toggle-text">dark mode</span>
-              <input id="toggle-switch"  type="checkbox" value="dark">
-            </div>
-        </header>
+        <nav class="nav">
+          <ul class="menu flex-row-start-center">
+            <li class="menu-li">
+              <a class="menu-li-a" href="http://127.0.0.1:5500/html/index.html"
+                >Accueil</a
+              >
+            </li>
+            <li class="menu-li">
+              <a
+                class="menu-li-a"
+                href="http://127.0.0.1:5500/html/contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="container-toggle flex-row-start-center">
+          <label for="toggle-switch" class="container-switch"
+            ><span class="switch light"></span></label
+          ><span class="toggle-text">dark mode</span>
+          <input id="toggle-switch" type="checkbox" value="dark" />
+        </div>
+      </header>
       <div class="container-title flex-column-start-center">
         <h1 class="title h1">Investir dans le locatif</h1>
         <h2 class="title h2">Ce que cela coûte en réalité</h2>
@@ -249,7 +247,7 @@
               </p>
               <p>
                 Le coût global de votre emprunt est égal à la différence entre
-                le total des mensualités et le montant de l’emprunt. Ce chiffre
+                le total des mensualités et le montant de l'emprunt. Ce chiffre
                 doit également vous être communiqué par votre banquier.
               </p>
               <p>
@@ -320,9 +318,9 @@
           <div class="colapse colapse-close">
             <div class="container-text-article">
               <p>
-                Qu’il s’agisse de revenus fonciers (location vide) ou de
+                Qu'il s'agisse de revenus fonciers (location vide) ou de
                 bénéfices industriels et commerciaux (location meublée) ils
-                doivent être déclarés puisqu’ils sont soumis à l’impôt sur le
+                doivent être déclarés puisqu'ils sont soumis à l'impôt sur le
                 revenu et aux prélèvements sociaux.
               </p>
               <p>
@@ -417,8 +415,8 @@
               </p>
               <ul class="list">
                 <li class="list-li">
-                  les frais de gestion et d’administration du bien (rémunération
-                  d’un concierge ou frais d’une agence immobilière ou d’un
+                  les frais de gestion et d'administration du bien (rémunération
+                  d'un concierge ou frais d'une agence immobilière ou d'un
                   syndic de copropriété par exemple)
                 </li>
                 <li class="list-li">
@@ -426,23 +424,23 @@
                   locataire telle que la taxe foncière
                 </li>
                 <li class="list-li">
-                  les dépenses de réparation et d’entretien, qu’il s’agisse de
+                  les dépenses de réparation et d'entretien, qu'il s'agisse de
                   travaux occasionnés par la vétusté du logement ou afin de
                   faciliter sa location*
                 </li>
                 <li class="list-li">
-                  les provisions pour charge dans le cadre d’une copropriété
+                  les provisions pour charge dans le cadre d'une copropriété
                 </li>
                 <li class="list-li">
                   les charges locatives, si vous n'êtes pas parvenu à les
-                  récupérer auprès du locataire au 31 décembre de l’année
+                  récupérer auprès du locataire au 31 décembre de l'année
                   suivant son départ
                 </li>
                 <li class="list-li">
-                  l’indemnité d’éviction ou de relogement d’un locataire
+                  l'indemnité d'éviction ou de relogement d'un locataire
                 </li>
-                <li class="list-li">les primes d’assurance</li>
-                <li class="list-li">les intérêts et frais d’emprunt.</li>
+                <li class="list-li">les primes d'assurance</li>
+                <li class="list-li">les intérêts et frais d'emprunt.</li>
               </ul>
               <p>
                 Les intérêts et frais d'emprunt ne sont pas imputable au revenu
@@ -603,7 +601,10 @@
         class="flex-column-start-start calculette-mensualite"
         action="calculmensualite.js"
       >
-        <fieldset id="calculette-mensualite" class="flex-column-start-start fieldset">
+        <fieldset
+          id="calculette-mensualite"
+          class="flex-column-start-start fieldset"
+        >
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
             <div id="financement" class="container-label flex-row-start-center">
@@ -704,7 +705,6 @@
           <div class="main-container-input">
             <div id="duree" class="container-label flex-row-start-center">
               <label class="label">Durée:</label>
-              
             </div>
 
             <div class="container-input-number">
@@ -731,22 +731,39 @@
               />
             </div>
           </div>
-          
 
-          <!-- ******************* container resultat calculette ***********************-->
+          <!-- ****************************************************************************
+            ******************* container resultat calculette *****************************
+          ****** start *********************************************************************-->
 
           <div id="cont-result" class="container-resultat valid">
-            <div class="resultat">
-              <span id="mensualite-text-start" class="text-resultat"></span>
-              <span id="mensualite"></span>
-              <span id="mensualite-text-end" class="text-resultat"></span>
+            <div class="resultat flex-column-start-center">
+              <div>
+                <span id="mensualite-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-mensualite flex-row-start-center">
+                <span id="mensualite"></span>
+                <span id="mensualite-text-end" class="text-resultat"></span>
+              </div>
             </div>
-            <div id="cont-interest" class="resultat">
-              <span id="interest-text-start" class="text-resultat"></span>
-              <span id="interest"></span>
-              <span id="interest-text-end" class="text-resultat"></span>
+
+            <div id="cont-interest" class="resultat flex-column-start-center">
+              <div>
+                <span id="interest-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-interest flex-row-start-center">
+                <span id="interest"></span>
+                <span id="interest-text-end" class="text-resultat"></span>
+              </div>
             </div>
+            <div
+              id="resultat-error-calculette"
+              class="flex-column-center-center resultat-error error hide"
+            ></div>
           </div>
+          <!-- ****************************************************************************
+            ******************* container resultat calculette *****************************
+          ****** end *********************************************************************-->
         </fieldset>
         <fieldset id="type-location" class="flex-column-start-start fieldset">
           <div id="type" class="container-label flex-row-start-center">
@@ -880,7 +897,10 @@
             </div>
           </div>
         </fieldset>
-        <fieldset id="charge-taxe" class="flex-column-start-start fieldset display-taxe">
+        <fieldset
+          id="charge-taxe"
+          class="flex-column-start-start fieldset display-taxe"
+        >
           <h3 class="titre-calculette">Charges et taxes</h3>
           <div class="main-container-input">
             <label class="label">Charges de coproprieté</label>
@@ -1046,9 +1066,11 @@
                 step="100"
               />
             </div>
+          </div>
 
-            <!--************** container resultat equilibre revenu et charge*************************
-            ***********************************************************************-->
+            <!--**********************************************************************************
+            ************** container resultat equilibre revenu et charge*************************
+           ***** start **************************************************************************-->
 
             <div id="cont-result-equilibre" class="container-resultat valid">
               <div id="cont-equilibre-total" class="resultat wrap">
@@ -1061,11 +1083,18 @@
                 <span id="equilibre"></span>
                 <span id="equilibre-text-end" class="text-resultat"></span>
               </div>
+              <div
+              id="resultat-error-equilibre"
+              class="flex-column-center-center resultat-error error hide"
+            ></div>
             </div>
-          </div>
+          
+          <!--**********************************************************************************
+            ************** container resultat equilibre revenu et charge*************************
+          ***** end **************************************************************************-->
         </fieldset>
         <fieldset id="fiscal" class="flex-column-start-start fieldset">
-          <h3 class="titre-calculette">Taux marginal d’imposition.</h3>
+          <h3 class="titre-calculette">Taux marginal d'imposition.</h3>
 
           <div class="main-container-input-radio">
             <div class="container-radio">
@@ -1212,37 +1241,51 @@
           </div>
         </fieldset>
       </form>
-      
-
-      
     </div>
     <footer class="footer flex-column-start-center">
-        <div class="flex-column-start-start container-list-footer">
-          <div class="title-list-footer ">A propos</div>
-          <ul class="menu-footer">
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/contact.html">Contact</a></li>
-            <li class="menu-footer-li"><a href="lien">Webmaster</a></li>
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/cgu.html">Conditions générales d'utilisation</a></li>
-            <li class="menu-footer-li"><a href="http://127.0.0.1:5500/html/cgu.html#mentions-legales">Mentions légales</a></li>
-          </ul>
-        </div>
-        <div class="flex-column-start-start container-list-footer ">
-          <div class="title-list-footer ">Pour approfondir le sujet</div>
-          <ul class="menu-footer">
-            <li class="menu-footer-li">
-              <a href="https://www.service-public.fr/particuliers/vosdroits/F1165">Servicepublic.fr</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.pap.fr/bailleur/choisir-investissement">Particulier à particulier (PAP)</a>
-            </li>
-            <li class="menu-footer-li">
-              <a href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html">Meilleurtaux.com</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+      <div class="flex-column-start-start container-list-footer">
+        <div class="title-list-footer">A propos</div>
+        <ul class="menu-footer">
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/contact.html">Contact</a>
+          </li>
+          <li class="menu-footer-li"><a href="lien">Webmaster</a></li>
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/cgu.html"
+              >Conditions générales d'utilisation</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a href="http://127.0.0.1:5500/html/cgu.html#mentions-legales"
+              >Mentions légales</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="flex-column-start-start container-list-footer">
+        <div class="title-list-footer">Pour approfondir le sujet</div>
+        <ul class="menu-footer">
+          <li class="menu-footer-li">
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F1165"
+              >Servicepublic.fr</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
+          </li>
+          <li class="menu-footer-li">
+            <a href="https://www.pap.fr/bailleur/choisir-investissement"
+              >Particulier à particulier (PAP)</a
+            >
+          </li>
+          <li class="menu-footer-li">
+            <a
+              href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
+              >Meilleurtaux.com</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

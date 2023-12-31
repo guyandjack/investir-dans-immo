@@ -25,6 +25,6 @@ const masqueMail = /^[0-9]{0,4}[0-9a-z_'.-]{2,30}@[0-9a-z_'.-]{2,20}\.[0-9a-zA-Z
 const masqueMessage = /^[^<>{}\[\]*|]{20,200}$/;
 
 //Motif qui permet de controler si une expression est un nombre
-const masqueNumber = /^[0-9]/;
+const masqueNumber = /^[\-]?[0-9.,]{1,6}$/;
 
 export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber };

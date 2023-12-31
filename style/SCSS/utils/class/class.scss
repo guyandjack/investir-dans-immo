@@ -189,6 +189,10 @@ body.dark{
     transition:all 500ms linear;
   }
 
+  .income-year{
+    color: map-get($colors-rule, fifth-color);
+  }
+
   
 }
 

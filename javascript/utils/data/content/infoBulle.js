@@ -20,7 +20,7 @@ const infoBulleCalculMensualite = {
   apport: {
     titre: "L'apport personnel",
     contenu1:
-      "désigne la somme investie dans le projet sans avoir recours à un crédit bancaire.Concrètement, il s’agit de la somme disponible immédiatement",
+      "désigne la somme investie dans le projet sans avoir recours à un crédit bancaire.Concrètement, il s'agit de la somme disponible immédiatement",
     contenu2: "",
     contenu3: "",
   },

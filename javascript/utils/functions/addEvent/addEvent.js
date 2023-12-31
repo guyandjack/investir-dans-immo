@@ -159,6 +159,7 @@ function addEventOnInputDuty() {
   let inputs = document.querySelectorAll(
     "#charge-taxe input[type='number'], #charge-taxe input[type='range']"
   );
+  
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);

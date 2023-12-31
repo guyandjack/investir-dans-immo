@@ -112,6 +112,7 @@ addEventOnInputRadioFiscal();
 addEventOnIconInfo();
 addEventOnIconColapseArticle();
 
+//concerne le toggle switch pour changement de theme de couleur
 eventToggleSwitch();
 useThemeColor();
 isToggleMoved();

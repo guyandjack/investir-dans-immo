@@ -40,6 +40,10 @@
     const interestTextStart = document.querySelector("#interest-text-start");
     const interestCredit = document.querySelector("#interest");
     const interestTextEnd = document.querySelector("#interest-text-end");
+    
+    const resultatError = document.querySelector("#resultat-error-calculette");
+    const resultatErrorEquilibre = document.querySelector("#resultat-error-equilibre");
+
 
 
     /***** fieldset #calculette-mensualite *****/
@@ -78,6 +82,8 @@ const incomeError = document.querySelector(".income-error");
 
     //Conatiner fieldset
     const containerChargeTaxe = document.querySelector("#charge-taxe");
+    const inputsNumberTaxe = document.querySelectorAll("#charge-taxe input[type='number']");
+
 
     //Input de type "Number"
     const inputNumberCopro = document.querySelector("input[name='number-copro']");
