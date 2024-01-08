@@ -1357,6 +1357,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 .text-resultat {
   font-size: 1.1em;
   font-weight: 600;
+  margin-left: 0.5em;
 }
 
 #mensualite,
@@ -1364,7 +1365,6 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 #equilibre-total-revenu,
 #equilibre-total-charge,
 #equilibre {
-  margin-right: 0.5em;
   font-size: 1.2em;
   font-weight: 600;
 }

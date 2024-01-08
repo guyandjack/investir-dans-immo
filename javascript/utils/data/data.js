@@ -48,6 +48,7 @@ let calculatedValue = {
   //impot
   rateIncome: 0,
   fiscalChoice: "",
+  fiscalChoiceMemo: "",
   impotFoncier: 0,
 };
 
@@ -86,4 +87,5 @@ let dataValueInit = {
 
   //choix imposition
   fiscalChoice: "forfaitaire",
+  fiscalChoiceMemo: "forfaitaire"
 };

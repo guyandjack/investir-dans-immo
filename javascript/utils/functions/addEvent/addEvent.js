@@ -311,6 +311,8 @@ function addEventOnInputRadioFiscal() {
       let result = e.target.value;
       //insertion de la valeur ds l'objet
       calculatedValue.fiscalChoice = result;
+      //memorisation du choix utilisateur
+      calculatedValue.fiscalChoiceMemo = result;
       console.log("choix fiscal: " + result);
 
       //si l'input radio "regime forfaitaire" est cochée on affiche les inputs charges de type "forfaitaire"

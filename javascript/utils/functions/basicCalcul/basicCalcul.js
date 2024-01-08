@@ -106,6 +106,7 @@ function initInputValue() {
     10
   );
   inputNumberChargeDeductible.value = parseInt(dataValueInit.deductible, 10);
+  calculatedValue.dutyDeductible = parseInt(dataValueInit.deductible, 10);
 
   /****Input range *******/
   //mesualite
@@ -138,6 +139,7 @@ function initInputValue() {
   //input radio "regime d'imposition"
   inputRadioRegimeForfaitaire.checked = true;
   calculatedValue.fiscalChoice = "forfaitaire";
+  calculatedValue.fiscalChoiceMemo = "forfaitaire";
 }
 
 //initialisation du div resultat impot foncier
@@ -168,6 +170,8 @@ function controlValueOfIncome() {
   let income = parseInt(calculatedValue.income * 12, 10);
   let seuil = 0;
   let typeLocation = calculatedValue.locationType;
+  let fiscalChoiceSave = calculatedValue.fiscalChoiceMemo;
+  console.log("fiscal choice user memo: " + fiscalChoiceSave);
 
   switch (typeLocation) {
     case "nue":
@@ -183,7 +187,9 @@ function controlValueOfIncome() {
   }
 
   if (income > seuil) {
+
     //Modification du choix fiscal
+    inputRadioRegimeReel.checked = true;
     calculatedValue.fiscalChoice = "reel";
 
     //Modification du titre
@@ -200,31 +206,57 @@ function controlValueOfIncome() {
   }
 
   if (income <= seuil) {
-    //Modification du choix fiscal
-    //calculatedValue.fiscalChoice == "forfaitaire";
+    
 
     //Modifie le titre
     titreRegimeImposition.innerHTML = "Choix du regime d'imposition.";
 
-    //Affiche les charges de type "forfaitaire"
-    //hideChargeReel();
-    //displayChargeForfaitaire();
-
     //Affiche les inputs de type radio
     displayInputRadioRegimeFiscal();
+
+    switch (fiscalChoiceSave) {
+      case "reel":
+        //Modification du choix fiscal
+        calculatedValue.fiscalChoice == "reel";
+        calculatedValue.fiscalChoiceMemo == "reel";
+        inputRadioRegimeForfaitaire.checked = false;
+        inputRadioRegimeReel.checked = true;
+
+        //Affiche les charges de type "reel"
+        hideChargeForfaitaire();
+        displayChargeReel();
+        break;
+
+      case "forfaitaire":
+        //Modification du choix fiscal
+        calculatedValue.fiscalChoice == "forfaitaire";
+        calculatedValue.fiscalChoiceMemo == "forfaitaire";
+        inputRadioRegimeReel.checked = false;
+        inputRadioRegimeForfaitaire.checked = true;
+        //Affiche les charges de type "forfaitaire"
+        hideChargeReel();
+        displayChargeForfaitaire();
+        break;
+
+      default:
+        break;
+    }
+    
+
+    
 
     return "choice";
   }
 }
 
-function getDutyNonDeductible() {
-  let dutyNonDeductible;
+function getTotalDuty() {
+  let dutyTotal;
   if (
     calculatedValue.locationType == "nue" &&
     calculatedValue.fiscalChoice == "forfaitaire"
   ) {
-    dutyNonDeductible =
-      //emprunt
+    dutyTotal =
+      //mensualite emprunt
       parseInt(calculatedValue.mensualite * 12) +
       //charges
       parseInt(inputNumberCopro.value, 10) +
@@ -237,9 +269,10 @@ function getDutyNonDeductible() {
     calculatedValue.locationType == "nue" &&
     calculatedValue.fiscalChoice == "reel"
   ) {
-    dutyNonDeductible =
-      //emprunt
+    dutyTotal =
+      //mensualite emprunt
       parseInt(calculatedValue.mensualite * 12) +
+      //charges
       parseInt(inputNumberHabitation.value, 10) +
       parseInt(inputNumberChargeNondeductible.value, 10) +
       parseInt(inputNumberChargeDeductible.value, 10);
@@ -247,8 +280,8 @@ function getDutyNonDeductible() {
     calculatedValue.locationType == "meuble" &&
     calculatedValue.fiscalChoice == "forfaitaire"
   ) {
-    dutyNonDeductible =
-      //emprunt
+    dutyTotal =
+      //mensualite emprunt
       parseInt(calculatedValue.mensualite * 12) +
       //charges
       parseInt(inputNumberCopro.value, 10) +
@@ -262,26 +295,27 @@ function getDutyNonDeductible() {
     calculatedValue.locationType == "meuble" &&
     calculatedValue.fiscalChoice == "reel"
   ) {
-    dutyNonDeductible =
-      //emprunt
+    dutyTotal =
+      //mensualite emprunt
       parseInt(calculatedValue.mensualite * 12) +
+      //charges
       parseInt(inputNumberHabitation.value, 10) +
       parseInt(inputNumberChargeNondeductible.value, 10) +
       parseInt(inputNumberChargeDeductible.value, 10) +
       parseInt(inputNumberCfe.value, 10);
   } else {
-    console.log("total des charges:" + dutyNonDeductible);
+    console.log("total des charges:" + dutyTotal);
     return false;
   }
-  console.log("total des charges:" + dutyNonDeductible);
-  calculatedValue.duty = dutyNonDeductible;
-  return dutyNonDeductible;
+  console.log("total des charges:" + dutyTotal);
+  calculatedValue.duty = dutyTotal;
+  return dutyTotal;
 }
 
-//fonction qui etabli un bilan entre revenu locatif auquel on soustrait  "charge" et "mesualite*12"
+//fonction qui etabli un bilan entre revenu locatif auquel on soustrait  "charge" et "mensualite*12"
 //bilan avant imposition
 function balance() {
-  getDutyNonDeductible();
+  getTotalDuty();
 
   //insertion dans le DOM bilan avant imposition
   totalChargeTextStart.innerHTML = "Total charge (dont mensualités): ";
@@ -300,7 +334,7 @@ function balance() {
   equilibreTextEnd.innerHTML = " €/an";
 }
 
-//determination de l'assiette imposable en fonction du "type de location" et du "regime d'imposition"
+//détermination de l'assiette imposable en fonction du "type de location" et du "regime d'imposition"
 function getAssietteImposable() {
   //-1- location "nue" regime imposition forfaitaire
   if (
@@ -328,8 +362,9 @@ function getAssietteImposable() {
 
   //-3- location "nue" ou "meublée" regime imposition "réel"
   else if (calculatedValue.fiscalChoice == "reel") {
+    console.log("charge deductible : " + calculatedValue.dutyDeductible);
     let assietteImposable = parseInt(
-      calculatedValue.income * 12 - calculatedValue.dutyDeductible,
+     ( calculatedValue.income * 12) - calculatedValue.dutyDeductible,
       10
     );
     return assietteImposable;
@@ -339,8 +374,8 @@ function getAssietteImposable() {
 }
 
 function calculeImpotRevenuFoncier() {
-
   let assietteImposable = getAssietteImposable();
+  console.log("assiette impo: " + assietteImposable);
   let tauxMarginalImposition = getTauxMarginalImposition();
 
   if (assietteImposable < 0) {
@@ -371,88 +406,29 @@ function calculeImpotRevenuFoncier() {
 }
 
 function bilanApresImposition() {
+  
 
-  if (calculatedValue.fiscalChoice == "reel") {
-    //En regime reel location nue  bilan = revenu - les charges deductibles - charges non deductible - impots sur revenu locatif
-    let chargeNonDeductible = parseInt(
-      inputNumberHabitation.value + inputNumberChargeNondeductible.value,
-      10
-    );
-    //En regime reel location meuble on rajoute la cfe dans les charges
-    if (calculatedValue.locationType == "meuble") {
-       chargeNonDeductible = parseInt(
-        inputNumberHabitation.value +
-          inputNumberChargeNondeductible.value +
-          inputNumberCfe.value,
-        10
-      );
-    }
-    let bilan = parseInt(
-      (calculatedValue.income * 12) -
-        calculatedValue.dutyDeductible -
-        chargeNonDeductible -
-        calculatedValue.impotFoncier,
-      10
-    );
+  let bilanFinal = calculatedValue.balance - calculatedValue.impotFoncier;
+  //affichage dans bilan final
+  bilanTextStart.innerHTML = "Bilan après imposition: ";
+  bilanResultat.innerHTML = bilanFinal;
+  bilanTextEnd.innerHTML = " €/an";
 
-    //affichage dans bilan final
-    bilanTextStart.innerHTML = "Bilan après imposition: ";
-    bilanResultat.innerHTML = bilan;
-    bilanTextEnd.innerHTML = " €/an";
-
-    if (bilan < 0) {
-      coutTextStart.innerHTML =
-        "Dans ces conditions, votre bien en location vous coûte:";
-      coutResultat.innerHTML = parseInt(Math.abs(bilan / 12),10);
-      coutTextEnd.innerHTML = " €/mois";
-    }
-
-    if (bilan >= 0) {
-      coutTextStart.innerHTML =
-        "Dans ces conditions, votre bien en location vous permet de gagner";
-      coutResultat.innerHTML = parseInt((bilan / 12), 10);
-      coutTextEnd.innerHTML = " €/mois";
-    }
+  if (bilanFinal < 0) {
+    coutTextStart.innerHTML =
+      "Dans ces conditions, votre bien en location vous coûte:";
+    coutResultat.innerHTML = parseInt(Math.abs(bilanFinal / 12), 10);
+    coutTextEnd.innerHTML = " €/mois";
   }
 
-
-  if (calculatedValue.fiscalChoice == "forfaitaire") {
-    
-    //En regime forfaitaire location nue  bilan = revenu - les charges deductibles - charges non deductible - impots sur revenu locatif
-    let chargeNonDeductible = parseInt( calculatedValue.duty,10 );
-    
-    //En regime forfaitaire location meuble on rajoute la cfe dans les charges
-    if (calculatedValue.locationType == "meuble") {
-       chargeNonDeductible = parseInt( calculatedValue.duty +  inputNumberCfe.value, 10);
-    }
-    let bilan = parseInt(
-      (calculatedValue.income * 12) -        
-        chargeNonDeductible -
-        calculatedValue.impotFoncier,
-      10
-    );
-
-    //affichage dans bilan final
-    bilanTextStart.innerHTML = "Bilan après imposition: ";
-    bilanResultat.innerHTML = bilan;
-    bilanTextEnd.innerHTML = " €/an";
-
-    if (bilan < 0) {
-      coutTextStart.innerHTML =
-        "Dans ces conditions, votre bien en location vous coûte:";
-      coutResultat.innerHTML = parseInt(Math.abs(bilan / 12),10);
-      coutTextEnd.innerHTML = " €/mois";
-    }
-
-    if (bilan >= 0) {
-      coutTextStart.innerHTML =
-        "Dans ces conditions, votre bien en location vous permet de gagner";
-      coutResultat.innerHTML = parseInt((bilan / 12),10);
-      coutTextEnd.innerHTML = " €/mois";
-    }
+  if (bilanFinal >= 0) {
+    coutTextStart.innerHTML =
+      "Dans ces conditions, votre bien en location vous permet de gagner";
+    coutResultat.innerHTML = parseInt(bilanFinal / 12, 10);
+    coutTextEnd.innerHTML = " €/mois";
   }
 
-
+  
 }
 
 export {
