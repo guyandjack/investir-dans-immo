@@ -34,6 +34,7 @@ import {
   incomeByYear,
   balance,
   calculeImpotRevenuFoncier,
+  bilanApresImposition
   
   
 } from "./utils/functions/basicCalcul/basicCalcul.js"
@@ -79,23 +80,16 @@ changeColor();
 //Calcule le revenu sur un an avec les valeurs d'initialiasation
 incomeByYear();
 
-/*// affiche ou suprime des elements en fonction du montant des revenus foncier sur l^'année
-let choice = controlValueOfIncome();
-if (choice === "choice") {
-  //etabli un bilan avant imposition (revenu - charge courante - mensualite)
-  balance();
-}*/
-
-//etabli un bilan avant imposition (revenu - charge courante - mensualite)
-balance();
-
-
 //Test si au moins une input "tranche d'imposition" et "choix du regime fiscal" a ete selectionnée
 checkValueUserRadioFiscal();
 
+//Billan avant imposition
+balance();
+
 //Calcul le bilan apres imposition
 
-//calculeImpotRevenuFoncier();
+calculeImpotRevenuFoncier();
+bilanApresImposition();
 
 /**** Routine d'initialisation /
  /** end **/
@@ -109,7 +103,11 @@ addEventOnInputDuty();
 addEventOnInputRadioTypeLocation();
 addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();
+
+//concerne les fenetre information
 addEventOnIconInfo();
+
+//concerne le conteneur des articles
 addEventOnIconColapseArticle();
 
 //concerne le toggle switch pour changement de theme de couleur

@@ -279,6 +279,7 @@
 *** end *****************************************************************************/
 
 .fieldset {
+  position: relative;
   padding: 0px;
   border-radius: 1em;
   margin: 1em 0em;
@@ -430,6 +431,7 @@
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
   font-weight: 700;
+  font-size: 1.3em;
   background-color: map-get($colors-rule, first-color);
 }
 
@@ -443,11 +445,12 @@
 .container-input-number {
   width: 100%;
   height: 3em;
+  overflow: hidden;
 }
 
 .calculette-range,
 .calculette-number {
-  // width: 100%;
+  
   margin: 1em 0em;
 }
 
@@ -462,14 +465,43 @@
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
   padding-left: 1em;
+  
   background-color: lighten(map-get($colors-rule, fourth-color), 60%);
   font-size: 1.3em;
+  
 }
 
 .gain-advice,
 .income-year {
   padding-left: 1em;
 }
+
+.input-valid{
+  border-top: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+  border-left: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+  border-bottom: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+}
+
+.input-error{
+  border-top: 2px solid red;
+  border-left: 2px solid red;
+  border-bottom: 2px solid red;
+}
+
+.span-valid{
+  border-top: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+  border-right: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+  border-bottom: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+}
+
+.span-error{
+  border-top: 2px solid red;
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+  outline: 5px solid red;
+}
+
+
 
 /***************  Style de la partie affichage input number et input range***********
 ******end****************************************************************************/
@@ -495,7 +527,7 @@
   width: 100%;
   height:100%;
   border-radius: 1em;
-  border: 2px solid red;
+  //border: 2px solid red;
   padding: 1em;
   
   
@@ -532,13 +564,21 @@
 }
 
 #mensualite,
-#interest {
+#interest,
+#equilibre-total-revenu,
+#equilibre-total-charge,
+#equilibre {
   margin-right: 0.5em;
   font-size: 1.2em;
   font-weight: 600;
 }
 
-.container-interest, .container-mensualite{
+.container-interest, 
+.container-mensualite, 
+.container-equilibre-revenu, 
+.container-equilibre-charge, 
+.container-equilibre,
+.container-bilan{
   margin-top: 1em;
   padding: 1em;
   border-radius: 1em;
@@ -560,16 +600,18 @@
 }
 
 .hide-taxe {
+  position:absolute;
+  //display: none;
   max-height: 0px;
   overflow: hidden;
   padding: 0px;
-  transition: max-height 300ms linear 0s;
+  transition: max-height 200ms linear 0s;
 }
 
 .display-taxe {
-  max-height: 1500px;
-  //overflow: hidden;
-  transition: max-height 300ms linear 0s;
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 500ms linear 0s;
 }
 
 .display-error{

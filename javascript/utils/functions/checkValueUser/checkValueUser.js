@@ -28,14 +28,34 @@ function testIfNumber(expression) {
  */
 function checkValueUserMonthly(evt) {
   //Test si la valeurs de l'input user est un nombre
-  let stringToTest = evt.target.value;
-  let isNumber = testIfNumber(stringToTest);
+  let elementInput = evt.target;
+  let elementInputValue = elementInput.value;
+  let elementSpan;
+  if (evt.target.type == "number") {
+    elementSpan = elementInput.nextElementSibling;
+  }
+  if (evt.target.type == "range") {
+    let containerSpan = elementInput.parentElement.parentElement;
+    elementSpan = containerSpan.querySelector(".calculette-span");
+
+  }
+  console.log("span: " + elementSpan);
+  let isNumber = testIfNumber(elementInputValue);
 
   if (!isNumber) {
     if (resultatError.classList.contains("hide")) {
       resultatError.classList.replace("hide", "display-error");
     }
     resultatError.innerHTML = "Veuillez entrer une valeur valide !";
+
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
+
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -52,6 +72,14 @@ function checkValueUserMonthly(evt) {
 
     resultatError.innerHTML = "Veuillez entrer un montant à financer valide !";
 
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
+
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -61,6 +89,15 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Le montant de l'emprunt doit etre positif !";
+
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
+
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
 
     return false;
   }
@@ -75,6 +112,14 @@ function checkValueUserMonthly(evt) {
     resultatError.innerHTML =
       "Le prix du bien doit etre superieur à l'apport !";
 
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
+
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -89,7 +134,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Veuillez entrer une valeur d'apport valide !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
   if (
@@ -100,7 +152,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Votre apport est supérieur au prix du bien !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -110,7 +169,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Votre apport doit être positif !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -126,7 +192,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Veuillez entrer un taux valide !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -137,7 +210,14 @@ function checkValueUserMonthly(evt) {
 
     resultatError.innerHTML =
       "Votre taux d'emprunt ne peut pas être égal ou inférieur à zero !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -148,7 +228,14 @@ function checkValueUserMonthly(evt) {
 
     resultatError.innerHTML =
       "Votre taux d'emprunt ne peut pas superieur à 8% !";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -164,7 +251,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "veuillez entrer une durée valide!";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -174,7 +268,14 @@ function checkValueUserMonthly(evt) {
     }
 
     resultatError.innerHTML = "Votre duré d'emprunt ne peut pas être negative!";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
@@ -185,14 +286,29 @@ function checkValueUserMonthly(evt) {
 
     resultatError.innerHTML =
       "Votre durée d'emprunt ne peut pas superieur à 35ans!";
+    //style de l'input
+    if (elementInput.classList.contains("input-valid")) {
+      elementInput.classList.replace("input-valid", "input-error");
+    }
 
+    if (elementSpan.classList.contains("span-valid")) {
+      elementSpan.classList.replace("span-valid", "span-error");
+    }
     return false;
   }
 
-  //suprime del div resultat-error
+  //suprime le div resultat-error
   if (resultatError.classList.contains("display-error")) {
     resultatError.innerHTML = "";
     resultatError.classList.replace("display-error", "hide");
+  }
+  //style de l'input
+  if (elementInput.classList.contains("input-error")) {
+    elementInput.classList.replace("input-error", "input-valid");
+  }
+
+  if (elementSpan.classList.contains("span-error")) {
+    elementSpan.classList.replace("span-error", "span-valid");
   }
   return true;
 }
@@ -239,6 +355,9 @@ function checkValueUserDuty() {
     "primes d'assurance loyer impayé",
     "taxe foncière",
     "taxe d'habitation",
+    "cfe",
+    "charges non déductibles",
+    "charges deductibles"
   ];
 
   for (let i = 0; i < inputsNumberTaxe.length; i++){
@@ -257,27 +376,12 @@ function checkValueUserDuty() {
       }
   
       resultatErrorEquilibre.innerHTML =
-        "Veuillez entrer un nombre dans le champ " + errorMessages[i];
+        "Veuillez entrer un nombre dans le champ<br/> « " + errorMessages[i] + " »";
       
       return false;
     }
 
-    //test si la valeur est  null, vide ou undefined
-    if (
-      inputValue === "undefined" ||
-      inputValue === "" ||
-      inputValue === null
-    ) {
-      if (resultatErrorEquilibre.classList.contains("hide")) {
-        resultatErrorEquilibre.classList.replace("hide", "display-error");
-      }
-  
-      resultatErrorEquilibre.innerHTML =
-        "Veuillez entrer une valeur valide dans le champ " +
-        errorMessages[i];
-  
-      return false;
-    }
+    
     //test si la valeur est negative
     if (parseInt(inputValue) < 0) {
       if (resultatErrorEquilibre.classList.contains("hide")) {
@@ -285,7 +389,7 @@ function checkValueUserDuty() {
       }
   
       resultatErrorEquilibre.innerHTML =
-        "Votre valeur " + errorMessages[i] + " est négative!";
+        "Le champ <br/>« " + errorMessages[i] + " » <br/>est négatif !";
       return false;
     }
 

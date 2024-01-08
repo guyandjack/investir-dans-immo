@@ -17,10 +17,10 @@
 import {
   linkInput,
   changeColor,
-  displayInputFiscal,
-  hideInputFiscal,
-  hideChargeAndTaxe,
-  displayChargeAndTaxe,
+  hideChargeForfaitaire,
+  displayChargeForfaitaire,
+  hideChargeReel,
+  displayChargeReel,
   displayInputCfe,
   hideInputCfe,
   hideAElement,
@@ -42,7 +42,8 @@ import {
   controlValueOfIncome,
   balance,
   calculeImpotRevenuFoncier,
-  getIncome,
+  bilanApresImposition,
+ 
 } from "../basicCalcul/basicCalcul.js";
 
 import {
@@ -83,6 +84,7 @@ function addEventOnInputMonthly() {
       let checked = checkValueUserRadioFiscal();
       if (checked) {
         calculeImpotRevenuFoncier();
+        bilanApresImposition();
       }
     });
   });
@@ -103,28 +105,32 @@ function addEventOnInputIncome() {
     input.addEventListener("input", (e) => {
       //lie les inputs "range et "number"
       linkInput(e);
+      calculatedValue.income = e.target.value;
+
+      //Controle le montant des revenus en fonction du choix du regime d'imposition
+      let result = controlValueOfIncome();
+      console.log("type checked: " + result);
+
       //Calcul des revenus fonciers sur une année
       incomeByYear();
-      console.log("fuonction incomeByYear lancée dans l' event.")
-      
+      console.log("fuonction incomeByYear lancée dans l' event.");
+
       //test la validite de l'input "revenu foncier"
       let isValidIncome = checkValueUserIncome(e);
       console.log("test validite revenu foncier: " + isValidIncome);
-      
+
       if (!isValidIncome) {
         return;
       }
       // bilan avant imposition
       balance();
-      
+
       //test si les inputs radio sont cochées
       let isChecked = checkValueUserRadioFiscal();
       console.log("test si les input radio sont selectionnées: : " + isChecked);
       if (!isChecked) {
-        return
+        return;
       }
-
-
 
       //En fonction des revenus foncier on applique differente methode
       let choice = controlValueOfIncome();
@@ -136,12 +142,14 @@ function addEventOnInputIncome() {
         }
         balance();
         calculeImpotRevenuFoncier();
+        bilanApresImposition();
         return;
       }
 
       if (choice === "no-choice") {
         calculatedValue.fiscalChoice == "reel";
         calculeImpotRevenuFoncier();
+        bilanApresImposition();
         return;
       }
     });
@@ -159,7 +167,9 @@ function addEventOnInputDuty() {
   let inputs = document.querySelectorAll(
     "#charge-taxe input[type='number'], #charge-taxe input[type='range']"
   );
-  
+
+  console.log("list charges: ", inputs);
+
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);
@@ -168,11 +178,13 @@ function addEventOnInputDuty() {
       if (!isValid) {
         return;
       }
-      balance();
-      let checked = checkValueUserRadioFiscal();
-      if (checked) {
-        calculeImpotRevenuFoncier();
+      //stocke les charges deductibles 
+      if (e.target.name == "number-deductible" || e.target.name == "range-deductible") {
+        calculatedValue.dutyDeductible = e.target.value
       }
+      balance();
+      calculeImpotRevenuFoncier();
+      bilanApresImposition();
     });
   });
 }
@@ -191,6 +203,7 @@ function addEventOnInputRadioImpot() {
       let checked = checkValueUserRadioFiscal();
       if (checked) {
         calculeImpotRevenuFoncier();
+        bilanApresImposition();
       }
     });
   });
@@ -210,90 +223,48 @@ function addEventOnInputRadioTypeLocation() {
     input.addEventListener("click", (evt) => {
       let inputValue = evt.target.value;
       console.log("input radio type location value: " + inputValue);
-      //insertion dans lôbjet calculatedValue
+      //insertion dans l'ôbjet calculatedValue
       calculatedValue.locationType = inputValue;
 
       //si location meublee est checked
-      if (inputValue == "meuble") {
-        let isDisplay = displayInputCfe(); //affiche les inputs number et range CFE
-        isDisplay
-          .then(() => {
-            addEventOnInputCfe(); // ajoute ecouteur évènement sur inputs number CFE
-            //cache l'input revenu-charge
-            hideAElement("#container-inputs-revenu-charge");
-            //On modifie le titre de l'input number revenus locatifs
-            InsertTextInAElement(
-              "#label-revenu-charge",
-              "Loyer charges comprises"
-            );
-            let checked = checkValueUserRadioFiscal();
-            if (!checked) {
-              return;
-            }
+      if (calculatedValue.locationType == "meuble") {
+        displayInputCfe(); //affiche les inputs number et range CFE
 
-            controlValueOfIncome();
-            calculeImpotRevenuFoncier();
-          })
-          .catch((e) => {
-            console.log("error: " + e);
-          });
+        //On modifie le titre de l'input number revenus locatifs
+        InsertTextInAElement("#label-revenu", "Loyer charges comprises");
+
+        /*let checked = checkValueUserRadioFiscal();
+        if (!checked) {
+          return;
+        }*/
+
+        controlValueOfIncome();
+        balance();
+        calculeImpotRevenuFoncier();
+        bilanApresImposition();
       }
+
       //si location nue est checked
-      if (inputValue == "nue") {
-        removeEventOnInputCfe();
-        let isDisplay = hideInputCfe();
-        isDisplay
-          .then(() => {
-            //affiche l'input revenu-charge
-            displayAElement("#container-inputs-revenu-charge");
-            //On modifie le titre de l'input number revenus locatifs
-            InsertTextInAElement("#label-revenu-charge", "Loyer hors charges ");
-            let checked = checkValueUserRadioFiscal();
-            if (!checked) {
-              return;
-            }
-            controlValueOfIncome();
-            calculeImpotRevenuFoncier();
-          })
-          .catch((e) => {
-            console.log("error: " + e);
-          });
+      if (calculatedValue.locationType == "nue") {
+        hideInputCfe();
+
+        //On modifie le titre de l'input number revenus locatifs
+        InsertTextInAElement("#label-revenu", "Loyer hors charges ");
+        let checked = checkValueUserRadioFiscal();
+        if (!checked) {
+          return;
+        }
+        controlValueOfIncome();
+        balance();
+        calculeImpotRevenuFoncier();
+        bilanApresImposition();
       }
     });
   });
 }
 
-/**
- *  Ajoute des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
 
- * @param {} void
- * @return {} void
- */
-function addEventOnInputCfe() {
-  let inputs = document.querySelectorAll(
-    "#type-location input[name='number-cfe'], #type-location input[name='range-cfe']"
-  );
-  inputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      //let isDisplayed = displayInputCfe();
-      //isDisplayed
-        //.then(() => {
-          linkInput(e);
-          //stockage du montant de la CFE  dans l'objet calculatedValue
-          calculatedValue.cfe = parseInt(e.target.value, 10);
 
-          let isChecked = checkValueUserRadioFiscal();
-          if (!isChecked) {
-            return;
-          }
-          calculeImpotRevenuFoncier();
-        })
-        /*.catch((e) => {
-          console.log("error: " + e);
-        });*/
-    //});
-  });
-}
 /**
  *  supprime des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
 
@@ -312,6 +283,7 @@ function removeEventOnInputCfe() {
           linkInput(e);
 
           calculeImpotRevenuFoncier();
+          bilanApresImposition();
         })
         .catch((e) => {
           console.log("error: " + e);
@@ -337,80 +309,34 @@ function addEventOnInputRadioFiscal() {
       let target = e.target;
       console.log("input radio checked: " + target);
       let result = e.target.value;
+      //insertion de la valeur ds l'objet
       calculatedValue.fiscalChoice = result;
       console.log("choix fiscal: " + result);
 
-      //si l'input radio "reel" est cochée
-      if (result == "reel") {
-        let inputDisplayed = displayInputFiscal();
-        inputDisplayed
-          .then(() => {
-            addEventOnInputFiscal();
-
-            let checked = checkValueUserRadioFiscal();
-            if (checked) {
-              calculeImpotRevenuFoncier();
-            }
-
-            hideChargeAndTaxe();
-            containerChargeTaxe.addEventListener("transitionend", () => {
-              target.scrollIntoView({ behavior: "smooth" });
-            });
-          })
-          .catch((error) => {
-            console.log("error: " + error);
-          });
+      //si l'input radio "regime forfaitaire" est cochée on affiche les inputs charges de type "forfaitaire"
+      if (calculatedValue.fiscalChoice == "forfaitaire") {
+         let result = controlValueOfIncome();
+        hideChargeReel();
+        displayChargeForfaitaire();
       }
 
-      //si l'input radio "forfaitaire" est cochée
-      if (result == "forfaitaire") {
-        let inputDisplayed = hideInputFiscal();
-        inputDisplayed
-          .then(() => {
-            removeEventOnInputFiscal();
-            balance();
-
-            let checked = checkValueUserRadioFiscal();
-            if (checked) {
-              calculeImpotRevenuFoncier();
-            }
-            displayChargeAndTaxe();
-            containerChargeTaxe.addEventListener("transitionend", () => {
-              target.scrollIntoView({ behavior: "smooth" });
-            });
-          })
-          .catch((error) => {
-            console.log("error: " + error);
-          });
+      //si l'input radio "regime reel" est cochée on affiche les inputs charges de type "reel"
+      if (calculatedValue.fiscalChoice == "reel") {
+         let result = controlValueOfIncome();
+        hideChargeForfaitaire();
+        displayChargeReel();
       }
-    });
-  });
-}
 
-/**
- *  Ajoute des écouteurs evenement sur les inputs "number" et "range" du fieldset #fiscal
-
- * @param {} void
- * @return {} void
- */
-
-function addEventOnInputFiscal() {
-  let inputs = document.querySelectorAll(
-    "#fiscal input[name='number-deductible'], #fiscal input[name='range-deductible']"
-  );
-  inputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      linkInput(e);
-      let isValid = checkValueUserRadioFiscal();
-      if (!isValid) {
-        return;
-      }
-      //stockage du choix de regime d'imposition
-      calculatedValue.chargeDeductible = e.target.value;
+      balance();
       calculeImpotRevenuFoncier();
+      bilanApresImposition();
+
+
     });
   });
 }
+
+
 
 /**
  *  Suprime des écouteurs evenement sur les inputs "number" et "range" du fieldset #fiscal
@@ -421,7 +347,7 @@ function addEventOnInputFiscal() {
 
 function removeEventOnInputFiscal() {
   let inputs = document.querySelectorAll(
-    "#fiscal input[type='number'], #fiscal input[type='range']"
+    "#charge-taxe input[type='number'], #charge-taxe input[type='range']"
   );
   inputs.forEach((input) => {
     input.removeEventListener("input", (e) => {
@@ -431,6 +357,7 @@ function removeEventOnInputFiscal() {
       let checked = checkValueUserRadioFiscal();
       if (checked) {
         calculeImpotRevenuFoncier();
+        bilanApresImposition();
       }
     });
   });
@@ -467,7 +394,7 @@ function addEventOnIconInfo() {
     icon.addEventListener("mouseout", (evt) => {
       // recupere l' id parent de  l'element survolé
       let id = getIdOfParentElementHover(evt);
-      console.log("id de l'element:" + id)
+      console.log("id de l'element:" + id);
 
       //suppression du div info bulle
 
@@ -481,7 +408,6 @@ function addEventOnIconColapseArticle() {
 
   listIconCollapse.forEach((icon) => {
     icon.addEventListener("click", (evt) => {
-
       let parent = icon.parentElement;
       console.log("parent: " + parent);
 
@@ -495,18 +421,17 @@ function addEventOnIconColapseArticle() {
       icon.classList.toggle("chevron-up");
 
       //deplie ou replie le colapse
-      
+
       if (colapseElement.classList.contains("colapse-close")) {
-        colapseElement.classList.replace("colapse-close","colapse-open");
-        return
+        colapseElement.classList.replace("colapse-close", "colapse-open");
+        return;
       }
       if (colapseElement.classList.contains("colapse-open")) {
-        colapseElement.classList.replace("colapse-open","colapse-close");
-        return
+        colapseElement.classList.replace("colapse-open", "colapse-close");
+        return;
       }
-
-    })
-  })
+    });
+  });
 }
 
 export {
@@ -514,10 +439,8 @@ export {
   addEventOnInputDuty,
   addEventOnInputIncome,
   addEventOnInputRadioTypeLocation,
-  addEventOnInputCfe,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
-  addEventOnInputFiscal,
   addEventOnIconInfo,
   addEventOnIconColapseArticle,
 };

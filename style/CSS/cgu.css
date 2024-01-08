@@ -598,6 +598,9 @@ body.dark .calculette-number {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
+body.dark .income-year {
+  color: #FBFFFE;
+}
 
 body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;

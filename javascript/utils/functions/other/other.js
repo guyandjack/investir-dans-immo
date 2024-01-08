@@ -38,6 +38,8 @@ function changeColor() {
   }
 }
 
+
+
 //function "linkInput"
 
 /******
@@ -59,85 +61,103 @@ function linkInput(evt) {
     let inputToLinked = document.querySelector(`input[name = range-${name}]`);
     inputToLinked.value = inputValue;
   }
+  console.log("input duty: " + inputName + " liée");
 }
 
-//Affiche les inputs "revenus" number et range ()
-async function displayInputRevenu() {
-  if (containerInputFiscal.classList.contains("hide")) {
-    containerInputFiscal.classList.replace("hide", "display");
+//Cache les inputs radio choix regime fiscal
+function hideInputRadioRegimeFiscal() {
+  if (containerInputRadioFiscal.classList.contains("display")) {
+    containerInputRadioFiscal.classList.replace("display", "hide");
   }
-  return true;
 }
 
-//Cache les inputs "revenu" number et range ()
-async function hideInputRevenu() {
-  if (containerInputFiscal.classList.contains("display")) {
-    containerInputFiscal.classList.replace("display", "hide");
+function displayInputRadioRegimeFiscal() {
+  if (containerInputRadioFiscal.classList.contains("hide")) {
+    containerInputRadioFiscal.classList.replace("hide","display");
   }
-  return true;
-}
-//Affiche les inputs "fiscal" number et range (charge deductible)
-async function displayInputFiscal() {
-  if (containerInputFiscal.classList.contains("hide")) {
-    containerInputFiscal.classList.replace("hide", "display");
-  }
-  return true;
-}
-
-//Cache les inputs "fiscal" number et range (charge deductible)
-async function hideInputFiscal() {
-  if (containerInputFiscal.classList.contains("display")) {
-    containerInputFiscal.classList.replace("display", "hide");
-  }
-  return true;
 }
 
 // Affiche le container des inputs cfe
-async function displayInputCfe() {
-  if (containerInputCfe.classList.contains("hide")) {
-    containerInputCfe.classList.replace("hide", "display");
-  }
-  return true;
-}
-// Affiche le container des inputs cfe
-async function hideInputCfe() {
-  if (containerInputCfe.classList.contains("display")) {
-    containerInputCfe.classList.replace("display", "hide");
+ function displayInputCfe() {
+  if (containerInputCfe.classList.contains("hide-taxe")) {
+    containerInputCfe.classList.replace("hide-taxe", "display-taxe");
   }
   return true;
 }
 
-//Cache le container des charges
-function hideChargeAndTaxe() {
-  if (containerChargeTaxe.classList.contains("display-taxe")) {
-    containerChargeTaxe.classList.replace("display-taxe", "hide-taxe");
+
+// Cache le container des inputs cfe
+ function hideInputCfe() {
+  if (containerInputCfe.classList.contains("display-taxe")) {
+    containerInputCfe.classList.replace("display-taxe", "hide-taxe");
   }
   return true;
 }
 
-// Affiche le container des charges
-function displayChargeAndTaxe() {
-  if (containerChargeTaxe.classList.contains("hide-taxe")) {
-    containerChargeTaxe.classList.replace("hide-taxe", "display-taxe");
-  }
-  return true;
+
+
+
+function displayChargeForfaitaire() {
+  chargeForfaitaireList.forEach((inputCharge) => {
+    if (inputCharge.classList.contains("hide-taxe")) {
+      inputCharge.classList.replace("hide-taxe","display-taxe" );
+    }
+  });
 }
 
-//recupere le type de location  choisi par l'utilisteur
+function hideChargeForfaitaire() {
+  chargeForfaitaireList.forEach((inputCharge) => {
+    if (inputCharge.classList.contains("display-taxe")) {
+      inputCharge.classList.replace("display-taxe", "hide-taxe");
+    }
+  });
+}
+
+
+function displayChargeReel() {
+
+   chargeReelList.forEach((inputCharge) => {
+     if (inputCharge.classList.contains("hide-taxe")) {
+       inputCharge.classList.replace("hide-taxe", "display-taxe");
+     }
+   });
+}
+
+function hideChargeReel() {
+
+   chargeReelList.forEach((inputCharge) => {
+     if (inputCharge.classList.contains("display-taxe")) {
+       inputCharge.classList.replace("display-taxe","hide-taxe");
+     }
+   });
+}
+
+
+
+//recupere le type de location choisi par l'utilisteur
 function getLocationType() {
   let inputs = document.querySelectorAll(
     "#fiscal input[name='type-location']:checked"
   );
+  //Si aucune input radio n' est cochée on applique les valeurs d'initialisation
   if (inputs.length < 1) {
-    bilanResultat.innerHTML =
-      " Veuillez selectionner un type de location 'nue' ou 'meublé'";
-    return false;
+    inputRadioLocationNue.checked = true;
+    calculatedValue.locationType = "nue";
+    return true
   }
-  let locationTypeValue = inputs[0].value;
 
-  //insertion danss l'objet calculatedValue
-  calculatedValue.locationType = locationTypeValue;
-  return true;
+  else if (inputs.length == 1) {
+    //Si une input radio est coché 
+    let locationTypeValue = inputs[0].value;
+
+    //insertion danss l'objet calculatedValue
+    calculatedValue.locationType = locationTypeValue;
+    return true;
+  }
+    
+  else {
+    return false
+  }
 }
 
 function getTauxMarginalImposition() {
@@ -384,10 +404,12 @@ export {
   linkInput,
   getLocationType,
   getTauxMarginalImposition,
-  displayInputFiscal,
-  hideInputFiscal,
-  hideChargeAndTaxe,
-  displayChargeAndTaxe,
+  hideInputRadioRegimeFiscal,
+  displayInputRadioRegimeFiscal,
+  hideChargeForfaitaire,
+  displayChargeForfaitaire,
+  hideChargeReel,
+  displayChargeReel,
   displayInputCfe,
   hideInputCfe,
   hideAElement,
