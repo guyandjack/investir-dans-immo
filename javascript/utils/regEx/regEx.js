@@ -24,7 +24,10 @@ const masqueMail = /^[0-9]{0,4}[0-9a-z_'.-]{2,30}@[0-9a-z_'.-]{2,20}\.[0-9a-zA-Z
 //Motif qui autorise tous les carracteres à l' exeption des balises ouvrantes, accolades, crochets, signe multiplié et signe logique (ou)
 const masqueMessage = /^[^<>{}\[\]*|]{20,200}$/;
 
-//Motif qui permet de controler si une expression est un nombre
-const masqueNumber = /^[\-]?[0-9.,]{1,6}$/;
+//Motif qui permet de controler si une expression est un nombre entier positif
+const masqueNumberInt = /^[^\-\D]?[0-9]{1,}$/;
 
-export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber };
+//Motif qui permet de controler si une expression est un chiffre a virgule
+const masqueNumberFloat = /^([0-9]{1}||[0-9]{1}[,.]{1}[0-9]{1,2})$/;
+
+export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumberInt, masqueNumberFloat };

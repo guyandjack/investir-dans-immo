@@ -50,7 +50,8 @@ import {
   checkValueUserMonthly,
   checkValueUserIncome,
   checkValueUserDuty,
-  testIfNumber,
+  testIfNumberInt,
+  testIfNumberFloat,
   checkValueUserRadioFiscal,
 } from "../checkValueUser/checkValueUser.js";
 
@@ -61,13 +62,16 @@ import {
  * @return {} void
  */
 function addEventOnInputMonthly() {
-  let inputs = document.querySelectorAll(
+  let allInputs = document.querySelectorAll(
     "#calculette-mensualite input.calculette-number, #calculette-mensualite input.calculette-range"
   );
-  inputs.forEach((input) => {
+
+  
+  allInputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);
       let isValid = checkValueUserMonthly(e);
+      console.log("isvalid: " + isValid)
 
       if (!isValid) {
         return;
@@ -88,6 +92,8 @@ function addEventOnInputMonthly() {
       }
     });
   });
+
+  
 }
 
 /**

@@ -242,9 +242,6 @@ function controlValueOfIncome() {
         break;
     }
     
-
-    
-
     return "choice";
   }
 }
@@ -380,8 +377,17 @@ function calculeImpotRevenuFoncier() {
 
   if (assietteImposable < 0) {
     assietteImpotStart.innerHTML = "Déficite foncier de: ";
-    assietteImpot.innerHTML = assietteImposable + " €";
-    assietteImpotEnd.innerHTML = "Pas d'imposition sur les revenus locatifs";
+    assietteImpot.innerHTML = assietteImposable;
+    assietteImpotEnd.innerHTML = " €/an";
+
+    //affichage montant impot
+    montantImpotStart.innerHTML = "Votre impôt foncier est de: ";
+    montantImpot.innerHTML = 0;
+    montantImpotEnd.innerHTML = " €/an";
+    console.log("impot foncier: " + impotFoncier);
+
+    //insertion ds l'objet
+    calculatedValue.impotFoncier = 0;
     return;
   }
 
@@ -423,7 +429,7 @@ function bilanApresImposition() {
 
   if (bilanFinal >= 0) {
     coutTextStart.innerHTML =
-      "Dans ces conditions, votre bien en location vous permet de gagner";
+      "Dans ces conditions, votre bien en location vous raporte:";
     coutResultat.innerHTML = parseInt(bilanFinal / 12, 10);
     coutTextEnd.innerHTML = " €/mois";
   }

@@ -428,8 +428,6 @@
 
   flex: 1 0 30%;
   height: 100%;
-  border-bottom-right-radius: 1em;
-  border-top-right-radius: 1em;
   font-weight: 700;
   font-size: 1.3em;
   background-color: map-get($colors-rule, first-color);
@@ -445,6 +443,7 @@
 .container-input-number {
   width: 100%;
   height: 3em;
+  border-radius: 1.2em;
   overflow: hidden;
 }
 
@@ -462,8 +461,6 @@
 .calculette-number {
   flex: 0 0 60%;
   height: 100%;
-  border-bottom-left-radius: 1em;
-  border-top-left-radius: 1em;
   padding-left: 1em;
   
   background-color: lighten(map-get($colors-rule, fourth-color), 60%);
@@ -477,29 +474,15 @@
 }
 
 .input-valid{
-  border-top: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
-  border-left: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
-  border-bottom: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
+  border: 2px solid transparent;
 }
 
 .input-error{
-  border-top: 2px solid red;
-  border-left: 2px solid red;
-  border-bottom: 2px solid red;
+  border: 2px solid red;
+ 
 }
 
-.span-valid{
-  border-top: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
-  border-right: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
-  border-bottom: 2px solid lighten(map-get($colors-rule, fourth-color), 60%);
-}
 
-.span-error{
-  border-top: 2px solid red;
-  border-right: 2px solid red;
-  border-bottom: 2px solid red;
-  outline: 5px solid red;
-}
 
 
 
@@ -529,7 +512,7 @@
   border-radius: 1em;
   //border: 2px solid red;
   padding: 1em;
-  
+ 
   
 }
 
