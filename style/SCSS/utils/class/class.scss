@@ -171,6 +171,7 @@ padding:5px;
   transform: translate(-100%,-50%);
 }
 
+//si l' element body a la classe dark on applique les modifs
 body.dark{
 
   .container-page, .container-article, .colapse, .container-text-article, .fieldset {
@@ -193,6 +194,14 @@ body.dark{
     color: map-get($colors-rule, fifth-color);
   }
 
+  .form-contact{
+     background-color: lighten(map-get($colors-rule, fourth-color), 25%);
+  }
+
+  .input-contact{
+    background-color: lighten(map-get($colors-rule, fourth-color), 10%);
+    color: map-get($colors-rule, fifth-color);
+  }
   
 }
 
@@ -215,7 +224,59 @@ body{
 /********  **************** toggle switch **************** ******************/
 /**** end ******************************************************************************/
 
+
+
 /****************************************************************************************
+/********  **************** resultat simulation **************** ******************/
+/**** start ******************************************************************************/
+.simulation{
+margin: 1em 0em;
+  padding: 1.5em;
+  border-radius: 2em;
+
+  width: 100%;
+  background-color: map-get($colors-rule, third-color);
+}
+
+.simulation-titre{
+font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.container-resultat-simulation{
+  .titre{
+font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  font-style: italic;
+  }
+  .definition{
+
+  }
+  .resultat{
+    margin-top: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: lighten(map-get($colors-rule, third-color ),20%);
+    .value{
+
+    }
+    .unity{
+
+    }
+  }
+}
+
+
+/****************************************************************************************
+/********  **************** essultat simualtion **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+
+
+
 /********  **************** footer **************** ******************/
 /**** start ******************************************************************************/
 

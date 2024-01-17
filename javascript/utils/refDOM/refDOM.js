@@ -1,6 +1,29 @@
 /****************************************************************************
  * Elements du DOM referencés pour l'utilisation dans le script principal******
- * *************************************************************************/
+ * ****************************************************************************/
+
+/****************************** Elements contenu dans article*************************/
+/**** start */
+
+//link colapse article fiscalite "location nue" et "location meublée"
+const linkColapseForfaitaire1 = document.querySelector("#forfaitaire-a");
+const linkColapseReel1 = document.querySelector("#reel-a");
+const linkColapseForfaitaire2 = document.querySelector("#forfaitaire-b");
+const linkColapseReel2 = document.querySelector("#reel-b");
+
+//colapse article fiscalite "location nue" et "location meublée"
+const colapseForfaitaire1 = document.querySelector("#colapse-forfaitaire-a");
+const colapseReel1 = document.querySelector("#colapse-reel-a");
+const colapseForfaitaire2 = document.querySelector("#colapse-forfaitaire-b");
+const colapseReel2 = document.querySelector("#colapse-reel-b");
+
+//button dowload
+const btnDownloadList = document.querySelectorAll(".btn-download");
+
+/****************************** Elements contenu dans article*************************/
+/**** start */
+
+
 
 /****************************** Elements du formulaire #calculette*************************/
 /***************************************** start ************************************** */

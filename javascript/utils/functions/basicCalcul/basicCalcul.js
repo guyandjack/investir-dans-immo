@@ -187,7 +187,6 @@ function controlValueOfIncome() {
   }
 
   if (income > seuil) {
-
     //Modification du choix fiscal
     inputRadioRegimeReel.checked = true;
     calculatedValue.fiscalChoice = "reel";
@@ -206,8 +205,6 @@ function controlValueOfIncome() {
   }
 
   if (income <= seuil) {
-    
-
     //Modifie le titre
     titreRegimeImposition.innerHTML = "Choix du regime d'imposition.";
 
@@ -241,7 +238,7 @@ function controlValueOfIncome() {
       default:
         break;
     }
-    
+
     return "choice";
   }
 }
@@ -361,7 +358,7 @@ function getAssietteImposable() {
   else if (calculatedValue.fiscalChoice == "reel") {
     console.log("charge deductible : " + calculatedValue.dutyDeductible);
     let assietteImposable = parseInt(
-     ( calculatedValue.income * 12) - calculatedValue.dutyDeductible,
+      calculatedValue.income * 12 - calculatedValue.dutyDeductible,
       10
     );
     return assietteImposable;
@@ -412,8 +409,6 @@ function calculeImpotRevenuFoncier() {
 }
 
 function bilanApresImposition() {
-  
-
   let bilanFinal = calculatedValue.balance - calculatedValue.impotFoncier;
   //affichage dans bilan final
   bilanTextStart.innerHTML = "Bilan après imposition: ";
@@ -433,8 +428,6 @@ function bilanApresImposition() {
     coutResultat.innerHTML = parseInt(bilanFinal / 12, 10);
     coutTextEnd.innerHTML = " €/mois";
   }
-
-  
 }
 
 export {

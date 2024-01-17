@@ -13,14 +13,6 @@
 @import "../utils/mixins/responsive/responsive.scss";
 @import "../utils/class/class.scss";
 
-.container-page {
-  max-width: 1500px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em;
-  //border: 2px solid red;
-}
-
 .intro {
   width: 100%;
   //border: 2px solid red;
@@ -121,6 +113,7 @@
   padding: 1em;
   border: 1px solid map-get($colors-rule, fourth-color);
   background-color: map-get($colors-rule, fifth-color);
+  color: map-get($colors-rule, fourth-color);
 }
 
 textarea {
@@ -145,6 +138,7 @@ textarea {
   padding: 1.5em;
   background-color: map-get($colors-rule, first-color);
   text-align: center;
+  
 }
 
 .disabled {
@@ -153,6 +147,7 @@ textarea {
 
 .enabled {
   opacity: 1;
+  cursor: pointer;
 }
 
 .valid {

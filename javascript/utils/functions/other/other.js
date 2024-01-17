@@ -399,6 +399,59 @@ function eventToggleSwitch() {
   });
 }
 
+
+/**
+ * ouvre ou ferme le collapse link article
+ *
+ */
+function extendOrCloseColapseInArticle(e) {
+
+  
+  //id de l'element cliqué
+  let elementLiId = e.target.id;
+  console.log("id de element  cliked: " + elementLiId)
+  
+  //ref du chevron correspodant
+  let iconSvgMatched = e.target.lastElementChild;
+  
+  
+  //Collapse concerné
+  let selectedColapse = "";
+
+  switch (elementLiId) {
+    case "forfaitaire-a":
+      selectedColapse = colapseForfaitaire1;
+      console.log("colapse selectionnö: " + selectedColapse )
+      break;
+    case "reel-a":
+      selectedColapse = colapseReel1;
+      console.log("colapse selectionnö: " + selectedColapse )
+      break;
+    case "forfaitaire-b":
+      selectedColapse = colapseForfaitaire2;
+      console.log("colapse selectionnö: " + selectedColapse )
+      break;
+    case "reel-b":
+      selectedColapse = colapseReel2;
+      console.log("colapse selectionnö: " + selectedColapse )
+      break;
+
+    default:
+      break;
+  }
+
+  iconSvgMatched.classList.toggle("chevron-up");
+
+  if (selectedColapse.classList.contains("colapse-close")) {
+    selectedColapse.classList.replace("colapse-close", "colapse-open");
+    return;
+  }
+  if (selectedColapse.classList.contains("colapse-open")) {
+    selectedColapse.classList.replace("colapse-open", "colapse-close");
+    return;
+  }
+}
+
 export {
   changeColor,
   linkInput,
@@ -423,4 +476,5 @@ export {
   eventToggleSwitch,
   useThemeColor,
   isToggleMoved,
+  extendOrCloseColapseInArticle,
 };

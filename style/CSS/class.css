@@ -225,6 +225,13 @@ body.dark .calculette-number {
 body.dark .income-year {
   color: #FBFFFE;
 }
+body.dark .form-contact {
+  background-color: #676767;
+}
+body.dark .input-contact {
+  background-color: #414141;
+  color: #FBFFFE;
+}
 
 body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
@@ -239,6 +246,42 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /********  **************** toggle switch **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
+/********  **************** resultat simulation **************** ******************/
+/**** start ******************************************************************************/
+.simulation {
+  margin: 1em 0em;
+  padding: 1.5em;
+  border-radius: 2em;
+  width: 100%;
+  background-color: #24e05d;
+}
+
+.simulation-titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.container-resultat-simulation .titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  font-style: italic;
+}
+.container-resultat-simulation .resultat {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #7ded9f;
+}
+/****************************************************************************************
+/********  **************** essultat simualtion **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+
+
+
 /********  **************** footer **************** ******************/
 /**** start ******************************************************************************/
 .footer {

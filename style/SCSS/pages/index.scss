@@ -57,7 +57,7 @@
 /************* svg icon chevron collapse ******************/
 /** start **/
 
-.svg-icon-chevron-colapse {
+.svg-icon-chevron-colapse, .svg-icon-chevron{
   color: map-get($colors-rule, first-color);
   height: 1.5em;
   width: 1.5em;
@@ -213,66 +213,123 @@
 }
 
 .subtitle-article {
+  
   font-size: 1.2em;
   font-weight: 600;
-  margin: 50px 0px 2px 0.5em;
+  margin: 1em 0em 1em 1em;
   color: map-get($colors-rule, first-color);
+
   @include upper-large-screen {
     font-size: 1.3em;
   }
 }
 
-.container-text-article {
-  color: map-get($colors-rule, fourth-color);
-
-  & > p,
-  .list-li {
-    margin: 0.5em;
+.article > p{
+    margin: 2em 0em;
     line-height: 130%;
     text-align: left;
     font-size: 1.1em;
-
+    background-color: red;
     @include upper-large-screen {
       font-size: 1.3em;
     }
+}
+
+.container-text-article {
+  
+  & > p{
+    font-size: 1.2em;
+  }
+  
+
+  .list{
+    //reference pour les elements enfants
+    position: relative;
+    z-index: 0;
+    margin: 1em 0em;
+  }
+  
+  .list-li, .list-exemple-li{
+    
+    width:fit-content;
+    margin: 0.5em 0em;
+    
+  }
+  
+  //positione le contenu dessous le conteneur list-li
+  .list-li-a, .svg-icon-chevron{
+    position:relative;
+    z-index: -2;
+    color: map-get($colors-rule, first-color);
+    
   }
 
-  & > ul > li {
-    list-style-type: square;
-    font-style: italic;
-    margin-left: 1em;
+  .list-li-a{
+    font-size: 1.2em;
+    @include upper-large-screen{
+      font-size: 1.5em;
+    }
   }
+
+  .list-exemple-li{
+    list-style-position: inside;
+    list-style-type:disc;
+    font-style: italic;
+  }
+
+ .btn-download{
+  color:map-get($colors-rule, fifth-color );
+  padding: 10px;
+  background-color: lighten(map-get($colors-rule, first-color ),10%);
+  border-radius: 1em;
+  cursor: pointer;
+ }
+  
 }
 
 .text-exemple {
   font-style: italic;
   text-align: justify;
   font-weight: bolder;
+  margin: 1em 0em;
+  line-height: 150%;
 }
 
 .colapse {
   border-top: 2px solid map-get($colors-rule, first-color);
   border-bottom: 2px solid map-get($colors-rule, first-color);
   background-color: lighten(map-get($colors-rule, first-color), 60%);
+  width:100%;
+  
+}
+
+.colapse > p, 
+.container-text-article > p,
+.list-exemple-li {
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+}
+
+.colapse-article{
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+
 }
 
 .colapse-open {
+  padding: 0.5em ;
   max-height: 3000px;
   overflow: hidden;
-  transition: max-height 1500ms linear;
+  //transition: max-height 300ms linear;
 }
 
 .colapse-close {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 300ms linear;
+  //transition: max-height 300ms linear;
 }
 
-.underline-title-h3 {
-  //border: 2px solid map-get($colors-rule, first-color);
-  //width: 2em;
-  outline: solid, 100%, map-get($colors-rule, first-color);
-}
+
 
 /**************************************************************************************
 ************************** concerne les articles  *************************************
@@ -442,7 +499,7 @@
 
 .container-input-number {
   width: 100%;
-  height: 3em;
+  height: 50px;
   border-radius: 1.2em;
   overflow: hidden;
 }
@@ -549,20 +606,20 @@
 }
 
 #mensualite,
-#interest,
-#equilibre-total-revenu,
+#interest
+/*#equilibre-total-revenu,
 #equilibre-total-charge,
-#equilibre {
+#equilibre*/ {
   font-size: 1.2em;
   font-weight: 600;
 }
 
 .container-interest, 
-.container-mensualite, 
-.container-equilibre-revenu, 
+.container-mensualite
+/*.container-equilibre-revenu, 
 .container-equilibre-charge, 
 .container-equilibre,
-.container-bilan{
+.container-bilan*/{
   margin-top: 1em;
   padding: 1em;
   border-radius: 1em;

@@ -664,6 +664,13 @@ body.dark .calculette-number {
 body.dark .income-year {
   color: #FBFFFE;
 }
+body.dark .form-contact {
+  background-color: #676767;
+}
+body.dark .input-contact {
+  background-color: #414141;
+  color: #FBFFFE;
+}
 
 body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
@@ -678,6 +685,15 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /********  **************** toggle switch **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
+/********  **************** resultat simulation **************** ******************/
+/**** start ******************************************************************************/
+/****************************************************************************************
+/********  **************** essultat simualtion **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+
+
+
 /********  **************** footer **************** ******************/
 /**** start ******************************************************************************/
 .footer {
@@ -783,7 +799,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /** end **/
 /************* svg icon chevron collapse ******************/
 /** start **/
-.svg-icon-chevron-colapse {
+.svg-icon-chevron-colapse, .svg-icon-chevron {
   color: #068ebc;
   height: 1.5em;
   width: 1.5em;
@@ -972,7 +988,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 .subtitle-article {
   font-size: 1.2em;
   font-weight: 600;
-  margin: 50px 0px 2px 0.5em;
+  margin: 1em 0em 1em 1em;
   color: #068ebc;
 }
 @media screen and (min-width: 993px) {
@@ -981,56 +997,95 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
   }
 }
 
-.container-text-article {
-  color: #272727;
-}
-.container-text-article > p,
-.container-text-article .list-li {
-  margin: 0.5em;
+.article > p {
+  margin: 2em 0em;
   line-height: 130%;
   text-align: left;
   font-size: 1.1em;
+  background-color: red;
 }
 @media screen and (min-width: 993px) {
-  .container-text-article > p,
-  .container-text-article .list-li {
+  .article > p {
     font-size: 1.3em;
   }
 }
-.container-text-article > ul > li {
-  list-style-type: square;
+
+.container-text-article > p {
+  font-size: 1.2em;
+}
+.container-text-article .list {
+  position: relative;
+  z-index: 0;
+  margin: 1em 0em;
+}
+.container-text-article .list-li, .container-text-article .list-exemple-li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.5em 0em;
+}
+.container-text-article .list-li-a, .container-text-article .svg-icon-chevron {
+  position: relative;
+  z-index: -2;
+  color: #068ebc;
+}
+.container-text-article .list-li-a {
+  font-size: 1.2em;
+}
+@media screen and (min-width: 993px) {
+  .container-text-article .list-li-a {
+    font-size: 1.5em;
+  }
+}
+.container-text-article .list-exemple-li {
+  list-style-position: inside;
+  list-style-type: disc;
   font-style: italic;
-  margin-left: 1em;
+}
+.container-text-article .btn-download {
+  color: #FBFFFE;
+  padding: 10px;
+  background-color: #08b3ed;
+  border-radius: 1em;
+  cursor: pointer;
 }
 
 .text-exemple {
   font-style: italic;
   text-align: justify;
   font-weight: bolder;
+  margin: 1em 0em;
+  line-height: 150%;
 }
 
 .colapse {
   border-top: 2px solid #068ebc;
   border-bottom: 2px solid #068ebc;
   background-color: #f5fcff;
+  width: 100%;
+}
+
+.colapse > p,
+.container-text-article > p,
+.list-exemple-li {
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+}
+
+.colapse-article {
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
 }
 
 .colapse-open {
+  padding: 0.5em;
   max-height: 3000px;
   overflow: hidden;
-  -webkit-transition: max-height 1500ms linear;
-  transition: max-height 1500ms linear;
 }
 
 .colapse-close {
   max-height: 0px;
   overflow: hidden;
-  -webkit-transition: max-height 300ms linear;
-  transition: max-height 300ms linear;
-}
-
-.underline-title-h3 {
-  outline: solid, 100%, #068ebc;
 }
 
 /**************************************************************************************
@@ -1246,7 +1301,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 
 .container-input-number {
   width: 100%;
-  height: 3em;
+  height: 50px;
   border-radius: 1.2em;
   overflow: hidden;
 }
@@ -1341,20 +1396,13 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 #mensualite,
-#interest,
-#equilibre-total-revenu,
-#equilibre-total-charge,
-#equilibre {
+#interest {
   font-size: 1.2em;
   font-weight: 600;
 }
 
 .container-interest,
-.container-mensualite,
-.container-equilibre-revenu,
-.container-equilibre-charge,
-.container-equilibre,
-.container-bilan {
+.container-mensualite {
   margin-top: 1em;
   padding: 1em;
   border-radius: 1em;

@@ -601,6 +601,13 @@ body.dark .calculette-number {
 body.dark .income-year {
   color: #FBFFFE;
 }
+body.dark .form-contact {
+  background-color: #676767;
+}
+body.dark .input-contact {
+  background-color: #414141;
+  color: #FBFFFE;
+}
 
 body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
   -webkit-transition: all 500ms linear;
@@ -673,13 +680,6 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /****************************************************************************************
 /********  **************** footer **************** ******************/
 /*** end ******************************************************************************/
-.container-page {
-  max-width: 1500px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .intro {
   width: 100%;
   margin-bottom: 1em;
@@ -784,6 +784,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
   padding: 1em;
   border: 1px solid #272727;
   background-color: #FBFFFE;
+  color: #272727;
 }
 
 textarea {
@@ -816,6 +817,7 @@ textarea {
 
 .enabled {
   opacity: 1;
+  cursor: pointer;
 }
 
 .valid {

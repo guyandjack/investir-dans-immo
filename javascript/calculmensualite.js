@@ -16,7 +16,9 @@ import {
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnIconInfo,
-  addEventOnIconColapseArticle
+  addEventOnIconColapseArticle,
+  addEventOnLinkArticle,
+  addEventOnButtonDownload,
   
 } from "./utils/functions/addEvent/addEvent.js";
 
@@ -109,6 +111,8 @@ addEventOnIconInfo();
 
 //concerne le conteneur des articles
 addEventOnIconColapseArticle();
+addEventOnLinkArticle();
+addEventOnButtonDownload();
 
 //concerne le toggle switch pour changement de theme de couleur
 eventToggleSwitch();

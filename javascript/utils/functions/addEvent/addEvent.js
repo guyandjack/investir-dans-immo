@@ -32,6 +32,7 @@ import {
   insertContentInfoBulle,
   styleOfInfoBulle,
   deleteElement,
+  extendOrCloseColapseInArticle
 } from "../other/other.js";
 
 import {
@@ -54,6 +55,10 @@ import {
   testIfNumberFloat,
   checkValueUserRadioFiscal,
 } from "../checkValueUser/checkValueUser.js";
+
+
+//import de fonction qui realise une requete HTTP avec fetch
+import { FetchForDownload } from "../http/download.js";
 
 /**
  *  Ajoute des écouteurs evenement sur les inputs du fieldset #calculette-mensualité
@@ -442,6 +447,37 @@ function addEventOnIconColapseArticle() {
   });
 }
 
+/**
+ *
+ *
+ */
+
+function addEventOnLinkArticle() {
+  linkColapseForfaitaire1.addEventListener("click", (e) => {
+    console.log("link forfaitatire 1 clicked ");
+    console.log("link forfaitatire 1 : " + e.target);
+    
+    extendOrCloseColapseInArticle(e);
+  })
+  linkColapseForfaitaire2.addEventListener("click", (e) => {
+    extendOrCloseColapseInArticle(e);
+  })
+  linkColapseReel1.addEventListener("click", (e) => {
+    extendOrCloseColapseInArticle(e);
+  })
+  linkColapseReel2.addEventListener("click", (e) => {
+    extendOrCloseColapseInArticle(e);
+  })
+}
+
+function addEventOnButtonDownload() {
+  btnDownloadList.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      FetchForDownload(e);
+    })
+  })
+}
+
 export {
   addEventOnInputMonthly,
   addEventOnInputDuty,
@@ -451,4 +487,6 @@ export {
   addEventOnInputRadioImpot,
   addEventOnIconInfo,
   addEventOnIconColapseArticle,
+  addEventOnLinkArticle,
+  addEventOnButtonDownload,
 };

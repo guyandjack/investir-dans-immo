@@ -17,6 +17,9 @@
     <!-- Feuilles de style-->
     <link rel="stylesheet" href="../style/CSS/index.css" />
 
+    <!-- Feuilles de style-->
+    <link rel="stylesheet" href="../style/CSS/class.css" />
+
     <!--script qui contient ref des elements du Dom-->
     <script src="../javascript/utils/refDOM/refDOM.js" defer></script>
 
@@ -272,31 +275,30 @@
                 comprendre :
               </p>
 
-              <ul class="list">
-                <li class="list-li">Réfrigérateur</li>
-                <li class="list-li">
+              <ul class="list-exemple">
+                <li class="list-exemple-li">Réfrigérateur</li>
+                <li class="list-exemple-li">
                   Appareil de cuisson(gazinière, plaque...)
                 </li>
-                <li class="list-li">Four ou four à micro-onde</li>
-                <li class="list-li">
+                <li class="list-exemple-li">Four ou four à micro-onde</li>
+                <li class="list-exemple-li">
                   Congélateur ou compartiment à congélation du réfrigérateur
                   d'une température maximale de -6°
                 </li>
-                <li class="list-li">
+                <li class="list-exemple-li">
                   Vaisselle en quantité suffisante pour que les locataires
                   puissent prendre les repas
                 </li>
-                <li class="list-li">Sièges</li>
-                <li class="list-li">Table</li>
-                <li class="list-li">Ustensiles de cuisine</li>
-                <li class="list-li">Étagères de rangement</li>
-                <li class="list-li">Literie complète</li>
-                <li class="list-li">Volets ou rideaux dans les chambres</li>
-                <li class="list-li">Luminaires</li>
-                <li class="list-li">
+                <li class="list-exemple-li">Sièges</li>
+                <li class="list-exemple-li">Table</li>
+                <li class="list-exemple-li">Ustensiles de cuisine</li>
+                <li class="list-exemple-li">Étagères de rangement</li>
+                <li class="list-exemple-li">Literie complète</li>
+                <li class="list-exemple-li">Volets ou rideaux dans les chambres</li>
+                <li class="list-exemple-li">Luminaires</li>
+                <li class="list-exemple-li">
                   Matériel d'entretien ménager adapté aux caractéristiques du
-                  logement (aspirateur s'il y a de la moquette, balai et
-                  serpillière pour du carrelage..
+                  logement.
                 </li>
               </ul>
               <p>
@@ -318,7 +320,7 @@
           <div class="colapse colapse-close">
             <div class="container-text-article">
               <p>
-                Qu'il s'agisse de revenus fonciers (location vide) ou de
+                Qu'il s'agisse de revenus fonciers (location nue) ou de
                 bénéfices industriels et commerciaux (location meublée) ils
                 doivent être déclarés puisqu'ils sont soumis à l'impôt sur le
                 revenu et aux prélèvements sociaux.
@@ -349,123 +351,177 @@
                 fonciers.<br />Il existe deux régimes d'imposition:
               </p>
               <ul class="list">
-                <li class="list-li"><a href="#f1">Forfaitaire</a></li>
-                <li class="list-li"><a href="#r1">Réel</a></li>
-              </ul>
-              <p>
-                Si les revenus sont supérieur à 15 300€ par an le régime "réel"
-                est appliqué obligatoirement.
-              </p>
-              <span id="f1" class="subtitle-article">
-                Le régime "forfaitaire"
-              </span>
-              <p>
-                Premier choix possible, le
-                <strong>régime "forfaitaire"</strong>, les revenus imposables
-                sont constitués des loyers hors charge, avec un abattement
-                forfaitaire de 30%;<br />
-                Apres abattement on applique le taux marginal d'imposition plus
-                le taux de prélèvement sociaux de 17.2%;
-              </p>
-              <p class="text-exemple">
-                exemple de M. Dupont:<br />
-                Revenus locatifs hors charge: 8 000€ par an.<br />
-                Taux marginal d'imposition: 30%.<br />
-                Abattement forfaitaire de 30%: 8000 * 0.3 = 2 400€<br />
-                Assiete imposable : 8 000€ - 2 400€ = 5 600€<br />
-                Montant de l'imposition sur revenus locatifs: 5600 * (0.3 +
-                0.172) = 2643€
-                <br />
-                Conclusion: Quelque soit le montant des charges liées à la
-                location de son bien, M.Dupont payera 2 643€ au titre de l'impot
-                sur revenus fonciers.
-              </p>
-              <span id="r1" class="subtitle-article"> Le régime "réel" </span>
-              <p>
-                Deuxième choix possible, le <strong>régime "réel"</strong>. On
-                soustrait les charges déductibles aux revenus locatifs. On
-                apllique ensuite le taux marginal d'imposition plus le taux de
-                prélèvement social(17.2%).
-              </p>
-              <p class="text-exemple">
-                exemple de M. Dupont:<br />
-                Revenus locatifs hors charge 8 000€ par an<br />
-                Taux marginal d'imposition: 30%<br />
-                Charges déductibles: 2 000€<br />
-                Assiete imposable : 8 000€ - 2 000€ = 6 000€<br />
-                Montant de l'imposition sur revenus locatifs: 6000 * (0.3 +
-                0.172) = 2 832€
-                <br />
-              </p>
-              <p>
-                Conclusion:<br />
-                M.Dupont payera 2 832€ au titre de l'impot sur les revenus
-                fonciers.<br />
-                Dans ce cas précis M. Dupont paye plus d'impot au régime dit
-                "réel"<br />
-                Le régime d'imposition au "réel" devient avantageux lorsque les
-                charges déductibles sont supérieures à l'abattement forfaitaire
-                de 30%.<br />
-                Encore mieux lorsque que l'on crée du déficite foncier.<br />
-                Les charges déductibles sont alors supérieures aux revenus
-                locatifs.<br />
-                Le déficite foncier est imputable au revenu global (revenus
-                fonciers + salaires) dans une limite de 10 700€<br />
-                Listes des charges déductibles:<br />
-              </p>
-              <ul class="list">
-                <li class="list-li">
-                  les frais de gestion et d'administration du bien (rémunération
-                  d'un concierge ou frais d'une agence immobilière ou d'un
-                  syndic de copropriété par exemple)
+                <li id="forfaitaire-a" class="list-li flex-row-start-center">
+                  <a href="#f1" class="list-li-a">Forfaitaire</a>
+                  <svg class="svg-icon-chevron" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-chevron" fill="currentColor" />
+                  </svg>
                 </li>
-                <li class="list-li">
-                  les impôts liés au logement et non récupérables auprès du
-                  locataire telle que la taxe foncière
-                </li>
-                <li class="list-li">
-                  les dépenses de réparation et d'entretien, qu'il s'agisse de
-                  travaux occasionnés par la vétusté du logement ou afin de
-                  faciliter sa location*
-                </li>
-                <li class="list-li">
-                  les provisions pour charge dans le cadre d'une copropriété
-                </li>
-                <li class="list-li">
-                  les charges locatives, si vous n'êtes pas parvenu à les
-                  récupérer auprès du locataire au 31 décembre de l'année
-                  suivant son départ
-                </li>
-                <li class="list-li">
-                  l'indemnité d'éviction ou de relogement d'un locataire
-                </li>
-                <li class="list-li">les primes d'assurance</li>
-                <li class="list-li">les intérêts et frais d'emprunt.</li>
-              </ul>
-              <p>
-                Les intérêts et frais d'emprunt ne sont pas imputable au revenu
-                global
-              </p>
-              <p class="text-exemple">
-                exemple de M. Dupont qui à fait des travaux:<br />
-                Montant des travaux: 10 000€<br />
-                Revenus locatif hors charge 8 000€ par an<br />
-                Taux marginal d'imposition: 30%<br />
-                Charges déductibles: <br />
-                - travaux: 10 000€<br />
-                - frais d'emprunt: 600€<br />
-                - autres charges déductibles: 1 400€<br />
+                <li>
+                  <div
+                    id="colapse-forfaitaire-a"
+                    class="colapse colapse-article colapse-close"
+                  >
+                    <h4 id="f1" class="subtitle-article">
+                      Le régime "forfaitaire"
+                    </h4>
 
-                Assiete imposable : 8 000€ - 12 000€ = -2000€ <br />
-                Déficite foncier: -2000€ (pas d'imposition sur revenus
-                fonciers)<br />
-                Montant imputable au revenu global: 2000 - 600 = 1 400€<br />
-              </p>
-              <p>
-                Conclusion:<br />
-                M. Dupont ne paye pas d'impot sur ses revenus fonciers et peu
-                diminuer son revenu global imposable de 1 400€.
-              </p>
+                    <p>
+                      Dans cette situation les revenus imposables sont
+                      constitués des loyers hors charge, avec un abattement
+                      forfaitaire de 30%.<br />
+                      Après abattement, on applique le taux marginal
+                      d'imposition plus le taux de prélèvement sociaux de 17.2%
+                      pour calculer l'impot sur les revenus locatifs.
+                    </p>
+                    <p>
+                      Si les revenus sont supérieur à 15 300€ par an le régime
+                      "réel" est appliqué obligatoirement.
+                    </p>
+                    <p class="text-exemple">
+                      Exemple de M. Dupont<br />
+                      Revenus locatifs hors charge:<br />
+                      8 000€ <br />
+                      Taux marginal d'imposition:
+                      <br />30%<br />
+                      Abattement forfaitaire:
+                      <br />30% <br />8000 * 0.3 = 2 400€<br />
+                      Assiete imposable:
+                      <br />8 000€ - 2 400€ = 5 600€<br />
+                      Impots sur revenus locatifs:
+                      <br />5600 * (0.3 + 0.172) = 2643€
+                      <br />
+                      Conclusion: Quelque soit le montant des charges liées à la
+                      location de son bien, M.Dupont payera 2 643€ au titre de
+                      l'impot sur revenus fonciers.
+                    </p>
+                    <p>
+                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      
+                    </p>
+                    
+                  </div>
+                </li>
+                <li id="reel-a" class="list-li flex-row-start-center">
+                  <a href="#r1" class="list-li-a">Réel</a>
+                  <svg class="svg-icon-chevron" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-chevron" fill="currentColor" />
+                  </svg>
+                </li>
+                <li>
+                  <div
+                    id="colapse-reel-a"
+                    class="colapse colapse-article colapse-close"
+                  >
+                    <h4 id="r1" class="subtitle-article">Le régime "réel"</h4>
+                    <p>
+                      Dans ce mode d'imposition
+                      les charges déductibles comprendront un système
+                      d'amortissement sur le bien ,les meubles, l'électricite
+                      etc...<br />
+                      Pour faire simple ces amortissemnts reflette l'usure, donc
+                      la perte de valeur d'un élément du bien.<br />
+                      Cette perte de valeur est imputable aux revenus locatifs,
+                      ce qui a pour effet de diminuer votre assiette
+                      imposable.<br />
+                      On soustrait les charges déductibles aux revenus locatifs.
+                      On apllique ensuite le taux marginal d'imposition plus le
+                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                    </p>
+                    <p class="text-exemple">
+                      Exemple de M. Dupont<br />
+                      Revenus locatifs hors charge:<br />
+                      8 000€ <br />
+                      Taux marginal d'imposition: <br />
+                      30%<br />
+                      Charges déductibles + amortissements:<br />
+                      7 000€<br />
+                      Assiete imposable:<br />
+                      8 000€ - 7 000€ = 1 000€<br />
+                      Impots sur revenus locatifs:<br />
+                      1000 * (0.3 + 0.172) = 472€
+                      <br />
+                    </p>
+                    <p>
+                      Conclusion:<br />
+                      M.Dupont payera 472€ au titre de l'impot sur les revenus
+                      fonciers.<br />
+                    </p>
+                    <p>
+                      Le régime d'imposition au "réel" devient avantageux
+                      lorsque les charges déductibles sont supérieures à
+                      l'abattement forfaitaire de 30% du régime forfaitaire.<br />
+                      Encore mieux lorsque que l'on crée du déficite foncier.<br />
+                      Les charges déductibles sont alors supérieures aux revenus
+                      locatifs.
+                    </p>
+                    <p>
+                      Le déficite foncier est imputable au revenu global dans
+                      une limite de 10 700€
+                    </p>
+
+                    <p>Listes des charges déductibles:</p>
+                    <ul class="list-exemple">
+                      <li class="list-exemple-li">
+                        Les frais de gestion et d'administration du bien
+                        (rémunération d'un concierge ou frais d'une agence
+                        immobilière ou d'un syndic de copropriété par exemple)
+                      </li>
+                      <li class="list-exemple-li">
+                        Les impôts liés au logement et non récupérables auprès
+                        du locataire telle que la taxe foncière.
+                      </li>
+                      <li class="list-exemple-li">
+                        Les dépenses de réparation et d'entretien.
+                      </li>
+                      <li class="list-exemple-li">
+                        Les provisions pour charge dans le cadre d'une
+                        copropriété
+                      </li>
+                      <li class="list-exemple-li">
+                        Les charges locatives, si vous n'êtes pas parvenu à les
+                        récupérer auprès du locataire au 31 décembre de l'année
+                        suivant son départ.
+                      </li>
+                      <li class="list-exemple-li">
+                        L'indemnité d'éviction ou de relogement d'un locataire.
+                      </li>
+                      <li class="list-exemple-li">Les primes d'assurance.</li>
+                      <li class="list-exemple-li">Les intérêts et frais d'emprunt.</li>
+                    </ul>
+                    <p class="text-exemple">
+                      Les intérêts et frais d'emprunt ne sont pas imputable au
+                      revenu global.
+                    </p>
+                    <p>
+                      Ce régime est nécessairement beaucoup plus complexe que le
+                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
+                      comptabilité et établir un plan d'amortissement.
+                      </p>
+                      <p>
+                      En outre, d'un point de vue fiscal, vous devez remplir une
+                      déclaration n° 2033 comportant un bilan, un tableau des
+                      immobilisations et amortissements et un relevé des
+                      provisions.
+                    </p>
+                    <p class="text-exemple">
+                      En pratique, compte tenu de la grande complexité du
+                      régime, il est indispensable de vous faire assister par un
+                      comptable ou un organisme de gestion agréé pour éviter
+                      toute erreur et tout problème avec l'administration
+                      fiscale.
+                    </p>
+                    <p>
+                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      
+                    </p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </article>
@@ -475,7 +531,7 @@
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
             </svg>
-            Impôsition et fiscalité (location meublée)
+            Imposition et fiscalité (location meublée)
           </h3>
           <div class="underline-title-h3"></div>
           <div class="colapse colapse-close">
@@ -487,110 +543,148 @@
               <p>Il existe deux régimes d'imposition:</p>
 
               <ul class="list">
-                <li class="list-li"><a href="#f2">Forfaitaire</a></li>
-                <li class="list-li"><a href="#r2">Réel</a></li>
+                <li id="forfaitaire-b" class="list-li flex-row-start-center">
+                  <a href="#f2" class="list-li-a">Forfaitaire</a>
+                  <svg class="svg-icon-chevron" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-chevron" fill="currentColor" />
+                  </svg>
+                </li>
+                <li>
+                  <div
+                    id="colapse-forfaitaire-b"
+                    class="colapse colapse-article colapse-close"
+                  >
+                    
+                    <h4 id="f2" class="subtitle-article">
+                      Le régime "forfaitaire"
+                    </h4>
+                    <p>
+                     Dans cette situation, les revenus imposables sont constitués des loyers charges comprises,
+                      avec un abattement forfaitaire de 50%.<br />
+                      Apres abattement, on applique le taux marginal d'imposition
+                      plus le taux de prélèvement social de 17.2% pour le calcul de l'impôt.
+                    </p>
+                    <p>
+                      Si les revenus sont supérieur à 72 600€ par an, le <strong>régime
+                      "réel"</strong> est appliqué obligatoirement.
+                    </p>
+                    <p>
+                      Les revenus des locations meublées sont soumis à la <strong>CET</strong>,
+                      (contribution économique territoriale),qui inclu la
+                      <strong>CFE</strong>(contribution foncières des entreprises) <br />Comme
+                      c'est un impôt local, son montant peut varier d'une
+                      commune à l'autre.<br />
+                      Renseignez-vous auprès de votre centre des impôts pour en
+                      connaître le montant.
+                    </p>
+                    <p class="text-exemple">
+                      Exemple de M. Dupont<br />
+                      Revenus locatifs charges comprises:<br />
+                      10 000€<br />
+                      Taux marginal d'imposition:<br />
+                      30%<br />
+                      CFE de sa commune:<br />
+                      550€<br />
+                      Abattement forfaitaire de 50%:<br />
+                      5 000€<br />
+                      Assiete imposable : 10 000€ - 5 000€ = 5 000€<br />
+                      Montant de l'imposition sur les BIC:<br />
+                      5000 * (0.3 + 0.172) = 2 360€
+                      <br />
+                      Conclusion:<br />
+                      Quelque soit le montant des charges liées à la location de
+                      son bien, M.Dupont payera 2 360€ au titre de l'impot sur
+                      les BIC.<br />
+                      A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
+                      <br />
+                      
+                    </p>
+                    <p>
+                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      
+                    </p>
+                  </div>
+                </li>
+                <li id="reel-b" class="list-li flex-row-start-center">
+                  <a href="#r2" class="list-li-a">Réel</a>
+                  <svg class="svg-icon-chevron" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-chevron" fill="currentColor" />
+                  </svg>
+                </li>
+                <li>
+                  <div
+                    id="colapse-reel-b"
+                    class="colapse colapse-article colapse-close"
+                  >
+                    <h4 id="r2" class="subtitle-article">Le régime "réel"</h4>
+                    <p>
+                      Dans ce mode d'imposition
+                      les charges déductibles comprendront un système
+                      d'amortissement sur le bien ,les meubles, l'electricite
+                      etc...<br />
+                      Pour faire simple ces amortissemnts reflette l'usure, donc
+                      la perte de valeur d'un élément du bien.<br />
+                      Cette perte de valeur est imputable aux revenus locatifs,
+                      ce qui a pour effet de diminuer votre assiette
+                      imposable.<br />
+                      On soustrait les charges déductibles aux revenus locatifs.
+                      On apllique ensuite le taux marginal d'imposition plus le
+                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                    </p>
+                    <p class="text-exemple">
+                      Exemple de M. Dupont<br />
+                      Revenus locatifs charges comprises:<br />
+                      10 000€<br />
+                      Taux marginal d'imposition:<br />
+                      30%<br />
+                      CFE de sa commune: <br />
+                      550€<br />
+                      Charges déductibles et amortissements:<br />
+                      11 500€<br />
+                      Déficite foncier:<br />
+                      10 000€ - 11 500€ = 1 500€<br />
+                      Pas d'imposition sur les revenus locatifs.
+                      <br />
+                      Conclusion:<br />
+                      Seule la CFE de 550€ doit être acquitée. <br />
+                      
+                      
+                    </p>
+                    <p>
+                      Avec ce mode de location et ce regime d'imposition les
+                      déficites fonciers ne sont pas imputables au revenu
+                      global, mais uniquement sur le même type de revenus.<br />
+                    </p>
+
+                    <p>
+                      Ce régime est nécessairement beaucoup plus complexe que le
+                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
+                      comptabilité et établir un plan d'amortissement.
+                    </p>
+                    <p>
+                      En outre, d'un point de vue fiscal, vous devez remplir une
+                      déclaration n° 2033 comportant un bilan, un tableau des
+                      immobilisations et amortissements et un relevé des
+                      provisions.
+                    </p>
+                    <p class="text-exemple">
+                      En pratique, compte tenu de la grande complexité du
+                      régime, il est indispensable de vous faire assister par un
+                      comptable ou un organisme de gestion agréé pour éviter
+                      toute erreur et tout problème avec l'administration
+                      fiscale.
+                    </p>
+                    <p>
+                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      
+                    </p>
+                  </div>
+                </li>
               </ul>
-              <p>
-                Si les revenus sont supérieur à 72 600€ par an, le régime "réel"
-                est appliqué obligatoirement.
-              </p>
-              <span id="f2" class="subtitle-article">
-                Le régime "forfaitaire"
-              </span>
-              <p>
-                Premier choix possible, le
-                <strong>régime "forfaitaire"</strong>, les revenus imposables
-                sont constitués des loyers charges comprises, avec un abattement
-                forfaitaire de 50%;<br />
-                Apres abattement on applique le taux marginal d'imposition plus
-                le taux de prélèvement social de 17.2%;
-              </p>
-              <p>
-                Les revenus des locations meublées sont soumis à la CET,
-                (contribution économique territoriale),qui inclu la
-                CFE(contribution foncieres des entreprises) <br />Comme c'est un
-                impôt local, son montant peut varier d'une commune à l'autre.<br />
-                Renseignez-vous auprès de votre centre des impôts pour en
-                connaître le montant.
-              </p>
-              <p class="text-exemple">
-                exemple de M. Dupont:<br />
-                Revenus locatifs charges comprises 10 000€ par an.<br />
-                Taux marginal d'imposition: 30%.<br />
-                CFE de sa commune: 550€<br />
-                Abattement forfaitaire de 50%: 5 000€<br />
-                Assiete imposable : 10 000€ - 5 000€ = 5 000€<br />
-                Montant de l'imposition sur les BIC: 5000 * (0.3 + 0.172) = 2
-                360€
-                <br />
-                Conclusion:<br />
-                Quelque soit le montant des charges liées à la location de son
-                bien, M.Dupont payera 2 360€ au titre de l'impot sur les BIC.<br />
-                A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
-                <br />
-                Dans ce cas précis il n' est pas avantageux par rapport à une
-                location nue au regime forfaitaire.<br />
-                Pour que ce regime d'imposition soit avantageux, M. Dupont doit
-                bénéficier à la fois d'une CFE et de charges incluses dans le
-                loyer relativement faibles.<br />
-              </p>
-              <span id="r2" class="subtitle-article"> Le régime "réel" </span>
-              <p>
-                Deuxième choix possible, le <strong>régime "réel"</strong>.Dans
-                ce mode d'imposition les charges deductibles comprendront un
-                système d'amortissement sur le bien ,les meubles, l'electricite
-                etc...<br />
-                Pour faire simple ces amortissemnts reflette l'usure, donc la
-                perte de valeur d'un élément du bien.<br />
-                Cette perte de valeur est imputable aux revenus locatifs, ce qui
-                a pour effet de diminuer votre assiette imposable.<br />
-                On soustrait les charges déductibles aux revenus locatifs. On
-                apllique ensuite le taux marginal d'imposition plus le taux de
-                prélèvement social(17.2%).
-              </p>
-              <p class="text-exemple">
-                exemple de M. Dupont:<br />
-                Revenus locatifs charges comprises 10 000€ par an<br />
-                Taux marginal d'imposition: 30%<br />
-                CFE de sa commune: 550€<br />
-                Charges déductibles:<br />
-                - frais d'emprunt: 600€<br />
-                - autres charges déductibles: 1 400€<br />
-                - total des amortissements: 4 000€<br />
-                - honoraire cabinet comptable: 1 000€<br />
-
-                Assiete imposable : 10 000€ - 600€ - 1 400€ - 3 000€ - 1 000€ =
-                4 000€<br />
-
-                Montant de l'imposition sur les BIC: 4000 * (0.3 + 0.172) = 1
-                888€
-                <br />
-                Conclusion:<br />
-                M.Dupont payera 1 888€ au titre de l'impot sur les BIC.<br />
-                Ajouté à ça la CFE de 550€ soit au total : 2 438€.<br />
-                Dans ce cas précis il n' est pas vraiment avantageux par rapport
-                à une location nue au regime "réel".<br />
-                Pour rendre avantageux ce mode de location, M. Dupont doit
-                augmenter les amortissements pour créer un déficite foncier.<br />
-                Avec ce mode de location et ce regime d'imposition les déficites
-                fonciers ne sont pas imputable aux revenu global, mais
-                uniquement sur le même type de revenus.<br />
-                Pour cela rien de tel que des travaux avec de nouveaux meubles.
-              </p>
-
-              <p>
-                Ce régime est nécessairement beaucoup plus complexe que le
-                "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
-                comptabilité et établir un plan d'amortissement.<br />
-                En outre, d'un point de vue fiscal, vous devez remplir une
-                déclaration n° 2033 comportant un bilan, un tableau des
-                immobilisations et amortissements et un relevé des
-                provisions.<br />
-                En pratique, compte tenu de la grande complexité du régime, il
-                est indispensable de vous faire assister par un comptable ou un
-                organisme de gestion agréé pour éviter toute erreur et tout
-                problème avec l'administration fiscale.
-              </p>
             </div>
           </div>
         </article>
@@ -625,7 +719,7 @@
                 step="1000"
                 required
               />
-              <span id="price" class="calculette-span ">€</span>
+              <span id="price" class="calculette-span">€</span>
             </div>
             <div id="error-financement" class="error-input"></div>
 
@@ -814,13 +908,13 @@
         <fieldset id="revenu-locatif" class="flex-column-start-start fieldset">
           <h3 class="titre-calculette">Revenus locatifs</h3>
           <div class="main-container-input">
-            <label id="label-revenu" class="label">Loyer(s)</label>
+            <label id="label-revenu" class="label">Loyer hors charges</label>
 
             <div class="container-input-number">
               <input
                 class="calculette-number"
                 type="number"
-                name="number-revenu"
+                name="number-revenu_hors_charge"
                 max="10000"
                 min="0"
                 step="1"
@@ -835,7 +929,7 @@
               <input
                 class="calculette-range"
                 type="range"
-                name="range-revenu"
+                name="range-revenu_hors_charge"
                 max="10000"
                 min="0"
                 step="1"
@@ -843,6 +937,166 @@
             </div>
             <div id="error-revenu" class="error-input"></div>
           </div>
+          <div class="main-container-input">
+            <label id="label-revenu" class="label">Loyer charges comprises</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-revenu_charge_comprise"
+                max="10000"
+                min="0"
+                step="1"
+                required
+              />
+              <span class="calculette-span">€ / Mois</span>
+            </div>
+            <div class="income-year"></div>
+            <div class="income-error"></div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-revenu_charge_comprise"
+                max="10000"
+                min="0"
+                step="1"
+              />
+            </div>
+            <div id="error-revenu" class="error-input"></div>
+          </div>
+        </fieldset>
+        <fieldset id="fiscal" class="flex-column-start-start fieldset">
+          <h3 class="titre-calculette">Taux marginal d'imposition.</h3>
+
+          <div class="main-container-input-radio">
+            <div class="container-radio">
+              <label class="label" for="0">0% </label>
+              <input
+                id="0"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+                value="0"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="11">11%</label>
+              <input
+                id="11"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+                value="11"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="30">30% </label>
+              <input
+                id="30"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+                value="30"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="41">41% </label>
+              <input
+                id="41"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+                value="41"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="45">45% </label>
+              <input
+                id="45"
+                class="input-radio"
+                type="radio"
+                name="taux-impot"
+                value="45"
+              />
+            </div>
+          </div>
+
+          <div id="regime" class="container-label flex-row-start-center">
+            <h3 id="title-regime-fiscal" class="titre-calculette"></h3>
+            <svg class="svg-icon-info" viewBox="0 -960 960 960">
+              <use xlink:href="#icon-info" fill="currentColor" />
+            </svg>
+          </div>
+
+          <div
+            id="regime-fiscal-container-radio"
+            class="main-container-input-radio display"
+          >
+            <div class="container-radio">
+              <label class="label" for="impot-reel">Réel</label>
+              <input
+                id="impot-reel"
+                class="input-radio"
+                type="radio"
+                name="regime-fiscal"
+                value="reel"
+              />
+            </div>
+            <div class="container-radio">
+              <label class="label" for="impot-forfaitaire">Forfaitaire </label>
+              <input
+                id="impot-forfaitaire"
+                class="input-radio"
+                type="radio"
+                name="regime-fiscal"
+                value="forfaitaire"
+              />
+            </div>
+          </div>
+
+          <!--************** container resultat bilan apres imposition  *************************
+            **********************************************************************************
+          <div id="cont-result-bilan" class="container-resultat valid">
+            <div id="cont-bilan-a" class="resultat flex-column-start-center">
+              <div class="flex-column-start-center">
+                <span id="assiette-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-bilan flex-row-start-center">
+                <span id="assiette" class="number-resultat"></span>
+                <span id="assiette-text-end" class="text-resultat"></span>
+              </div>
+            </div>
+            <div id="cont-bilan-b" class="resultat flex-column-start-center">
+              <div class="flex-column-start-center">
+                <span id="impot-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-bilan flex-row-start-center">
+                <span id="impot" class="number-resultat"></span>
+                <span id="impot-text-end" class="text-resultat"></span>
+              </div>
+            </div>
+            <div id="cont-bilan-c" class="resultat flex-column-start-center">
+              <div class="flex-column-start-center">
+                <span id="bilan-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-bilan flex-row-start-center">
+                <span id="bilan" class="number-resultat"></span>
+                <span id="bilan-text-end" class="text-resultat"></span>
+              </div>
+            </div>
+            <div id="cont-bilan-d" class="resultat flex-column-start-center">
+              <div class="flex-column-start-center">
+                <span id="cout-text-start" class="text-resultat"></span>
+              </div>
+              <div class="container-bilan flex-row-start-center">
+                <span id="cout" class="number-resultat"></span>
+                <span id="cout-text-end" class="text-resultat"></span>
+              </div>
+            </div>
+          </div>-->
         </fieldset>
         <fieldset id="charge-taxe" class="flex-column-start-start fieldset">
           <h3 id="titre-charge" class="titre-calculette">Charges et taxes</h3>
@@ -1119,7 +1373,7 @@
 
           <!--**********************************************************************************
             ************** container resultat equilibre revenu et charge bilan avant impo  ********
-           ***** start **************************************************************************-->
+           ***** start **************************************************************************
 
           <div id="cont-result-equilibre" class="container-resultat valid">
             <div
@@ -1171,142 +1425,105 @@
               id="resultat-error-equilibre"
               class="flex-column-center-center resultat-error error hide"
             ></div>
-          </div>
+          </div>-->
 
           <!--**********************************************************************************
             ************** container resultat equilibre revenu et charge*************************
           ***** end **************************************************************************-->
         </fieldset>
-        <fieldset id="fiscal" class="flex-column-start-start fieldset">
-          <h3 class="titre-calculette">Taux marginal d'imposition.</h3>
+        <!--**********************************************************************************
+          ************** container resultat simulation   *************************
+        ***** start **************************************************************************-->
+       
+        <fieldset id="simulation" class="flex-column-start-center fieldset simulation">
+          
+          <h3 class="simulation-titre flex-column-start-center">resultat simulation</h3>
+          
+            <div id="revenu-total" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Total revenus locatifs</h4>
+              <span class="definition">(Loyers charges comprises, utilisés pour le calcul des bilans)</span>
+              <div class="resultat flex-row-center-center">
+                <span id="revenu-total-value" class="value"></span>
+                <span class="unity"> €/an</span>
+              </div>
+            </div>
 
-          <div class="main-container-input-radio">
-            <div class="container-radio">
-              <label class="label" for="0">0% </label>
-              <input
-                id="0"
-                class="input-radio"
-                type="radio"
-                name="taux-impot"
-                value="0"
-              />
+            <div id="revenu-reference" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Revenus locatifs de référence</h4>
+              <span class="definition">« Montant des revenus locatifs utilisés pour le calcul de l'impôt foncier  »</span>
+              <div class="resultat flex-row-start-center">
+                <span id="revenu-reference-value" class="value"></span>
+                <span class="unity"> €/an</span>
+              </div>
             </div>
-            <div class="container-radio">
-              <label class="label" for="11">11%</label>
-              <input
-                id="11"
-                class="input-radio"
-                type="radio"
-                name="taux-impot"
-                value="11"
-              />
+            
+            <div id="charge-total" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Total des charges</h4>
+              <span class="definition">Charges + taxes + mensualités</span>
+              <div class="resultat flex-row-start-center">
+                <span id="charge-total-value" class="value"></span>
+                <span class="unity"> €/an</span>
+              </div>
             </div>
-            <div class="container-radio">
-              <label class="label" for="30">30% </label>
-              <input
-                id="30"
-                class="input-radio"
-                type="radio"
-                name="taux-impot"
-                value="30"
-              />
-            </div>
-            <div class="container-radio">
-              <label class="label" for="41">41% </label>
-              <input
-                id="41"
-                class="input-radio"
-                type="radio"
-                name="taux-impot"
-                value="41"
-              />
-            </div>
-            <div class="container-radio">
-              <label class="label" for="45">45% </label>
-              <input
-                id="45"
-                class="input-radio"
-                type="radio"
-                name="taux-impot"
-                value="45"
-              />
-            </div>
-          </div>
 
-          <div id="regime" class="container-label flex-row-start-center">
-            <h3 id="title-regime-fiscal" class="titre-calculette"></h3>
-            <svg class="svg-icon-info" viewBox="0 -960 960 960">
-              <use xlink:href="#icon-info" fill="currentColor" />
-            </svg>
-          </div>
+            <div id="bilan-avant-impot" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Bilan avant imposition</h4>
+              <span class="definition">Total des revenus locatifs - total des charges</span>
+              <div class="resultat flex-row-start-center">
+                <span id="bilan-avant-impot-value" class="value"></span>
+                <span class="unity"> €/an</span>
+              </div>
+            </div>
 
-          <div
-            id="regime-fiscal-container-radio"
-            class="main-container-input-radio display"
-          >
-            <div class="container-radio">
-              <label class="label" for="impot-reel">Réel</label>
-              <input
-                id="impot-reel"
-                class="input-radio"
-                type="radio"
-                name="regime-fiscal"
-                value="reel"
-              />
+            <div id="charge-deductible" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Charges déductibles</h4>
+              <span class="definition">Montant des charges imputables au revenu locatif de référence </span>
+              <div class="resultat flex-row-start-center">
+                <span id="charge-deductible-value" class="value"></span>
+                <span class="unity"> €/an</span>
+              </div>
             </div>
-            <div class="container-radio">
-              <label class="label" for="impot-forfaitaire">Forfaitaire </label>
-              <input
-                id="impot-forfaitaire"
-                class="input-radio"
-                type="radio"
-                name="regime-fiscal"
-                value="forfaitaire"
-              />
-            </div>
-          </div>
 
-          <!--************** container resultat bilan apres imposition  *************************
-            **********************************************************************************-->
-          <div id="cont-result-bilan" class="container-resultat valid">
-            <div id="cont-bilan-a" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="assiette-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="assiette" class="number-resultat"></span>
-                <span id="assiette-text-end" class="text-resultat"></span>
+            <div id="assiette-imposable" class="container-resultat-simulation flex-column-start-center">
+              <h4 id="assiette-imposable-titre" class="titre flex-column-start-center">Assiette imposable</h4>
+              <span id="assiette-imposable-definition" class="definition">Revenus de référence - abattement forfaitaire</span>
+              <div class="resultat flex-row-start-center">
+                <span id="assiette-imposable-value" class="value"></span>
+                <span class="unity"> €/an</span>
               </div>
             </div>
-            <div id="cont-bilan-b" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="impot-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="impot" class="number-resultat"></span>
-                <span id="impot-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-            <div id="cont-bilan-c" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="bilan-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="bilan" class="number-resultat"></span>
-                <span id="bilan-text-end" class="text-resultat"></span>
+
+            <div id="impot-foncier" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Impôt foncier</h4>
+              <span class="definition">Assiette imposable * (taux marginal imposition + taux prélèvement sociaux)</span>
+              <div class="resultat flex-row-start-center">
+                <span id="impot-foncier-value" class="value"></span>
+                <span class="unity"> €/an</span>
               </div>
             </div>
-            <div id="cont-bilan-d" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="cout-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="cout" class="number-resultat"></span>
-                <span id="cout-text-end" class="text-resultat"></span>
+
+            <div id="bilan-apres-imposition" class="container-resultat-simulation flex-column-start-center">
+              <h4 class="titre flex-column-start-center">Bilan aprés imposition</h4>
+              <span class="definition">Bilan avant imposition - impôt foncier</span>
+              <div class="resultat flex-row-start-center">
+                <span id="bilan-apres-imposition-value" class="value"></span>
+                <span class="unity"> €/an</span>
               </div>
             </div>
-          </div>
+
+            <div id="cout-mensuel" class="container-resultat-simulation flex-column-start-center">
+              <span id="cout-mensuel-titre" class="definition">Dans ces conditions, votre bien en location vous coûte</span>
+              <div class="resultat flex-row-start-center">
+                <span id="cout-mensuel-titre-value" class="value"></span>
+                <span class="unity"> €/mois</span>
+              </div>
+            </div>
+          
         </fieldset>
+         <!--**********************************************************************************
+          ************** container resultat simulation   *************************
+        ***** end **************************************************************************-->
+        
       </form>
     </div>
     <footer class="footer flex-column-start-center">
