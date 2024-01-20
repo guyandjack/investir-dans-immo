@@ -102,9 +102,7 @@ function checkValueUserMonthly(evt) {
   /*** start ***/
 
   if (elementInputName == "number-prix" || elementInputName == "range-prix") {
-    if (
-      !testIfNumberInt(elementInputValue) 
-    ) {
+    if (!testIfNumberInt(elementInputValue)) {
       console.log("boucle erreur input prix test number lancée");
       // -1- test si la valeur est un nombre
       //Validation de l'erreur ds l'objet
@@ -148,8 +146,6 @@ function checkValueUserMonthly(evt) {
 
     //test 2 est lancé si le resultat du test 1 est validé
     if (!errorObject.financement.stateNan) {
-      
-
       if (
         parseInt(elementInputValue, 10) < 1 ||
         parseInt(elementInputValue, 10) > 1000000
@@ -189,8 +185,7 @@ function checkValueUserMonthly(evt) {
         }
       }
     }
-    
-    
+
     //  -3- test si le financement est superieur à l' apport
 
     //test 3 est lancé si les test 1 et 2 sont validés
@@ -241,10 +236,6 @@ function checkValueUserMonthly(evt) {
   /*** test sur l'input user "financement" ***/
   /*** end ***/
 
-
-
-
-
   /*** test sur l'input user "apport" ***/
   /*** start ***/
 
@@ -292,8 +283,6 @@ function checkValueUserMonthly(evt) {
 
     // Le test 2 est lancé si le test un est validé
     if (!errorObject.apport.stateNan) {
-      
-    
       if (
         parseInt(elementInputValue, 10) < 1 ||
         parseInt(elementInputValue, 10) > 1000000
@@ -334,12 +323,10 @@ function checkValueUserMonthly(evt) {
 
     //  -3- test si l'apport est inferirur au financement
     // le test 3 est lancé si le test 1 et le test 2 sont validés
-    if (
-      !errorObject.apport.stateNan &&
-      !errorObject.apport.stateFourchette
-    ) {
-
-      if (parseInt(elementInputValue, 10) > parseInt(inputNumberPrix.value, 10)) {
+    if (!errorObject.apport.stateNan && !errorObject.apport.stateFourchette) {
+      if (
+        parseInt(elementInputValue, 10) > parseInt(inputNumberPrix.value, 10)
+      ) {
         //Validation de l'erreur ds l'objet
         errorObject.apport.stateCondition = true;
 
@@ -378,18 +365,10 @@ function checkValueUserMonthly(evt) {
   /*** test sur l'input user "apport" ***/
   /*** end ***/
 
-
-
-
-
-
   /*** test sur l'input user "TAEG" ***/
   /*** start ***/
 
-  if (
-    elementInputName == "number-taeg" ||
-    elementInputName == "range-taeg"
-  ) {
+  if (elementInputName == "number-taeg" || elementInputName == "range-taeg") {
     if (!testIfNumberFloat(elementInputValue)) {
       // -1- test si la valeur est un nombre
       //Validation de l'erreur ds l'objet
@@ -471,18 +450,10 @@ function checkValueUserMonthly(evt) {
   /*** test sur l'input user "TAEG" ***/
   /*** end ***/
 
-
-
-
-
-
   /*** test sur l'input user "Durée" ***/
   /*** start ***/
 
-  if (
-    elementInputName == "number-duree" ||
-    elementInputName == "range-duree"
-  ) {
+  if (elementInputName == "number-duree" || elementInputName == "range-duree") {
     // -1- test si la valeur est un nombre
     if (!testIfNumberInt(elementInputValue)) {
       //Validation de l'erreur ds l'objet
@@ -579,90 +550,81 @@ function checkValueUserMonthly(evt) {
 }
 
 //Check l'input user revenu foncier;
-function checkValueUserIncome(evt) {
-  //Test si la valeurs de l'input user est un nombre
-  let isNumber = testIfNumberInt(evt.target.value);
+function checkValueUserIncome() {
+  let errorCounter = [];
+  console.log("check value user income lancée");
+  console.log("list inputs number income: " + inputNumberRevenuList[0]);
 
-  if (!isNumber) {
-    incomeOnYear.innerHTML = "Veuillez entrer un nombre !";
-    incomeOnYear.style.color = "red";
-    return false;
-  }
+  for (let i = 0; i < inputNumberRevenuList.length; i++) {
+    let inputValue = inputNumberRevenuList[i].value;
+    let inputCompleteName = inputNumberRevenuList[i].name;
+    let name = inputCompleteName.split("-")[1];
 
-  //test si la valeur est non null
-  if (
-    inputNumberRevenu.value == "undefined" ||
-    inputNumberRevenu.value == "" ||
-    inputNumberRevenu.value == null
-  ) {
-    incomeOnYear.innerHTML = "Veuillez entrer une valeur valide !";
-    incomeOnYear.style.color = "red";
-    return false;
-  }
+    let divError = document.querySelector("#error-" + name);
+    console.log("div error income id: " + divError.id);
 
-  //test si la valeur est positive
-  if (parseInt(inputNumberRevenu.value) < 0) {
-    incomeOnYear.innerHTML = "Veuillez entrer une valeur positive !";
-    incomeOnYear.style.color = "red";
-    return false;
+    //Test si la valeur est un nombre positif
+    let isNumber = testIfNumberInt(inputValue);
+
+    if (!isNumber || inputValue < 0) {
+      divError.innerHTML = "Veuillez entrer une valeur valide !";
+      errorCounter[i] = 1;
+    } else {
+      divError.innerHTML = "";
+      errorCounter[i] = 0;
+    }
   }
-  incomeOnYear.innerHTML = parseInt(inputNumberRevenu.value * 12, 10) + " €/an";
-  incomeOnYear.style.color = "inherit";
-  return true;
+  console.log("compteur erreur: " + errorCounter);
+  let initialValue = 0;
+  const errorCountTotal = errorCounter.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+
+  console.log("nombre d'erreur: " + errorCountTotal);
+  if (errorCountTotal > 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 //check les inputs de charges et taxes
 function checkValueUserDuty() {
-  let errorMessages = [
-    "charges de coproprietés",
-    "gestion locative",
-    "primes d'assurance (PNO)",
-    "primes d'assurance loyer impayé",
-    "taxe foncière",
-    "taxe d'habitation",
-    "cfe",
-    "charges non déductibles",
-    "charges deductibles",
-  ];
+  let errorCounter = [];
 
   for (let i = 0; i < inputsNumberTaxe.length; i++) {
     let inputValue = inputsNumberTaxe[i].value;
+    let inputCompleteName = inputsNumberTaxe[i].name;
+    let name = inputCompleteName.split("-")[1];
 
-    console.log("input value: " + inputValue);
+    let divError = document.querySelector("#error-" + name);
+    
 
-    //Test si la valeur est un nombre
+    //Test si la valeur est un nombre positif
     let isNumber = testIfNumberInt(inputValue);
-    console.log("isnumber: " + isNumber);
 
-    if (!isNumber) {
-      if (resultatErrorEquilibre.classList.contains("hide")) {
-        resultatErrorEquilibre.classList.replace("hide", "display-error");
-      }
-
-      resultatErrorEquilibre.innerHTML =
-        "Veuillez entrer un nombre dans le champ<br/> « " +
-        errorMessages[i] +
-        " »";
-
-      return false;
-    }
-
-    //test si la valeur est negative
-    if (parseInt(inputValue) < 0) {
-      if (resultatErrorEquilibre.classList.contains("hide")) {
-        resultatErrorEquilibre.classList.replace("hide", "display-error");
-      }
-
-      resultatErrorEquilibre.innerHTML =
-        "Le champ <br/>« " + errorMessages[i] + " » <br/>est négatif !";
-      return false;
+    if (!isNumber || inputValue < 0) {
+      divError.innerHTML = "Veuillez entrer une valeur valide !";
+      errorCounter[i] = 1;
+    } else {
+      divError.innerHTML = "";
+      errorCounter[i] = 0;
     }
   }
-  if (resultatErrorEquilibre.classList.contains("display-error")) {
-    resultatErrorEquilibre.innerHTML = "";
-    resultatErrorEquilibre.classList.replace("display-error", "hide");
+  console.log("compteur erreur input charge: " + errorCounter);
+  let initialValue = 0;
+  const errorCountTotal = errorCounter.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+
+  console.log("nombre d'erreur input charge: " + errorCountTotal);
+  if (errorCountTotal > 0) {
+    return false;
+  } else {
+    return true;
   }
-  return true;
 }
 
 /**

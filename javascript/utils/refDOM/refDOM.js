@@ -2,6 +2,15 @@
  * Elements du DOM referencés pour l'utilisation dans le script principal******
  * ****************************************************************************/
 
+/****************************** Elements contenu dans banner page acceuil*************************/
+/**** start */
+
+//button de presenetation
+let listOfButton = document.querySelectorAll("ul.introduction-banner button");
+
+/****************************** Elements contenu dans banner page acceuil*************************/
+/**** end */
+
 /****************************** Elements contenu dans article*************************/
 /**** start */
 
@@ -22,8 +31,6 @@ const btnDownloadList = document.querySelectorAll(".btn-download");
 
 /****************************** Elements contenu dans article*************************/
 /**** start */
-
-
 
 /****************************** Elements du formulaire #calculette*************************/
 /***************************************** start ************************************** */
@@ -62,9 +69,6 @@ const interestCredit = document.querySelector("#interest");
 const interestTextEnd = document.querySelector("#interest-text-end");
 
 const resultatError = document.querySelector("#resultat-error-calculette");
-const resultatErrorEquilibre = document.querySelector(
-  "#resultat-error-equilibre"
-);
 
 /***** fieldset #calculette-mensualite *****/
 /*** end ****/
@@ -84,22 +88,29 @@ const inputRadioLocationMeuble = document.querySelector("#location-meuble");
 //container input revenu
 
 //Input de type "Number"
-const inputNumberRevenu = document.querySelector("input[name='number-revenu']");
-const inputNumberRevenuCharge = document.querySelector(
-  "input[name='number-charge']"
+const inputNumberRevenuHorsCharge = document.querySelector(
+  "input[name='number-revenu_hors_charge']"
+);
+const inputNumberRevenuChargeComprise = document.querySelector(
+  "input[name='number-revenu_charge_comprise']"
 );
 
 //Input de type "Range"
-const inputRangeRevenu = document.querySelector("input[name='range-revenu']");
-const inputRangeRevenuCharge = document.querySelector(
-  "input[name='range-charge']"
+const inputRangeRevenuHorsCharge = document.querySelector(
+  "input[name='range-revenu_hors_charge']"
+);
+const inputRangeRevenuChargeComprise = document.querySelector(
+  "input[name='range-revenu_charge_comprise']"
+);
+
+//list des inputs number "revenu"
+const inputNumberRevenuList = document.querySelectorAll(
+  "#revenu-locatif input[type='number']"
 );
 
 // conteneur de rappel ou on affiche le revenu locatif à l'année.(sous input number)
 const incomeOnYear = document.querySelector(".income-year");
-
-//div error sous input revenu locatif
-const incomeError = document.querySelector(".income-error");
+const incomeOnYearCc = document.querySelector(".income-year-cc");
 
 /***** fieldset #revenu-locatif *****/
 /*** end ****/
@@ -166,37 +177,6 @@ const inputRangeChargeDeductible = document.querySelector(
   "input[name='range-deductible']"
 );
 
-//conteneurs qui affichent les elements resultat "charges" et "revenu" "bilan avant imposition"
-const containerResultatBalance = document.querySelector(
-  "#cont-result-equilibre"
-);
-
-const containerTotal = document.querySelector("cont-equilibre-total");
-const containerText = document.querySelector("#cont-equilibre-text");
-
-//sous total "revenu"
-const totalRevenuTextStart = document.querySelector(
-  "#equilibre-total-revenu-text-start"
-);
-const totalRevenu = document.querySelector("#equilibre-total-revenu");
-const totalRevenuTextEnd = document.querySelector(
-  "#equilibre-total-revenu-text-end"
-);
-
-//sous total "charge"
-const totalChargeTextStart = document.querySelector(
-  "#equilibre-total-charge-text-start"
-);
-const totalCharge = document.querySelector("#equilibre-total-charge");
-const totalChargeTextEnd = document.querySelector(
-  "#equilibre-total-charge-text-end"
-);
-
-//bilan avant imposition
-const equilibreTextStart = document.querySelector("#equilibre-text-start");
-const equilibreResultat = document.querySelector("#equilibre");
-const equilibreTextEnd = document.querySelector("#equilibre-text-end");
-
 /***** fieldset #charge-taxe *****/
 /*** end ****/
 
@@ -223,27 +203,51 @@ const inputRadioRegimeReel = document.querySelector("#impot-reel");
 const inputRadioRegimeForfaitaire =
   document.querySelector("#impot-forfaitaire");
 
-//element contenant les resultats de imposition
-const containerResultatBilan = document.querySelector("#cont-result-bilan");
-
-const assietteImpotStart = document.querySelector("#assiette-text-start");
-const assietteImpot = document.querySelector("#assiette");
-const assietteImpotEnd = document.querySelector("#assiette-text-end");
-
-const montantImpotStart = document.querySelector("#impot-text-start");
-const montantImpot = document.querySelector("#impot");
-const montantImpotEnd = document.querySelector("#impot-text-end");
-
-const bilanTextStart = document.querySelector("#bilan-text-start");
-const bilanResultat = document.querySelector("#bilan");
-const bilanTextEnd = document.querySelector("#bilan-text-end");
-
-const coutTextStart = document.querySelector("#cout-text-start");
-const coutResultat = document.querySelector("#cout");
-const coutTextEnd = document.querySelector("#cout-text-end");
-
 /***** fieldset #fiscal *****/
 /*** end ****/
 
+/***** fieldset #simulation *****/
+/*** start ****/
+
+//Total revenus locatifs
+let totalRevenuLocatifValue = document.querySelector("#revenu-total-value");
+
+//Total revenu de reference
+let totalRevenuReferenceValue = document.querySelector(
+  "#revenu-reference-value"
+);
+
+//Total charge
+let toltalChargeValue = document.querySelector("#charge-total-value");
+
+//Bilan avant impot
+let bilanAvantImpotValue = document.querySelector("#bilan-avant-impot-value");
+
+//Assiette imposable
+let assietteImposableDefinition = document.querySelector(
+  "#assiette-imposable-definition"
+);
+let assietteImposableValue = document.querySelector(
+  "#assiette-imposable-value"
+);
+
+let assietteImposableTitre = document.querySelector(
+  "#assiette-imposable-titre"
+);
+
+//Impot foncier
+let impotFoncierValue = document.querySelector("#impot-foncier-value");
+
+//Bilan apres impot
+let bilanApresImpositionValue = document.querySelector(
+  "#bilan-apres-imposition-value"
+);
+
+//Cout mensuel location
+let coutMensuelTitre = document.querySelector("#cout-mensuel-titre");
+let coutMensuelValue = document.querySelector("#cout-mensuel-value");
+
+/***** fieldset #simulation *****/
+/*** end ****/
 /****************************** Elements du formulaire #calculette*************************/
 /***************************************** end ************************************** */

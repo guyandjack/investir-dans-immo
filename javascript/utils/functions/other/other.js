@@ -452,6 +452,14 @@ function extendOrCloseColapseInArticle(e) {
   }
 }
 
+function scrollToElement(elementToScroll) {
+  elementToScroll.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+    inline: "nearest",
+  });
+}
+
 export {
   changeColor,
   linkInput,
@@ -477,4 +485,5 @@ export {
   useThemeColor,
   isToggleMoved,
   extendOrCloseColapseInArticle,
+  scrollToElement,
 };

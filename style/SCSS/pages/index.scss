@@ -97,6 +97,7 @@
   justify-content: space-between;
   align-items: center;
 
+
   margin: 1em 0em;
   width: 100%;
   height: 500px;
@@ -122,6 +123,19 @@
 
   @include upper-x-large-screen {
     background-image: url(../../../Asset/petite-maison-lego-1500px.png);
+  }
+
+  //permet de rendre le boutton container clikable
+  
+
+  &  button {
+    position: relative;
+    z-index: 1;
+  }
+
+  & .introduction-icon{
+    position: relative;
+    z-index: -1;
   }
 }
 
@@ -194,6 +208,7 @@
 }
 
 .main-title-article {
+  align-self: flex-start;
   color: map-get($colors-rule, first-color); 
   margin: 1em 0em;
 }
@@ -386,7 +401,7 @@
 
 .container-label {
   position: relative;
-  
+  border: 2px solid red;
 }
 
 .info-bulle {
@@ -526,7 +541,8 @@
 }
 
 .gain-advice,
-.income-year {
+.income-year,
+.income-year-cc {
   padding-left: 1em;
 }
 
@@ -537,6 +553,14 @@
 .input-error{
   border: 2px solid red;
  
+}
+
+.legende{
+  padding:1em;
+}
+
+.error-input{
+  color: red;
 }
 
 

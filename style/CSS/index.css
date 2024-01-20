@@ -561,7 +561,8 @@ body {
 /****************************************************************************************
 /********  **************** container-page + body  **************** ******************/
 /**** start ******************************************************************************/
-.container-page, body {
+.container-page,
+body {
   max-width: 1500px;
   min-width: 400px;
   width: 100%;
@@ -645,7 +646,11 @@ body {
           transform: translate(-100%, -50%);
 }
 
-body.dark .container-page, body.dark .container-article, body.dark .colapse, body.dark .container-text-article, body.dark .fieldset {
+body.dark .container-page,
+body.dark .container-article,
+body.dark .colapse,
+body.dark .container-text-article,
+body.dark .fieldset {
   background-color: #272727;
   color: #FBFFFE;
   -webkit-transition: all 500ms linear;
@@ -672,7 +677,12 @@ body.dark .input-contact {
   color: #FBFFFE;
 }
 
-body .container-page, body .toggle-text, body .container-article, body .colapse, body .container-text-article, body .calculette-number {
+body .container-page,
+body .toggle-text,
+body .container-article,
+body .colapse,
+body .container-text-article,
+body .calculette-number {
   -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
@@ -685,8 +695,109 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 /********  **************** toggle switch **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
+/********  **************** popover-help **************** ******************/
+/**** start ******************************************************************************/
+.btn-popover {
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-popover svg {
+  position: relative;
+}
+
+.popover {
+  -webkit-transform: translateX(-10%);
+      -ms-transform: translateX(-10%);
+          transform: translateX(-10%);
+  width: 390px;
+  padding: 1em;
+  background-color: #068ebc;
+  color: #FBFFFE;
+  border-radius: 1em;
+}
+.popover .cont-text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 80%;
+          flex: 0 1 80%;
+}
+.popover .cont-text button {
+  position: absolute;
+  z-index: 1;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/*[popover]:not(:popover-open):not(dialog[open]) {
+    display: none;
+}*/
+/*[popover]:popover-open {
+    display: flex;
+    flex-flow: row;
+}*/
+.popover:popover-open::-ms-backdrop {
+  backdrop-filter: blur(3px);
+}
+.popover:popover-open::backdrop {
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+/****************************************************************************************
+/********  **************** popover-help **************** ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
 /********  **************** resultat simulation **************** ******************/
 /**** start ******************************************************************************/
+.simulation {
+  margin: 1em 0em;
+  padding: 1.5em;
+  border-radius: 2em;
+  width: 100%;
+  background-color: #24e05d;
+}
+.simulation #cout-mensuel {
+  border: 4px solid #FBFFFE;
+  border-radius: 2em;
+  padding: 1em;
+}
+
+#simulation {
+  background-color: #24e05d;
+  color: #272727;
+}
+
+.simulation-titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+
+.container-resultat-simulation {
+  width: 80%;
+  margin-top: 2em;
+}
+.container-resultat-simulation .titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  font-style: italic;
+}
+.container-resultat-simulation .resultat {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #7ded9f;
+  border: 2px solid #FBFFFE;
+  width: 50%;
+}
+.container-resultat-simulation .resultat .value {
+  margin-right: 1em;
+}
 /****************************************************************************************
 /********  **************** essultat simualtion **************** ******************/
 /**** end ******************************************************************************/
@@ -893,6 +1004,14 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
     background-image: url(../../../Asset/petite-maison-lego-1500px.png);
   }
 }
+.introduction-banner button {
+  position: relative;
+  z-index: 1;
+}
+.introduction-banner .introduction-icon {
+  position: relative;
+  z-index: -1;
+}
 
 .container-introduction-text {
   width: 80%;
@@ -965,6 +1084,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 .main-title-article {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   color: #068ebc;
   margin: 1em 0em;
 }
@@ -1149,6 +1270,7 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 
 .container-label {
   position: relative;
+  border: 2px solid red;
 }
 
 .info-bulle {
@@ -1329,7 +1451,8 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 }
 
 .gain-advice,
-.income-year {
+.income-year,
+.income-year-cc {
   padding-left: 1em;
 }
 
@@ -1339,6 +1462,14 @@ body .container-page, body .toggle-text, body .container-article, body .colapse,
 
 .input-error {
   border: 2px solid red;
+}
+
+.legende {
+  padding: 1em;
+}
+
+.error-input {
+  color: red;
 }
 
 /***************  Style de la partie affichage input number et input range***********

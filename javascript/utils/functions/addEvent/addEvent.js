@@ -32,7 +32,8 @@ import {
   insertContentInfoBulle,
   styleOfInfoBulle,
   deleteElement,
-  extendOrCloseColapseInArticle
+  extendOrCloseColapseInArticle,
+  scrollToElement
 } from "../other/other.js";
 
 import {
@@ -59,6 +60,40 @@ import {
 
 //import de fonction qui realise une requete HTTP avec fetch
 import { FetchForDownload } from "../http/download.js";
+
+
+/**
+ *  Ajoute des écouteurs evenement sur les boutton du banner
+
+ * @param {} void
+ * @return {} void
+ */
+
+function addEventOnBannerButton() {
+  listOfButton.forEach((btn) => {
+    btn.addEventListener("click", (evt) => {
+      let elementToScrollId = evt.target.name;
+      let elementToScroll = document.querySelector("#" + elementToScrollId);
+     
+      //scroll vers le titre d'article correpondant
+      scrollToElement(elementToScroll);
+
+      //ouvre le collapse article correspondant
+      let collapseElement = elementToScroll.querySelector(".colapse");
+
+      if (collapseElement.classList.contains("colapse-close")){
+        collapseElement.classList.replace("colapse-close", "colapse-open");
+      }
+
+      //Tourne l'icon chevron lors de l'ouverture du collapse
+      let chevronTitle = elementToScroll.querySelector(".svg-icon-chevron-colapse");
+      chevronTitle.classList.toggle("chevron-up");
+    })
+  })
+}
+
+
+
 
 /**
  *  Ajoute des écouteurs evenement sur les inputs du fieldset #calculette-mensualité
@@ -116,8 +151,28 @@ function addEventOnInputIncome() {
     input.addEventListener("input", (e) => {
       //lie les inputs "range et "number"
       linkInput(e);
-      calculatedValue.income = e.target.value;
 
+      //stocke la valeur ds l'objet 
+      console.log("nom de l'input: " + e.target.name)
+      if (
+        e.target.name == "number-revenu_hors_charge" ||
+        e.target.name == "range-revenu_hors_charge"
+        ){
+      calculatedValue.income = e.target.value;
+      }
+      else if (
+        e.target.name == "number-revenu_charge_comprise" ||
+        e.target.name == "range-revenu_charge_comprise"
+      ) {
+        calculatedValue.incomeCc = e.target.value;
+      }
+
+      //test la validite de l'input "revenu foncier"
+      let isValidIncome = checkValueUserIncome();
+      console.log("test validite revenu foncier: " + isValidIncome);
+      if (!isValidIncome) {
+        return;
+      }
       //Controle le montant des revenus en fonction du choix du regime d'imposition
       let result = controlValueOfIncome();
       console.log("type checked: " + result);
@@ -126,13 +181,8 @@ function addEventOnInputIncome() {
       incomeByYear();
       console.log("fuonction incomeByYear lancée dans l' event.");
 
-      //test la validite de l'input "revenu foncier"
-      let isValidIncome = checkValueUserIncome(e);
-      console.log("test validite revenu foncier: " + isValidIncome);
 
-      if (!isValidIncome) {
-        return;
-      }
+      
       // bilan avant imposition
       balance();
 
@@ -239,11 +289,14 @@ function addEventOnInputRadioTypeLocation() {
 
       //si location meublee est checked
       if (calculatedValue.locationType == "meuble") {
-        displayInputCfe(); //affiche les inputs number et range CFE
 
-        //On modifie le titre de l'input number revenus locatifs
-        InsertTextInAElement("#label-revenu", "Loyer charges comprises");
+        //affiche les inputs number et range CFE
+        displayInputCfe(); 
 
+        //Affiche le revenu locatif de reference
+        totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
+
+        
         /*let checked = checkValueUserRadioFiscal();
         if (!checked) {
           return;
@@ -257,10 +310,13 @@ function addEventOnInputRadioTypeLocation() {
 
       //si location nue est checked
       if (calculatedValue.locationType == "nue") {
+        //Cache les inputs cfe
         hideInputCfe();
 
-        //On modifie le titre de l'input number revenus locatifs
-        InsertTextInAElement("#label-revenu", "Loyer hors charges ");
+        //Affiche le revenu locatif de reference
+        totalRevenuReferenceValue.innerHTML = calculatedValue.income * 12;
+
+        
         let checked = checkValueUserRadioFiscal();
         if (!checked) {
           return;
@@ -331,6 +387,7 @@ function addEventOnInputRadioFiscal() {
          let result = controlValueOfIncome();
         hideChargeReel();
         displayChargeForfaitaire();
+        
       }
 
       //si l'input radio "regime reel" est cochée on affiche les inputs charges de type "reel"
@@ -338,6 +395,7 @@ function addEventOnInputRadioFiscal() {
          let result = controlValueOfIncome();
         hideChargeForfaitaire();
         displayChargeReel();
+        
       }
 
       balance();
@@ -479,6 +537,7 @@ function addEventOnButtonDownload() {
 }
 
 export {
+  addEventOnBannerButton,
   addEventOnInputMonthly,
   addEventOnInputDuty,
   addEventOnInputIncome,

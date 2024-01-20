@@ -9,6 +9,7 @@ import {
 //import des fonctions
 
 import {
+  addEventOnBannerButton,
   addEventOnInputMonthly,
   addEventOnInputDuty,
   addEventOnInputIncome,
@@ -97,6 +98,9 @@ bilanApresImposition();
  /** end **/
 
 
+//concerne les booutons du banner
+addEventOnBannerButton();
+
 //Ajoute les écouteurs d'évènements pour un calcul automatique des impots sur revenus foncier
 
 addEventOnInputMonthly();
@@ -107,7 +111,7 @@ addEventOnInputRadioImpot();
 addEventOnInputRadioFiscal();
 
 //concerne les fenetre information
-addEventOnIconInfo();
+//addEventOnIconInfo();
 
 //concerne le conteneur des articles
 addEventOnIconColapseArticle();

@@ -98,56 +98,80 @@
         <h2 class="title h2">Ce que cela coûte en réalité</h2>
       </div>
       <div class="introduction">
-        <div class="introduction-banner">
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Mensualités de crédit</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Coût d'un emprunt</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Location nue ou meublée</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Revenus locatifs</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Régime d'imposition optimal</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-          <div class="introduction-icon flex-column-center-center">
-            <div class="icon-text">Bilan après imposition</div>
-            <div class="container-icon-check">
-              <svg class="icon-check" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-check-banner" />
-              </svg>
-            </div>
-          </div>
-        </div>
+        <ul class="introduction-banner">
+          <li>
+            <button type="button" name="article-mensualite">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Mensualités de crédit</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="article-emprunt">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Coût d'un emprunt</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="article-location">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Location nue ou meublée</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="article-revenu">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Revenus locatifs</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="article-imposition-1">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Fiscalité location nue</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="article-imposition-2">
+              <div class="introduction-icon flex-column-center-center">
+                <div class="icon-text">Fiscalité location meublée</div>
+                <div class="container-icon-check">
+                  <svg class="icon-check" viewBox="0 -960 960 960">
+                    <use xlink:href="#icon-check-banner" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </li>
+        </ul>
         <div class="container-introduction-text">
           <p class="introduction-text">
             Investir dans l'immobilier, est-ce le bon choix? Une
@@ -175,16 +199,45 @@
           </p>
         </div>
       </div>
-      <div class="container-article flex-column-start-start">
-        <p class="main-title-article h2 title">
-          Quelques notions pour bien se comprendre...
-        </p>
-        <div class="article flex-column-start-start">
+      <p class="main-title-article h2 title">
+        Quelques notions pour bien se comprendre...
+      </p>
+      <ul class="container-article flex-column-start-start">
+        <li id="article-taeg" class="article flex-column-start-start">
+          <h3 class="title-article title flex-row-start-center">
+            <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
+              <use xlink:href="#icon-chevron" fill="currentColor" />
+            </svg>
+            Taux annuel effectif global
+          </h3>
+          <div class="underline-title-h3"></div>
+          <div class="colapse colapse-close">
+            <div class="container-text-article">
+              <p>
+                Le TAEG est un élément important du plan de financement, il
+                intègre l'ensemble des <strong>coûts liés au crédit</strong>. De
+                ce fait, il est le premier indice de comparaison des offres
+                bancaires.
+              </p>
+              <p>
+                Il intègre les coûts liés aux assurances, aux frais de dossier,
+                aux frais annexes et naturellement aux interêts bancaires.
+              </p>
+              <p>Pour calculer vos mensualités il faut utiliser le TAEG.</p>
+            </div>
+          </div>
+        </li>
+        <li id="article-mensualite" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
             </svg>
             Mensualités
+            <img
+              src="../Asset/icon-petite-maison-lego-2.png"
+              width="50px"
+              height="50px"
+            />
           </h3>
           <div class="underline-title-h3"></div>
           <div class="colapse colapse-close">
@@ -208,32 +261,9 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="article flex-column-start-start">
-          <h3 class="title-article title flex-row-start-center">
-            <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
-              <use xlink:href="#icon-chevron" fill="currentColor" />
-            </svg>
-            Taux annuel effectif global
-          </h3>
-          <div class="underline-title-h3"></div>
-          <div class="colapse colapse-close">
-            <div class="container-text-article">
-              <p>
-                Le TAEG est un élément important du plan de financement, il
-                intègre l'ensemble des <strong>coûts liés au crédit</strong>. De
-                ce fait, il est le premier indice de comparaison des offres
-                bancaires.
-              </p>
-              <p>
-                Il intègre les coûts liés aux assurances, aux frais de dossier,
-                aux frais annexes et naturellement aux interêts bancaires.
-              </p>
-              <p>Pour calculer vos mensualités il faut utiliser le TAEG.</p>
-            </div>
-          </div>
-        </div>
-        <div class="article flex-column-start-start">
+        </li>
+
+        <li id="article-emprunt" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
@@ -259,8 +289,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="article flex-column-start-start">
+        </li>
+        <li id="article-location" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
@@ -294,7 +324,9 @@
                 <li class="list-exemple-li">Ustensiles de cuisine</li>
                 <li class="list-exemple-li">Étagères de rangement</li>
                 <li class="list-exemple-li">Literie complète</li>
-                <li class="list-exemple-li">Volets ou rideaux dans les chambres</li>
+                <li class="list-exemple-li">
+                  Volets ou rideaux dans les chambres
+                </li>
                 <li class="list-exemple-li">Luminaires</li>
                 <li class="list-exemple-li">
                   Matériel d'entretien ménager adapté aux caractéristiques du
@@ -307,9 +339,9 @@
               </p>
             </div>
           </div>
-        </div>
+        </li>
 
-        <div class="article flex-column-start-start">
+        <li id="article-revenu" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
@@ -333,9 +365,9 @@
               </p>
             </div>
           </div>
-        </div>
+        </li>
 
-        <article class="article flex-column-start-start">
+        <li id="article-imposition-1" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
@@ -396,12 +428,14 @@
                       l'impot sur revenus fonciers.
                     </p>
                     <p>
-                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                      <button
+                        class="btn-download"
+                        type="button"
+                        data-download="tableau-resume.xlsx"
+                      >
                         Télécharger un tableau récapitulatif
                       </button>
-                      
                     </p>
-                    
                   </div>
                 </li>
                 <li id="reel-a" class="list-li flex-row-start-center">
@@ -417,10 +451,9 @@
                   >
                     <h4 id="r1" class="subtitle-article">Le régime "réel"</h4>
                     <p>
-                      Dans ce mode d'imposition
-                      les charges déductibles comprendront un système
-                      d'amortissement sur le bien ,les meubles, l'électricite
-                      etc...<br />
+                      Dans ce mode d'imposition les charges déductibles
+                      comprendront un système d'amortissement sur le bien ,les
+                      meubles, l'électricite etc...<br />
                       Pour faire simple ces amortissemnts reflette l'usure, donc
                       la perte de valeur d'un élément du bien.<br />
                       Cette perte de valeur est imputable aux revenus locatifs,
@@ -489,7 +522,9 @@
                         L'indemnité d'éviction ou de relogement d'un locataire.
                       </li>
                       <li class="list-exemple-li">Les primes d'assurance.</li>
-                      <li class="list-exemple-li">Les intérêts et frais d'emprunt.</li>
+                      <li class="list-exemple-li">
+                        Les intérêts et frais d'emprunt.
+                      </li>
                     </ul>
                     <p class="text-exemple">
                       Les intérêts et frais d'emprunt ne sont pas imputable au
@@ -499,8 +534,8 @@
                       Ce régime est nécessairement beaucoup plus complexe que le
                       "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
                       comptabilité et établir un plan d'amortissement.
-                      </p>
-                      <p>
+                    </p>
+                    <p>
                       En outre, d'un point de vue fiscal, vous devez remplir une
                       déclaration n° 2033 comportant un bilan, un tableau des
                       immobilisations et amortissements et un relevé des
@@ -514,19 +549,22 @@
                       fiscale.
                     </p>
                     <p>
-                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                      <button
+                        class="btn-download"
+                        type="button"
+                        data-download="tableau-resume.xlsx"
+                      >
                         Télécharger un tableau récapitulatif
                       </button>
-                      
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-        </article>
+        </li>
 
-        <article class="article flex-column-start-start">
+        <li id="article-imposition-2" class="article flex-column-start-start">
           <h3 class="title-article title flex-row-start-center">
             <svg class="svg-icon-chevron-colapse" viewBox="0 -960 960 960">
               <use xlink:href="#icon-chevron" fill="currentColor" />
@@ -554,26 +592,29 @@
                     id="colapse-forfaitaire-b"
                     class="colapse colapse-article colapse-close"
                   >
-                    
                     <h4 id="f2" class="subtitle-article">
                       Le régime "forfaitaire"
                     </h4>
                     <p>
-                     Dans cette situation, les revenus imposables sont constitués des loyers charges comprises,
-                      avec un abattement forfaitaire de 50%.<br />
-                      Apres abattement, on applique le taux marginal d'imposition
-                      plus le taux de prélèvement social de 17.2% pour le calcul de l'impôt.
+                      Dans cette situation, les revenus imposables sont
+                      constitués des loyers charges comprises, avec un
+                      abattement forfaitaire de 50%.<br />
+                      Après abattement, on applique le taux marginal
+                      d'imposition plus le taux de prélèvement social de 17.2%
+                      pour le calcul de l'impôt.
                     </p>
                     <p>
-                      Si les revenus sont supérieur à 72 600€ par an, le <strong>régime
-                      "réel"</strong> est appliqué obligatoirement.
+                      Si les revenus sont supérieur à 72 600€ par an, le
+                      <strong>régime "réel"</strong> est appliqué
+                      obligatoirement.
                     </p>
                     <p>
-                      Les revenus des locations meublées sont soumis à la <strong>CET</strong>,
-                      (contribution économique territoriale),qui inclu la
-                      <strong>CFE</strong>(contribution foncières des entreprises) <br />Comme
-                      c'est un impôt local, son montant peut varier d'une
-                      commune à l'autre.<br />
+                      Les revenus des locations meublées sont soumis à la
+                      <strong>CET</strong>, (contribution économique
+                      territoriale),qui inclu la
+                      <strong>CFE</strong>(contribution foncières des
+                      entreprises) <br />Comme c'est un impôt local, son montant
+                      peut varier d'une commune à l'autre.<br />
                       Renseignez-vous auprès de votre centre des impôts pour en
                       connaître le montant.
                     </p>
@@ -597,13 +638,15 @@
                       les BIC.<br />
                       A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
                       <br />
-                      
                     </p>
                     <p>
-                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                      <button
+                        class="btn-download"
+                        type="button"
+                        data-download="tableau-resume.xlsx"
+                      >
                         Télécharger un tableau récapitulatif
                       </button>
-                      
                     </p>
                   </div>
                 </li>
@@ -620,10 +663,9 @@
                   >
                     <h4 id="r2" class="subtitle-article">Le régime "réel"</h4>
                     <p>
-                      Dans ce mode d'imposition
-                      les charges déductibles comprendront un système
-                      d'amortissement sur le bien ,les meubles, l'electricite
-                      etc...<br />
+                      Dans ce mode d'imposition les charges déductibles
+                      comprendront un système d'amortissement sur le bien ,les
+                      meubles, l'electricite etc...<br />
                       Pour faire simple ces amortissemnts reflette l'usure, donc
                       la perte de valeur d'un élément du bien.<br />
                       Cette perte de valeur est imputable aux revenus locatifs,
@@ -649,8 +691,6 @@
                       <br />
                       Conclusion:<br />
                       Seule la CFE de 550€ doit être acquitée. <br />
-                      
-                      
                     </p>
                     <p>
                       Avec ce mode de location et ce regime d'imposition les
@@ -677,18 +717,21 @@
                       fiscale.
                     </p>
                     <p>
-                      <button class="btn-download" type="button" data-download="tableau-resume.xlsx" >
+                      <button
+                        class="btn-download"
+                        type="button"
+                        data-download="tableau-resume.xlsx"
+                      >
                         Télécharger un tableau récapitulatif
                       </button>
-                      
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-        </article>
-      </div>
+        </li>
+      </ul>
 
       <form
         id="calculette"
@@ -702,10 +745,42 @@
           <h3 class="titre-calculette">Calculer vos mensualitées</h3>
           <div class="main-container-input">
             <div id="financement" class="container-label flex-row-start-center">
-              <label class="label">Montant du financement:</label>
-              <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-info" fill="currentColor" />
-              </svg>
+              <label class="label">Montant du projet:</label>
+              <button
+                class="btn-popover"
+                type="button"
+                popovertarget="popover-help-financement"
+                popovertargetaction="toggle"
+              >
+                <svg class="svg-icon-info" viewBox="0 -960 960 960">
+                  <use xlink:href="#icon-info" fill="currentColor" />
+                </svg>
+              </button>
+              <div
+                id="popover-help-financement"
+                class="popover"
+                popover="auto"
+              >
+              <div class="cont-img flex-row-start-center">
+                <img src="../Asset/icon-petite-maison-lego-2.png" alt="logo maison" width="50px" height="50px">
+                <span><h5>Projet à financer</h5></span>
+              </div>
+              <div class="cont-text">
+                  
+                  est le montant total financé par votre emprunt bancaire, il
+                  comprend généralement, le prix du bien, les montants des
+                  travaux, les frais de notaire, frais d'hypothèque, etc...."
+                  <button
+                    class="btn-popover"
+                    type="button"
+                    popovertarget="popover-help-financement"
+                    popovertargetaction="toggle"
+                  >
+                    X
+                  </button>
+                  
+                </div>
+              </div>
             </div>
 
             <div class="container-input-number input-valid">
@@ -905,69 +980,7 @@
             <div id="error-type-location" class="error-input"></div>
           </div>
         </fieldset>
-        <fieldset id="revenu-locatif" class="flex-column-start-start fieldset">
-          <h3 class="titre-calculette">Revenus locatifs</h3>
-          <div class="main-container-input">
-            <label id="label-revenu" class="label">Loyer hors charges</label>
 
-            <div class="container-input-number">
-              <input
-                class="calculette-number"
-                type="number"
-                name="number-revenu_hors_charge"
-                max="10000"
-                min="0"
-                step="1"
-                required
-              />
-              <span class="calculette-span">€ / Mois</span>
-            </div>
-            <div class="income-year"></div>
-            <div class="income-error"></div>
-            <label class="label"></label>
-            <div class="container-input-range">
-              <input
-                class="calculette-range"
-                type="range"
-                name="range-revenu_hors_charge"
-                max="10000"
-                min="0"
-                step="1"
-              />
-            </div>
-            <div id="error-revenu" class="error-input"></div>
-          </div>
-          <div class="main-container-input">
-            <label id="label-revenu" class="label">Loyer charges comprises</label>
-
-            <div class="container-input-number">
-              <input
-                class="calculette-number"
-                type="number"
-                name="number-revenu_charge_comprise"
-                max="10000"
-                min="0"
-                step="1"
-                required
-              />
-              <span class="calculette-span">€ / Mois</span>
-            </div>
-            <div class="income-year"></div>
-            <div class="income-error"></div>
-            <label class="label"></label>
-            <div class="container-input-range">
-              <input
-                class="calculette-range"
-                type="range"
-                name="range-revenu_charge_comprise"
-                max="10000"
-                min="0"
-                step="1"
-              />
-            </div>
-            <div id="error-revenu" class="error-input"></div>
-          </div>
-        </fieldset>
         <fieldset id="fiscal" class="flex-column-start-start fieldset">
           <h3 class="titre-calculette">Taux marginal d'imposition.</h3>
 
@@ -1056,50 +1069,76 @@
               />
             </div>
           </div>
-
-          <!--************** container resultat bilan apres imposition  *************************
-            **********************************************************************************
-          <div id="cont-result-bilan" class="container-resultat valid">
-            <div id="cont-bilan-a" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="assiette-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="assiette" class="number-resultat"></span>
-                <span id="assiette-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-            <div id="cont-bilan-b" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="impot-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="impot" class="number-resultat"></span>
-                <span id="impot-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-            <div id="cont-bilan-c" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="bilan-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="bilan" class="number-resultat"></span>
-                <span id="bilan-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-            <div id="cont-bilan-d" class="resultat flex-column-start-center">
-              <div class="flex-column-start-center">
-                <span id="cout-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-bilan flex-row-start-center">
-                <span id="cout" class="number-resultat"></span>
-                <span id="cout-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-          </div>-->
         </fieldset>
+        <fieldset id="revenu-locatif" class="flex-column-start-start fieldset">
+          <h3 class="titre-calculette">Revenus locatifs</h3>
+          <div class="main-container-input">
+            <label id="label-revenu" class="label">Loyer hors charge</label>
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-revenu_hors_charge"
+                max="10000"
+                min="0"
+                step="1"
+                required
+              />
+              <span class="calculette-span">€ / Mois</span>
+            </div>
+            <div class="income-year"></div>
+            <div id="error-revenu_hors_charge" class="error-input"></div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-revenu_hors_charge"
+                max="10000"
+                min="0"
+                step="1"
+              />
+            </div>
+            <div id="error-revenu" class="error-input"></div>
+          </div>
+          <div class="main-container-input">
+            <label id="label-revenu-cc" class="label"
+              >Loyer charges comprises</label
+            >
+
+            <div class="container-input-number">
+              <input
+                class="calculette-number"
+                type="number"
+                name="number-revenu_charge_comprise"
+                max="10000"
+                min="0"
+                step="1"
+                required
+              />
+              <span class="calculette-span">€ / Mois</span>
+            </div>
+            <div class="income-year-cc"></div>
+            <div id="error-revenu_charge_comprise" class="error-input"></div>
+            <label class="label"></label>
+            <div class="container-input-range">
+              <input
+                class="calculette-range"
+                type="range"
+                name="range-revenu_charge_comprise"
+                max="10000"
+                min="0"
+                step="1"
+              />
+            </div>
+          </div>
+        </fieldset>
+
         <fieldset id="charge-taxe" class="flex-column-start-start fieldset">
-          <h3 id="titre-charge" class="titre-calculette">Charges et taxes</h3>
+          <h3 id="titre-charge" class="titre-calculette">
+            Charges et taxes<span><sup>(1)</sup></span>
+          </h3>
           <div class="main-container-input charge-forfaitaire display-taxe">
             <label class="label">Charges de coproprieté</label>
 
@@ -1115,6 +1154,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-copro" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1126,7 +1166,6 @@
                 step="100"
               />
             </div>
-            <div id="error-copro" class="error-input"></div>
           </div>
 
           <div class="main-container-input charge-forfaitaire display-taxe">
@@ -1144,6 +1183,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-gestion" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1173,6 +1213,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-apno" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1200,6 +1241,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-ali" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1227,6 +1269,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-foncier" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1254,6 +1297,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-habitation" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1290,6 +1334,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-cfe" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1323,6 +1368,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-nondeductible" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1358,6 +1404,7 @@
               />
               <span class="calculette-span">€ / An</span>
             </div>
+            <div id="error-deductible" class="error-input"></div>
             <label class="label"></label>
             <div class="container-input-range">
               <input
@@ -1371,161 +1418,159 @@
             </div>
           </div>
 
-          <!--**********************************************************************************
-            ************** container resultat equilibre revenu et charge bilan avant impo  ********
-           ***** start **************************************************************************
-
-          <div id="cont-result-equilibre" class="container-resultat valid">
-            <div
-              id="cont-equilibre-total-revenu"
-              class="resultat flex-column-start-center"
-            >
-              <div>
-                <span
-                  id="equilibre-total-revenu-text-start"
-                  class="text-resultat"
-                ></span>
-              </div>
-              <div class="container-equilibre-revenu flex-row-start-center">
-                <span id="equilibre-total-revenu"></span>
-                <span
-                  id="equilibre-total-revenu-text-end"
-                  class="text-resultat"
-                ></span>
-              </div>
-            </div>
-
-            <div class="resultat flex-column-start-center">
-              <div>
-                <span
-                  id="equilibre-total-charge-text-start"
-                  class="text-resultat"
-                ></span>
-              </div>
-              <div class="container-equilibre-charge flex-row-start-center">
-                <span id="equilibre-total-charge"></span>
-                <span
-                  id="equilibre-total-charge-text-end"
-                  class="text-resultat"
-                ></span>
-              </div>
-            </div>
-
-            <div class="resultat flex-column-start-center">
-              <div>
-                <span id="equilibre-text-start" class="text-resultat"></span>
-              </div>
-              <div class="container-equilibre flex-row-start-center">
-                <span id="equilibre"></span>
-                <span id="equilibre-text-end" class="text-resultat"></span>
-              </div>
-            </div>
-
-            <div
-              id="resultat-error-equilibre"
-              class="flex-column-center-center resultat-error error hide"
-            ></div>
-          </div>-->
-
-          <!--**********************************************************************************
-            ************** container resultat equilibre revenu et charge*************************
-          ***** end **************************************************************************-->
+          <p class="legende">(1)Liste de charges non exaustive</p>
         </fieldset>
+        <!--**********************************************************************************
+          ************** container resultat equilibre revenu et charge*************************
+        ***** end **************************************************************************-->
+
         <!--**********************************************************************************
           ************** container resultat simulation   *************************
         ***** start **************************************************************************-->
-       
-        <fieldset id="simulation" class="flex-column-start-center fieldset simulation">
-          
-          <h3 class="simulation-titre flex-column-start-center">resultat simulation</h3>
-          
-            <div id="revenu-total" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Total revenus locatifs</h4>
-              <span class="definition">(Loyers charges comprises, utilisés pour le calcul des bilans)</span>
-              <div class="resultat flex-row-center-center">
-                <span id="revenu-total-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
-            </div>
 
-            <div id="revenu-reference" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Revenus locatifs de référence</h4>
-              <span class="definition">« Montant des revenus locatifs utilisés pour le calcul de l'impôt foncier  »</span>
-              <div class="resultat flex-row-start-center">
-                <span id="revenu-reference-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
-            </div>
-            
-            <div id="charge-total" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Total des charges</h4>
-              <span class="definition">Charges + taxes + mensualités</span>
-              <div class="resultat flex-row-start-center">
-                <span id="charge-total-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
-            </div>
+        <fieldset
+          id="simulation"
+          class="flex-column-start-center fieldset simulation"
+        >
+          <h3 class="simulation-titre flex-column-start-center">
+            resultat simulation
+          </h3>
 
-            <div id="bilan-avant-impot" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Bilan avant imposition</h4>
-              <span class="definition">Total des revenus locatifs - total des charges</span>
-              <div class="resultat flex-row-start-center">
-                <span id="bilan-avant-impot-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
+          <div
+            id="revenu-total"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">
+              Total revenus locatifs
+            </h4>
+            <span class="definition"
+              >Montant du loyer charges comprises, utilisé pour le calcul des
+              bilans.</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="revenu-total-value" class="value"></span>
+              <span class="unity"> €/an</span>
             </div>
+          </div>
 
-            <div id="charge-deductible" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Charges déductibles</h4>
-              <span class="definition">Montant des charges imputables au revenu locatif de référence </span>
-              <div class="resultat flex-row-start-center">
-                <span id="charge-deductible-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
+          <div
+            id="revenu-reference"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">
+              Revenus locatifs de référence
+            </h4>
+            <span class="definition"
+              >Montant des revenus locatifs utilisé pour le calcul de l'impôt
+              foncier, le cas échéant, loyer hors charge ou loyer charges
+              comprises.</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="revenu-reference-value" class="value">125</span>
+              <span class="unity"> €/an</span>
             </div>
+          </div>
 
-            <div id="assiette-imposable" class="container-resultat-simulation flex-column-start-center">
-              <h4 id="assiette-imposable-titre" class="titre flex-column-start-center">Assiette imposable</h4>
-              <span id="assiette-imposable-definition" class="definition">Revenus de référence - abattement forfaitaire</span>
-              <div class="resultat flex-row-start-center">
-                <span id="assiette-imposable-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
+          <div
+            id="charge-total"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">Total des charges</h4>
+            <span class="definition"
+              >Ensemble des charges et taxes liées à la location ainsi que les
+              mensualités du credit immobilier.</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="charge-total-value" class="value"></span>
+              <span class="unity"> €/an</span>
             </div>
+          </div>
 
-            <div id="impot-foncier" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Impôt foncier</h4>
-              <span class="definition">Assiette imposable * (taux marginal imposition + taux prélèvement sociaux)</span>
-              <div class="resultat flex-row-start-center">
-                <span id="impot-foncier-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
+          <div
+            id="bilan-avant-impot"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">
+              Bilan avant imposition
+            </h4>
+            <span class="definition"
+              >Total des revenus locatifs - total des charges</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="bilan-avant-impot-value" class="value"></span>
+              <span class="unity"> €/an</span>
             </div>
+          </div>
 
-            <div id="bilan-apres-imposition" class="container-resultat-simulation flex-column-start-center">
-              <h4 class="titre flex-column-start-center">Bilan aprés imposition</h4>
-              <span class="definition">Bilan avant imposition - impôt foncier</span>
-              <div class="resultat flex-row-start-center">
-                <span id="bilan-apres-imposition-value" class="value"></span>
-                <span class="unity"> €/an</span>
-              </div>
+          <div
+            id="assiette-imposable"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4
+              id="assiette-imposable-titre"
+              class="titre flex-column-start-center"
+            >
+              Assiette imposable
+            </h4>
+            <span id="assiette-imposable-definition" class="definition"
+              >Revenus de référence - abattement forfaitaire</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="assiette-imposable-value" class="value"></span>
+              <span class="unity"> €/an</span>
             </div>
+          </div>
 
-            <div id="cout-mensuel" class="container-resultat-simulation flex-column-start-center">
-              <span id="cout-mensuel-titre" class="definition">Dans ces conditions, votre bien en location vous coûte</span>
-              <div class="resultat flex-row-start-center">
-                <span id="cout-mensuel-titre-value" class="value"></span>
-                <span class="unity"> €/mois</span>
-              </div>
+          <div
+            id="impot-foncier"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">Impôt foncier</h4>
+            <span class="definition"
+              >Assiette imposable * (taux marginal imposition + taux prélèvement
+              sociaux)</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="impot-foncier-value" class="value"></span>
+              <span class="unity"> €/an</span>
             </div>
-          
+          </div>
+
+          <div
+            id="bilan-apres-imposition"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <h4 class="titre flex-column-start-center">
+              Bilan aprés imposition
+            </h4>
+            <span class="definition"
+              >Bilan avant imposition - impôt foncier</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="bilan-apres-imposition-value" class="value"></span>
+              <span class="unity"> €/an</span>
+            </div>
+          </div>
+
+          <div
+            id="cout-mensuel"
+            class="container-resultat-simulation flex-column-start-center"
+          >
+            <span id="cout-mensuel-titre" class="definition"
+              >Dans ces conditions, votre bien en location vous coûte</span
+            >
+            <div class="resultat flex-row-center-center">
+              <span id="cout-mensuel-value" class="value"></span>
+              <span class="unity"> €/mois</span>
+            </div>
+          </div>
         </fieldset>
-         <!--**********************************************************************************
+        <!--**********************************************************************************
           ************** container resultat simulation   *************************
         ***** end **************************************************************************-->
-        
       </form>
     </div>
+
     <footer class="footer flex-column-start-center">
       <div class="flex-column-start-start container-list-footer">
         <div class="title-list-footer">A propos</div>

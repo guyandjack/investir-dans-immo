@@ -35,6 +35,8 @@ let calculatedValue = {
 
   //revenus locatif
   income: 0, 
+  incomeCc: 0,
+  assietteimposable:0,
   
   //charges et taxes
   duty: 0,
@@ -66,7 +68,8 @@ let dataValueInit = {
   locationtype: "nue",
 
   //revenu
-  income: 500,
+  income: 666,
+  incomeCc: 833,
  
   //charges et taxes
   copro: 1200,

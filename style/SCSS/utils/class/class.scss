@@ -14,7 +14,7 @@
 //row
 .flex-row-start-center {
   display: flex;
-  flex-flow:row;
+  flex-flow: row;
   justify-content: flex-start;
   align-items: center;
 }
@@ -67,22 +67,19 @@
 /********  **************** flex box **************** ******************/
 /**** end ******************************************************************************/
 
-
-
 /****************************************************************************************
 /********  **************** container-page + body  **************** ******************/
 /**** start ******************************************************************************/
 
-
-.container-page, body {
+.container-page,
+body {
   max-width: 1500px;
   min-width: 400px;
   width: 100%;
   margin: 0 auto;
- 
 }
 
-.container-page{
+.container-page {
   padding: 3em;
 }
 /****************************************************************************************
@@ -106,169 +103,230 @@
   padding: 0.5em;
   border-radius: 1em;
 
-  background-color: map-get($colors-rule, first-color );
-  
-  @include upper-large-screen{
-    &:hover{
-      outline: 3px solid map-get($colors-rule, first-color );
+  background-color: map-get($colors-rule, first-color);
+
+  @include upper-large-screen {
+    &:hover {
+      outline: 3px solid map-get($colors-rule, first-color);
       outline-offset: 0.5em;
     }
   }
- 
 }
 
-
-
-.menu-li-a{
-  
-  color:map-get($colors-rule, fifth-color);
-  
+.menu-li-a {
+  color: map-get($colors-rule, fifth-color);
 }
-
-
 
 /****************************************************************************************
 /********  **************** header **************** ******************/
 /**** end ******************************************************************************/
 
-
-
 /****************************************************************************************
 /********  **************** toggle switch **************** ******************/
 /**** start ******************************************************************************/
-#toggle-switch{
-display: none; //concerne la checkbox
+#toggle-switch {
+  display: none; //concerne la checkbox
 }
 
-.container-switch{
-position: relative;
-width: 50px;
-height:25px;
-background-color: map-get($colors-rule, first-color);
-border-radius: 0.5em;
-padding:5px;
-
-
+.container-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: map-get($colors-rule, first-color);
+  border-radius: 0.5em;
+  padding: 5px;
 }
 
-.switch{
+.switch {
   position: absolute;
   left: 10%;
   top: 50%;
-  transform: translate(-5%,-50%);
+  transform: translate(-5%, -50%);
   width: 20px;
-  height:20px;
+  height: 20px;
   border-radius: 50%;
   z-index: 1;
-  
+
   background-color: map-get($colors-rule, fifth-color);
 }
 
-.move{
-  
+.move {
   left: 90%;
   top: 50%;
-  transform: translate(-100%,-50%);
+  transform: translate(-100%, -50%);
 }
 
 //si l' element body a la classe dark on applique les modifs
-body.dark{
-
-  .container-page, .container-article, .colapse, .container-text-article, .fieldset {
-  background-color: map-get($colors-rule, fourth-color);
-  color:map-get($colors-rule, fifth-color);
-  transition:all 500ms linear;
+body.dark {
+  .container-page,
+  .container-article,
+  .colapse,
+  .container-text-article,
+  .fieldset {
+    background-color: map-get($colors-rule, fourth-color);
+    color: map-get($colors-rule, fifth-color);
+    transition: all 500ms linear;
   }
 
-  .toggle-text{
-    color:map-get($colors-rule, fifth-color);
-    transition:all 500ms linear;
+  
+
+  .toggle-text {
+    color: map-get($colors-rule, fifth-color);
+    transition: all 500ms linear;
   }
- 
-  .calculette-number{
+
+  .calculette-number {
     background-color: lighten(map-get($colors-rule, fourth-color), 40%);
-    transition:all 500ms linear;
+    transition: all 500ms linear;
   }
 
-  .income-year{
+  .income-year {
     color: map-get($colors-rule, fifth-color);
   }
 
-  .form-contact{
-     background-color: lighten(map-get($colors-rule, fourth-color), 25%);
+  .form-contact {
+    background-color: lighten(map-get($colors-rule, fourth-color), 25%);
   }
 
-  .input-contact{
+  .input-contact {
     background-color: lighten(map-get($colors-rule, fourth-color), 10%);
     color: map-get($colors-rule, fifth-color);
   }
-  
 }
 
-body{
-  .container-page, .toggle-text, .container-article,.colapse, .container-text-article, .calculette-number{
-    
-    transition:all 500ms linear;
-    }
-  
+body {
+  .container-page,
+  .toggle-text,
+  .container-article,
+  .colapse,
+  .container-text-article,
+  .calculette-number {
+    transition: all 500ms linear;
+  }
 }
 
-
-.toggle-text{
+.toggle-text {
   margin-left: 1em;
 }
-
-
 
 /****************************************************************************************
 /********  **************** toggle switch **************** ******************/
 /**** end ******************************************************************************/
 
 
+/****************************************************************************************
+/********  **************** popover-help **************** ******************/
+/**** start ******************************************************************************/
+.btn-popover{
+    cursor:pointer;
+}
+
+.popover{
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:390px;
+  padding: 1em;
+  background-color: map-get($colors-rule, first-color ) ;
+  color: map-get($colors-rule, fifth-color );
+  border-radius: 0.5em;
+
+  .cont-img{
+    font-size: 1.5em;
+    & > span{
+      margin-left: 1em;
+    }
+  }
+
+  .cont-text{
+  margin-top: 1em;
+  width: 80%;
+  font-size: 1.1em;
+ }
+
+ .cont-text button{
+  position:absolute;
+  z-index: 1;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1.5em;
+  padding: 0.2em;
+  border-radius: 1em;
+  background-color: lighten(map-get($colors-rule, fourth-color),20%);
+  cursor: pointer;
+
+ }
+
+
+
+}
+
+
+ .popover:popover-open::backdrop{
+  backdrop-filter: blur(3px);
+ }
+
+
+/****************************************************************************************
+/********  **************** popover-help **************** ******************/
+/**** end ******************************************************************************/
 
 /****************************************************************************************
 /********  **************** resultat simulation **************** ******************/
 /**** start ******************************************************************************/
-.simulation{
-margin: 1em 0em;
+.simulation {
+  margin: 1em 0em;
   padding: 1.5em;
   border-radius: 2em;
 
   width: 100%;
   background-color: map-get($colors-rule, third-color);
+
+  #cout-mensuel {
+    border: 4px solid map-get($colors-rule, fifth-color);
+    border-radius: 2em;
+    padding: 1em;
+  }
 }
 
-.simulation-titre{
-font-weight: 600;
+#simulation{
+     background-color: map-get($colors-rule, third-color);
+     color:map-get($colors-rule, fourth-color);
+  }
+
+.simulation-titre {
+  font-weight: 600;
   margin-top: 1em;
   padding: 1em;
   text-transform: uppercase;
+  font-size: 1.3em;
 }
 
-.container-resultat-simulation{
-  .titre{
-font-weight: 600;
-  margin-top: 1em;
-  padding: 1em;
-  font-style: italic;
-  }
-  .definition{
-
-  }
-  .resultat{
+.container-resultat-simulation {
+  width: 80%;
+  margin-top: 2em;
+  .titre {
+    font-weight: 600;
     margin-top: 1em;
-  padding: 1em;
-  border-radius: 1em;
-  background-color: lighten(map-get($colors-rule, third-color ),20%);
-    .value{
-
-    }
-    .unity{
-
-    }
+    padding: 1em;
+    font-style: italic;
   }
-}
+  
+  .resultat {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: lighten(map-get($colors-rule, third-color), 20%);
+    border: 2px solid map-get($colors-rule, fifth-color);
+    width: calc(50%);
+    .value {
+      margin-right: 1em;
+    }
+    
+  }
 
+  
+}
 
 /****************************************************************************************
 /********  **************** essultat simualtion **************** ******************/
