@@ -756,30 +756,22 @@
                   <use xlink:href="#icon-info" fill="currentColor" />
                 </svg>
               </button>
-              <div
-                id="popover-help-financement"
-                class="popover"
-                popover="auto"
-              >
-              <div class="cont-img flex-row-start-center">
-                <img src="../Asset/icon-petite-maison-lego-2.png" alt="logo maison" width="50px" height="50px">
-                <span><h5>Projet à financer</h5></span>
-              </div>
-              <div class="cont-text">
-                  
+              <div id="popover-help-financement" class="popover" popover="auto">
+               
+                <h5 class="title-h5">Le projet à financer</h5>
+                <div class="cont-text">
                   est le montant total financé par votre emprunt bancaire, il
                   comprend généralement, le prix du bien, les montants des
-                  travaux, les frais de notaire, frais d'hypothèque, etc...."
-                  <button
-                    class="btn-popover"
-                    type="button"
-                    popovertarget="popover-help-financement"
-                    popovertargetaction="toggle"
-                  >
-                    X
-                  </button>
-                  
+                  travaux, les frais de notaire, frais d'hypothèque, etc....
                 </div>
+                <button
+                  class="btn-popover btn-close"
+                  type="button"
+                  popovertarget="popover-help-financement"
+                  popovertargetaction="hide"
+                >
+                  X
+                </button>
               </div>
             </div>
 
@@ -813,9 +805,31 @@
           <div class="main-container-input">
             <div id="apport" class="container-label flex-row-start-center">
               <label class="label">Apport personnel :</label>
-              <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-info" fill="currentColor" />
-              </svg>
+              <button
+                class="btn-popover"
+                type="button"
+                popovertarget="popover-help-apport"
+                popovertargetaction="toggle"
+              >
+                <svg class="svg-icon-info" viewBox="0 -960 960 960">
+                  <use xlink:href="#icon-info" fill="currentColor" />
+                </svg>
+              </button>
+              <div id="popover-help-apport" class="popover" popover="auto">
+               
+                <h5 class="title-h5">L'apport personnel</h5>
+                <div class="cont-text">
+                  désigne la somme investie dans le projet sans avoir recours à un crédit bancaire. Concrètement, il s'agit de la somme disponible immédiatement. 
+                </div>
+                <button
+                  class="btn-popover btn-close"
+                  type="button"
+                  popovertarget="popover-help-apport"
+                  popovertargetaction="hide"
+                >
+                  X
+                </button>
+              </div>
             </div>
             <div class="container-input-number input-valid">
               <input
@@ -847,9 +861,31 @@
           <div class="main-container-input">
             <div id="taeg" class="container-label flex-row-start-center">
               <label class="label">Taux annuel effectif global:</label>
-              <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-info" fill="currentColor" />
-              </svg>
+              <button
+                class="btn-popover"
+                type="button"
+                popovertarget="popover-help-taeg"
+                popovertargetaction="toggle"
+              >
+                <svg class="svg-icon-info" viewBox="0 -960 960 960">
+                  <use xlink:href="#icon-info" fill="currentColor" />
+                </svg>
+              </button>
+              <div id="popover-help-taeg" class="popover" popover="auto">
+               
+                <h5 class="title-h5">Le TAEG</h5>
+                <div class="cont-text">
+                  est le Taux Annuel Effectif Global. Il prend en compte la totalité des frais occasionnés par un prêt. Il comprend les intérêts bancaires,frais de dossier, frais de courtier, coût de l'assurance emprunteur, frais de garanties (hypothèque ou cautionnement),etc.... 
+                </div>
+                <button
+                  class="btn-popover btn-close"
+                  type="button"
+                  popovertarget="popover-help-taeg"
+                  popovertargetaction="hide"
+                >
+                  X
+                </button>
+              </div>
             </div>
 
             <div class="container-input-number input-valid">
@@ -947,9 +983,31 @@
         <fieldset id="type-location" class="flex-column-start-start fieldset">
           <div id="type" class="container-label flex-row-start-center">
             <h3 class="titre-calculette">Type de location</h3>
-            <svg class="svg-icon-info" viewBox="0 -960 960 960">
-              <use xlink:href="#icon-info" fill="currentColor" />
-            </svg>
+            <button
+                class="btn-popover"
+                type="button"
+                popovertarget="popover-help-type"
+                popovertargetaction="toggle"
+              >
+                <svg class="svg-icon-info" viewBox="0 -960 960 960">
+                  <use xlink:href="#icon-info" fill="currentColor" />
+                </svg>
+              </button>
+              <div id="popover-help-type" class="popover" popover="auto">
+               
+                <h5 class="title-h5">Le type de location</h5>
+                <div class="cont-text">
+                  a pour effet de modifer le revenu locatif de référence pour le calcul de l'impot foncier, la CFE est redevable dans certains cas...
+                </div>
+                <button
+                  class="btn-popover btn-close"
+                  type="button"
+                  popovertarget="popover-help-type"
+                  popovertargetaction="hide"
+                >
+                  X
+                </button>
+              </div>
           </div>
           <div
             id="location-type-container-radio"
@@ -1039,9 +1097,32 @@
 
           <div id="regime" class="container-label flex-row-start-center">
             <h3 id="title-regime-fiscal" class="titre-calculette"></h3>
-            <svg class="svg-icon-info" viewBox="0 -960 960 960">
-              <use xlink:href="#icon-info" fill="currentColor" />
-            </svg>
+            <button
+                class="btn-popover"
+                type="button"
+                popovertarget="popover-help-fiscal"
+                popovertargetaction="toggle"
+              >
+                <svg class="svg-icon-info" viewBox="0 -960 960 960">
+                  <use xlink:href="#icon-info" fill="currentColor" />
+                </svg>
+              </button>
+              <div id="popover-help-fiscal" class="popover" popover="auto">
+               
+                <h5 class="title-h5">Le régime d'imposition</h5>
+                <div class="cont-text">
+                  détermine la façon dont vous serez imposé sur vos revenus locatifs.
+                  Abattement forfaitaire ou charges déductibles déduit des revenus locatifs.
+                </div>
+                <button
+                  class="btn-popover btn-close"
+                  type="button"
+                  popovertarget="popover-help-fiscal"
+                  popovertargetaction="hide"
+                >
+                  X
+                </button>
+              </div>
           </div>
 
           <div
@@ -1137,7 +1218,7 @@
 
         <fieldset id="charge-taxe" class="flex-column-start-start fieldset">
           <h3 id="titre-charge" class="titre-calculette">
-            Charges et taxes<span><sup>(1)</sup></span>
+            Charges et taxes<span> <sup>(1)</sup></span>
           </h3>
           <div class="main-container-input charge-forfaitaire display-taxe">
             <label class="label">Charges de coproprieté</label>
@@ -1418,7 +1499,7 @@
             </div>
           </div>
 
-          <p class="legende">(1)Liste de charges non exaustive</p>
+          <p class="legende">(1) Liste de charges non exhaustive</p>
         </fieldset>
         <!--**********************************************************************************
           ************** container resultat equilibre revenu et charge*************************
@@ -1527,7 +1608,7 @@
           >
             <h4 class="titre flex-column-start-center">Impôt foncier</h4>
             <span class="definition"
-              >Assiette imposable * (taux marginal imposition + taux prélèvement
+              >Assiette imposable * <br>(taux marginal imposition + taux prélèvement
               sociaux)</span
             >
             <div class="resultat flex-row-center-center">
