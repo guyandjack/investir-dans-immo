@@ -237,6 +237,12 @@ body.dark .input-contact {
   background-color: #414141;
   color: #FBFFFE;
 }
+body.dark .popover {
+  border: 4px solid #FBFFFE;
+}
+body.dark .popover:popover-open::after {
+  opacity: 0.6;
+}
 
 body .container-page,
 body .toggle-text,
@@ -273,28 +279,51 @@ body .calculette-number {
   background-color: #068ebc;
   color: #FBFFFE;
   border-radius: 0.5em;
+  border: 4px solid #068ebc;
+  background-image: url(../../../../Asset/petite-maison-lego-500px.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
 }
-.popover .cont-img {
+.popover .title-h5 {
+  position: relative;
+  z-index: 2;
   font-size: 1.5em;
-}
-.popover .cont-img > span {
-  margin-left: 1em;
+  border-bottom: 2px solid #068ebc;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .popover .cont-text {
+  position: relative;
+  z-index: 2;
   margin-top: 1em;
   width: 80%;
   font-size: 1.1em;
+  line-height: 150%;
 }
-.popover .cont-text button {
+.popover .btn-close {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0.5em;
   right: 0.5em;
   font-size: 1.5em;
-  padding: 0.2em;
-  border-radius: 1em;
-  background-color: #5a5a5a;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  background-color: #04698b;
   cursor: pointer;
+}
+
+.popover::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #272727;
+  z-index: 1;
+  opacity: 0.7;
 }
 
 .popover:popover-open::-ms-backdrop {

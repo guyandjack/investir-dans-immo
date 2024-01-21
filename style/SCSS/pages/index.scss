@@ -27,24 +27,12 @@
   //margin-left: 1em;
 }
 
-.container-svg {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-
-  //flex: 0 0 5%;
-  width: 2em;
-  height: 2em;
-  border: 2px solid pink;
-}
-
 .svg-icon-info {
   color: map-get($colors-rule, second-color);
   //border: 2px solid blue;
   transform: translateY(-30%);
-  height: 1.5em;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
 
   @include upper-large-screen {
     cursor: help;
@@ -401,7 +389,7 @@
 
 .container-label {
   position: relative;
-  border: 2px solid red;
+  //border: 2px solid red;
 }
 
 .info-bulle {

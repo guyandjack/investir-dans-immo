@@ -676,6 +676,12 @@ body.dark .input-contact {
   background-color: #414141;
   color: #FBFFFE;
 }
+body.dark .popover {
+  border: 4px solid #FBFFFE;
+}
+body.dark .popover:popover-open::after {
+  opacity: 0.6;
+}
 
 body .container-page,
 body .toggle-text,
@@ -698,48 +704,71 @@ body .calculette-number {
 /********  **************** popover-help **************** ******************/
 /**** start ******************************************************************************/
 .btn-popover {
-  position: relative;
   cursor: pointer;
 }
 
-.btn-popover svg {
-  position: relative;
-}
-
 .popover {
-  -webkit-transform: translateX(-10%);
-      -ms-transform: translateX(-10%);
-          transform: translateX(-10%);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 390px;
   padding: 1em;
   background-color: #068ebc;
   color: #FBFFFE;
-  border-radius: 1em;
+  border-radius: 0.5em;
+  border: 4px solid #068ebc;
+  background-image: url(../../../../Asset/petite-maison-lego-500px.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.popover .title-h5 {
+  position: relative;
+  z-index: 2;
+  font-size: 1.5em;
+  border-bottom: 2px solid #068ebc;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .popover .cont-text {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 80%;
-          flex: 0 1 80%;
+  position: relative;
+  z-index: 2;
+  margin-top: 1em;
+  width: 80%;
+  font-size: 1.1em;
+  line-height: 150%;
 }
-.popover .cont-text button {
+.popover .btn-close {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0.5em;
   right: 0.5em;
   font-size: 1.5em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  background-color: #04698b;
   cursor: pointer;
 }
 
-/*[popover]:not(:popover-open):not(dialog[open]) {
-    display: none;
-}*/
-/*[popover]:popover-open {
-    display: flex;
-    flex-flow: row;
-}*/
+.popover::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #272727;
+  z-index: 1;
+  opacity: 0.7;
+}
+
 .popover:popover-open::-ms-backdrop {
   backdrop-filter: blur(3px);
 }
+
 .popover:popover-open::backdrop {
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -798,6 +827,7 @@ body .calculette-number {
 .container-resultat-simulation .resultat .value {
   margin-right: 1em;
 }
+
 /****************************************************************************************
 /********  **************** essultat simualtion **************** ******************/
 /**** end ******************************************************************************/
@@ -873,32 +903,13 @@ body .calculette-number {
   height: 250px;
 }
 
-.container-svg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 2em;
-  height: 2em;
-  border: 2px solid pink;
-}
-
 .svg-icon-info {
   color: #EFA00B;
   -webkit-transform: translateY(-30%);
       -ms-transform: translateY(-30%);
           transform: translateY(-30%);
-  height: 1.5em;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
 }
 @media screen and (min-width: 993px) {
   .svg-icon-info {
@@ -1270,7 +1281,6 @@ body .calculette-number {
 
 .container-label {
   position: relative;
-  border: 2px solid red;
 }
 
 .info-bulle {
