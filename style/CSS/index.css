@@ -423,13 +423,13 @@ body {
 
 .h1 {
   font-weight: 600;
-  font-size: 2em;
+  font-size: 2.5em;
   padding: 1em 0em;
 }
 
 .h2 {
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .h3 {
@@ -787,6 +787,13 @@ body .calculette-number {
   width: 100%;
   background-color: #24e05d;
 }
+.simulation .simulation-titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  font-style: italic;
+  background-color: #068ebc;
+}
 .simulation #cout-mensuel {
   border: 4px solid #FBFFFE;
   border-radius: 2em;
@@ -796,14 +803,6 @@ body .calculette-number {
 #simulation {
   background-color: #24e05d;
   color: #272727;
-}
-
-.simulation-titre {
-  font-weight: 600;
-  margin-top: 1em;
-  padding: 1em;
-  text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 .container-resultat-simulation {
@@ -824,8 +823,10 @@ body .calculette-number {
   border: 2px solid #FBFFFE;
   width: 50%;
 }
-.container-resultat-simulation .resultat .value {
-  margin-right: 1em;
+.container-resultat-simulation .resultat .value,
+.container-resultat-simulation .resultat .unity {
+  margin-right: 0.5em;
+  font-weight: 600;
 }
 
 /****************************************************************************************
@@ -921,7 +922,8 @@ body .calculette-number {
 /** end **/
 /************* svg icon chevron collapse ******************/
 /** start **/
-.svg-icon-chevron-colapse, .svg-icon-chevron {
+.svg-icon-chevron-colapse,
+.svg-icon-chevron {
   color: #068ebc;
   height: 1.5em;
   width: 1.5em;
@@ -948,24 +950,101 @@ body .calculette-number {
 /****************************************************************************************
 **************************** concerne les svg *******************************************
 ** end ********************************************************************************/
-.introduction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 2em 0em;
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** start ********************************************************************************/
+.container-banner {
   position: relative;
+  margin: 2em 0em;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #068ebc;
+  background-image: url(../../../Asset/man-cross-street-500px.png);
+  background-size: cover;
+}
+@media screen and (min-width: 993px) {
+  .container-banner {
+    background-image: url(../../../Asset/man-cross-street-1000px.png);
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-banner {
+    background-image: url(../../../Asset/man-cross-street-1500px.png);
+  }
 }
 
+.container-title {
+  width: 100%;
+}
+
+.container-title h1 {
+  width: 100%;
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  z-index: 1;
+  color: #FBFFFE;
+}
+@media screen and (min-width: 993px) {
+  .container-title h1 {
+    font-size: 4em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-title h1 {
+    font-size: 5em;
+  }
+}
+
+.container-title h1::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+  background-color: #272727;
+  opacity: 0.6;
+}
+
+.container-title h2 {
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  color: #272727;
+  z-index: 1;
+}
+@media screen and (min-width: 993px) {
+  .container-title h2 {
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-title h2 {
+    font-size: 3em;
+  }
+}
+
+.container-title h2::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+  background-color: #FBFFFE;
+  opacity: 0.7;
+}
+
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** end ********************************************************************************/
 .introduction-banner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -980,18 +1059,19 @@ body .calculette-number {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1em 0em;
+  margin: 2em 0em;
   width: 100%;
   height: 500px;
-  background-image: url(../../../Asset/petite-maison-lego-500px.png);
+  /*background-image: url(../../../Asset/man-cross-street.jpg);
   background-repeat: repeat;
   background-position: center;
-  background-size: cover;
-}
-@media screen and (min-width: 769px) {
-  .introduction-banner {
-    background-image: url(../../../Asset/petite-maison-lego-1000px.png);
-  }
+  background-size: cover;*/
+  /*@include upper-medium-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
+  /*@include upper-x-large-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
 }
 @media screen and (min-width: 993px) {
   .introduction-banner {
@@ -1008,11 +1088,6 @@ body .calculette-number {
     width: 100%;
     height: 200px;
     background-repeat: no-repeat;
-  }
-}
-@media screen and (min-width: 1501px) {
-  .introduction-banner {
-    background-image: url(../../../Asset/petite-maison-lego-1500px.png);
   }
 }
 .introduction-banner button {
@@ -1045,6 +1120,20 @@ body .calculette-number {
   .introduction-text {
     font-size: 1.5em;
   }
+}
+
+.btn-banner {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  background-color: #045672;
+  color: #FBFFFE;
+}
+
+.btn-banner:hover {
+  background-color: #068ebc;
 }
 
 .introduction-icon {
@@ -1099,6 +1188,22 @@ body .calculette-number {
       align-self: flex-start;
   color: #068ebc;
   margin: 1em 0em;
+  font-size: 1.5em;
+}
+@media screen and (min-width: 769px) {
+  .main-title-article {
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 993px) {
+  .main-title-article {
+    font-size: 2.2em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .main-title-article {
+    font-size: 2.5em;
+  }
 }
 
 .article {
@@ -1150,13 +1255,15 @@ body .calculette-number {
   z-index: 0;
   margin: 1em 0em;
 }
-.container-text-article .list-li, .container-text-article .list-exemple-li {
+.container-text-article .list-li,
+.container-text-article .list-exemple-li {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.5em 0em;
 }
-.container-text-article .list-li-a, .container-text-article .svg-icon-chevron {
+.container-text-article .list-li-a,
+.container-text-article .svg-icon-chevron {
   position: relative;
   z-index: -2;
   color: #068ebc;
@@ -1597,7 +1704,8 @@ body .calculette-number {
 /****************************************************************************************
 /********  Titre de certains fieldset  ******************/
 /**** start ******************************************************************************/
-#type, #regime {
+#type,
+#regime {
   -ms-flex-item-align: center;
       align-self: center;
 }

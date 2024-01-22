@@ -348,6 +348,13 @@ body .calculette-number {
   width: 100%;
   background-color: #24e05d;
 }
+.simulation .simulation-titre {
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  font-style: italic;
+  background-color: #068ebc;
+}
 .simulation #cout-mensuel {
   border: 4px solid #FBFFFE;
   border-radius: 2em;
@@ -357,14 +364,6 @@ body .calculette-number {
 #simulation {
   background-color: #24e05d;
   color: #272727;
-}
-
-.simulation-titre {
-  font-weight: 600;
-  margin-top: 1em;
-  padding: 1em;
-  text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 .container-resultat-simulation {
@@ -385,8 +384,10 @@ body .calculette-number {
   border: 2px solid #FBFFFE;
   width: 50%;
 }
-.container-resultat-simulation .resultat .value {
-  margin-right: 1em;
+.container-resultat-simulation .resultat .value,
+.container-resultat-simulation .resultat .unity {
+  margin-right: 0.5em;
+  font-weight: 600;
 }
 
 /****************************************************************************************

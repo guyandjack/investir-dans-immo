@@ -534,6 +534,7 @@ function addEventOnButtonDownload() {
       FetchForDownload(e);
     })
   })
+  
 }
 
 export {

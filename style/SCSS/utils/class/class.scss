@@ -93,6 +93,7 @@ body {
 .header {
   align-self: flex-start;
   margin-bottom: 1em;
+  //border: 4px solid map-get($colors-rule, fifth-color);
 }
 
 .menu-li {
@@ -301,6 +302,13 @@ body {
   width: 100%;
   background-color: map-get($colors-rule, third-color);
 
+  .simulation-titre {
+    font-weight: 600;
+    margin-top: 1em;
+    padding: 1em;
+    font-style: italic;
+    background-color: map-get($colors-rule, first-color);
+  }
   #cout-mensuel {
     border: 4px solid map-get($colors-rule, fifth-color);
     border-radius: 2em;
@@ -311,14 +319,6 @@ body {
 #simulation {
   background-color: map-get($colors-rule, third-color);
   color: map-get($colors-rule, fourth-color);
-}
-
-.simulation-titre {
-  font-weight: 600;
-  margin-top: 1em;
-  padding: 1em;
-  text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 .container-resultat-simulation {
@@ -338,8 +338,10 @@ body {
     background-color: lighten(map-get($colors-rule, third-color), 20%);
     border: 2px solid map-get($colors-rule, fifth-color);
     width: calc(50%);
-    .value {
-      margin-right: 1em;
+    .value,
+    .unity {
+      margin-right: 0.5em;
+      font-weight: 600;
     }
   }
 }

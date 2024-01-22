@@ -45,7 +45,8 @@
 /************* svg icon chevron collapse ******************/
 /** start **/
 
-.svg-icon-chevron-colapse, .svg-icon-chevron{
+.svg-icon-chevron-colapse,
+.svg-icon-chevron {
   color: map-get($colors-rule, first-color);
   height: 1.5em;
   width: 1.5em;
@@ -67,17 +68,93 @@
 **************************** concerne les svg *******************************************
 ** end ********************************************************************************/
 
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** start ********************************************************************************/
 
-
-.introduction {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-
-  margin: 2em 0em;
+.container-banner {
   position: relative;
+  margin: 2em 0em;
+  width: 100%;
+  height: fit-content;
+  background-color: map-get($colors-rule, first-color);
+  background-image: url(../../../Asset/man-cross-street-500px.png);
+  background-size: cover;
+
+  @include upper-large-screen {
+    background-image: url(../../../Asset/man-cross-street-1000px.png);
+  }
+
+  @include upper-x-large-screen {
+    background-image: url(../../../Asset/man-cross-street-1500px.png);
+  }
 }
+
+.container-title {
+  width: 100%;
+}
+
+.container-title h1 {
+  width: 100%;
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  z-index: 1;
+  color: map-get($colors-rule, fifth-color);
+
+  @include upper-large-screen {
+    font-size: 4em;
+  }
+
+  @include upper-x-large-screen {
+    font-size: 5em;
+  }
+}
+.container-title h1::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+
+  background-color: map-get($colors-rule, fourth-color);
+  opacity: 0.6;
+}
+.container-title h2 {
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  color: map-get($colors-rule, fourth-color);
+  z-index: 1;
+
+  @include upper-large-screen {
+    font-size: 2em;
+  }
+
+  @include upper-x-large-screen {
+    font-size: 3em;
+  }
+}
+.container-title h2::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+
+  background-color: map-get($colors-rule, fifth-color);
+  opacity: 0.7;
+}
+
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** end ********************************************************************************/
 
 .introduction-banner {
   display: flex;
@@ -85,20 +162,18 @@
   justify-content: space-between;
   align-items: center;
 
-
-  margin: 1em 0em;
+  margin: 2em 0em;
   width: 100%;
   height: 500px;
 
-  
-  background-image: url(../../../Asset/petite-maison-lego-500px.png);
+  /*background-image: url(../../../Asset/man-cross-street.jpg);
   background-repeat: repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover;*/
 
-  @include upper-medium-screen {
-    background-image: url(../../../Asset/petite-maison-lego-1000px.png);
-  }
+  /*@include upper-medium-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
 
   @include upper-large-screen {
     flex-flow: row nowrap;
@@ -109,19 +184,18 @@
     background-repeat: no-repeat;
   }
 
-  @include upper-x-large-screen {
-    background-image: url(../../../Asset/petite-maison-lego-1500px.png);
-  }
+  /*@include upper-x-large-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
 
   //permet de rendre le boutton container clikable
-  
 
-  &  button {
+  & button {
     position: relative;
     z-index: 1;
   }
 
-  & .introduction-icon{
+  & .introduction-icon {
     position: relative;
     z-index: -1;
   }
@@ -144,6 +218,20 @@
   @include upper-large-screen {
     font-size: 1.5em;
   }
+}
+
+.btn-banner {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  background-color: darken(map-get($colors-rule, first-color), 15%);
+  color: map-get($colors-rule, fifth-color);
+}
+
+.btn-banner:hover {
+  background-color: map-get($colors-rule, first-color);
 }
 
 .introduction-icon {
@@ -197,8 +285,18 @@
 
 .main-title-article {
   align-self: flex-start;
-  color: map-get($colors-rule, first-color); 
+  color: map-get($colors-rule, first-color);
   margin: 1em 0em;
+  font-size: 1.5em;
+  @include upper-medium-screen {
+    font-size: 2em;
+  }
+  @include upper-large-screen {
+    font-size: 2.2em;
+  }
+  @include upper-x-large-screen {
+    font-size: 2.5em;
+  }
 }
 
 .article {
@@ -216,7 +314,6 @@
 }
 
 .subtitle-article {
-  
   font-size: 1.2em;
   font-weight: 600;
   margin: 1em 0em 1em 1em;
@@ -227,67 +324,65 @@
   }
 }
 
-.article > p{
-    margin: 2em 0em;
-    line-height: 130%;
-    text-align: left;
-    font-size: 1.1em;
-    background-color: red;
-    @include upper-large-screen {
-      font-size: 1.3em;
-    }
+.article > p {
+  margin: 2em 0em;
+  line-height: 130%;
+  text-align: left;
+  font-size: 1.1em;
+  background-color: red;
+  @include upper-large-screen {
+    font-size: 1.3em;
+  }
 }
 
 .container-text-article {
-  
-  & > p{
+  //background-image: url(../../../Asset/icon-petite-maison-lego-2.png);
+
+  & > p {
     font-size: 1.2em;
   }
-  
 
-  .list{
+  .list {
     //reference pour les elements enfants
     position: relative;
     z-index: 0;
     margin: 1em 0em;
   }
-  
-  .list-li, .list-exemple-li{
-    
-    width:fit-content;
+
+  .list-li,
+  .list-exemple-li {
+    width: fit-content;
     margin: 0.5em 0em;
-    
-  }
-  
-  //positione le contenu dessous le conteneur list-li
-  .list-li-a, .svg-icon-chevron{
-    position:relative;
-    z-index: -2;
-    color: map-get($colors-rule, first-color);
-    
   }
 
-  .list-li-a{
+  //positione le contenu dessous le conteneur list-li
+  .list-li-a,
+  .svg-icon-chevron {
+    position: relative;
+    z-index: -2;
+    color: map-get($colors-rule, first-color);
+  }
+
+  .list-li-a {
     font-size: 1.2em;
-    @include upper-large-screen{
+    @include upper-large-screen {
       font-size: 1.5em;
     }
   }
 
-  .list-exemple-li{
+  .list-exemple-li {
     list-style-position: inside;
-    list-style-type:disc;
+    list-style-type: disc;
     font-style: italic;
   }
 
- .btn-download{
-  color:map-get($colors-rule, fifth-color );
-  padding: 10px;
-  background-color: lighten(map-get($colors-rule, first-color ),10%);
-  border-radius: 1em;
-  cursor: pointer;
- }
-  
+  .btn-download {
+    color: map-get($colors-rule, fifth-color);
+    padding: 10px;
+    background-color: lighten(map-get($colors-rule, first-color), 10%);
+    border-radius: 1em;
+    cursor: pointer;
+  }
 }
 
 .text-exemple {
@@ -302,25 +397,23 @@
   border-top: 2px solid map-get($colors-rule, first-color);
   border-bottom: 2px solid map-get($colors-rule, first-color);
   background-color: lighten(map-get($colors-rule, first-color), 60%);
-  width:100%;
-  
+  width: 100%;
 }
 
-.colapse > p, 
+.colapse > p,
 .container-text-article > p,
 .list-exemple-li {
   margin-bottom: 1.5em;
   font-size: 1.2em;
 }
 
-.colapse-article{
+.colapse-article {
   border-bottom: 2px solid transparent;
   border-top: 2px solid transparent;
-
 }
 
 .colapse-open {
-  padding: 0.5em ;
+  padding: 0.5em;
   max-height: 3000px;
   overflow: hidden;
   //transition: max-height 300ms linear;
@@ -331,8 +424,6 @@
   overflow: hidden;
   //transition: max-height 300ms linear;
 }
-
-
 
 /**************************************************************************************
 ************************** concerne les articles  *************************************
@@ -376,7 +467,6 @@
 /****start******************************************************************************/
 
 .main-container-input {
-
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -420,7 +510,6 @@
   align-items: center;
 
   align-self: center;
-  
 }
 
 .container-radio {
@@ -438,7 +527,6 @@
 }
 
 .input-radio {
-  
   background-color: map-get($colors-rule, first-color);
   width: 1.5em;
   height: 1.5em;
@@ -477,7 +565,6 @@
   align-items: center;
 
   width: 100%;
-  
 }
 
 .calculette-span {
@@ -509,7 +596,6 @@
 
 .calculette-range,
 .calculette-number {
-  
   margin: 1em 0em;
 }
 
@@ -522,10 +608,9 @@
   flex: 0 0 60%;
   height: 100%;
   padding-left: 1em;
-  
+
   background-color: lighten(map-get($colors-rule, fourth-color), 60%);
   font-size: 1.3em;
-  
 }
 
 .gain-advice,
@@ -534,26 +619,21 @@
   padding-left: 1em;
 }
 
-.input-valid{
+.input-valid {
   border: 2px solid transparent;
 }
 
-.input-error{
+.input-error {
   border: 2px solid red;
- 
 }
 
-.legende{
-  padding:1em;
+.legende {
+  padding: 1em;
 }
 
-.error-input{
+.error-input {
   color: red;
 }
-
-
-
-
 
 /***************  Style de la partie affichage input number et input range***********
 ******end****************************************************************************/
@@ -564,7 +644,7 @@
 
 .container-resultat {
   align-self: center;
-  position:relative;
+  position: relative;
   margin: 1em 0em;
   padding: 1.5em;
   border-radius: 2em;
@@ -572,17 +652,15 @@
   width: 90%;
 }
 
-.resultat-error{
+.resultat-error {
   position: absolute;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height:100%;
+  height: 100%;
   border-radius: 1em;
   //border: 2px solid red;
   padding: 1em;
- 
-  
 }
 
 .valid {
@@ -599,7 +677,6 @@
 }
 
 .resultat {
-  
   margin: 1em 0em;
   color: map-get($colors-rule, fourth-color);
 
@@ -631,12 +708,11 @@
 /*.container-equilibre-revenu, 
 .container-equilibre-charge, 
 .container-equilibre,
-.container-bilan*/{
+.container-bilan*/ {
   margin-top: 1em;
   padding: 1em;
   border-radius: 1em;
-  background-color: lighten(map-get($colors-rule, third-color ),20%);
-
+  background-color: lighten(map-get($colors-rule, third-color), 20%);
 }
 
 .hide {
@@ -653,7 +729,7 @@
 }
 
 .hide-taxe {
-  position:absolute;
+  position: absolute;
   //display: none;
   max-height: 0px;
   overflow: hidden;
@@ -667,10 +743,9 @@
   transition: max-height 500ms linear 0s;
 }
 
-.display-error{
+.display-error {
   max-height: 500px;
   font-size: 1.3em;
-
 }
 
 .wrap {
@@ -685,8 +760,7 @@
 /********  Titre de certains fieldset  ******************/
 /**** start ******************************************************************************/
 
-#type, #regime{
- align-self: center;
+#type,
+#regime {
+  align-self: center;
 }
-
-
