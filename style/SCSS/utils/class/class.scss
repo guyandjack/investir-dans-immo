@@ -303,11 +303,18 @@ body {
   background-color: map-get($colors-rule, third-color);
 
   .simulation-titre {
-    font-weight: 600;
     margin-top: 1em;
     padding: 1em;
+    font-size: 2em;
+    font-weight: 600;
     font-style: italic;
-    background-color: map-get($colors-rule, first-color);
+    background-color: darken(map-get($colors-rule, third-color), 20%);
+    color: map-get($colors-rule, fifth-color);
+    //border-top-right-radius: 40%;
+    //border-top-left-radius: 10%;
+    //border-bottom-left-radius: 40%;
+    //border-bottom-right-radius: 10%;
+    border-radius: 2em;
   }
   #cout-mensuel {
     border: 4px solid map-get($colors-rule, fifth-color);

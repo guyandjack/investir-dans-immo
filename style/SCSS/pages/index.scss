@@ -132,11 +132,11 @@
   z-index: 1;
 
   @include upper-large-screen {
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
   @include upper-x-large-screen {
-    font-size: 3em;
+    font-size: 1.5em;
   }
 }
 .container-title h2::before {
@@ -253,7 +253,6 @@
   font-size: 1.2em;
   text-align: center;
   color: map-get($colors-rule, fifth-color);
-  //border: 2px solid red;
 }
 
 .container-icon-check {

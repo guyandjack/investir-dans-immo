@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jeux</title>
+
+    <!--feuille de style page jeux-->
+    <link rel="stylesheet" href="../style/CSS/jeux.css" />
+
+    <!-- Feuilles de style-->
+    <link rel="stylesheet" href="../style/CSS/class.css" />
+
+    <!--script qui contient ref des elements du Dom-->
+    <script src="../javascript/jeux.js" defer></script>
+
+    <!--script qui contient ref des elements du Dom-->
+    <script src="../javascript/utils/refDOM/refDOM.js" defer></script>
+
+    <!-- script qui contient les objets et tableaux-->
+    <script src="../javascript/utils/data/data.js" defer></script>
+  </head>
+  <body>
+    <div class="container-page">
+      <div class="container-jeux flex-column-start-center">
+        <h1 class="titre-jeux">Trouve le mot caché</h1>
+        <form class="form-jeux flex-column-start-center">
+          <label for="input-question"></label>
+          <input type="text" name="input-question" id="question" />
+          <label for="input-response"></label>
+          <input
+            type="text"
+            name="input-response"
+            id="input-response"
+            placeholder="votre réponse"
+            autofocus
+          />
+          <label for="input-timer">Time remaining</label>
+          <input
+            type="range"
+            name="input-range"
+            id="input-timer"
+            min="0"
+            value="0"
+          />
+          <label for="input-score">Score</label>
+          <input type="number" name="input-score" id="input-score" value="0" />
+          <button id="btn-start" class="button-start display" type="button">
+            Start
+          </button>
+          <button
+            id="btn-restart"
+            class="button-start restart hide"
+            type="button"
+          >
+            Nouvelle partie
+          </button>
+          <div class="round"></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

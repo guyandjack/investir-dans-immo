@@ -1,0 +1,46 @@
+//import des fichiers de style
+//fichiers externe
+@import "../vendors/normalize.scss";
+@import "../vendors/input-range.scss";
+
+//style de base
+@import "../utils/style-rule/style-rule.scss";
+
+//fichier outil
+@import "../utils/breakpoint/breakpoint.scss";
+@import "../utils/colors-rule/colors-rule.scss";
+@import "../utils/mixins/responsive/responsive.scss";
+@import "../utils/class/class.scss";
+
+.container-jeux {
+  padding: 1em;
+  background-color: map-get($colors-rule, first-color);
+  width: 50%;
+  margin: 0px auto;
+}
+
+.titre-jeux {
+  font-size: 2em;
+}
+
+.form-jeux {
+  input {
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    width: 80%;
+    background-color: map-get($colors-rule, fifth-color);
+  }
+}
+
+.button-start {
+  padding: 1em;
+  color: map-get($colors-rule, fifth-color);
+  background-color: darken(map-get($colors-rule, third-color), 20%);
+  border: 2px solid map-get($colors-rule, fifth-color);
+  border-radius: 1em;
+}
+
+.round {
+  align-self: flex-start;
+}
