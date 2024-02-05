@@ -2,20 +2,20 @@
  * ******************* controle du formulaire contact *********************
  * ************************************************************************/
 
-
 //import des functions
-import { eventToggleSwitch, useThemeColor,isToggleMoved } from "./utils/functions/other/other.js";
+import {
+  eventToggleSwitch,
+  useThemeColor,
+  isToggleMoved,
+} from "./utils/functions/other/other.js";
 
- // import des regEx
+// import des regEx
 import {
   masqueCivilite,
   masqueText,
   masqueMail,
   masqueMessage,
-  
 } from "./utils/regEx/regEx.js";
-
-
 
 //Objet contenant les messages d'erreurs
 let listOfMessageError = {
@@ -37,8 +37,6 @@ let valueControl = {
   sujet: false,
 };
 
-
-
 //corps de la requette fetch pour la soumission du formulaire
 let bodyRequest = {
   civilite: "",
@@ -48,7 +46,6 @@ let bodyRequest = {
   message: "",
   sujet: "",
 };
-
 
 /**
  * Controle le resultat des fonctions de controle unitaire
@@ -60,12 +57,10 @@ function checkValueControl() {
     !valueControl.lastname ||
     !valueControl.firstname ||
     !valueControl.email ||
-    !valueControl.message 
-    
-  ){
+    !valueControl.message
+  ) {
     disableButtonSubmit();
-  }
-  else{
+  } else {
     enableButtonSubmit();
   }
 }
@@ -81,7 +76,6 @@ function selectErrorMessage(id) {
   return errorMessageMatch;
 }
 
-
 /**
  * insert le message d'erreur dans le divError
  * affiche le divError
@@ -90,21 +84,19 @@ function selectErrorMessage(id) {
  * @param {*} errorMessage
  */
 function displayErrorMessage(id, errorMessage) {
-
   //determination de l' id de l'element qui recoit le message d' erreur
   let divErrorId = "error-" + id;
-  
+
   //selection du div error
   let divErrorMatch = document.querySelector(`#${divErrorId}`);
-  
+
   divErrorMatch.innerHTML = errorMessage;
-  
+
   //affichage du diverror
   if (divErrorMatch.classList.contains("hide-error")) {
     divErrorMatch.classList.replace("hide-error", "display-error");
   }
 }
-
 
 /**
  * suprime le message d'erreur dans le divError
@@ -135,28 +127,26 @@ function deleteErrorMessage(id) {
  */
 async function checkUserValueSujet() {
   let sujetValue = document.querySelector("#sujet").value;
-    
+
   if (sujetValue.length < 1) {
     valueControl.sujet = true;
     bodyRequest.sujet = "";
     return true;
   } else {
-    
     valueControl.sujet = false;
     return false;
   }
 }
 /**
- * test la validite de l'input "civilite" 
+ * test la validite de l'input "civilite"
  * met à jour l' objet qui contient les resultats des test unitaire
  * met à jour le coprs de la requette
  *
- * @param {} "id" id del'input user 
+ * @param {} "id" id del'input user
  * @param {} "civilite" valeur de l'input user
  * @return boolean
  */
 function checkUserValueCivilite(id, civilite) {
-  
   if (masqueCivilite.test(civilite)) {
     deleteErrorMessage(id);
     valueControl.civilite = true;
@@ -173,11 +163,11 @@ function checkUserValueCivilite(id, civilite) {
   }
 }
 /**
- * Test la validite de l'input "nom" 
+ * Test la validite de l'input "nom"
  * met à jour l' objet qui contient les resultats des test unitaire
  * met à jour le coprs de la requette
  *
- * @param {} "id" id del'input user 
+ * @param {} "id" id del'input user
  * @param {} "lastname" valeur de l'input user
  * @return boolean
  */
@@ -199,11 +189,11 @@ function checkUserValueLastname(id, lastname) {
   }
 }
 /**
- * Test la validite de l'input "prénom" 
+ * Test la validite de l'input "prénom"
  * met à jour l' objet qui contient les resultats des test unitaire
  * met à jour le coprs de la requette
  *
- * @param {} "id" id del'input user 
+ * @param {} "id" id del'input user
  * @param {} "firstname" valeur de l'input user
  * @return boolean
  */
@@ -224,11 +214,11 @@ function checkUserValueFirstname(id, firstname) {
   }
 }
 /**
- * Test la validite de l'input "email" 
+ * Test la validite de l'input "email"
  * met à jour l' objet qui contient les resultats des tests unitaire
  * met à jour le coprs de la requette
  *
- * @param {} "id" id del'input user 
+ * @param {} "id" id del'input user
  * @param {} "email" valeur de l'input user
  * @return boolean
  */
@@ -249,11 +239,11 @@ function checkUserValueEmail(id, email) {
   }
 }
 /**
- * Test la validite de l'input "message" 
+ * Test la validite de l'input "message"
  * met à jour l' objet qui contient les resultats des test unitaire
  * met à jour le coprs de la requette
  *
- * @param {} "id" id del'input user 
+ * @param {} "id" id del'input user
  * @param {} "message" valeur de l'input user
  * @return boolean
  */
@@ -274,9 +264,6 @@ function checkUserValueMessage(id, message) {
   }
 }
 
-
-
-
 /**
  *soumet le formulaire via une requette fetch
  *
@@ -285,46 +272,41 @@ function checkUserValueMessage(id, message) {
 
 function submitForm(e) {
   e.preventDefault();
-   
-    
-  checkUserValueSujet()
-    .then((test) => {
-      if (!test) {
-        return;
-      } else {
-        let urlTestFetch = "http://localhost:5000/contact";
-        let urlProdFetch =
-          "https://www.apielectravauxproduction.electravaux.com/contact";
 
-        fetch(urlTestFetch, {
-          headers: {
-            Accept: "application/json, text/plain",
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(bodyRequest),
+  checkUserValueSujet().then((test) => {
+    if (!test) {
+      return;
+    } else {
+      let urlTestFetch = "http://localhost:5000/contact";
+      let urlProdFetch =
+        "https://www.apielectravauxproduction.electravaux.com/contact";
+
+      fetch(urlTestFetch, {
+        headers: {
+          Accept: "application/json, text/plain",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(bodyRequest),
+      })
+        .then((response) => {
+          response
+            .json()
+
+            .then((data) => {
+              let result = JSON.parse(JSON.stringify(data));
+
+              if (result.message_status !== "sended") {
+                displayValidDiv("Une erreur est survenue... 😞");
+              } else {
+                displayValidDiv("message reçu! 👍");
+              }
+            });
         })
-          .then((response) => {
-            response
-              .json()
 
-              .then((data) => {
-                let result = JSON.parse(JSON.stringify(data));
-                
-                if (result.message_status !== "sended") {
-                  displayValidDiv("Une erreur est survenue... 😞");
-                } else {
-                  displayValidDiv("message reçu! 👍");
-                }
-              });
-          })
-
-          .catch((error) => console.log(error));
-        
-      }
-  })
-  
-
+        .catch((error) => console.log(error));
+    }
+  });
 }
 
 /**
@@ -333,14 +315,12 @@ function submitForm(e) {
  * @param {*} validDiv
  */
 function hideValidDiv(validDiv) {
-  
   let validText = validDiv.lastElementChild;
-  
+
   validText.innerHTML = "";
-    if (validDiv.classList.contains("display-valid")) {
+  if (validDiv.classList.contains("display-valid")) {
     validDiv.classList.replace("display-valid", "hide-valid");
   }
-
 }
 
 /**
@@ -352,13 +332,12 @@ function hideValidDiv(validDiv) {
 function displayValidDiv(text) {
   let validDiv = document.querySelector(".valid");
   let validText = document.querySelector(".valid-text");
-  
+
   if (validDiv.classList.contains("hide-valid")) {
     validDiv.classList.replace("hide-valid", "display-valid");
   }
   validText.innerHTML = text;
 }
-
 
 /**
  * active le bouton de soumission du formulaire
@@ -368,7 +347,7 @@ function enableButtonSubmit() {
   let button = document.querySelector("#btn");
   if (button.classList.contains("disabled")) {
     button.classList.replace("disabled", "enabled");
-  };
+  }
   button.disabled = false;
 }
 
@@ -379,12 +358,11 @@ function enableButtonSubmit() {
 function disableButtonSubmit() {
   let button = document.querySelector("#btn");
   if (button.classList.contains("enabled")) {
-    button.classList.replace("enabled","disabled");
-  };
-  
+    button.classList.replace("enabled", "disabled");
+  }
+
   button.disabled = true;
 }
-
 
 /**
  * reinitialise la valeur des inputs user
@@ -395,25 +373,20 @@ function resetInput() {
   listInputs.forEach((input) => {
     input.value = "";
   });
-  
 }
 
-
 /**
- * réinitialise les resultats des fonctions de test unitaire 
+ * réinitialise les resultats des fonctions de test unitaire
  *
  */
 function resetValueControl() {
   for (let element in valueControl) {
-
     valueControl[element] = false;
   }
-  
 }
 
-
 /**
- * reinitialise le formulaire de contact apres apres validation du user 
+ * reinitialise le formulaire de contact apres apres validation du user
  *
  */
 function resetForm() {
@@ -422,14 +395,11 @@ function resetForm() {
   disableButtonSubmit();
 }
 
-
-
 /**
- * ajoute les ecouteurs d' évènement sur les inputs et bouton du formulaire
+ * ajoute les ecouteurs d'évènement sur les inputs et bouton du formulaire
  *
  */
 function addEventControlOnInput() {
-  
   let inputCivilite = document.querySelector("#civilite");
   let inputLastname = document.querySelector("#lastname");
   let inputFirstname = document.querySelector("#firstname");
@@ -439,33 +409,28 @@ function addEventControlOnInput() {
   let validDiv = document.querySelector(".valid");
 
   //switch dark mode
-  eventToggleSwitch()
+  eventToggleSwitch();
 
   //input user
   inputCivilite.addEventListener("input", (e) => {
     checkUserValueCivilite(e.target.id, e.target.value);
   });
-  
 
   inputLastname.addEventListener("input", (e) => {
     checkUserValueLastname(e.target.id, e.target.value);
   });
-  
 
   inputFirstname.addEventListener("input", (e) => {
     checkUserValueFirstname(e.target.id, e.target.value);
   });
-  
 
   inputEmail.addEventListener("input", (e) => {
     checkUserValueEmail(e.target.id, e.target.value);
   });
-  
 
   inputMessage.addEventListener("input", (e) => {
     checkUserValueMessage(e.target.id, e.target.value);
   });
-  
 
   //Bouton de soumission
   buttonSubmit.addEventListener("click", (e) => {

@@ -194,7 +194,12 @@ body.dark {
     background-color: lighten(map-get($colors-rule, fourth-color), 25%);
   }
 
-  .input-contact {
+  .article-cgu-title {
+    color: map-get($colors-rule, first-color);
+  }
+
+  .input-contact,
+  .article-cgu {
     background-color: lighten(map-get($colors-rule, fourth-color), 10%);
     color: map-get($colors-rule, fifth-color);
   }

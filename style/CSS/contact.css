@@ -625,7 +625,11 @@ body.dark .income-year {
 body.dark .form-contact {
   background-color: #676767;
 }
-body.dark .input-contact {
+body.dark .article-cgu-title {
+  color: #068ebc;
+}
+body.dark .input-contact,
+body.dark .article-cgu {
   background-color: #414141;
   color: #FBFFFE;
 }

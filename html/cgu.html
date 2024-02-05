@@ -16,309 +16,359 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baskervville&family=Roboto+Slab&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Feuilles de style-->
     <link rel="stylesheet" href="../style/CSS/cgu.css" />
+
+    <!-- script page CGU -->
+    <script type="module" src="../javascript/cgu.js" defer></script>
   </head>
+
   <body>
     <div class="container-page flex-column-start-center">
-      <h1 class="title-page h1">Conditions générales d'utilisation</h1>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title flex-row-start-center">
-          <span class="article-cgu-number">Article 1:</span>
-          <span class="article-cgu-title">Definitions</span>
+      <header class="header flex-row-start-center">
+        <nav class="nav">
+          <ul class="menu flex-row-start-center">
+            <li class="menu-li">
+              <a class="menu-li-a" href="http://127.0.0.1:5500/html/index.html"
+                >Accueil</a
+              >
+            </li>
+            <li class="menu-li">
+              <a
+                class="menu-li-a"
+                href="http://127.0.0.1:5500/html/contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="container-toggle flex-row-start-center">
+          <label for="toggle-switch" class="container-switch"
+            ><span class="switch light"></span></label
+          ><span class="toggle-text">Theme sombre</span>
+          <input id="toggle-switch" type="checkbox" value="dark" />
         </div>
-        <p class="text-cgu">
-          Est défini comme « Service »: Le site internet accessible à l'adresse
-          "www.monprojetlocatif.org".
-        </p>
+      </header>
+      <main class="container-cgu">
+        <h1 class="title-page h1">Conditions générales d'utilisation</h1>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title flex-row-start-center">
+            <span class="article-cgu-number">Article 1:</span>
+            <span class="article-cgu-title">Definitions</span>
+          </div>
+          <p class="text-cgu">
+            Est défini comme « Service »: Le site internet accessible à
+            l'adresse "www.monprojetlocatif.org".
+          </p>
 
-        <p class="text-cgu">
-          Est défini comme « Contenu »: Toutes données disponibles sur le «
-          Service » ou émanant de celui-ci.
-        </p>
-        <p class="text-cgu">
-          Est défini comme « Editeur »: Le créateur et l'éditeur du site
-          internet "monprojetlocatif.org".
-        </p>
-        <p class="text-cgu">
-          Est défini comme « Utilisateur »: Toute personne morale ou physique
-          qui utilise le « Service » ou « Contenu ».
-        </p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 2:</span>
-          <span class="article-cgu-title">Objet</span>
+          <p class="text-cgu">
+            Est défini comme « Contenu »: Toutes données disponibles sur le «
+            Service » ou émanant de celui-ci.
+          </p>
+          <p class="text-cgu">
+            Est défini comme « Editeur »: Le créateur et l'éditeur du site
+            internet "monprojetlocatif.org".
+          </p>
+          <p class="text-cgu">
+            Est défini comme « Utilisateur »: Toute personne morale ou physique
+            qui utilise le « Service » ou « Contenu ».
+          </p>
         </div>
-        <p class="text-cgu">
-          Les présentes « conditions générales d'utilisation » ou « CGU » ont
-          pour objet l'encadrement juridique de l'utilisation du site
-          'monprojetlocatif.org' et de ses services. Ce contrat est conclu entre
-          :« l'Éditeur » et « l'Utilisateur ». Les « CGU » doivent être
-          acceptées par tout « Utilisateur », et son accès au site vaut
-          acceptation de ces conditions. Les présentes « CGU » sont régies par
-          les lois françaises quel que soit le lieu d'utilisation du service.
-          Toute contestation ou tout litige qui pourraient naître entre l'«
-          Editeur » et l'« Utilisateur », et après l'échec de toute tentative de
-          recherche de solutions amiable, seront de la compétence exclusive des
-          tribunaux dont dépend le lieu de residence de l'« Editeur ».La langue
-          de référence, pour le règlement de contentieux éventuels, est le
-          français.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div id="mentions-legales" class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 3:</span>
-          <span class="article-cgu-title">Mentions légales</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 2:</span>
+            <span class="article-cgu-title">Objet</span>
+          </div>
+          <p class="text-cgu">
+            Les présentes « conditions générales d'utilisation » ou « CGU » ont
+            pour objet l'encadrement juridique de l'utilisation du site
+            'monprojetlocatif.org' et de ses services. Ce contrat est conclu
+            entre :« l'Éditeur » et « l'Utilisateur ». Les « CGU » doivent être
+            acceptées par tout « Utilisateur », et son accès au site vaut
+            acceptation de ces conditions. Les présentes « CGU » sont régies par
+            les lois françaises quel que soit le lieu d'utilisation du service.
+            Toute contestation ou tout litige qui pourraient naître entre l'«
+            Editeur » et l'« Utilisateur », et après l'échec de toute tentative
+            de recherche de solutions amiable, seront de la compétence exclusive
+            des tribunaux dont dépend le lieu de residence de l'« Editeur ».La
+            langue de référence, pour le règlement de contentieux éventuels, est
+            le français.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Le site web 'monprojetlocatif.org' est édité par Guy&Jack Dev-Web
-          L'hébergeur du site est: " PlanetHoster "
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 4:</span>
-          <span class="article-cgu-title">Acces au service</span>
+        <div class="article-cgu flex-column-start-start">
+          <div id="mentions-legales" class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 3:</span>
+            <span class="article-cgu-title">Mentions légales</span>
+          </div>
+          <p class="text-cgu">
+            Le site web 'monprojetlocatif.org' est édité par Guy&Jack Dev-Web
+            L'hébergeur du site est: " PlanetHoster "
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Le « Service » est accessible gratuitement à tout « Utilisateur »
-          disposant d'un accès à internet. Tous les coûts afférents à l'accès au
-          « Service », que ce soient les frais matériels, logiciels ou d'accès à
-          internet, sont exclusivement à la charge de l'« Utilisateur ». Il est
-          seul responsable du bon fonctionnement de son équipement informatique,
-          logiciel et mise à jour, ainsi que de son accès à internet. L'Editeur
-          et ses éventuels partenaires s'efforcent de permettre un accès de
-          qualité au « Service », sauf en cas de force majeure ou d'un événement
-          hors du contrôle de ceux-ci et sous réserve des éventuelles pannes et
-          interventions de maintenance nécessaire au bon fonctionnement du «
-          Service » ainsi que de tout dysfonctionnement du réseau ou des
-          serveurs ou de tout autre événement. Par conséquent, l'Editeur et ses
-          éventuels partenaires ne peuvent garantir une disponibilité du «
-          Service » / « Contenu », une fiabilité des transmissions et des
-          performances en matière de temps de réponse ou de qualité. Par
-          ailleurs, l' « Editeur » et ses éventuels partenaires se réservent la
-          possibilité d'interrompre, de suspendre, de modifier ou arrêter tout
-          ou partie du « Service » ou de son accès, à tout moment sans préavis
-          afin d'en assurer la maintenance, ou pour toute autre raison, le tout
-          sans droit à indemnités ou obligation. La responsabilité de l'Editeur
-          et de ses éventuels partenaires ne saurait être engagée en cas
-          d'impossibilité d'accès et/ou d'utilisation du « Service » / « Contenu
-          » et ceci pour n'importe quelle durée ainsi que d'une mauvaise
-          utilisation du service ou des conséquences qui peuvent en découler
-          pour l'Utilisateur ou tout tiers. De plus, il n'est prévu aucune
-          assistance technique, de quelque nature que ce soit, vis-à-vis de
-          l'Utilisateur. Il n'est concédé à l'« Utilisateur » qu'une
-          autorisation de consultation du « Service » / « Contenu » qu'à titre
-          personnel et privé, à l'exclusion de toute visualisation ou diffusion
-          publique. Toute consultation publique devra faire preuve d'une demande
-          préalable auprès de l'Editeur.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 5:</span>
-          <span class="article-cgu-title">Responsabilite de l'utilisateur</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 4:</span>
+            <span class="article-cgu-title">Acces au service</span>
+          </div>
+          <p class="text-cgu">
+            Le « Service » est accessible gratuitement à tout « Utilisateur »
+            disposant d'un accès à internet. Tous les coûts afférents à l'accès
+            au « Service », que ce soient les frais matériels, logiciels ou
+            d'accès à internet, sont exclusivement à la charge de l'«
+            Utilisateur ». Il est seul responsable du bon fonctionnement de son
+            équipement informatique, logiciel et mise à jour, ainsi que de son
+            accès à internet. L'Editeur et ses éventuels partenaires s'efforcent
+            de permettre un accès de qualité au « Service », sauf en cas de
+            force majeure ou d'un événement hors du contrôle de ceux-ci et sous
+            réserve des éventuelles pannes et interventions de maintenance
+            nécessaire au bon fonctionnement du « Service » ainsi que de tout
+            dysfonctionnement du réseau ou des serveurs ou de tout autre
+            événement. Par conséquent, l'Editeur et ses éventuels partenaires ne
+            peuvent garantir une disponibilité du « Service » / « Contenu », une
+            fiabilité des transmissions et des performances en matière de temps
+            de réponse ou de qualité. Par ailleurs, l' « Editeur » et ses
+            éventuels partenaires se réservent la possibilité d'interrompre, de
+            suspendre, de modifier ou arrêter tout ou partie du « Service » ou
+            de son accès, à tout moment sans préavis afin d'en assurer la
+            maintenance, ou pour toute autre raison, le tout sans droit à
+            indemnités ou obligation. La responsabilité de l'Editeur et de ses
+            éventuels partenaires ne saurait être engagée en cas d'impossibilité
+            d'accès et/ou d'utilisation du « Service » / « Contenu » et ceci
+            pour n'importe quelle durée ainsi que d'une mauvaise utilisation du
+            service ou des conséquences qui peuvent en découler pour
+            l'Utilisateur ou tout tiers. De plus, il n'est prévu aucune
+            assistance technique, de quelque nature que ce soit, vis-à-vis de
+            l'Utilisateur. Il n'est concédé à l'« Utilisateur » qu'une
+            autorisation de consultation du « Service » / « Contenu » qu'à titre
+            personnel et privé, à l'exclusion de toute visualisation ou
+            diffusion publique. Toute consultation publique devra faire preuve
+            d'une demande préalable auprès de l'Editeur.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 6:</span>
-          <span class="article-cgu-title">Responsabilite de l'éditeur</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 5:</span>
+            <span class="article-cgu-title"
+              >Responsabilite de l'utilisateur</span
+            >
+          </div>
+          <p class="text-cgu">
+            L'« Utilisateur » est responsable des risques liés à l’utilisation
+            de son identifiant de connexion et de son mot de passe. Le mot de
+            passe de l’Utilisateur doit rester secret. En cas de divulgation du
+            mot de passe, l’Éditeur décline toute responsabilité. L’Utilisateur
+            assume l’entière responsabilité de l’utilisation qu’il fait des
+            informations et contenus présents sur le site
+            '<strong>monprojetlocatif.org</strong>'. Tout usage du service par
+            l'« Utilisateur » ayant directement ou indirectement pour
+            conséquence des dommages doit faire l'objet d'une indemnisation au
+            profit du site. L'« Editeur » permet aux membres de publier des
+            commentaires sur le site . Le membre s’engage à tenir des propos
+            respectueux des autres et de la loi et accepte que ces publications
+            soient modérées ou refusées par l’Éditeur, sans obligation de
+            justification. En publiant sur le site, l’Utilisateur cède à la
+            société éditrice le droit non exclusif et gratuit de représenter,
+            reproduire, adapter, modifier, diffuser et distribuer sa
+            publication, directement ou par un tiers autorisé. L’Éditeur
+            s'engage toutefois à citer le membre en cas d’utilisation de sa
+            publication.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Tout dysfonctionnement du serveur ou du réseau ne peut engager la
-          responsabilité de l'Éditeur. De même, la responsabilité du site ne
-          peut être engagée en cas de force majeure ou du fait imprévisible et
-          insurmontable d'un tiers. Le site 'monprojetlocatif.org' s'engage à
-          mettre en œuvre tous les moyens nécessaires pour garantir la sécurité
-          et la confidentialité des données. Toutefois, il n'apporte pas une
-          garantie de sécurité totale. L'Éditeur se réserve la faculté d'une
-          non-garantie de la fiabilité des sources, bien que les informations
-          diffusées su le site soient réputées fiables.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 7:</span>
-          <span class="article-cgu-title">Limite de responsabilité</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 6:</span>
+            <span class="article-cgu-title">Responsabilite de l'éditeur</span>
+          </div>
+          <p class="text-cgu">
+            Tout dysfonctionnement du serveur ou du réseau ne peut engager la
+            responsabilité de l'Éditeur. De même, la responsabilité du site ne
+            peut être engagée en cas de force majeure ou du fait imprévisible et
+            insurmontable d'un tiers. Le site 'monprojetlocatif.org' s'engage à
+            mettre en œuvre tous les moyens nécessaires pour garantir la
+            sécurité et la confidentialité des données. Toutefois, il n'apporte
+            pas une garantie de sécurité totale. L'Éditeur se réserve la faculté
+            d'une non-garantie de la fiabilité des sources, bien que les
+            informations diffusées su le site soient réputées fiables.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Le « Contenu » diffusé ou émanant du « Service » provient de sources
-          réputées fiables et il est un point d'honneur à ce que le « Contenu »
-          fasse preuve d'exactitude, soit précis et à jour. Néanmoins, l'Editeur
-          ne peut garantir et il ne peut être exclu que ce « Contenu » soit
-          susceptible de contenir d'éventuelles erreurs* (inexactitudes, fautes,
-          oublis, lacunes etc. qu'elles soient techniques et/ou typographiques
-          dues à des omissions, négligences, défauts d'interprétations, absence
-          prolongée involontaire etc. (liste d'exemple non exhaustive))
-          (l'Editeur se réservant le droit de toute correction et modification
-          et à tout moment). De plus, le « Contenu » de toute nature et sur tous
-          supports, émanant du « Service » est uniquement et purement donné à
-          titre informatif ou indicatif étant non contractuel et non exhaustif.
-          Toutes informations d'ordre technique ou règlementaire et normatif
-          pouvant être recueillies dans le « Contenu » / « Service » n'ont aucun
-          caractère formel et ne sauraient engager la responsabilité de
-          l'Editeur. Il appartient par conséquent à chaque « Utilisateur » de
-          vérifier l'exactitude et la pertinence des informations et
-          renseignements mis à sa disposition et qu'il pourrait obtenir dans le
-          « Contenu » / « Service » ou émanant de celui-ci avant de les utiliser
-          dans une quelconque application. En conséquence, L'Editeur ne peut
-          donc, en aucun cas, engager sa responsabilité à quelque titre que ce
-          soit. L'utilisation du « Contenu » de toute nature et sur tout support
-          qu'il soit, présent ou émanant du « Service » et ceci de n'importe
-          quelle manière, se fait sous l'entière et seule responsabilité de
-          l'Utilisateur. L'Utilisateur assume la totalité des conséquences
-          pouvant en découler, sans que l'Editeur puisse être recherché à
-          quelque titre que ce soit et sans recours contre ce dernier, celui-ci
-          ne pouvant en aucun cas être tenu responsable de tout dommage de
-          quelque nature qu'il soit résultant de l'interprétation ou de
-          l'utilisation du « Contenu » disponible ou émanant du « Service », de
-          même des informations consultées qui ne répondraient pas à l'objectif
-          pour lesquel elles ont été consultées. L'Editeur ne saurait être tenu
-          pour responsable des conséquences liées aux éventuelles erreurs,
-          inexactitudes, carences ou autres, mais également de l'utilisation et
-          des données, quel qu'elles soient, présentes dans le « Contenu » et/ou
-          « Service » ou émanant de celui-ci, des atteintes aux droits de
-          tierces personnes qui pourraient résulter de cette utilisation et de
-          tout préjudice direct ou indirect pouvant en découler. De plus, l'«
-          Utilisateur » s'engage à indemniser l'Editeur de toutes conséquences
-          dommageables liées directement ou indirectement à l'usage qu'il fait
-          du « Contenu » et/ou du « Service ». L'Editeur ne saurait être,
-          également, tenu pour responsable, de n'importe quelle nature qu'il
-          soit ainsi que des dommages et des préjudices s'y afférant, directs ou
-          indirects, matériels ou immatériels, des renseignements, informations,
-          utilisations et contenus présents sur les liens d'autres sites ou
-          sources externes référencés dans le « Service » et/ou « Contenu »
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 8:</span>
-          <span class="article-cgu-title">Proprieté intellectuelle</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 7:</span>
+            <span class="article-cgu-title">Limite de responsabilité</span>
+          </div>
+          <p class="text-cgu">
+            Le « Contenu » diffusé ou émanant du « Service » provient de sources
+            réputées fiables et il est un point d'honneur à ce que le « Contenu
+            » fasse preuve d'exactitude, soit précis et à jour. Néanmoins,
+            l'Editeur ne peut garantir et il ne peut être exclu que ce « Contenu
+            » soit susceptible de contenir d'éventuelles erreurs*
+            (inexactitudes, fautes, oublis, lacunes etc. qu'elles soient
+            techniques et/ou typographiques dues à des omissions, négligences,
+            défauts d'interprétations, absence prolongée involontaire etc.
+            (liste d'exemple non exhaustive)) (l'Editeur se réservant le droit
+            de toute correction et modification et à tout moment). De plus, le «
+            Contenu » de toute nature et sur tous supports, émanant du « Service
+            » est uniquement et purement donné à titre informatif ou indicatif
+            étant non contractuel et non exhaustif. Toutes informations d'ordre
+            technique ou règlementaire et normatif pouvant être recueillies dans
+            le « Contenu » / « Service » n'ont aucun caractère formel et ne
+            sauraient engager la responsabilité de l'Editeur. Il appartient par
+            conséquent à chaque « Utilisateur » de vérifier l'exactitude et la
+            pertinence des informations et renseignements mis à sa disposition
+            et qu'il pourrait obtenir dans le « Contenu » / « Service » ou
+            émanant de celui-ci avant de les utiliser dans une quelconque
+            application. En conséquence, L'Editeur ne peut donc, en aucun cas,
+            engager sa responsabilité à quelque titre que ce soit. L'utilisation
+            du « Contenu » de toute nature et sur tout support qu'il soit,
+            présent ou émanant du « Service » et ceci de n'importe quelle
+            manière, se fait sous l'entière et seule responsabilité de
+            l'Utilisateur. L'Utilisateur assume la totalité des conséquences
+            pouvant en découler, sans que l'Editeur puisse être recherché à
+            quelque titre que ce soit et sans recours contre ce dernier,
+            celui-ci ne pouvant en aucun cas être tenu responsable de tout
+            dommage de quelque nature qu'il soit résultant de l'interprétation
+            ou de l'utilisation du « Contenu » disponible ou émanant du «
+            Service », de même des informations consultées qui ne répondraient
+            pas à l'objectif pour lesquel elles ont été consultées. L'Editeur ne
+            saurait être tenu pour responsable des conséquences liées aux
+            éventuelles erreurs, inexactitudes, carences ou autres, mais
+            également de l'utilisation et des données, quel qu'elles soient,
+            présentes dans le « Contenu » et/ou « Service » ou émanant de
+            celui-ci, des atteintes aux droits de tierces personnes qui
+            pourraient résulter de cette utilisation et de tout préjudice direct
+            ou indirect pouvant en découler. De plus, l'« Utilisateur » s'engage
+            à indemniser l'Editeur de toutes conséquences dommageables liées
+            directement ou indirectement à l'usage qu'il fait du « Contenu »
+            et/ou du « Service ». L'Editeur ne saurait être, également, tenu
+            pour responsable, de n'importe quelle nature qu'il soit ainsi que
+            des dommages et des préjudices s'y afférant, directs ou indirects,
+            matériels ou immatériels, des renseignements, informations,
+            utilisations et contenus présents sur les liens d'autres sites ou
+            sources externes référencés dans le « Service » et/ou « Contenu »
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Les contenus du site 'monprojetlocatif.org' (logos, textes, éléments
-          graphiques, vidéos, etc.) sont protégés par le droit d'auteur, en
-          vertu du Code de la propriété intellectuelle. L'Utilisateur devra
-          obtenir l'autorisation de l'Editeur du site avant toute reproduction,
-          copie ou publication de ces différents contenus. Ces derniers peuvent
-          être utilisés par l'« Utilisateur » à des fins privées; tout usage
-          commercial est interdit. L'Utilisateur est entièrement responsable de
-          tout contenu qu'il met en ligne et il s'engage à ne pas porter
-          atteinte à un tiers. L'Éditeur du site se réserve le droit de modérer
-          ou de supprimer librement et à tout moment les contenus mis en ligne
-          par l'« Utilisateur », et ce, sans justification.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 9:</span>
-          <span class="article-cgu-title">Données personnelles</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 8:</span>
+            <span class="article-cgu-title">Proprieté intellectuelle</span>
+          </div>
+          <p class="text-cgu">
+            Les contenus du site 'monprojetlocatif.org' (logos, textes, éléments
+            graphiques, vidéos, etc.) sont protégés par le droit d'auteur, en
+            vertu du Code de la propriété intellectuelle. L'Utilisateur devra
+            obtenir l'autorisation de l'Editeur du site avant toute
+            reproduction, copie ou publication de ces différents contenus. Ces
+            derniers peuvent être utilisés par l'« Utilisateur » à des fins
+            privées; tout usage commercial est interdit. L'Utilisateur est
+            entièrement responsable de tout contenu qu'il met en ligne et il
+            s'engage à ne pas porter atteinte à un tiers. L'Éditeur du site se
+            réserve le droit de modérer ou de supprimer librement et à tout
+            moment les contenus mis en ligne par l'« Utilisateur », et ce, sans
+            justification.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          L'Utilisateur doit obligatoirement fournir des informations
-          personnelles pour procéder à son inscription sur le site. L'adresse
-          électronique (e-mail) de l'Utilisateur pourra notamment être utilisée
-          par le site 'monprojetlocatif.org' pour la communication
-          d'informations diverses et la gestion du compte.'monprojetlocatif.org'
-          garantit le respect de la vie privée de l'Utilisateur, conformément à
-          la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux
-          fichiers et aux libertés. Le site est déclaré auprès de la CNIL sous
-          le numéro suivant : [numéro]. En vertu des articles 39 et 40 de la loi
-          en date du 6 janvier 1978, l'« Utilisateur » dispose d'un droit
-          d'accès, de rectification, de suppression et d'opposition de ses
-          données personnelles. L'« Utilisateur » exerce ce droit via : Un
-          formulaire de contact.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 10:</span>
-          <span class="article-cgu-title">Liens hypertextes</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 9:</span>
+            <span class="article-cgu-title">Données personnelles</span>
+          </div>
+          <p class="text-cgu">
+            L'Utilisateur doit obligatoirement fournir des informations
+            personnelles pour procéder à son inscription sur le site. L'adresse
+            électronique (e-mail) de l'Utilisateur pourra notamment être
+            utilisée par le site 'monprojetlocatif.org' pour la communication
+            d'informations diverses et la gestion du
+            compte.'monprojetlocatif.org' garantit le respect de la vie privée
+            de l'Utilisateur, conformément à la loi n°78-17 du 6 janvier 1978
+            relative à l'informatique, aux fichiers et aux libertés. Le site est
+            déclaré auprès de la CNIL sous le numéro suivant : [numéro]. En
+            vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'«
+            Utilisateur » dispose d'un droit d'accès, de rectification, de
+            suppression et d'opposition de ses données personnelles. L'«
+            Utilisateur » exerce ce droit via : Un formulaire de contact.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          L'« Editeur » propose des liens hypertextes vers des sites web édités
-          et/ou gérés par des tiers. Dans la mesure où aucun contrôle n'est
-          exercé sur ces ressources externes, l'« Utilisateur » reconnaît que
-          l'« Editeur » n'assume aucune responsabilité relative à la mise à
-          disposition de ces ressources et ne peut être tenu responsable quant à
-          leur contenu. Les liaisons du type hypertexte vers le « Service » ou
-          ses pages sont autorisées sous réserve que ces liens ouvrent dans une
-          nouvelle fenêtre.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 11:</span>
-          <span class="article-cgu-title"
-            >Évolution des conditions générales d'utilisation</span
-          >
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 10:</span>
+            <span class="article-cgu-title">Liens hypertextes</span>
+          </div>
+          <p class="text-cgu">
+            L'« Editeur » propose des liens hypertextes vers des sites web
+            édités et/ou gérés par des tiers. Dans la mesure où aucun contrôle
+            n'est exercé sur ces ressources externes, l'« Utilisateur »
+            reconnaît que l'« Editeur » n'assume aucune responsabilité relative
+            à la mise à disposition de ces ressources et ne peut être tenu
+            responsable quant à leur contenu. Les liaisons du type hypertexte
+            vers le « Service » ou ses pages sont autorisées sous réserve que
+            ces liens ouvrent dans une nouvelle fenêtre.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Le site 'monprojetlocatif.org' se réserve le droit de modifier les
-          clauses de ces conditions générales d'utilisation à tout moment et
-          sans justification.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 11:</span>
+            <span class="article-cgu-title"
+              >Évolution des conditions générales d'utilisation</span
+            >
+          </div>
+          <p class="text-cgu">
+            Le site 'monprojetlocatif.org' se réserve le droit de modifier les
+            clauses de ces conditions générales d'utilisation à tout moment et
+            sans justification.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
+        </div>
 
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 12:</span>
-          <span class="article-cgu-title">Durée du contrat</span>
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 12:</span>
+            <span class="article-cgu-title">Durée du contrat</span>
+          </div>
+          <p class="text-cgu">
+            La durée du présent contrat est indéterminée. Le contrat produit ses
+            effets à l'égard de l'« Utilisateur » à compter du début de
+            l'utilisation du « Service ».
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          La durée du présent contrat est indéterminée. Le contrat produit ses
-          effets à l'égard de l'« Utilisateur » à compter du début de
-          l'utilisation du « Service ».
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
-      <div class="article-cgu flex-column-start-start">
-        <div class="article-cgu-container-title">
-          <span class="article-cgu-number">Article 13:</span>
-          <span class="article-cgu-title"
-            >Droit applicable et juridiction compétente</span
-          >
+        <div class="article-cgu flex-column-start-start">
+          <div class="article-cgu-container-title">
+            <span class="article-cgu-number">Article 13:</span>
+            <span class="article-cgu-title"
+              >Droit applicable et juridiction compétente</span
+            >
+          </div>
+          <p class="text-cgu">
+            Le présent contrat dépend de la législation française. En cas de
+            litige non résolu à l'amiable entre l'« Utilisateur » et l'« Éditeur
+            », les tribunaux du lieu de residence de l'« Editeur » du site sont
+            compétents pour régler le contentieux.
+          </p>
+          <p class="text-cgu"></p>
+          <p class="text-cgu"></p>
         </div>
-        <p class="text-cgu">
-          Le présent contrat dépend de la législation française. En cas de
-          litige non résolu à l'amiable entre l'« Utilisateur » et l'« Éditeur
-          », les tribunaux du lieu de residence de l'« Editeur » du site sont
-          compétents pour régler le contentieux.
-        </p>
-        <p class="text-cgu"></p>
-        <p class="text-cgu"></p>
-      </div>
+      </main>
     </div>
   </body>
   <footer class="footer flex-row-space-evenly-start">

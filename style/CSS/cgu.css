@@ -625,7 +625,11 @@ body.dark .income-year {
 body.dark .form-contact {
   background-color: #676767;
 }
-body.dark .input-contact {
+body.dark .article-cgu-title {
+  color: #068ebc;
+}
+body.dark .input-contact,
+body.dark .article-cgu {
   background-color: #414141;
   color: #FBFFFE;
 }
@@ -857,6 +861,10 @@ body .calculette-number {
   padding: 1em;
 }
 
+.title-page {
+  text-align: center;
+}
+
 .article-cgu {
   width: 100%;
   margin: 2em 0em;
@@ -868,8 +876,10 @@ body .calculette-number {
   margin-bottom: 1em;
 }
 
-.article-cgu-number, .article-cgu-title {
+.article-cgu-number,
+.article-cgu-title {
   font-size: 1.5em;
+  font-weight: 600;
 }
 
 .article-cgu-title {
