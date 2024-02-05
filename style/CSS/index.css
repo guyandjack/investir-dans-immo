@@ -491,6 +491,22 @@ body {
           align-items: center;
 }
 
+.flex-row-space-evenly-center-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .flex-row-space-evenly-start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1116,12 +1132,12 @@ body .calculette-number {
 .introduction-text {
   margin-top: 1em;
   line-height: 150%;
-  font-size: 1.3em;
+  font-size: 1.5em;
   text-align: justify;
 }
 @media screen and (min-width: 993px) {
   .introduction-text {
-    font-size: 1.5em;
+    font-size: 1.8em;
   }
 }
 
