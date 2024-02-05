@@ -490,6 +490,22 @@ body {
           align-items: center;
 }
 
+.flex-row-space-evenly-center-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .flex-row-space-evenly-start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -896,34 +912,220 @@ body .calculette-number {
 /****************************************************************************************
 /********  **************** footer **************** ******************/
 /*** end ******************************************************************************/
+@-webkit-keyframes animationResult {
+  from {
+    -webkit-transform: scale(8);
+            transform: scale(8);
+  }
+  to {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+@keyframes animationResult {
+  from {
+    -webkit-transform: scale(8);
+            transform: scale(8);
+  }
+  to {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+@-webkit-keyframes animationHurryupFirst {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+  }
+}
+@keyframes animationHurryupFirst {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+  }
+}
+@-webkit-keyframes animationHurryupSecond {
+  from {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+    margin-left: 0.1em;
+  }
+  to {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+    margin-left: -0.1em;
+  }
+}
+@keyframes animationHurryupSecond {
+  from {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+    margin-left: 0.1em;
+  }
+  to {
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+    margin-left: -0.1em;
+  }
+}
 .container-jeux {
   padding: 1em;
   background-color: #068ebc;
   width: 50%;
   margin: 0px auto;
 }
-
-.titre-jeux {
-  font-size: 2em;
+.container-jeux .hide {
+  display: none;
 }
 
-.form-jeux input {
-  margin: 1em;
+.container-title {
+  position: relative;
+}
+
+.titre-jeux {
+  position: relative;
+  z-index: 10;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 150%;
+  border-bottom: 2px solid #272727;
+  margin: 2em 0em 2.5em 0em;
+  text-align: center;
+  padding: 1em;
+  border-radius: 20%;
+  color: #FBFFFE;
+  background-color: #034359;
+  -webkit-box-shadow: 0em 0em 0.5em 0.5em;
+          box-shadow: 0em 0em 0.5em 0.5em;
+}
+
+.hurry-up {
+  position: absolute;
+  z-index: 9;
+  bottom: 50%;
+  left: 0%;
+  text-align: center;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 600;
   padding: 0.5em;
   border-radius: 1em;
-  width: 80%;
+  color: #FBFFFE;
+  background-color: red;
+  -webkit-transition: -webkit-transform 1s linear;
+  transition: -webkit-transform 1s linear;
+  transition: transform 1s linear;
+  transition: transform 1s linear, -webkit-transform 1s linear;
+}
+
+.animation-hurryup-1 {
+  -webkit-animation: animationHurryupFirst 1s linear 0s 1 normal forwards;
+          animation: animationHurryupFirst 1s linear 0s 1 normal forwards;
+}
+
+.animation-hurryup-2 {
+  -webkit-animation: animationHurryupSecond 50ms linear 0s 40 alternate backwards;
+          animation: animationHurryupSecond 50ms linear 0s 40 alternate backwards;
+}
+
+.form-jeux {
+  width: 100%;
+}
+.form-jeux input {
+  height: 1.5em;
+  margin: 1em;
+  padding: 0.2em;
+  border-radius: 1em;
+  width: 60%;
   background-color: #FBFFFE;
+  text-align: center;
+}
+.form-jeux #label-progress-bar {
+  margin-top: 1em;
+}
+.form-jeux .progress-bar {
+  width: 100%;
+  height: 2em;
+  margin: 0.8em;
+}
+.form-jeux #input-score {
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 0px;
 }
 
 .button-start {
+  margin: 2em 0em;
   padding: 1em;
   color: #FBFFFE;
   background-color: #148a38;
   border: 2px solid #FBFFFE;
   border-radius: 1em;
+  cursor: pointer;
 }
 
-.round {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+.main-container-round {
+  min-height: 3em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.container-round {
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 2em 0.5em;
+  border-radius: 50%;
+  background-color: #034359;
+}
+
+.round-number {
+  color: #FBFFFE;
+  text-align: center;
+}
+
+.round-string {
+  padding: 0.5em;
+  -webkit-transform: scale(2);
+      -ms-transform: scale(2);
+          transform: scale(2);
+}
+
+.main-container-round:last-child .container-round:last-child .animation-result {
+  -webkit-animation: animationResult 0.8s ease-in-out 0.2s;
+          animation: animationResult 0.8s ease-in-out 0.2s;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.enabled {
+  opacity: 1;
+}
+
+.valid-color {
+  border: 4px solid #24e05d;
+  -webkit-transition: border 250ms linear;
+  transition: border 250ms linear;
+}
+
+.normal-color {
+  border: 4px solid transparent;
+  -webkit-transition: border 250ms linear;
+  transition: border 250ms linear;
+}
+
+.invalid-color {
+  border: 4px solid #EFA00B;
+  -webkit-transition: border 250ms linear;
+  transition: border 250ms linear;
 }

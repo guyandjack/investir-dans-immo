@@ -788,11 +788,14 @@ body .calculette-number {
   background-color: #24e05d;
 }
 .simulation .simulation-titre {
-  font-weight: 600;
   margin-top: 1em;
   padding: 1em;
+  font-size: 2em;
+  font-weight: 600;
   font-style: italic;
-  background-color: #068ebc;
+  background-color: #148a38;
+  color: #FBFFFE;
+  border-radius: 2em;
 }
 .simulation #cout-mensuel {
   border: 4px solid #FBFFFE;

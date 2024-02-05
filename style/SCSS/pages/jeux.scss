@@ -12,35 +12,174 @@
 @import "../utils/mixins/responsive/responsive.scss";
 @import "../utils/class/class.scss";
 
+@keyframes animationResult {
+  from {
+    transform: scale(8);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
+@keyframes animationHurryupFirst {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(300%);
+  }
+}
+
+@keyframes animationHurryupSecond {
+  from {
+    transform: translateY(300%);
+    margin-left: 0.1em;
+  }
+  to {
+    transform: translateY(300%);
+    margin-left: -0.1em;
+  }
+}
+
 .container-jeux {
+  //position: relative;
   padding: 1em;
   background-color: map-get($colors-rule, first-color);
   width: 50%;
   margin: 0px auto;
+
+  .hide {
+    display: none;
+  }
+}
+
+.container-title {
+  position: relative;
 }
 
 .titre-jeux {
-  font-size: 2em;
+  position: relative;
+  z-index: 10;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 150%;
+  border-bottom: 2px solid map-get($colors-rule, fourth-color);
+  margin: 2em 0em 2.5em 0em;
+  text-align: center;
+  padding: 1em;
+  border-radius: 20%;
+  color: map-get($colors-rule, fifth-color);
+  background-color: darken(map-get($colors-rule, first-color), 20%);
+  box-shadow: 0em 0em 0.5em 0.5em;
+}
+
+.hurry-up {
+  position: absolute;
+  z-index: 9;
+  bottom: 50%;
+  left: 0%;
+  text-align: center;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.5em;
+  border-radius: 1em;
+  color: map-get($colors-rule, fifth-color);
+  background-color: red;
+
+  transition: transform 1s linear;
+}
+
+.animation-hurryup-1 {
+  animation: animationHurryupFirst 1s linear 0s 1 normal forwards;
+}
+
+.animation-hurryup-2 {
+  animation: animationHurryupSecond 50ms linear 0s 40 alternate backwards;
 }
 
 .form-jeux {
+  width: 100%;
   input {
+    height: 1.5em;
     margin: 1em;
-    padding: 0.5em;
+    padding: 0.2em;
     border-radius: 1em;
-    width: 80%;
+    width: 60%;
     background-color: map-get($colors-rule, fifth-color);
+    text-align: center;
+  }
+  #label-progress-bar {
+    margin-top: 1em;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 2em;
+    margin: 0.8em;
+  }
+  #input-score {
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 0px;
   }
 }
 
 .button-start {
+  margin: 2em 0em;
   padding: 1em;
   color: map-get($colors-rule, fifth-color);
   background-color: darken(map-get($colors-rule, third-color), 20%);
   border: 2px solid map-get($colors-rule, fifth-color);
   border-radius: 1em;
+  cursor: pointer;
 }
 
-.round {
-  align-self: flex-start;
+.main-container-round {
+  min-height: 3em;
+  height: fit-content;
+  //border: 2px solid map-get($colors-rule, fifth-color);
+}
+
+.container-round {
+  align-self: center;
+  margin: 2em 0.5em;
+  border-radius: 50%;
+  background-color: darken(map-get($colors-rule, first-color), 20%);
+}
+
+.round-number {
+  color: map-get($colors-rule, fifth-color);
+  text-align: center;
+}
+
+.round-string {
+  padding: 0.5em;
+  transform: scale(2);
+}
+
+.main-container-round:last-child .container-round:last-child .animation-result {
+  animation: animationResult 0.8s ease-in-out 0.2s;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.enabled {
+  opacity: 1;
+}
+
+.valid-color {
+  border: 4px solid map-get($colors-rule, third-color);
+  transition: border 250ms linear;
+}
+
+.normal-color {
+  border: 4px solid transparent;
+  transition: border 250ms linear;
+}
+
+.invalid-color {
+  border: 4px solid map-get($colors-rule, second-color);
+  transition: border 250ms linear;
 }

@@ -23,39 +23,53 @@
   <body>
     <div class="container-page">
       <div class="container-jeux flex-column-start-center">
-        <h1 class="titre-jeux">Trouve le mot caché</h1>
+        <div class="container-title">
+          <h1 class="titre-jeux">
+            Trouve les<br />
+            mots cachés
+          </h1>
+          <div class="hurry-up">Hurry up!</div>
+        </div>
         <form class="form-jeux flex-column-start-center">
-          <label for="input-question"></label>
-          <input type="text" name="input-question" id="question" />
-          <label for="input-response"></label>
+          <label for="input-question">Mot caché</label>
+          <input
+            type="text"
+            name="input-question"
+            id="input-question"
+            class="normal-color"
+            disabled
+          />
+          <label id="label-response" for="input-response"></label>
           <input
             type="text"
             name="input-response"
             id="input-response"
-            placeholder="votre réponse"
-            autofocus
+            class="normal-color"
           />
-          <label for="input-timer">Time remaining</label>
-          <input
-            type="range"
-            name="input-range"
-            id="input-timer"
-            min="0"
-            value="0"
-          />
-          <label for="input-score">Score</label>
-          <input type="number" name="input-score" id="input-score" value="0" />
-          <button id="btn-start" class="button-start display" type="button">
-            Start
-          </button>
+          <label id="label-progress-bar" for="progress-bar"
+            >Temps restant:<span> 20 s</span>
+          </label>
+          <progress id="progress-bar" class="progress-bar"></progress>
+
           <button
-            id="btn-restart"
-            class="button-start restart hide"
+            id="btn-start"
+            class="button-start disabled display"
             type="button"
-          >
+          ></button>
+          <button id="btn-restart" class="button-start hide" type="button">
             Nouvelle partie
           </button>
-          <div class="round"></div>
+          <label id="label-score" for="input-score">Score</label>
+          <input
+            type="number"
+            name="input-score"
+            id="input-score"
+            value="0"
+            disabled
+          />
+          <div
+            class="main-container-round flex-row-space-evenly-center-wrap"
+          ></div>
         </form>
       </div>
     </div>
