@@ -377,6 +377,7 @@ body .calculette-number {
   background-color: #148a38;
   color: #FBFFFE;
   border-radius: 2em;
+  text-align: center;
 }
 .simulation #cout-mensuel {
   border: 4px solid #FBFFFE;

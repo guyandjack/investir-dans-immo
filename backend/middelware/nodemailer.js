@@ -19,7 +19,7 @@ exports.sendMail = (req, res, next) => {
   let mailOptions = {
     from: req.body.email,
     to: "g-dupanloup@wanadoo.fr",
-    subject: "user message from 'immo-invest.com'",
+    subject: "user message from 'monprojetlocatif.org'",
     text: req.body.message,
   };
 

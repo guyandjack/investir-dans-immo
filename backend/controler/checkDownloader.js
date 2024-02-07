@@ -1,6 +1,8 @@
 //Import du package "express"
+
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 //Clefs du corp de requete normalement attendues
 let refOfKeys = {
@@ -14,10 +16,6 @@ let valueControl = {
   //bodyrequest
   bodyKey: false,
 };
-
-
-
-
 
 /****** check 1:  *********/
 //Controle si la requete utilisateur provient du site 'electravaux.com'
@@ -73,14 +71,21 @@ exports.downloader = (req, res, next) => {
   const absolutepath = dossierFichier + "/documents/" + req.params.fichier;
   const pathNormelize = path.normalize(absolutepath);
   const fileName = req.params.fichier;
-  console.log(pathNormelize)
+  console.log(pathNormelize);
+  const relativePath = "./documents/tableau-resume.xlsx";
 
-  res.download(pathNormelize, fileName, (err) => {
+  // Check if the file exists in the current directory.
+  fs.access(relativePath, fs.constants.F_OK, (err) => {
+    //console.log(`${file} ${err ? "does not exist" : "exists"}`);
     if (err) {
-      console.log(err);
-      res.status(500).json({ message: "une errreur est survenue" });
+      res.status(550).end();
+    } else {
+      res.status(200).download(pathNormelize, fileName, (err) => {
+        if (err) {
+          console.log(err);
+          //res.status(500).json({ message: "error" });
+        }
+      });
     }
   });
-
-  //res.status(200).json({ message: "telechargement en cours" });
 };

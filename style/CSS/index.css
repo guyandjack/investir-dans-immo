@@ -378,13 +378,22 @@ input[type=range]:focus::-moz-range-thumb {
 /**************************************************************
 *************  police pour le site *****************************
 ******************************************************************/
-@font-face {
+/*@font-face {
   font-family: "cantarel";
   src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
 }
+
 @font-face {
   font-family: "fjalla";
   src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}*/
+@font-face {
+  font-family: "Oswald", sans-serif;
+  src: url("../../../../Font/Oswald/static/Oswald-Bold.ttf");
+}
+@font-face {
+  font-family: "Mulish", sans-serif;
+  src: url("../../../../Font/Mulish/static/Mulish-Regular.ttf");
 }
 * {
   margin: 0px;
@@ -393,7 +402,7 @@ input[type=range]:focus::-moz-range-thumb {
           box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: "cantarel", sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 1em;
   font-weight: 500;
 }
@@ -418,7 +427,7 @@ body {
 }
 
 .title {
-  font-family: "fjalla", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .h1 {
@@ -932,8 +941,8 @@ body .calculette-number {
   -webkit-transform: translateY(-30%);
       -ms-transform: translateY(-30%);
           transform: translateY(-30%);
-  height: 2em;
-  width: 2em;
+  height: 1.5em;
+  width: 1.5em;
 }
 @media screen and (min-width: 993px) {
   .svg-icon-info {
@@ -1196,6 +1205,42 @@ body .calculette-number {
 /**************************************************************************************
 ************************** concerne les div articles  *************************************
 *** start *****************************************************************************/
+@-webkit-keyframes animErrorDownload {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  90% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes animErrorDownload {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  90% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
 .container-article {
   padding: 1em;
   background-color: #FBFFFE;
@@ -1304,12 +1349,31 @@ body .calculette-number {
   list-style-type: disc;
   font-style: italic;
 }
-.container-text-article .btn-download {
-  color: #FBFFFE;
+.container-text-article .container-btn-download {
+  position: relative;
+  margin-bottom: 2em;
+}
+.container-text-article .btn-download,
+.container-text-article .error-download {
   padding: 10px;
-  background-color: #08b3ed;
   border-radius: 1em;
+}
+.container-text-article .btn-download {
+  position: relative;
+  z-index: 1;
+  color: #FBFFFE;
+  background-color: #08b3ed;
   cursor: pointer;
+}
+.container-text-article .error-download {
+  position: absolute;
+  left: 0px;
+  background-color: #EFA00B;
+  color: #FBFFFE;
+}
+.container-text-article .animation-error {
+  -webkit-animation: animErrorDownload 5s linear 1 0s normal forwards;
+          animation: animErrorDownload 5s linear 1 0s normal forwards;
 }
 
 .text-exemple {

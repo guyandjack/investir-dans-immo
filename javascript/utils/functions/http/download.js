@@ -1,3 +1,17 @@
+//declaration des fonctions
+function downloadError(elementCliked) {
+  let divError = elementCliked.nextElementSibling;
+  console.log("diverror: " + divError);
+  if (!divError.classList.contains("animation-error")) {
+    divError.classList.add("animation-error");
+  }
+  divError.addEventListener("animationend", () => {
+    if (divError.classList.contains("animation-error")) {
+      divError.classList.remove("animation-error");
+    }
+  });
+}
+
 function FetchForDownload(e) {
   let buttonClicked = e.target;
   let buttonData = buttonClicked.dataset.download;
@@ -7,13 +21,24 @@ function FetchForDownload(e) {
   fetch(urlFetch, {
     method: "GET",
     headers: {
-        Accept: "image/png",
-        
+      Accept: "image/png",
     },
-  }).then((response) => {
-    
-    location.href = urlFetch;
-  });
+  })
+    .then((result) => {
+      /*result.text().then((data) => {
+        console.log("contenu format text: " + data);
+        let retourServeur = data;
+        console.log("retour serveur: " + retourServeur.message);*/
+      if (result.status !== 200) {
+        downloadError(buttonClicked);
+      } else {
+        location.href = urlFetch;
+      }
+    })
+
+    .catch((error) => {
+      downloadError(buttonClicked);
+    });
 }
 
 export { FetchForDownload };

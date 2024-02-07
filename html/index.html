@@ -382,7 +382,7 @@
                       location de son bien, M.Dupont payera 2 643€ au titre de
                       l'impot sur revenus fonciers.
                     </p>
-                    <p>
+                    <p class="container-btn-download">
                       <button
                         class="btn-download"
                         type="button"
@@ -390,6 +390,9 @@
                       >
                         Télécharger un tableau récapitulatif
                       </button>
+                      <span class="error-download">
+                        Une erreur est survenue...!:smile:
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -503,7 +506,7 @@
                       toute erreur et tout problème avec l'administration
                       fiscale.
                     </p>
-                    <p>
+                    <p class="container-btn-download">
                       <button
                         class="btn-download"
                         type="button"
@@ -511,6 +514,9 @@
                       >
                         Télécharger un tableau récapitulatif
                       </button>
+                      <span class="error-download"
+                        >Une erreur est survenue...
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -594,7 +600,7 @@
                       A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
                       <br />
                     </p>
-                    <p>
+                    <p class="container-btn-download">
                       <button
                         class="btn-download"
                         type="button"
@@ -602,6 +608,9 @@
                       >
                         Télécharger un tableau récapitulatif
                       </button>
+                      <span class="error-download"
+                        >Une erreur est survenue...
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -671,7 +680,7 @@
                       toute erreur et tout problème avec l'administration
                       fiscale.
                     </p>
-                    <p>
+                    <p class="container-btn-download">
                       <button
                         class="btn-download"
                         type="button"
@@ -679,6 +688,9 @@
                       >
                         Télécharger un tableau récapitulatif
                       </button>
+                      <span class="error-download"
+                        >Une erreur est survenue...
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -697,7 +709,7 @@
           id="calculette-mensualite"
           class="flex-column-start-start fieldset"
         >
-          <h3 class="titre-calculette">Calculer vos mensualitées</h3>
+          <h3 class="titre-calculette title">Calculer vos mensualitées</h3>
           <div class="main-container-input">
             <div id="financement" class="container-label flex-row-start-center">
               <label class="label">Montant du projet:</label>
@@ -940,7 +952,7 @@
         </fieldset>
         <fieldset id="type-location" class="flex-column-start-start fieldset">
           <div id="type" class="container-label flex-row-start-center">
-            <h3 class="titre-calculette">Type de location</h3>
+            <h3 class="titre-calculette title">Type de location</h3>
             <button
               class="btn-popover"
               type="button"
@@ -999,7 +1011,7 @@
         </fieldset>
 
         <fieldset id="fiscal" class="flex-column-start-start fieldset">
-          <h3 class="titre-calculette">Taux marginal d'imposition.</h3>
+          <h3 class="titre-calculette title">Taux marginal d'imposition.</h3>
 
           <div class="main-container-input-radio">
             <div class="container-radio">
@@ -1055,7 +1067,7 @@
           </div>
 
           <div id="regime" class="container-label flex-row-start-center">
-            <h3 id="title-regime-fiscal" class="titre-calculette"></h3>
+            <h3 id="title-regime-fiscal" class="titre-calculette title"></h3>
             <button
               class="btn-popover"
               type="button"
@@ -1111,7 +1123,7 @@
           </div>
         </fieldset>
         <fieldset id="revenu-locatif" class="flex-column-start-start fieldset">
-          <h3 class="titre-calculette">Revenus locatifs</h3>
+          <h3 class="titre-calculette title">Revenus locatifs</h3>
           <div class="main-container-input">
             <label id="label-revenu" class="label">Loyer hors charge</label>
 
@@ -1176,7 +1188,7 @@
         </fieldset>
 
         <fieldset id="charge-taxe" class="flex-column-start-start fieldset">
-          <h3 id="titre-charge" class="titre-calculette">
+          <h3 id="titre-charge" class="titre-calculette title">
             Charges et taxes<span> <sup>(1)</sup></span>
           </h3>
           <div class="main-container-input charge-forfaitaire display-taxe">
