@@ -14,6 +14,9 @@ let listOfButton = document.querySelectorAll("ul.introduction-banner button");
 /****************************** Elements contenu dans article*************************/
 /**** start */
 
+const collapseRang1LocationNue = document.querySelector("#loc-nue");
+const collapseRang1LocationMeuble = document.querySelector("#loc-meuble");
+
 //link colapse article fiscalite "location nue" et "location meublée"
 const linkColapseForfaitaire1 = document.querySelector("#forfaitaire-a");
 const linkColapseReel1 = document.querySelector("#reel-a");
@@ -30,7 +33,7 @@ const colapseReel2 = document.querySelector("#colapse-reel-b");
 const btnDownloadList = document.querySelectorAll(".btn-download");
 
 /****************************** Elements contenu dans article*************************/
-/**** start */
+/**** end */
 
 /****************************** Elements du formulaire #calculette*************************/
 /***************************************** start ************************************** */

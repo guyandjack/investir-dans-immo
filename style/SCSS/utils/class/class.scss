@@ -173,7 +173,7 @@ body.dark {
   .fieldset {
     background-color: map-get($colors-rule, fourth-color);
     color: map-get($colors-rule, fifth-color);
-    transition: all 500ms linear;
+    //transition: all 500ms linear;
   }
 
   .toggle-text {
@@ -212,7 +212,7 @@ body.dark {
   }
 }
 
-body {
+/*body {
   .container-page,
   .toggle-text,
   .container-article,
@@ -221,7 +221,7 @@ body {
   .calculette-number {
     transition: all 500ms linear;
   }
-}
+}*/
 
 .toggle-text {
   margin-left: 1em;

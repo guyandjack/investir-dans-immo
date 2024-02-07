@@ -1,7 +1,13 @@
 //import du contenu des infos bulles
 import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
 
-//import des referenecce du dom
+/***********************************************************************
+ * **************** concerne les collapse des articles *****************
+ *** start ***************************************************************/
+
+/***********************************************************************
+ * **************** concerne les collapse des articles *****************
+ *** end ***************************************************************/
 
 //Fonction qui fait varier la couleur de fond des span-unite de mesure
 function changeColor() {
@@ -38,8 +44,6 @@ function changeColor() {
   }
 }
 
-
-
 //function "linkInput"
 
 /******
@@ -73,34 +77,30 @@ function hideInputRadioRegimeFiscal() {
 
 function displayInputRadioRegimeFiscal() {
   if (containerInputRadioFiscal.classList.contains("hide")) {
-    containerInputRadioFiscal.classList.replace("hide","display");
+    containerInputRadioFiscal.classList.replace("hide", "display");
   }
 }
 
 // Affiche le container des inputs cfe
- function displayInputCfe() {
+function displayInputCfe() {
   if (containerInputCfe.classList.contains("hide-taxe")) {
     containerInputCfe.classList.replace("hide-taxe", "display-taxe");
   }
   return true;
 }
 
-
 // Cache le container des inputs cfe
- function hideInputCfe() {
+function hideInputCfe() {
   if (containerInputCfe.classList.contains("display-taxe")) {
     containerInputCfe.classList.replace("display-taxe", "hide-taxe");
   }
   return true;
 }
 
-
-
-
 function displayChargeForfaitaire() {
   chargeForfaitaireList.forEach((inputCharge) => {
     if (inputCharge.classList.contains("hide-taxe")) {
-      inputCharge.classList.replace("hide-taxe","display-taxe" );
+      inputCharge.classList.replace("hide-taxe", "display-taxe");
     }
   });
 }
@@ -113,26 +113,21 @@ function hideChargeForfaitaire() {
   });
 }
 
-
 function displayChargeReel() {
-
-   chargeReelList.forEach((inputCharge) => {
-     if (inputCharge.classList.contains("hide-taxe")) {
-       inputCharge.classList.replace("hide-taxe", "display-taxe");
-     }
-   });
+  chargeReelList.forEach((inputCharge) => {
+    if (inputCharge.classList.contains("hide-taxe")) {
+      inputCharge.classList.replace("hide-taxe", "display-taxe");
+    }
+  });
 }
 
 function hideChargeReel() {
-
-   chargeReelList.forEach((inputCharge) => {
-     if (inputCharge.classList.contains("display-taxe")) {
-       inputCharge.classList.replace("display-taxe","hide-taxe");
-     }
-   });
+  chargeReelList.forEach((inputCharge) => {
+    if (inputCharge.classList.contains("display-taxe")) {
+      inputCharge.classList.replace("display-taxe", "hide-taxe");
+    }
+  });
 }
-
-
 
 //recupere le type de location choisi par l'utilisteur
 function getLocationType() {
@@ -143,20 +138,16 @@ function getLocationType() {
   if (inputs.length < 1) {
     inputRadioLocationNue.checked = true;
     calculatedValue.locationType = "nue";
-    return true
-  }
-
-  else if (inputs.length == 1) {
-    //Si une input radio est coché 
+    return true;
+  } else if (inputs.length == 1) {
+    //Si une input radio est coché
     let locationTypeValue = inputs[0].value;
 
     //insertion danss l'objet calculatedValue
     calculatedValue.locationType = locationTypeValue;
     return true;
-  }
-    
-  else {
-    return false
+  } else {
+    return false;
   }
 }
 
@@ -284,18 +275,17 @@ function deleteElement(elementId) {
   }
 }
 
-
 /**
  * deplace le toggle switch
  *
- * @return {*} 
+ * @return {*}
  */
 function moveSwitch() {
   let switchToggle = document.querySelector(".switch");
 
   if (switchToggle.classList.contains("move")) {
     switchToggle.classList.remove("move");
-    localStorage.removeItem("toggle");//memorisation de la position du switch pour les autres pages du site
+    localStorage.removeItem("toggle"); //memorisation de la position du switch pour les autres pages du site
     return;
   }
 
@@ -309,7 +299,7 @@ function moveSwitch() {
 /**
  * positionne le toggle switch à l'ouverture de page  en fonction la memorisation de position
  *
- * @return {*} 
+ * @return {*}
  */
 function isToggleMoved() {
   let switchToggle = document.querySelector(".switch");
@@ -339,11 +329,10 @@ function changeTextToggle(text) {
   textToggle.innerHTML = text;
 }
 
-
 /**
  * memorise le choix du theme de couleur de l' utilisateur
  *
- * @return {*} 
+ * @return {*}
  */
 function storeThemeColor() {
   let inputCheckBox = document.querySelector("#toggle-switch");
@@ -360,10 +349,9 @@ function storeThemeColor() {
   }
 }
 
-
 /**
  * applique le theme de couleur
- *@return {*} 
+ *@return {*}
  */
 function useThemeColor() {
   let body = document.body;
@@ -373,7 +361,7 @@ function useThemeColor() {
       body.classList.add("dark");
       changeTextToggle("Theme clair");
     }
-    return
+    return;
   }
 
   if (!localStorage.getItem("themeColor")) {
@@ -381,10 +369,9 @@ function useThemeColor() {
       body.classList.remove("dark");
       changeTextToggle("Theme sombre");
     }
-    return
+    return;
   }
 }
-
 
 /**
  * applique un ecouteur d' évènement sur le toggle switch
@@ -399,41 +386,43 @@ function eventToggleSwitch() {
   });
 }
 
-
 /**
  * ouvre ou ferme le collapse link article
  *
  */
 function extendOrCloseColapseInArticle(e) {
-
-  
   //id de l'element cliqué
   let elementLiId = e.target.id;
-  console.log("id de element  cliked: " + elementLiId)
-  
+  console.log("id de element  cliked: " + elementLiId);
+
   //ref du chevron correspodant
   let iconSvgMatched = e.target.lastElementChild;
-  
-  
+
+  //collapse parent
+  let collapseParent = null;
   //Collapse concerné
-  let selectedColapse = "";
+  let selectedColapse = null;
 
   switch (elementLiId) {
     case "forfaitaire-a":
       selectedColapse = colapseForfaitaire1;
-      console.log("colapse selectionnö: " + selectedColapse )
+      collapseParent = collapseRang1LocationNue;
+      console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "reel-a":
       selectedColapse = colapseReel1;
-      console.log("colapse selectionnö: " + selectedColapse )
+      collapseParent = collapseRang1LocationNue;
+      console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "forfaitaire-b":
       selectedColapse = colapseForfaitaire2;
-      console.log("colapse selectionnö: " + selectedColapse )
+      collapseParent = collapseRang1LocationMeuble;
+      console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "reel-b":
       selectedColapse = colapseReel2;
-      console.log("colapse selectionnö: " + selectedColapse )
+      collapseParent = collapseRang1LocationMeuble;
+      console.log("colapse selectionnö: " + selectedColapse);
       break;
 
     default:
@@ -442,12 +431,41 @@ function extendOrCloseColapseInArticle(e) {
 
   iconSvgMatched.classList.toggle("chevron-up");
 
-  if (selectedColapse.classList.contains("colapse-close")) {
-    selectedColapse.classList.replace("colapse-close", "colapse-open");
+  if (selectedColapse.classList.contains("colapse-article-close")) {
+    //augmente la hauteur du collapse parent location nue
+    if (!collapseParent.classList.contains("colapse-grow")) {
+      collapseParent.classList.add("colapse-grow");
+    }
+    selectedColapse.classList.replace(
+      "colapse-article-close",
+      "colapse-article-open"
+    );
     return;
   }
-  if (selectedColapse.classList.contains("colapse-open")) {
-    selectedColapse.classList.replace("colapse-open", "colapse-close");
+  if (selectedColapse.classList.contains("colapse-article-open")) {
+    selectedColapse.addEventListener(
+      "transitionend",
+      () => {
+        // reduit la hauteur du collapse parent location nue
+        if (collapseParent.classList.contains("colapse-grow")) {
+          collapseParent.classList.remove("colapse-grow");
+        }
+      },
+      { once: true }
+    );
+
+    selectedColapse.classList.replace(
+      "colapse-article-open",
+      "colapse-article-close"
+    );
+
+    /*selectedColapse.removeEventListener("transitionend", () => {
+      // reduit la hauteur du collapse parent location nue
+      if (collapseParent.classList.contains("colapse-grow")) {
+        collapseParent.classList.remove("colapse-grow");
+      }
+    });*/
+
     return;
   }
 }

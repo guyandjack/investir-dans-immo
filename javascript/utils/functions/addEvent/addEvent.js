@@ -15,52 +15,42 @@
 //Import de fonction de calcul et d'initialisation de plus bas niveau
 
 import {
-  linkInput,
   changeColor,
-  hideChargeForfaitaire,
+  createElemntInfoBulle,
+  deleteElement,
   displayChargeForfaitaire,
-  hideChargeReel,
   displayChargeReel,
   displayInputCfe,
-  hideInputCfe,
-  hideAElement,
-  displayAElement,
-  InsertTextInAElement,
-  getTauxMarginalImposition,
-  getIdOfParentElementHover,
-  createElemntInfoBulle,
-  insertContentInfoBulle,
-  styleOfInfoBulle,
-  deleteElement,
   extendOrCloseColapseInArticle,
-  scrollToElement
+  getIdOfParentElementHover,
+  hideChargeForfaitaire,
+  hideChargeReel,
+  hideInputCfe,
+  insertContentInfoBulle,
+  linkInput,
+  scrollToElement,
+  styleOfInfoBulle,
 } from "../other/other.js";
 
 import {
-  initInputValue,
-  mensualite,
+  balance,
+  bilanApresImposition,
+  calculeImpotRevenuFoncier,
+  controlValueOfIncome,
   coutDuCredit,
   incomeByYear,
-  controlValueOfIncome,
-  balance,
-  calculeImpotRevenuFoncier,
-  bilanApresImposition,
- 
+  mensualite,
 } from "../basicCalcul/basicCalcul.js";
 
 import {
-  checkValueUserMonthly,
-  checkValueUserIncome,
   checkValueUserDuty,
-  testIfNumberInt,
-  testIfNumberFloat,
+  checkValueUserIncome,
+  checkValueUserMonthly,
   checkValueUserRadioFiscal,
 } from "../checkValueUser/checkValueUser.js";
 
-
 //import de fonction qui realise une requete HTTP avec fetch
 import { FetchForDownload } from "../http/download.js";
-
 
 /**
  *  Ajoute des écouteurs evenement sur les boutton du banner
@@ -74,26 +64,25 @@ function addEventOnBannerButton() {
     btn.addEventListener("click", (evt) => {
       let elementToScrollId = evt.target.name;
       let elementToScroll = document.querySelector("#" + elementToScrollId);
-     
+
       //scroll vers le titre d'article correpondant
       scrollToElement(elementToScroll);
 
       //ouvre le collapse article correspondant
       let collapseElement = elementToScroll.querySelector(".colapse");
 
-      if (collapseElement.classList.contains("colapse-close")){
+      if (collapseElement.classList.contains("colapse-close")) {
         collapseElement.classList.replace("colapse-close", "colapse-open");
       }
 
       //Tourne l'icon chevron lors de l'ouverture du collapse
-      let chevronTitle = elementToScroll.querySelector(".svg-icon-chevron-colapse");
+      let chevronTitle = elementToScroll.querySelector(
+        ".svg-icon-chevron-colapse"
+      );
       chevronTitle.classList.toggle("chevron-up");
-    })
-  })
+    });
+  });
 }
-
-
-
 
 /**
  *  Ajoute des écouteurs evenement sur les inputs du fieldset #calculette-mensualité
@@ -106,12 +95,11 @@ function addEventOnInputMonthly() {
     "#calculette-mensualite input.calculette-number, #calculette-mensualite input.calculette-range"
   );
 
-  
   allInputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       linkInput(e);
       let isValid = checkValueUserMonthly(e);
-      console.log("isvalid: " + isValid)
+      console.log("isvalid: " + isValid);
 
       if (!isValid) {
         return;
@@ -132,8 +120,6 @@ function addEventOnInputMonthly() {
       }
     });
   });
-
-  
 }
 
 /**
@@ -152,15 +138,14 @@ function addEventOnInputIncome() {
       //lie les inputs "range et "number"
       linkInput(e);
 
-      //stocke la valeur ds l'objet 
-      console.log("nom de l'input: " + e.target.name)
+      //stocke la valeur ds l'objet
+      console.log("nom de l'input: " + e.target.name);
       if (
         e.target.name == "number-revenu_hors_charge" ||
         e.target.name == "range-revenu_hors_charge"
-        ){
-      calculatedValue.income = e.target.value;
-      }
-      else if (
+      ) {
+        calculatedValue.income = e.target.value;
+      } else if (
         e.target.name == "number-revenu_charge_comprise" ||
         e.target.name == "range-revenu_charge_comprise"
       ) {
@@ -181,8 +166,6 @@ function addEventOnInputIncome() {
       incomeByYear();
       console.log("fuonction incomeByYear lancée dans l' event.");
 
-
-      
       // bilan avant imposition
       balance();
 
@@ -239,9 +222,12 @@ function addEventOnInputDuty() {
       if (!isValid) {
         return;
       }
-      //stocke les charges deductibles 
-      if (e.target.name == "number-deductible" || e.target.name == "range-deductible") {
-        calculatedValue.dutyDeductible = e.target.value
+      //stocke les charges deductibles
+      if (
+        e.target.name == "number-deductible" ||
+        e.target.name == "range-deductible"
+      ) {
+        calculatedValue.dutyDeductible = e.target.value;
       }
       balance();
       calculeImpotRevenuFoncier();
@@ -289,14 +275,12 @@ function addEventOnInputRadioTypeLocation() {
 
       //si location meublee est checked
       if (calculatedValue.locationType == "meuble") {
-
         //affiche les inputs number et range CFE
-        displayInputCfe(); 
+        displayInputCfe();
 
         //Affiche le revenu locatif de reference
         totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
 
-        
         /*let checked = checkValueUserRadioFiscal();
         if (!checked) {
           return;
@@ -316,7 +300,6 @@ function addEventOnInputRadioTypeLocation() {
         //Affiche le revenu locatif de reference
         totalRevenuReferenceValue.innerHTML = calculatedValue.income * 12;
 
-        
         let checked = checkValueUserRadioFiscal();
         if (!checked) {
           return;
@@ -329,8 +312,6 @@ function addEventOnInputRadioTypeLocation() {
     });
   });
 }
-
-
 
 /**
  *  supprime des écouteurs evenement sur les inputs "radio" du fieldset #fiscal (choix du type d'imposition)
@@ -384,30 +365,24 @@ function addEventOnInputRadioFiscal() {
 
       //si l'input radio "regime forfaitaire" est cochée on affiche les inputs charges de type "forfaitaire"
       if (calculatedValue.fiscalChoice == "forfaitaire") {
-         let result = controlValueOfIncome();
+        let result = controlValueOfIncome();
         hideChargeReel();
         displayChargeForfaitaire();
-        
       }
 
       //si l'input radio "regime reel" est cochée on affiche les inputs charges de type "reel"
       if (calculatedValue.fiscalChoice == "reel") {
-         let result = controlValueOfIncome();
+        let result = controlValueOfIncome();
         hideChargeForfaitaire();
         displayChargeReel();
-        
       }
 
       balance();
       calculeImpotRevenuFoncier();
       bilanApresImposition();
-
-
     });
   });
 }
-
-
 
 /**
  *  Suprime des écouteurs evenement sur les inputs "number" et "range" du fieldset #fiscal
@@ -475,29 +450,69 @@ function addEventOnIconInfo() {
 }
 
 function addEventOnIconColapseArticle() {
-  let listIconCollapse = document.querySelectorAll(".svg-icon-chevron-colapse");
+  let listTitleArticle = document.querySelectorAll("h3.title-article");
 
-  listIconCollapse.forEach((icon) => {
-    icon.addEventListener("click", (evt) => {
-      let parent = icon.parentElement;
-      console.log("parent: " + parent);
+  listTitleArticle.forEach((titleArticle) => {
+    titleArticle.addEventListener("click", (evt) => {
+      let icon = titleArticle.firstElementChild;
+      let parent = titleArticle.parentElement;
+      let parentId = parent.id;
 
-      let grandParent = parent.parentElement;
-      console.log("grand parent: " + grandParent);
+      //identifie les collapse enfants
+      let collapseEnfant1 = "";
+      let collapseEnfant2 = "";
+      let exist = false;
+      switch (parentId) {
+        case "article-imposition-1":
+          collapseEnfant1 = colapseForfaitaire1;
+          collapseEnfant2 = colapseReel1;
+          exist = true;
+          break;
 
-      let colapseElement = grandParent.querySelector("div.colapse");
+        case "article-imposition-2":
+          collapseEnfant1 = colapseForfaitaire2;
+          collapseEnfant2 = colapseReel2;
+          exist = true;
+          break;
+
+        default:
+          break;
+      }
+
+      let colapseElement = parent.querySelector("div.colapse");
       console.log("colapse: " + colapseElement);
 
       // tourne le chevron
       icon.classList.toggle("chevron-up");
 
-      //deplie ou replie le colapse
+      //ouverture du colapse parent
 
       if (colapseElement.classList.contains("colapse-close")) {
         colapseElement.classList.replace("colapse-close", "colapse-open");
         return;
       }
+      //fermeture du collapse parent
       if (colapseElement.classList.contains("colapse-open")) {
+        //On ferme le collapse enfant en premier si il existe
+        if (exist) {
+          //fermeture des collapses enfants
+          if (collapseEnfant1.classList.contains("colapse-article-open")) {
+            collapseEnfant1.classList.replace(
+              "colapse-article-open",
+              "colapse-article-close"
+            );
+            colapseElement.classList.remove("colapse-grow");
+          }
+
+          if (collapseEnfant2.classList.contains("colapse-article-open")) {
+            collapseEnfant2.classList.replace(
+              "colapse-article-open",
+              "colapse-article-close"
+            );
+            colapseElement.classList.remove("colapse-grow");
+          }
+        }
+
         colapseElement.classList.replace("colapse-open", "colapse-close");
         return;
       }
@@ -512,41 +527,37 @@ function addEventOnIconColapseArticle() {
 
 function addEventOnLinkArticle() {
   linkColapseForfaitaire1.addEventListener("click", (e) => {
-    console.log("link forfaitatire 1 clicked ");
-    console.log("link forfaitatire 1 : " + e.target);
-    
     extendOrCloseColapseInArticle(e);
-  })
+  });
   linkColapseForfaitaire2.addEventListener("click", (e) => {
     extendOrCloseColapseInArticle(e);
-  })
+  });
   linkColapseReel1.addEventListener("click", (e) => {
     extendOrCloseColapseInArticle(e);
-  })
+  });
   linkColapseReel2.addEventListener("click", (e) => {
     extendOrCloseColapseInArticle(e);
-  })
+  });
 }
 
 function addEventOnButtonDownload() {
   btnDownloadList.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       FetchForDownload(e);
-    })
-  })
-  
+    });
+  });
 }
 
 export {
   addEventOnBannerButton,
-  addEventOnInputMonthly,
+  addEventOnButtonDownload,
+  addEventOnIconColapseArticle,
+  addEventOnIconInfo,
   addEventOnInputDuty,
   addEventOnInputIncome,
-  addEventOnInputRadioTypeLocation,
+  addEventOnInputMonthly,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
-  addEventOnIconInfo,
-  addEventOnIconColapseArticle,
+  addEventOnInputRadioTypeLocation,
   addEventOnLinkArticle,
-  addEventOnButtonDownload,
 };

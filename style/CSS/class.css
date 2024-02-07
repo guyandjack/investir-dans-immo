@@ -230,8 +230,6 @@ body.dark .container-text-article,
 body.dark .fieldset {
   background-color: #272727;
   color: #FBFFFE;
-  -webkit-transition: all 500ms linear;
-  transition: all 500ms linear;
 }
 body.dark .toggle-text {
   color: #FBFFFE;
@@ -264,16 +262,16 @@ body.dark .popover:popover-open::after {
   opacity: 0.6;
 }
 
-body .container-page,
-body .toggle-text,
-body .container-article,
-body .colapse,
-body .container-text-article,
-body .calculette-number {
-  -webkit-transition: all 500ms linear;
-  transition: all 500ms linear;
-}
-
+/*body {
+  .container-page,
+  .toggle-text,
+  .container-article,
+  .colapse,
+  .container-text-article,
+  .calculette-number {
+    transition: all 500ms linear;
+  }
+}*/
 .toggle-text {
   margin-left: 1em;
 }
