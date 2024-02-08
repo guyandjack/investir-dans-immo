@@ -314,13 +314,14 @@
 }
 
 .article {
-  width: 100%;
+  width: fit-content;
   margin: 1.5em 0em;
 }
 
 .title-article {
   position: relative;
   z-index: 1;
+  width: fit-content;
   font-size: 1.2em;
   font-weight: 600;
   padding: 0.5em;
@@ -483,6 +484,7 @@
 .colapse-close {
   padding: 0em;
   max-height: 0px;
+  max-width: 0px;
   overflow: hidden;
   transition: max-height 150ms linear, padding 150ms linear;
 }
@@ -499,7 +501,7 @@
 
 .colapse-article-open {
   padding: 0.5em;
-  max-height: 1500px;
+  max-height: 1700px;
   overflow: hidden;
   transition: max-height 500ms linear, padding 500ms linear;
 }

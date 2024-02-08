@@ -1,0 +1,70 @@
+/**************************************************************
+*************  police pour le site *****************************
+******************************************************************/
+/*@font-face {
+  font-family: "cantarel";
+  src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
+}
+
+@font-face {
+  font-family: "fjalla";
+  src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}*/
+@font-face {
+  font-family: "Oswald", sans-serif;
+  src: url("../../../../Font/Oswald/static/Oswald-Bold.ttf");
+}
+@font-face {
+  font-family: "Mulish", sans-serif;
+  src: url("../../../../Font/Mulish/static/Mulish-Regular.ttf");
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Mulish", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #272727;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 2.5em;
+  padding: 1em 0em;
+}
+
+.h2 {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.h3 {
+  font-weight: 600;
+  font-size: 1.3em;
+}

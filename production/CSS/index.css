@@ -1,3 +1,4 @@
+/*******    feuille de style page calculette   ************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -583,49 +584,6 @@ body {
 /********  **************** flex box **************** ******************/
 /**** end ******************************************************************************/
 /****************************************************************************************
-
-
-
-/********  **************** loader **************** ******************/
-/**** start ******************************************************************************/
-/*****************************************************************************************/
-.container-loader {
-  position: fixed;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  background-color: #272727;
-  opacity: 0.7;
-}
-
-.loader {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  margin-right: 1em;
-  border-radius: 50%;
-  border: 6px solid #FBFFFE;
-}
-
-.loaader::before {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 6px solid transparent;
-  border-top: 10px solid #068ebc;
-}
-
-.loader-text {
-  font-size: 2em;
-  color: #FBFFFE;
-}
-
-/********  **************** loader **************** ******************/
-/**** end ******************************************************************************/
-/****************************************************************************************
 /********  **************** container-page + body  **************** ******************/
 /**** start ******************************************************************************/
 .container-page,
@@ -967,220 +925,924 @@ body.dark .popover:popover-open::after {
 /****************************************************************************************
 /********  **************** footer **************** ******************/
 /*** end ******************************************************************************/
-@-webkit-keyframes animationResult {
-  from {
-    -webkit-transform: scale(8);
-            transform: scale(8);
-  }
-  to {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-  }
-}
-@keyframes animationResult {
-  from {
-    -webkit-transform: scale(8);
-            transform: scale(8);
-  }
-  to {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-  }
-}
-@-webkit-keyframes animationHurryupFirst {
-  from {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  to {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-  }
-}
-@keyframes animationHurryupFirst {
-  from {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  to {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-  }
-}
-@-webkit-keyframes animationHurryupSecond {
-  from {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-    margin-left: 0.1em;
-  }
-  to {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-    margin-left: -0.1em;
-  }
-}
-@keyframes animationHurryupSecond {
-  from {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-    margin-left: 0.1em;
-  }
-  to {
-    -webkit-transform: translateY(300%);
-            transform: translateY(300%);
-    margin-left: -0.1em;
-  }
-}
-.container-jeux {
-  padding: 1em;
-  background-color: #068ebc;
-  width: 50%;
-  margin: 0px auto;
-}
-.container-jeux .hide {
-  display: none;
+/****************************************************************************************
+**************************** concerne les svg *******************************************
+** start ********************************************************************************/
+/************* svg icon info ******************/
+/** start **/
+.svg-icon {
+  width: 250px;
+  height: 250px;
 }
 
-.container-title {
-  position: relative;
-}
-
-.titre-jeux {
-  position: relative;
-  z-index: 10;
-  font-size: 1.5em;
-  font-weight: 600;
-  line-height: 150%;
-  border-bottom: 2px solid #272727;
-  margin: 2em 0em 2.5em 0em;
-  text-align: center;
-  padding: 1em;
-  border-radius: 20%;
-  color: #FBFFFE;
-  background-color: #034359;
-  -webkit-box-shadow: 0em 0em 0.5em 0.5em;
-          box-shadow: 0em 0em 0.5em 0.5em;
-}
-
-.hurry-up {
-  position: absolute;
-  z-index: 9;
-  bottom: 50%;
-  left: 0%;
-  text-align: center;
-  width: 100%;
-  font-size: 1em;
-  font-weight: 600;
-  padding: 0.5em;
-  border-radius: 1em;
-  color: #FBFFFE;
-  background-color: red;
-  -webkit-transition: -webkit-transform 1s linear;
-  transition: -webkit-transform 1s linear;
-  transition: transform 1s linear;
-  transition: transform 1s linear, -webkit-transform 1s linear;
-}
-
-.animation-hurryup-1 {
-  -webkit-animation: animationHurryupFirst 1s linear 0s 1 normal forwards;
-          animation: animationHurryupFirst 1s linear 0s 1 normal forwards;
-}
-
-.animation-hurryup-2 {
-  -webkit-animation: animationHurryupSecond 50ms linear 0s 40 alternate backwards;
-          animation: animationHurryupSecond 50ms linear 0s 40 alternate backwards;
-}
-
-.form-jeux {
-  width: 100%;
-}
-.form-jeux input {
+.svg-icon-info {
+  color: #EFA00B;
+  -webkit-transform: translateY(-30%);
+      -ms-transform: translateY(-30%);
+          transform: translateY(-30%);
   height: 1.5em;
-  margin: 1em;
-  padding: 0.2em;
-  border-radius: 1em;
-  width: 60%;
-  background-color: #FBFFFE;
-  text-align: center;
+  width: 1.5em;
 }
-.form-jeux #label-progress-bar {
-  margin-top: 1em;
-}
-.form-jeux .progress-bar {
-  width: 100%;
-  height: 2em;
-  margin: 0.8em;
-}
-.form-jeux #input-score {
-  font-size: 1.2em;
-  font-weight: 600;
-  border-radius: 0px;
+@media screen and (min-width: 993px) {
+  .svg-icon-info {
+    cursor: help;
+  }
 }
 
-.button-start {
+/************* svg icon info ******************/
+/** end **/
+/************* svg icon chevron collapse ******************/
+/** start **/
+.svg-icon-chevron-colapse,
+.svg-icon-chevron {
+  color: #068ebc;
+  height: 1.5em;
+  width: 1.5em;
+  -webkit-transform: rotateZ(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotateZ(90deg);
+  margin-left: 0.5em;
+  margin-right: 1em;
+  -webkit-transition: -webkit-transform 250ms linear;
+  transition: -webkit-transform 250ms linear;
+  transition: transform 250ms linear;
+  transition: transform 250ms linear, -webkit-transform 250ms linear;
+}
+
+.chevron-up {
+  -webkit-transform: rotateZ(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotateZ(-90deg);
+}
+
+/************* svg icon chevron collapse ******************/
+/** end **/
+/****************************************************************************************
+**************************** concerne les svg *******************************************
+** end ********************************************************************************/
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** start ********************************************************************************/
+.container-banner {
+  position: relative;
   margin: 2em 0em;
-  padding: 1em;
-  color: #FBFFFE;
-  background-color: #148a38;
-  border: 2px solid #FBFFFE;
-  border-radius: 1em;
-  cursor: pointer;
-}
-
-.main-container-round {
-  min-height: 3em;
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  background-color: #068ebc;
+  background-image: url(../../../Asset/man-cross-street-500px.png);
+  background-size: cover;
+}
+@media screen and (min-width: 993px) {
+  .container-banner {
+    background-image: url(../../../Asset/man-cross-street-1000px.png);
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-banner {
+    background-image: url(../../../Asset/man-cross-street-1500px.png);
+  }
 }
 
-.container-round {
+.container-title {
+  width: 100%;
+}
+
+.container-title h1 {
+  width: 100%;
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  z-index: 1;
+  color: #FBFFFE;
+}
+@media screen and (min-width: 993px) {
+  .container-title h1 {
+    font-size: 4em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-title h1 {
+    font-size: 5em;
+  }
+}
+
+.container-title h1::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+  background-color: #272727;
+  opacity: 0.6;
+}
+
+.container-title h2 {
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  color: #272727;
+  z-index: 1;
+}
+@media screen and (min-width: 993px) {
+  .container-title h2 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .container-title h2 {
+    font-size: 1.5em;
+  }
+}
+
+.container-title h2::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  z-index: -1;
+  background-color: #FBFFFE;
+  opacity: 0.7;
+}
+
+/****************************************************************************************
+**************************** concerne titre page *******************************************
+** end ********************************************************************************/
+.introduction-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2em 0em;
+  width: 100%;
+  height: 500px;
+  /*background-image: url(../../../Asset/man-cross-street.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;*/
+  /*@include upper-medium-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
+  /*@include upper-x-large-screen {
+    background-image: url(../../../Asset/man-cross-street.jpg);
+  }*/
+}
+@media screen and (min-width: 993px) {
+  .introduction-banner {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+  }
+}
+.introduction-banner button {
+  position: relative;
+  z-index: 1;
+}
+.introduction-banner .introduction-icon {
+  position: relative;
+  z-index: -1;
+}
+
+.container-introduction-text {
+  width: 80%;
+  font-style: italic;
+  margin: 2em;
+}
+@media screen and (min-width: 993px) {
+  .container-introduction-text {
+    width: 60%;
+  }
+}
+
+.introduction-text {
+  margin-top: 1em;
+  line-height: 150%;
+  font-size: 1.5em;
+  text-align: justify;
+}
+@media screen and (min-width: 993px) {
+  .introduction-text {
+    font-size: 1.8em;
+  }
+}
+
+.btn-banner {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  background-color: #045672;
+  color: #FBFFFE;
+}
+
+.btn-banner:hover {
+  background-color: #068ebc;
+}
+
+.introduction-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 2.5em 0em;
+  overflow: visible;
+  border-radius: 50%;
+  background-color: #068ebc;
+  outline: 3px solid #068ebc;
+  outline-offset: 1.2em;
+}
+
+.icon-text {
+  z-index: 5;
+  font-size: 1.2em;
+  text-align: center;
+  color: #FBFFFE;
+}
+
+.container-icon-check {
+  position: absolute;
+  left: 50%;
+  top: 80px;
+  width: 40px;
+  height: 40px;
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.icon-check {
+  fill: #FBFFFE;
+}
+
+/**************************************************************************************
+************************** concerne les div articles  *************************************
+*** start *****************************************************************************/
+@-webkit-keyframes animErrorDownload {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  90% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes animErrorDownload {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  90% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+.container-article {
+  padding: 1em;
+  background-color: #FBFFFE;
+}
+@media screen and (min-width: 769px) {
+  .container-article {
+    width: 80%;
+  }
+}
+
+.main-title-article {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #068ebc;
+  margin: 1em 0em;
+  font-size: 1.5em;
+}
+@media screen and (min-width: 769px) {
+  .main-title-article {
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 993px) {
+  .main-title-article {
+    font-size: 2.2em;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .main-title-article {
+    font-size: 2.5em;
+  }
+}
+
+.article {
+  width: 100%;
+  margin: 1.5em 0em;
+}
+
+.title-article {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 0em 0px #068ebc;
+          box-shadow: 0px 0px 0em 0px #068ebc;
+}
+@media screen and (min-width: 993px) {
+  .title-article {
+    font-size: 1.5em;
+  }
+}
+
+.title-article > span {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(6, 142, 188, 0.5)), color-stop(40%, rgba(6, 142, 188, 0.5)), color-stop(10.01%, transparent)) no-repeat 0px 0px/0 100%;
+  background: linear-gradient(to top, rgba(6, 142, 188, 0.5) 0%, rgba(6, 142, 188, 0.5) 40%, transparent 10.01%) no-repeat 0px 0px/0 100%;
+  -webkit-transition: background-size 0.5s;
+  transition: background-size 0.5s;
+}
+
+.article:hover span {
+  background-size: 100% 100%;
+}
+
+.title-article > svg,
+.title-article > span {
+  position: relative;
+  z-index: -1;
+}
+
+.subtitle-article {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 1em 0em 1em 1em;
+  color: #068ebc;
+}
+@media screen and (min-width: 993px) {
+  .subtitle-article {
+    font-size: 1.3em;
+  }
+}
+
+.article > p {
+  margin: 2em 0em;
+  line-height: 130%;
+  text-align: left;
+  font-size: 1.1em;
+  background-color: red;
+}
+@media screen and (min-width: 993px) {
+  .article > p {
+    font-size: 1.3em;
+  }
+}
+
+.container-text-article > p {
+  font-size: 1.2em;
+}
+.container-text-article .list {
+  position: relative;
+  z-index: 0;
+  margin: 1em 0em;
+}
+.container-text-article .list-li,
+.container-text-article .list-exemple-li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.5em 0em;
+}
+.container-text-article .list-li {
+  cursor: pointer;
+}
+.container-text-article .list-li-a,
+.container-text-article .svg-icon-chevron {
+  position: relative;
+  z-index: -2;
+  color: #068ebc;
+}
+.container-text-article .list-li-a {
+  font-size: 1.2em;
+}
+@media screen and (min-width: 993px) {
+  .container-text-article .list-li-a {
+    font-size: 1.5em;
+  }
+}
+.container-text-article .list-exemple-li {
+  list-style-position: inside;
+  list-style-type: disc;
+  font-style: italic;
+}
+.container-text-article .container-btn-download {
+  position: relative;
+  margin-bottom: 2em;
+}
+.container-text-article .btn-download,
+.container-text-article .error-download {
+  padding: 10px;
+  border-radius: 1em;
+}
+.container-text-article .btn-download {
+  position: relative;
+  z-index: 1;
+  color: #FBFFFE;
+  background-color: #08b3ed;
+  cursor: pointer;
+}
+.container-text-article .error-download {
+  position: absolute;
+  left: 0px;
+  background-color: #EFA00B;
+  color: #FBFFFE;
+}
+.container-text-article .animation-error {
+  -webkit-animation: animErrorDownload 5s linear 1 0s normal forwards;
+          animation: animErrorDownload 5s linear 1 0s normal forwards;
+}
+
+.text-exemple {
+  font-style: italic;
+  text-align: justify;
+  font-weight: bolder;
+  margin: 1em 0em;
+  line-height: 150%;
+}
+
+.colapse {
+  border-top: 2px solid #068ebc;
+  border-bottom: 2px solid #068ebc;
+  background-color: #f5fcff;
+  width: 100%;
+}
+
+.colapse > p,
+.container-text-article > p,
+.list-exemple-li {
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+}
+
+.colapse-open {
+  padding: 0.5em;
+  max-height: 600px;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms linear, padding 500ms linear;
+  transition: max-height 500ms linear, padding 500ms linear;
+}
+
+.colapse-close {
+  padding: 0em;
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: max-height 150ms linear, padding 150ms linear;
+  transition: max-height 150ms linear, padding 150ms linear;
+}
+
+.colapse-grow {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+.colapse-article {
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+}
+
+.colapse-article-open {
+  padding: 0.5em;
+  max-height: 1700px;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms linear, padding 500ms linear;
+  transition: max-height 500ms linear, padding 500ms linear;
+}
+
+.colapse-article-close {
+  padding: 0em;
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms linear, padding 500ms linear;
+  transition: max-height 500ms linear, padding 500ms linear;
+}
+
+/**************************************************************************************
+************************** concerne les articles  *************************************
+*** end *****************************************************************************/
+.fieldset {
+  position: relative;
+  padding: 0px;
+  border-radius: 1em;
+  margin: 1em 0em;
+  width: 100%;
+  background-color: #f5fcff;
+}
+
+.calculette-mensualite {
+  border-radius: 1em;
+  width: 100%;
+}
+@media screen and (min-width: 769px) {
+  .calculette-mensualite {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 993px) {
+  .calculette-mensualite {
+    width: 40%;
+  }
+}
+
+.titre-calculette {
   -ms-flex-item-align: center;
       align-self: center;
-  margin: 2em 0.5em;
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+/****************************************************************************************
+/*****************  Style de la partie affichage input radio***************************/
+/****start******************************************************************************/
+.main-container-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 1em 0em;
+}
+
+.container-label {
+  position: relative;
+}
+
+.info-bulle {
+  position: absolute;
+  top: 120%;
+  left: 20%;
+  z-index: 10;
+  background-color: #EFA00B;
+  width: 400px;
+  padding: 1em 1em 0em 1em;
+  color: #272727;
+  -webkit-box-shadow: 6px 6px 15px black;
+          box-shadow: 6px 6px 15px black;
+}
+.info-bulle > h3 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.info-bulle > p {
+  margin-top: 0.5em;
+}
+
+.main-container-input-radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.container-radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 1.5em 0.3em;
+}
+.container-radio:hover {
+  cursor: pointer;
+}
+
+.input-radio {
+  background-color: #068ebc;
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 50%;
-  background-color: #034359;
+}
+.input-radio:checked {
+  outline: 2px solid #24e05d;
+  outline-offset: 0.125rem;
+  background-color: #24e05d;
 }
 
-.round-number {
-  color: #FBFFFE;
-  text-align: center;
-}
-
-.round-string {
+/*****************  Style de la partie affichage input radio***************************/
+/****end******************************************************************************/
+/****************************************************************************************
+/*****************  Style de la partie affichage input number et input range**************/
+/****start******************************************************************************/
+.label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
   padding: 0.5em;
-  -webkit-transform: scale(2);
-      -ms-transform: scale(2);
-          transform: scale(2);
+  font-weight: 700;
 }
 
-.main-container-round:last-child .container-round:last-child .animation-result {
-  -webkit-animation: animationResult 0.8s ease-in-out 0.2s;
-          animation: animationResult 0.8s ease-in-out 0.2s;
+.start {
+  margin-left: 0em;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.disabled {
-  opacity: 0.5;
+.container-input-range,
+.container-input-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
-.enabled {
-  opacity: 1;
+.calculette-span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 1.3em;
+  background-color: #068ebc;
 }
 
-.valid-color {
-  border: 4px solid #24e05d;
-  -webkit-transition: border 250ms linear;
-  transition: border 250ms linear;
+.container-input-range {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
 }
 
-.normal-color {
-  border: 4px solid transparent;
-  -webkit-transition: border 250ms linear;
-  transition: border 250ms linear;
+.container-input-number {
+  width: 100%;
+  height: 50px;
+  border-radius: 1.2em;
+  overflow: hidden;
 }
 
-.invalid-color {
-  border: 4px solid #EFA00B;
-  -webkit-transition: border 250ms linear;
-  transition: border 250ms linear;
+.calculette-range,
+.calculette-number {
+  margin: 1em 0em;
+}
+
+.calculette-range {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  justify-self: center;
+}
+
+.calculette-number {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
+  height: 100%;
+  padding-left: 1em;
+  background-color: silver;
+  font-size: 1.3em;
+}
+
+.gain-advice,
+.income-year,
+.income-year-cc {
+  padding-left: 1em;
+}
+
+.input-valid {
+  border: 2px solid transparent;
+}
+
+.input-error {
+  border: 2px solid red;
+}
+
+.legende {
+  padding: 1em;
+}
+
+.error-input {
+  color: red;
+}
+
+/***************  Style de la partie affichage input number et input range***********
+******end****************************************************************************/
+/****************************************************************************************
+/********  Style de la partie affichage resultat calculette mensualite ******************/
+/**** start ******************************************************************************/
+.container-resultat {
+  -ms-flex-item-align: center;
+      align-self: center;
+  position: relative;
+  margin: 1em 0em;
+  padding: 1.5em;
+  border-radius: 2em;
+  width: 90%;
+}
+
+.resultat-error {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.valid {
+  background-color: #24e05d;
+}
+
+.error,
+.negativ {
+  background-color: #EFA00B;
+}
+
+.equal {
+  background-color: #068ebc;
+}
+
+.resultat {
+  margin: 1em 0em;
+  color: #272727;
+  width: 100%;
+}
+
+.resultat-error {
+  color: #FBFFFE;
+}
+
+.text-resultat {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-left: 0.5em;
+}
+
+#mensualite,
+#interest {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.container-interest,
+.container-mensualite {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #7ded9f;
+}
+
+.hide {
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  -webkit-transition: max-height 300ms linear 0s;
+  transition: max-height 300ms linear 0s;
+}
+
+.display {
+  max-height: 150px;
+  overflow-y: hidden;
+  -webkit-transition: max-height 300ms linear 0s;
+  transition: max-height 300ms linear 0s;
+}
+
+.hide-taxe {
+  position: absolute;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  -webkit-transition: max-height 200ms linear 0s;
+  transition: max-height 200ms linear 0s;
+}
+
+.display-taxe {
+  max-height: 400px;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms linear 0s;
+  transition: max-height 500ms linear 0s;
+}
+
+.display-error {
+  max-height: 500px;
+  font-size: 1.3em;
+}
+
+.wrap {
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+/****************************************************************************************
+/********  Style de la partie affichage resultat calculette mensualite ******************/
+/**** end ******************************************************************************/
+/****************************************************************************************
+/********  Titre de certains fieldset  ******************/
+/**** start ******************************************************************************/
+#type,
+#regime {
+  -ms-flex-item-align: center;
+      align-self: center;
 }

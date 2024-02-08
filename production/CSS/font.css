@@ -1,0 +1,20 @@
+/**************************************************************
+*************  police pour le site *****************************
+******************************************************************/
+/*@font-face {
+  font-family: "cantarel";
+  src: url("../../../../Font/cantarel/Cantarell-Regular.ttf");
+}
+
+@font-face {
+  font-family: "fjalla";
+  src: url("../../../../Font/fjalla/Inter-Regular.ttf");
+}*/
+@font-face {
+  font-family: "Oswald", sans-serif;
+  src: url("../../../../Font/Oswald/static/Oswald-Bold.ttf");
+}
+@font-face {
+  font-family: "Mulish", sans-serif;
+  src: url("../../../../Font/Mulish/static/Mulish-Regular.ttf");
+}

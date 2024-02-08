@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jeux</title>
+
+    <!--feuille de style page jeux-->
+    <link rel="stylesheet" href="../style/CSS/jeux.css" />
+
+    <!-- Feuilles de style-->
+    <link rel="stylesheet" href="../style/CSS/class.css" />
+
+    <!--script qui contient ref des elements du Dom-->
+    <script src="../javascript/jeux.js" defer></script>
+
+    <!--script qui contient ref des elements du Dom-->
+    <script src="../javascript/utils/refDOM/refDOM.js" defer></script>
+
+    <!-- script qui contient les objets et tableaux-->
+    <script src="../javascript/utils/data/data.js" defer></script>
+  </head>
+  <body>
+    <div class="container-page">
+      <div class="container-jeux flex-column-start-center">
+        <div class="container-title">
+          <h1 class="titre-jeux">
+            Trouve les<br />
+            mots cachés
+          </h1>
+          <div class="hurry-up">Hurry up!</div>
+        </div>
+        <form class="form-jeux flex-column-start-center">
+          <label for="input-question">Mot caché</label>
+          <input
+            type="text"
+            name="input-question"
+            id="input-question"
+            class="normal-color"
+            disabled
+          />
+          <label id="label-response" for="input-response"></label>
+          <input
+            type="text"
+            name="input-response"
+            id="input-response"
+            class="normal-color"
+          />
+          <label id="label-progress-bar" for="progress-bar"
+            >Temps restant:<span> 20 s</span>
+          </label>
+          <progress id="progress-bar" class="progress-bar"></progress>
+
+          <button
+            id="btn-start"
+            class="button-start disabled display"
+            type="button"
+          ></button>
+          <button id="btn-restart" class="button-start hide" type="button">
+            Nouvelle partie
+          </button>
+          <label id="label-score" for="input-score">Score</label>
+          <input
+            type="number"
+            name="input-score"
+            id="input-score"
+            value="0"
+            disabled
+          />
+          <div
+            class="main-container-round flex-row-space-evenly-center-wrap"
+          ></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

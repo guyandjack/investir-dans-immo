@@ -73,6 +73,63 @@
 /****************************************************************************************
 /********  **************** flex box **************** ******************/
 /**** end ******************************************************************************/
+/****************************************************************************************
+
+
+
+/********  **************** loader **************** ******************/
+/**** start ******************************************************************************/
+/*****************************************************************************************/
+@keyframes animLoader {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.container-loader {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: map-get($colors-rule, fourth-color);
+  opacity: 0.9;
+}
+
+.loader {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 1em;
+  border-radius: 50%;
+  border: 6px solid map-get($colors-rule, fifth-color);
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 100%;
+  height: 100%;
+  //margin-top: 1em;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top: 6px solid map-get($colors-rule, first-color);
+  border-bottom: 6px solid map-get($colors-rule, second-color);
+  animation: animLoader 1s linear infinite;
+}
+
+.loader-text {
+  font-size: 2em;
+  color: map-get($colors-rule, fifth-color);
+}
+
+/********  **************** loader **************** ******************/
+/**** end ******************************************************************************/
 
 /****************************************************************************************
 /********  **************** container-page + body  **************** ******************/
