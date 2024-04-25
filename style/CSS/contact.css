@@ -527,6 +527,26 @@ body {
 /********  **************** loader **************** ******************/
 /**** start ******************************************************************************/
 /*****************************************************************************************/
+@-webkit-keyframes animLoader {
+  from {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+@keyframes animLoader {
+  from {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
 .container-loader {
   position: fixed;
   z-index: 10;
@@ -535,7 +555,7 @@ body {
   width: 100%;
   height: 100vh;
   background-color: #272727;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .loader {
@@ -547,13 +567,19 @@ body {
   border: 6px solid #FBFFFE;
 }
 
-.loaader::before {
+.loader::before {
+  content: "";
   position: absolute;
-  width: 50px;
-  height: 50px;
+  top: -6px;
+  left: -6px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: 6px solid transparent;
-  border-top: 10px solid #068ebc;
+  border-top: 6px solid #068ebc;
+  border-bottom: 6px solid #EFA00B;
+  -webkit-animation: animLoader 1s linear infinite;
+          animation: animLoader 1s linear infinite;
 }
 
 .loader-text {
@@ -587,27 +613,23 @@ body {
 .header {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-bottom: 1em;
-}
-
-.menu-li {
-  position: relative;
-  margin-right: 1.5em;
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 0.5em;
-  border-radius: 1em;
-  background-color: #068ebc;
-}
-@media screen and (min-width: 993px) {
-  .menu-li:hover {
-    outline: 3px solid #068ebc;
-    outline-offset: 0.5em;
-  }
+  margin: 2em 0em;
 }
 
 .menu-li-a {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em;
+  margin-right: 1.5em;
+  border-radius: 1em;
   color: #FBFFFE;
+  background-color: #068ebc;
+}
+@media screen and (min-width: 993px) {
+  .menu-li-a:hover {
+    outline: 3px solid #068ebc;
+    outline-offset: 0.5em;
+  }
 }
 
 /****************************************************************************************
@@ -898,8 +920,10 @@ body.dark .popover:popover-open::after {
 .menu-footer-li > a {
   color: #FBFFFE;
 }
-.menu-footer-li > a:hover {
-  color: #EFA00B;
+@media screen and (min-width: 993px) {
+  .menu-footer-li > a:hover {
+    color: #EFA00B;
+  }
 }
 
 /****************************************************************************************
@@ -1014,6 +1038,7 @@ body.dark .popover:popover-open::after {
 
 textarea {
   height: auto;
+  word-break: break-all;
 }
 
 .error {

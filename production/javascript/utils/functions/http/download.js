@@ -15,8 +15,7 @@ function downloadError(elementCliked) {
 function FetchForDownload(e) {
   let buttonClicked = e.target;
   let buttonData = buttonClicked.dataset.download;
-  let urlFetch =
-    "https://apimonprojetlocatif.monprojetlocatif.org/download/" + buttonData;
+  let urlFetch = "https://localhost:5000/download/" + buttonData;
   console.log("urlfetch: " + urlFetch);
 
   fetch(urlFetch, {

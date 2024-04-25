@@ -2,6 +2,9 @@
  * Elements du DOM referencés pour l'utilisation dans le script principal******
  * ****************************************************************************/
 
+//element loader
+const loader = document.querySelector(".container-loader");
+
 /****************************** Elements contenu dans banner page acceuil*************************/
 /**** start */
 

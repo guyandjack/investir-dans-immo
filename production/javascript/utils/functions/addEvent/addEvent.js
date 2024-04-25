@@ -53,6 +53,30 @@ import {
 import { FetchForDownload } from "../http/download.js";
 
 /**
+ *  lance / supprime le loader en fonction du chargement de la page
+
+ * @param {} void
+ * @return {} void
+ */
+
+function addEventOnPageLoading() {
+  let delay = null;
+
+  function hideLoader() {
+    loader.classList.add("hide");
+  }
+  //debugger;
+  window.addEventListener(
+    "load",
+    () => {
+      delay = setTimeout(hideLoader, 800);
+      //clearTimeout(delay);
+    },
+    { once: true }
+  );
+}
+
+/**
  *  Ajoute des écouteurs evenement sur les boutton du banner
 
  * @param {} void
@@ -484,7 +508,6 @@ function addEventOnIconColapseArticle() {
 
       // tourne le chevron
       icon.classList.toggle("chevron-up");
-
       //ouverture du colapse parent
 
       if (colapseElement.classList.contains("colapse-close")) {
@@ -549,6 +572,7 @@ function addEventOnButtonDownload() {
 }
 
 export {
+  addEventOnPageLoading,
   addEventOnBannerButton,
   addEventOnButtonDownload,
   addEventOnIconColapseArticle,

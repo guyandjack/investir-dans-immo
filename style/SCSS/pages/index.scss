@@ -47,13 +47,20 @@
 
 .svg-icon-chevron-colapse,
 .svg-icon-chevron {
+  min-width: 2em;
   color: map-get($colors-rule, first-color);
-  height: 1.5em;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
   transform: rotateZ(90deg);
   margin-left: 0.5em;
   margin-right: 1em;
   transition: transform 250ms linear;
+}
+
+.svg-icon-chevron {
+  height: 1.5em;
+  width: 1.5em;
+  min-width: 1.5em;
 }
 
 .chevron-up {
@@ -325,9 +332,10 @@
   font-size: 1.2em;
   font-weight: 600;
   padding: 0.5em;
+  margin-bottom: 1em;
   cursor: pointer;
-  //border: 2px solid red;
-  box-shadow: 0px 0px 0em 0px map-get($colors-rule, first-color);
+  border-left: 2px solid map-get($colors-rule, first-color);
+  //box-shadow: inset 0px 0px 10px 0px map-get($colors-rule, first-color);
   @include upper-large-screen {
     font-size: 1.5em;
   }
@@ -341,11 +349,20 @@
       transparent 10.01%
     )
     no-repeat 0px 0px / 0 100%;
+
   transition: background-size 0.5s;
 }
 
+/*.underline-title-h3 {
+  width: 10em;
+  border-bottom: 6px solid map-get($colors-rule, first-color);
+}*/
+
 .article:hover span {
-  background-size: 100% 100%;
+  //limite la transition sur les ecran superieur à large
+  @include upper-large-screen {
+    background-size: 100% 100%;
+  }
 }
 
 .title-article > svg,
@@ -476,9 +493,24 @@
 
 .colapse-open {
   padding: 0.5em;
-  max-height: 600px;
   overflow: hidden;
-  transition: max-height 500ms linear, padding 500ms linear;
+  max-height: 1500px;
+  transition: max-height 1s linear, padding 1s linear;
+
+  @include upper-medium-screen {
+    max-height: 1000px;
+    transition: max-height 0.8s linear, padding 0.8s linear;
+  }
+
+  @include upper-large-screen {
+    max-height: 800px;
+    transition: max-height 0.6s linear, padding 0.6s linear;
+  }
+
+  @include upper-x-large-screen {
+    max-height: 600px;
+    transition: max-height 0.5s linear, padding 0.5s linear;
+  }
 }
 
 .colapse-close {
@@ -501,9 +533,16 @@
 
 .colapse-article-open {
   padding: 0.5em;
-  max-height: 1700px;
+  max-height: 3500px;
   overflow: hidden;
   transition: max-height 500ms linear, padding 500ms linear;
+  @include upper-medium-screen {
+    max-height: 3000px;
+  }
+
+  @include upper-large-screen {
+    max-height: 2500px;
+  }
 }
 
 .colapse-article-close {

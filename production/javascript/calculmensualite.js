@@ -1,14 +1,12 @@
 /**********script page calculette********* */
 
 //import du contenu des infos Bulles
-import {
-  infoBulleCalculMensualite,
-  
-} from "./utils/data/content/infoBulle.js";
+import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
 
 //import des fonctions
 
 import {
+  addEventOnPageLoading,
   addEventOnBannerButton,
   addEventOnInputMonthly,
   addEventOnInputDuty,
@@ -20,14 +18,13 @@ import {
   addEventOnIconColapseArticle,
   addEventOnLinkArticle,
   addEventOnButtonDownload,
-  
 } from "./utils/functions/addEvent/addEvent.js";
 
-import { eventToggleSwitch, useThemeColor, isToggleMoved} from "./utils/functions/other/other.js";
-
-
-
-
+import {
+  eventToggleSwitch,
+  useThemeColor,
+  isToggleMoved,
+} from "./utils/functions/other/other.js";
 
 import {
   initInputValue,
@@ -37,23 +34,12 @@ import {
   incomeByYear,
   balance,
   calculeImpotRevenuFoncier,
-  bilanApresImposition
-  
-  
-} from "./utils/functions/basicCalcul/basicCalcul.js"
+  bilanApresImposition,
+} from "./utils/functions/basicCalcul/basicCalcul.js";
 
 import { checkValueUserRadioFiscal } from "./utils/functions/checkValueUser/checkValueUser.js";
 
-import {
-  
-  changeColor
-  
-  
-} from "./utils/functions/other/other.js"
-
-
-
-
+import { changeColor } from "./utils/functions/other/other.js";
 
 /************************************************************************************************************* */
 /********************************************** Script principal ************************************************/
@@ -97,7 +83,6 @@ bilanApresImposition();
 /**** Routine d'initialisation /
  /** end **/
 
-
 //concerne les booutons du banner
 addEventOnBannerButton();
 
@@ -123,3 +108,5 @@ eventToggleSwitch();
 useThemeColor();
 isToggleMoved();
 
+//controle le loader
+addEventOnPageLoading();

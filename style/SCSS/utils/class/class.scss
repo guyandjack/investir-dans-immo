@@ -156,30 +156,26 @@ body {
 
 .header {
   align-self: flex-start;
-  margin-bottom: 1em;
+  margin: 2em 0em;
   //border: 4px solid map-get($colors-rule, fifth-color);
 }
 
-.menu-li {
-  position: relative;
-  margin-right: 1.5em;
+.menu-li-a {
   font-size: 1.2em;
   font-weight: 600;
   padding: 0.5em;
+  margin-right: 1.5em;
   border-radius: 1em;
-
+  color: map-get($colors-rule, fifth-color);
   background-color: map-get($colors-rule, first-color);
 
   @include upper-large-screen {
     &:hover {
       outline: 3px solid map-get($colors-rule, first-color);
       outline-offset: 0.5em;
+      //background-color: map-get($colors-rule, second-color);
     }
   }
-}
-
-.menu-li-a {
-  color: map-get($colors-rule, fifth-color);
 }
 
 /****************************************************************************************
@@ -468,7 +464,9 @@ body.dark {
 .menu-footer-li > a {
   color: map-get($colors-rule, fifth-color);
   &:hover {
-    color: map-get($colors-rule, second-color);
+    @include upper-large-screen {
+      color: map-get($colors-rule, second-color);
+    }
   }
 }
 

@@ -365,6 +365,12 @@ function useThemeColor() {
   }
 
   if (!localStorage.getItem("themeColor")) {
+    //premier chargement de page
+
+    if (!body.classList.contains("dark")) {
+      changeTextToggle("Theme sombre");
+    }
+
     if (body.classList.contains("dark")) {
       body.classList.remove("dark");
       changeTextToggle("Theme sombre");
@@ -400,28 +406,34 @@ function extendOrCloseColapseInArticle(e) {
 
   //collapse parent
   let collapseParent = null;
-  //Collapse concerné
+  //Collapse enfant concerné
   let selectedColapse = null;
+  //Second Collapse enfant
+  let otherColapseEnfant = null;
 
   switch (elementLiId) {
     case "forfaitaire-a":
       selectedColapse = colapseForfaitaire1;
       collapseParent = collapseRang1LocationNue;
+      otherColapseEnfant = colapseReel1;
       console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "reel-a":
       selectedColapse = colapseReel1;
       collapseParent = collapseRang1LocationNue;
+      otherColapseEnfant = colapseForfaitaire1;
       console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "forfaitaire-b":
       selectedColapse = colapseForfaitaire2;
       collapseParent = collapseRang1LocationMeuble;
+      otherColapseEnfant = colapseReel2;
       console.log("colapse selectionnö: " + selectedColapse);
       break;
     case "reel-b":
       selectedColapse = colapseReel2;
       collapseParent = collapseRang1LocationMeuble;
+      otherColapseEnfant = colapseForfaitaire2;
       console.log("colapse selectionnö: " + selectedColapse);
       break;
 
@@ -446,8 +458,11 @@ function extendOrCloseColapseInArticle(e) {
     selectedColapse.addEventListener(
       "transitionend",
       () => {
-        // reduit la hauteur du collapse parent location nue
-        if (collapseParent.classList.contains("colapse-grow")) {
+        // reduit la hauteur du collapse parent si l'autre collapse enfant est fermé
+        if (
+          collapseParent.classList.contains("colapse-grow") &&
+          otherColapseEnfant.classList.contains("colapse-article-close")
+        ) {
           collapseParent.classList.remove("colapse-grow");
         }
       },
@@ -479,29 +494,29 @@ function scrollToElement(elementToScroll) {
 }
 
 export {
+  InsertTextInAElement,
   changeColor,
-  linkInput,
-  getLocationType,
-  getTauxMarginalImposition,
-  hideInputRadioRegimeFiscal,
-  displayInputRadioRegimeFiscal,
-  hideChargeForfaitaire,
+  createElemntInfoBulle,
+  deleteElement,
+  displayAElement,
   displayChargeForfaitaire,
-  hideChargeReel,
   displayChargeReel,
   displayInputCfe,
-  hideInputCfe,
-  hideAElement,
-  displayAElement,
-  InsertTextInAElement,
-  getIdOfParentElementHover,
-  createElemntInfoBulle,
-  insertContentInfoBulle,
-  styleOfInfoBulle,
-  deleteElement,
+  displayInputRadioRegimeFiscal,
   eventToggleSwitch,
-  useThemeColor,
-  isToggleMoved,
   extendOrCloseColapseInArticle,
+  getIdOfParentElementHover,
+  getLocationType,
+  getTauxMarginalImposition,
+  hideAElement,
+  hideChargeForfaitaire,
+  hideChargeReel,
+  hideInputCfe,
+  hideInputRadioRegimeFiscal,
+  insertContentInfoBulle,
+  isToggleMoved,
+  linkInput,
   scrollToElement,
+  styleOfInfoBulle,
+  useThemeColor,
 };

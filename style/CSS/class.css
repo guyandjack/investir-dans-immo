@@ -228,27 +228,23 @@ body {
 .header {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-bottom: 1em;
-}
-
-.menu-li {
-  position: relative;
-  margin-right: 1.5em;
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 0.5em;
-  border-radius: 1em;
-  background-color: #068ebc;
-}
-@media screen and (min-width: 993px) {
-  .menu-li:hover {
-    outline: 3px solid #068ebc;
-    outline-offset: 0.5em;
-  }
+  margin: 2em 0em;
 }
 
 .menu-li-a {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em;
+  margin-right: 1.5em;
+  border-radius: 1em;
   color: #FBFFFE;
+  background-color: #068ebc;
+}
+@media screen and (min-width: 993px) {
+  .menu-li-a:hover {
+    outline: 3px solid #068ebc;
+    outline-offset: 0.5em;
+  }
 }
 
 /****************************************************************************************
@@ -539,8 +535,10 @@ body.dark .popover:popover-open::after {
 .menu-footer-li > a {
   color: #FBFFFE;
 }
-.menu-footer-li > a:hover {
-  color: #EFA00B;
+@media screen and (min-width: 993px) {
+  .menu-footer-li > a:hover {
+    color: #EFA00B;
+  }
 }
 
 /****************************************************************************************

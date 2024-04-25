@@ -279,7 +279,7 @@ function submitForm(e) {
     } else {
       let urlTestFetch = "http://localhost:5000/contact";
       let urlProdFetch =
-        "https://www.apielectravauxproduction.electravaux.com/contact";
+        "https://www.apimonprojetlocatif.monprojetlocatif.org/contact";
 
       fetch(urlTestFetch, {
         headers: {
@@ -304,13 +304,16 @@ function submitForm(e) {
             });
         })
 
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          displayValidDiv("Une erreur est survenue... 😞");
+          console.log(error);
+        });
     }
   });
 }
 
 /**
- * cache le div de confirmation d' envoi du message
+ * cache le div de confirmation d'envoi du message
  *
  * @param {*} validDiv
  */
