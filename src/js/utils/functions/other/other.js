@@ -1,6 +1,10 @@
 //import du contenu des infos bulles
 import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
 
+//variable et constantes  globale
+const themeDark = "dim";
+const themeClear = "winter";
+
 /***********************************************************************
  * **************** concerne les collapse des articles *****************
  *** start ***************************************************************/
@@ -326,6 +330,7 @@ function isToggleMoved() {
  */
 function changeTextToggle(text) {
   let textToggle = document.querySelector(".toggle-text");
+  if (!textToggle) return;
   textToggle.innerHTML = text;
 }
 
@@ -334,19 +339,18 @@ function changeTextToggle(text) {
  *
  * @return {*}
  */
-function storeThemeColor() {
+function storeThemeColor(theme) {
   let inputCheckBox = document.querySelector("#toggle-switch");
-  let value = JSON.stringify(inputCheckBox.value);
+  if(!inputCheckBox.checked){
 
-  if (!localStorage.getItem("themeColor")) {
-    localStorage.setItem("themeColor", value);
-    return;
+    localStorage.setItem("themeColor", themeDark );
+    return
   }
+  
+  localStorage.setItem("themeColor", themeClear );
 
-  if (localStorage.getItem("themeColor")) {
-    localStorage.removeItem("themeColor");
-    return;
-  }
+
+  
 }
 
 /**
@@ -354,43 +358,41 @@ function storeThemeColor() {
  *@return {*}
  */
 function useThemeColor() {
-  let body = document.body;
+  const body = document.body;
 
-  if (JSON.parse(localStorage.getItem("themeColor")) == "dark") {
-    if (!body.classList.contains("dark")) {
-      body.classList.add("dark");
-      changeTextToggle("Theme clair");
-    }
+  // Lire une seule fois
+  const raw = localStorage.getItem("themeColor");
+
+  // Si tu stockes une simple string ("dark", "clear", ...), pas besoin de JSON.parse
+  // Mais si ton code existant stocke via JSON.stringify, on gère les 2 cas.
+  const themeColor = raw == null ? null : raw;
+
+  if (themeColor !== null) {
+    body.dataset.theme = themeColor;
     return;
   }
 
-  if (!localStorage.getItem("themeColor")) {
-    //premier chargement de page
+  // 1er chargement (pas de valeur) 
+  body.dataset.theme = themeClear;
+  storeThemeColor();
 
-    if (!body.classList.contains("dark")) {
-      changeTextToggle("Theme sombre");
-    }
-
-    if (body.classList.contains("dark")) {
-      body.classList.remove("dark");
-      changeTextToggle("Theme sombre");
-    }
-    return;
-  }
+  
 }
+
 
 /**
  * applique un ecouteur d' évènement sur le toggle switch
  *
  */
-function eventToggleSwitch() {
-  let toggleSwitch = document.querySelector(".container-switch");
+ function eventToggleSwitch() {
+   let toggleSwitch = document.querySelector(".swap");
+   if (!toggleSwitch) return;
   toggleSwitch.addEventListener("click", (e) => {
-    moveSwitch(e);
+    /* moveSwitch(e); */
     storeThemeColor();
     useThemeColor();
   });
-}
+} 
 
 /**
  * ouvre ou ferme le collapse link article
@@ -398,11 +400,11 @@ function eventToggleSwitch() {
  */
 function extendOrCloseColapseInArticle(e) {
   //id de l'element cliqué
-  let elementLiId = e.target.id;
+  let elementLiId = e.currentTarget.id;
   console.log("id de element  cliked: " + elementLiId);
 
   //ref du chevron correspodant
-  let iconSvgMatched = e.target.lastElementChild;
+  let iconSvgMatched = e.currentTarget.lastElementChild;
 
   //collapse parent
   let collapseParent = null;

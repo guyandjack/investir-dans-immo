@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: winter --default, dim --prefersdark;
+}
+
+.container-banner{
+  position: relative;
+  background-image: url(../assets/cabane.jpg);
+  background-repeat: none;
+  background-size: cover;
+
+  
+}
+
+.container-banner::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7), 60%, transparent);
+}
+
+.introduction-banner, .h1, .h2{
+  position: relative;
+  z-index: 10;
+}
+
+
+
+@layer components {
+
+  .list-li-a{
+    @apply text-primary;
+  }
+
+  .container-page {
+    @apply w-full max-w-[1500px] flex flex-col justify-center items-center bg-gradient-to-b from-base-100 via-base-200 to-base-300 pb-20;
+  }
+
+  .container-loader {
+    @apply fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-base-100/80 backdrop-blur transition-all duration-300;
+  }
+
+  .container-loader.hide {
+    @apply opacity-0 pointer-events-none;
+  }
+
+  .loader {
+    @apply h-16 w-16 rounded-full border-4 border-base-300 border-t-primary animate-spin;
+  }
+
+  .loader-text {
+    @apply text-lg font-semibold text-primary;
+  }
+
+  .container-switch {
+    @apply relative inline-flex h-8 w-16 cursor-pointer items-center rounded-full border border-base-300 bg-base-100 transition-colors duration-300;
+  }
+
+  .switch {
+    @apply absolute left-1 top-1 h-6 w-6 rounded-full bg-primary shadow transition-all duration-300 ease-in-out;
+  }
+
+  .switch.light {
+    @apply bg-primary;
+  }
+
+  .switch.move {
+    @apply translate-x-8;
+  }
+
+  .toggle-text {
+    @apply text-sm font-medium text-base-content;
+  }
+
+  .display {
+    @apply max-h-40 overflow-hidden transition-all duration-300 ease-linear;
+  }
+
+  .hide {
+    @apply max-h-0 overflow-hidden p-0 transition-all duration-300 ease-linear;
+  }
+
+  .display-taxe {
+    @apply max-h-[420px] overflow-hidden transition-all duration-500 ease-linear;
+  }
+
+  .hide-taxe {
+    @apply max-h-0 overflow-hidden transition-all duration-200 ease-linear;
+  }
+
+  .display-error {
+    @apply max-h-[500px] text-lg;
+  }
+
+  .colapse {
+    @apply border border-base-200 bg-base-100 rounded-2xl shadow-inner;
+  }
+
+  .colapse-open {
+    @apply max-h-[1200px] opacity-100 p-4 transition-all duration-500 ease-in-out;
+  }
+
+  .colapse-close {
+    @apply max-h-0 p-0 opacity-0 transition-all duration-300 ease-in-out;
+  }
+
+  .colapse-grow {
+    @apply max-h-[4000px];
+  }
+
+  .colapse-article {
+    @apply border border-base-200 bg-base-100 rounded-2xl;
+  }
+
+  .colapse-article-open {
+    @apply max-h-[2200px] p-4 transition-all duration-500 ease-in-out;
+  }
+
+  .colapse-article-close {
+    @apply max-h-0 p-0 overflow-hidden transition-all duration-500 ease-in-out;
+  }
+
+  .chevron-up {
+    @apply -rotate-90;
+  }
+
+  .info-bulle {
+    @apply rounded-2xl border border-info bg-info/10 p-4 text-sm text-info-content shadow-xl;
+  }
+
+  .gain-advice {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  .resultat-error {
+    @apply rounded-2xl border border-error bg-error/10 p-4 text-error;
+  }
+
+  .title-article span {
+    @apply text-secondary;
+  }
+
+}

@@ -1799,17 +1799,17 @@ body.dark .popover:popover-open::after {
   overflow: hidden;
 }
 
-.calculette-range,
+/* .calculette-range, */
 .calculette-number {
   margin: 1em 0em;
 }
-
+/* 
 .calculette-range {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   justify-self: center;
-}
+} */
 
 .calculette-number {
   -webkit-box-flex: 0;
