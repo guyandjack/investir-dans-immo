@@ -2,18 +2,12 @@
 /**************  definission de toutes les routes "invest immo" **************/
 /***************************************************************************** */
 
-//Import du package "express"
-const express = require("express");
+import express from "express";
 
-//Instance de l' objet "Router"
+import { checkDataUserForm } from "../middelware/checkDataUserForm.middelware.js";
+import { handleContactForm } from "../controler/contactForm.controler.js";
+
 const router = express.Router();
-
-
-//Import du controler qui gere les donnés du formulaire de la page "contact"
-const checkFieldFormContact = require("../controler/controlerFormContact.js");
-
-//Import du midelware qui envoit un mail
-const mailer = require("../middelware/nodemailer.js");
 
 //import du controler qui gere les download
 
@@ -26,9 +20,9 @@ const mailer = require("../middelware/nodemailer.js");
 
 /***** permet d'envoyer un mail   ******* */
 
-router.post("/contact", checkFieldFormContact.testForm, mailer.sendMail);
+router.post("/contact", checkDataUserForm, handleContactForm);
 
 
 
 
-module.exports = router;
+export default router;

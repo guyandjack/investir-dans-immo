@@ -31,4 +31,13 @@ const masqueMessage = /^[^<>{}\[\]*|]{20,200}$/;
 //Motif qui permet de controler si une expression est un nombre
 const masqueNumber = /^[0-9]/;
 
-module.exports = { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber } 
+const regEx = {
+  masqueCivilite,
+  masqueText,
+  masqueMail,
+  masqueMessage,
+  masqueNumber,
+};
+
+export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber };
+export default regEx;
