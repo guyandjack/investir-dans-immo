@@ -532,7 +532,7 @@ body {
           align-items: flex-start;
 }
 
-.flex-column-start-center {
+. {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
