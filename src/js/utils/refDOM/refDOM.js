@@ -11,6 +11,9 @@ const loader = document.querySelector(".container-loader");
 //button de presenetation
 let listOfButton = document.querySelectorAll("ul.introduction-banner button");
 
+//button simulateur
+let btnSimulateur = document.querySelector(".btn-simulateur");
+
 /****************************** Elements contenu dans banner page acceuil*************************/
 /**** end */
 
@@ -252,6 +255,7 @@ let bilanApresImpositionValue = document.querySelector(
 //Cout mensuel location
 let coutMensuelTitre = document.querySelector("#cout-mensuel-titre");
 let coutMensuelValue = document.querySelector("#cout-mensuel-value");
+let containerCoutMensuel = document.querySelector("#cout-mensuel");
 
 /***** fieldset #simulation *****/
 /*** end ****/

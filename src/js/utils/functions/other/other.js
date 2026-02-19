@@ -341,7 +341,7 @@ function changeTextToggle(text) {
  */
 function storeThemeColor(theme) {
   let inputCheckBox = document.querySelector("#toggle-switch");
-  if(!inputCheckBox.checked){
+  if(inputCheckBox.checked){
 
     localStorage.setItem("themeColor", themeDark );
     return

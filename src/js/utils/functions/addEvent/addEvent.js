@@ -69,7 +69,7 @@ function addEventOnPageLoading() {
   window.addEventListener(
     "load",
     () => {
-      delay = setTimeout(hideLoader, 800);
+      delay = setTimeout(hideLoader, 400);
       //clearTimeout(delay);
     },
     { once: true }
@@ -84,6 +84,7 @@ function addEventOnPageLoading() {
  */
 
 function addEventOnBannerButton() {
+  if (!listOfButton) return;
   listOfButton.forEach((btn) => {
     btn.addEventListener("click", (evt) => {
       let elementToScrollId = evt.target.name;
@@ -107,6 +108,33 @@ function addEventOnBannerButton() {
     });
   });
 }
+
+/**
+ *  Ajoute un écouteur evenement sur le boutton simulateur
+
+ * @param {} void
+ * @return {} void
+ */
+ function addEventOnSimulateurButton() {
+    if (!btnSimulateur) return;
+    btnSimulateur.addEventListener("click", (evt) => {
+      let elementToScrollId = evt.target.name;
+      let elementToScroll = document.querySelector("#" + elementToScrollId);
+
+      if (!elementToScroll) return;
+      //scroll vers le titre d'article correpondant
+     const y =
+       elementToScroll.getBoundingClientRect().top + window.pageYOffset - 200;
+
+     window.scrollTo({
+       top: y,
+       behavior: "smooth",
+     });
+
+     
+    });
+  
+} 
 
 /**
  *  Ajoute des écouteurs evenement sur les inputs du fieldset #calculette-mensualité
@@ -574,6 +602,7 @@ function addEventOnButtonDownload() {
 export {
   addEventOnPageLoading,
   addEventOnBannerButton,
+  addEventOnSimulateurButton,
   addEventOnButtonDownload,
   addEventOnIconColapseArticle,
   addEventOnIconInfo,

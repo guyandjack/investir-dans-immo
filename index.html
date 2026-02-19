@@ -51,6 +51,13 @@
       <g id="icon-chevron">
         <path d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z" />
       </g>
+      <!-- arrow btn simulateur -->
+      <g id="icon-arrow">
+
+        <path
+          d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+
+      </g>
     </defs>
   </svg>
   <div class="container-page flex flex-col justify-center items-center gap-10 px-4 py-10 lg:px-16">
@@ -68,85 +75,97 @@
           </li>
           <li>
             <label class="swap swap-rotate">
-              
+
               <!-- this hidden checkbox controls the state -->
               <input id="toggle-switch" type="checkbox" class="theme-controller" />
-            
+
               <!-- sun icon -->
-              <svg class="swap-off h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+              <svg class="swap-on h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
                   d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
               </svg>
-            
+
               <!-- moon icon -->
-              <svg class="swap-on h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ">
+              <svg class="swap-off h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
-                  d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                  d="
+                M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
               </svg>
             </label>
           </li>
         </ul>
       </nav>
-      
-        
-      
+
+
+
     </header>
     <aside class="container-loader flex-row-center-center flex">
       <div class="loader"></div>
       <span class="loader-text">Chargement...</span>
     </aside>
     <div
-      class="container-banner h-[400px] flex flex-col justify-center items-center gap-4 hero bg-base-100 shadow-2xl rounded-3xl border border-base-200 p-8 lg:p-12 gap-y-[100px] text-center">
+      class="container-banner h-[600px] flex flex-col justify-center items-center gap-4 hero bg-base-100 shadow-2xl rounded-3xl border border-base-200 p-8 lg:p-12 gap-y-[100px] text-center">
       <div class="flex flex-col gap-3 text-center">
         <h1 class="title h1 text-4xl md:text-5xl text-white tracking-tight text-base-content">Mon projet locatif...</h1>
-        <h2 class="title h2 text-2xl md:text-3xl text-white font-semibold text-base-content/50">Ce qu'il va me coûter en réalité
+        <h2 class="title h2 text-2xl md:text-3xl text-white font-semibold text-base-content/50">Ce qu'il va me coûter en
+          réalité
         </h2>
       </div>
 
       <ul class="introduction-banner flex flex-wrap items-center justify-center gap-4 w-full">
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info  btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px]  btn-md md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-taeg">
             TAEG
           </button>
         </li>
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px] btn-md outline-[0px] md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-mensualite">
             Mensualités
           </button>
         </li>
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-emprunt">
             Coût d'un emprunt
           </button>
         </li>
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-location">
             Type de location
           </button>
         </li>
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-revenu">
             Revenus locatifs
           </button>
         </li>
         <li>
           <button
-            class="btn-banner btn btn-outline btn-info btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+            class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
             type="button" name="article-imposition-1">
             Fiscalité
           </button>
         </li>
       </ul>
+      <button class="btn-simulateur" type="button" name="calculette-mensualite">
+        <svg class="svg-icon-arrow" width="50px" height="50px" viewBox="0 -960 960 960">
+          <use xlink:href="#icon-arrow" fill="currentColor" />
+        </svg>
+        SIMULATEUR
+        <svg class="svg-icon-arrow" width="50px" height="50px" viewBox="0 -960 960 960">
+          <use xlink:href="#icon-arrow" fill="currentColor" />
+        </svg>
+      </button>
+
     </div>
     <div class="container-introduction-text prose prose-base max-w-4xl w-full text-base-content/80 space-y-4">
       <p class="introduction-text">
@@ -407,12 +426,11 @@
                     l'impot sur revenus fonciers.
                   </p>
                   <p class="relative container-btn-download flex flex-col gap-2">
-                    <button class="btn-download btn btn-secondary btn-outline" type="button"
-                      data-download="tab_res">
+                    <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
                       Télécharger un tableau récapitulatif
                     </button>
                     <span class="error-download text-error text-sm">
-                      
+
                     </span>
                   </p>
                 </div>
@@ -528,8 +546,7 @@
                     fiscale.
                   </p>
                   <p class="relative container-btn-download flex flex-col gap-2">
-                    <button class="btn-download btn btn-secondary btn-outline" type="button"
-                      data-download="tab_res">
+                    <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
                       Télécharger un tableau récapitulatif
                     </button>
                     <span class="error-download text-error text-sm">
@@ -618,8 +635,7 @@
                     <br />
                   </p>
                   <p class="relative container-btn-download flex flex-col gap-2">
-                    <button class="btn-download btn btn-secondary btn-outline" type="button"
-                      data-download="tab_res">
+                    <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
                       Télécharger un tableau récapitulatif
                     </button>
                     <span class="error-download text-error text-sm">
@@ -693,8 +709,7 @@
                     fiscale.
                   </p>
                   <p class="relative container-btn-download flex flex-col gap-2">
-                    <button class="btn-download btn btn-secondary btn-outline" type="button"
-                      data-download="tab_res">
+                    <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
                       Télécharger un tableau récapitulatif
                     </button>
                     <span class="error-download text-error text-sm">
@@ -708,11 +723,11 @@
       </li>
     </ul>
 
-    <form id="calculette" class="flex-column-start-start calculette-mensualite w-full max-w-xl mx-auto space-y-8"
-      action="calculmensualite.js">
+    <form id="calculette" class="calculette-mensualite w-full max-w-xl mx-auto space-y-8" action="calculmensualite.js">
       <fieldset id="calculette-mensualite"
-        class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
-        <h3 class="titre-calculette title">Calculer vos mensualitées</h3>
+        class="flex flex-col justify-start items-center fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
+        <h3 class="titre-calculette title w-full text-2xl font-bold text-secondary text-center">SIMULATEUR</h3>
+        <h4 class="w-full text-xl font-semibold text-secondary text-center">Evaluer votre rentabilité locative</h4>
         <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
           <div id="financement"
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
@@ -725,7 +740,7 @@
               </svg>
             </button>
             <div id="popover-help-financement"
-              class="popover rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
+              class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
               popover="auto">
               <h5 class="title-h5">Le projet à financer</h5>
               <div class="cont-text">
@@ -751,7 +766,7 @@
 
           <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70"></label>
           <div class="container-input-range w-full pt-2">
-            <input class="calculette-range range range-accent" type="range" name="range-prix" max="1000000"
+            <input class="calculette-range range range-primary" type="range" name="range-prix" max="1000000"
               step="1000" />
           </div>
         </div>
@@ -768,7 +783,7 @@
               </svg>
             </button>
             <div id="popover-help-apport"
-              class="popover rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
+              class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
               popover="auto">
               <h5 class="title-h5">L'apport personnel</h5>
               <div class="cont-text">
@@ -810,7 +825,7 @@
               </svg>
             </button>
             <div id="popover-help-taeg"
-              class="popover rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
+              class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
               popover="auto">
               <h5 class="title-h5">Le TAEG</h5>
               <div class="cont-text">
@@ -838,8 +853,8 @@
 
           <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70"></label>
           <div class="container-input-range w-full pt-2">
-            <input class="calculette-range range range-primary range-sm" type="range" name="range-taeg" min="0.1"
-              max="8" step="0.01" />
+            <input class="calculette-range range range-primary range-sm" type="range" name="range-taeg" min="0.1" max="8"
+              step="0.01" />
           </div>
         </div>
         <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
@@ -858,8 +873,8 @@
           <div id="error-duree" class="error-input text-error text-sm min-h-5"></div>
           <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70"></label>
           <div class="container-input-range w-full pt-2">
-            <input class="calculette-range range range-primary range-sm" type="range" name="range-duree" min="2"
-              max="35" step="1" />
+            <input class="calculette-range range range-primary range-sm" type="range" name="range-duree" min="2" max="35"
+              step="1" />
           </div>
         </div>
 
@@ -868,12 +883,12 @@
           ****** start *********************************************************************-->
 
         <div id="cont-result" class="container-resultat valid grid gap-4 md:grid-cols-2">
-          <div class="resultat flex-column-start-center card bg-base-100 border border-base-300 p-4 gap-2">
+          <div class="resultat card bg-base-100 border border-base-300 p-4 gap-2">
             <div>
               <span id="mensualite-text-start"
                 class="text-resultat text-sm uppercase tracking-wide text-base-content/70"></span>
             </div>
-            <div class="container-mensualite flex-row-start-center flex items-end gap-2 text-primary">
+            <div class="container-mensualite flex items-end gap-2 text-primary">
               <span id="mensualite" class="text-4xl font-bold text-primary"></span>
               <span id="mensualite-text-end"
                 class="text-resultat text-sm uppercase tracking-wide text-base-content/70"></span>
@@ -881,7 +896,7 @@
           </div>
 
           <div id="cont-interest"
-            class="resultat flex-column-start-center card bg-base-100 border border-base-300 p-4 gap-2">
+            class="resultat card bg-base-100 border border-base-300 p-4 gap-2">
             <div>
               <span id="interest-text-start"
                 class="text-resultat text-sm uppercase tracking-wide text-base-content/70"></span>
@@ -893,7 +908,7 @@
             </div>
           </div>
           <div id="resultat-error-calculette"
-            class="flex-column-center-center resultat-error error hide flex flex-col items-center text-center gap-2">
+            class="resultat-error error hide flex flex-col items-center">
           </div>
         </div>
         <!-- ****************************************************************************
@@ -904,7 +919,7 @@
         class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
         <div id="type"
           class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-          <h3 class="titre-calculette title">Type de location</h3>
+          <h3 class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Type de location</h3>
           <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button"
             popovertarget="popover-help-type" popovertargetaction="toggle">
             <svg class="svg-icon-info" viewBox="0 -960 960 960">
@@ -912,9 +927,9 @@
             </svg>
           </button>
           <div id="popover-help-type"
-            class="popover rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
+            class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
             popover="auto">
-            <h5 class="title-h5">Le type de location</h5>
+            <h4 class="title-h5">Le type de location</h4>
             <div class="cont-text">
               a pour effet de modifer le revenu locatif de référence pour le
               calcul de l'impot foncier, la CFE est redevable dans certains
@@ -948,7 +963,7 @@
 
       <fieldset id="fiscal"
         class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
-        <h3 class="titre-calculette title">Taux marginal d'imposition.</h3>
+        <h3 class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taux marginal d'imposition</h3>
 
         <div class="main-container-input-radio grid gap-4 md:grid-cols-2">
           <div
@@ -983,7 +998,7 @@
 
         <div id="regime"
           class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-          <h3 id="title-regime-fiscal" class="titre-calculette title"></h3>
+          <h3 id="title-regime-fiscal" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Choix du régime d'imposition</h3>
           <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button"
             popovertarget="popover-help-fiscal" popovertargetaction="toggle">
             <svg class="svg-icon-info" viewBox="0 -960 960 960">
@@ -991,9 +1006,9 @@
             </svg>
           </button>
           <div id="popover-help-fiscal"
-            class="popover rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
+            class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left"
             popover="auto">
-            <h5 class="title-h5">Le régime d'imposition</h5>
+            <h4 class="title-h5">Le régime d'imposition</h4>
             <div class="cont-text">
               détermine la façon dont vous serez imposé sur vos revenus
               locatifs. Abattement forfaitaire ou charges déductibles déduit
@@ -1025,7 +1040,7 @@
       </fieldset>
       <fieldset id="revenu-locatif"
         class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
-        <h3 class="titre-calculette title">Revenus locatifs</h3>
+        <h3 class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Revenus locatifs</h3>
         <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
           <label id="label-revenu"
             class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Loyer hors charge</label>
@@ -1066,7 +1081,7 @@
 
       <fieldset id="charge-taxe"
         class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
-        <h3 id="titre-charge" class="titre-calculette title">
+        <h3 id="titre-charge" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">
           Charges et taxes<span> <sup>(1)</sup></span>
         </h3>
         <div
@@ -1143,7 +1158,7 @@
         </div>
         <div
           class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-          <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe foncière:</label>
+          <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe foncière</label>
 
           <div class="container-input-number flex items-center gap-3 w-full">
             <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right"
@@ -1159,7 +1174,7 @@
         </div>
         <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
           <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe
-            d'habitation:</label>
+            d'habitation</label>
 
           <div class="container-input-number flex items-center gap-3 w-full">
             <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right"
@@ -1179,7 +1194,7 @@
           <div id="cfe"
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Contribution
-              fonciére des entreprises:</label>
+              fonciére des entreprises</label>
           </div>
 
           <div class="container-input-number flex items-center gap-3 w-full">
@@ -1199,7 +1214,7 @@
           <div id="autrecharge"
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Autres charges non
-              déductibles:</label>
+              déductibles</label>
           </div>
 
           <div class="container-input-number flex items-center gap-3 w-full">
@@ -1220,7 +1235,7 @@
           <div
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges déductibles
-              (dont amortissements):</label>
+              (dont amortissements)</label>
           </div>
 
           <div class="container-input-number flex items-center gap-3 w-full">
@@ -1247,14 +1262,14 @@
         ***** start **************************************************************************-->
 
       <fieldset id="simulation"
-        class="flex-column-start-center fieldset simulation grid gap-6 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
-        <h3 class="simulation-titre title flex-column-start-center text-2xl font-bold text-center">
-          resultat simulation
+        class=" fieldset simulation grid gap-6 bg-base-100/80 border border-secondary rounded-3xl shadow-xl p-6">
+        <h3 class="simulation-titre title text-2xl font-bold text-center text-secondary ">
+          Résultat de la simulation
         </h3>
 
         <div id="revenu-total"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">
             Total revenus locatifs
           </h4>
           <span class="definition text-sm text-base-content/70">Montant du loyer charges comprises, utilisé pour le
@@ -1267,8 +1282,8 @@
         </div>
 
         <div id="revenu-reference"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">
             Revenus locatifs de référence
           </h4>
           <span class="definition text-sm text-base-content/70">Montant des revenus locatifs utilisé pour le calcul de
@@ -1282,11 +1297,11 @@
         </div>
 
         <div id="charge-total"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">Total des charges</h4>
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">Total des charges</h4>
           <span class="definition text-sm text-base-content/70">Ensemble des charges et taxes liées à la location ainsi
             que les
-            mensualités du credit immobilier.</span>
+            mensualités du crédit immobilier.</span>
           <div class="resultat flex-row-center-center flex items-baseline justify-center gap-2 text-primary">
             <span id="charge-total-value" class="value text-3xl font-bold text-base-content"></span>
             <span class="unity text-base text-base-content/60"> €/an</span>
@@ -1294,8 +1309,8 @@
         </div>
 
         <div id="bilan-avant-impot"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">
             Bilan avant imposition
           </h4>
           <span class="definition text-sm text-base-content/70">Total des revenus locatifs - total des charges</span>
@@ -1306,9 +1321,9 @@
         </div>
 
         <div id="assiette-imposable"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
           <h4 id="assiette-imposable-titre"
-            class="titre flex-column-start-center text-lg font-semibold text-base-content">
+            class="titre  text-lg font-semibold text-base-content">
             Assiette imposable
           </h4>
           <span id="assiette-imposable-definition" class="definition text-sm text-base-content/70">Revenus de référence
@@ -1321,8 +1336,8 @@
         </div>
 
         <div id="impot-foncier"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">Impôt foncier</h4>
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">Impôt foncier</h4>
           <span class="definition text-sm text-base-content/70">Assiette imposable * <br />(taux marginal imposition +
             taux
             prélèvement sociaux)</span>
@@ -1333,8 +1348,8 @@
         </div>
 
         <div id="bilan-apres-imposition"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
-          <h4 class="titre flex-column-start-center text-lg font-semibold text-base-content">
+          class="container-resultat-simulation  card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          <h4 class="titre  text-lg font-semibold text-base-content">
             Bilan aprés imposition
           </h4>
           <span class="definition text-sm text-base-content/70">Bilan avant imposition - impôt foncier</span>
@@ -1345,7 +1360,7 @@
         </div>
 
         <div id="cout-mensuel"
-          class="container-resultat-simulation flex-column-start-center card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          class="container-resultat-simulation card bg-base-100 border border-base-300 p-5 gap-3 text-center">
           <span id="cout-mensuel-titre" class="definition text-sm text-base-content/70">Dans ces conditions, votre bien
             en location vous coûte</span>
           <div class="resultat flex-row-center-center flex items-baseline justify-center gap-2 text-primary">
@@ -1361,8 +1376,8 @@
   </div>
 
   <footer
-    class="footer flex-column-start-center w-full bg-base-300/70 border border-base-200 rounded-3xl px-6 py-10 gap-6">
-    <div class="flex-column-start-start container-list-footer w-full max-w-4xl space-y-3">
+    class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-10 gap-6 md:flex-row md:justify-evenly">
+    <div class="container-list-footer text-center w-full max-w-4xl space-y-3 md:w-[50%]">
       <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">A propos</div>
       <ul class="menu-footer menu menu-vertical gap-2 text-sm">
         <li class="menu-footer-li text-base-content/80">
@@ -1380,30 +1395,30 @@
         </li>
       </ul>
     </div>
-    <div class="flex-column-start-start container-list-footer w-full max-w-4xl space-y-3">
+    <div class="container-list-footer text-center w-full max-w-4xl space-y-3 md:w-[50%]">
       <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Pour approfondir le sujet
       </div>
       <ul class="menu-footer menu menu-vertical gap-2 text-sm">
         <li class="menu-footer-li text-base-content/80">
           <a class="link link-hover text-base-content font-semibold"
-            href="https://www.service-public.fr/particuliers/vosdroits/F1165">Servicepublic.fr</a>
+            href="https://www.service-public.fr/particuliers/vosdroits/F1165" target="blank">Servicepublic.fr</a>
         </li>
         <li class="menu-footer-li text-base-content/80">
           <a class="link link-hover text-base-content font-semibold"
-            href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
+            href="https://www.jedeclaremonmeuble.com/guide-lmnp/" target="blank">JD2M</a>
         </li>
         <li class="menu-footer-li text-base-content/80">
           <a class="link link-hover text-base-content font-semibold"
-            href="https://www.pap.fr/bailleur/choisir-investissement">Particulier à particulier (PAP)</a>
+            href="https://www.pap.fr/bailleur/choisir-investissement" target="blank">Particulier à particulier (PAP)</a>
         </li>
         <li class="menu-footer-li text-base-content/80">
           <a class="link link-hover text-base-content font-semibold"
-            href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html">Meilleurtaux.com</a>
+            href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html" target="blank">Meilleurtaux.com</a>
         </li>
       </ul>
     </div>
   </footer>
-  <script>
+  <!-- <script>
     (function () {
       const applyTheme = () => {
         const theme = document.body.classList.contains("dark") ? "forest" : "winter";
@@ -1414,7 +1429,7 @@
       observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
       window.addEventListener("storage", applyTheme);
     })();
-  </script>
+  </script> -->
 </body>
 
 </html>

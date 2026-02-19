@@ -8,6 +8,7 @@ import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
 import {
   addEventOnPageLoading,
   addEventOnBannerButton,
+  addEventOnSimulateurButton,
   addEventOnInputMonthly,
   addEventOnInputDuty,
   addEventOnInputIncome,
@@ -85,6 +86,9 @@ bilanApresImposition();
 
 //concerne les booutons du banner
 addEventOnBannerButton();
+
+//concerne le bouton simulateur
+addEventOnSimulateurButton();
 
 //Ajoute les écouteurs d'évènements pour un calcul automatique des impots sur revenus foncier
 

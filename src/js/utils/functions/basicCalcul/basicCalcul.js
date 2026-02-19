@@ -488,21 +488,16 @@ function bilanApresImposition() {
   //affichage dans bilan final
   
 
-  if (bilanFinal < 0) {
-     bilanApresImpositionValue.innerHTML = bilanFinal
-      coutMensuelTitre.innerHTML = "Dans ces conditions, votre bien en location vous coûte:";
-      coutMensuelValue.innerHTML = parseInt(Math.abs(bilanFinal / 12), 10);
+  if (bilanFinal <= 0) {
+    containerCoutMensuel.classList.add("negatif");
+    bilanApresImpositionValue.innerHTML = bilanFinal
+    coutMensuelTitre.innerHTML = "Dans ces conditions, votre bien en location vous coûte:";
+    coutMensuelValue.innerHTML = parseInt(Math.abs(bilanFinal / 12), 10);
     
   }
-
-  if (bilanFinal == 0) {
-    bilanApresImpositionValue.innerHTML = bilanFinal;
-    coutMensuelTitre.innerHTML =
-      "Dans ces conditions, votre bien en location vous rapporte:";
-    coutMensuelValue.innerHTML = 0;
-  }
-
+  
   if (bilanFinal > 0) {
+    containerCoutMensuel.classList.remove("negatif");
     bilanApresImpositionValue.innerHTML = bilanFinal;
     coutMensuelTitre.innerHTML =
       "Dans ces conditions, votre bien en location vous rapporte:";
