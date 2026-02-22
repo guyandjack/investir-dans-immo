@@ -17,7 +17,7 @@ const navLinkContact = document.querySelector("#nav-lien-contact");
 const footerLinkAccueil = document.querySelector("#footer-lien-accueil");
 const footerLinkContact = document.querySelector("#footer-lien-contact");
 const footerLinkCGU = document.querySelector("#footer-lien-cgu");
-const footerLinkMention = document.querySelector("#footer-lien-mention");
+const footerLinkPolitique = document.querySelector("#footer-lien-politique");
 /****************************** Elements du footer*************************/
 /***************************************** end ************************************** */
 
@@ -25,11 +25,11 @@ function setLinkUrl() {
   if (!navLinkAccueil || !navLinkContact) return;
   navLinkAccueil.setAttribute("href", urlLink.accueil);
   navLinkContact.setAttribute("href", urlLink.contact);
-  if (!footerLinkAccueil || !footerLinkContact || !footerLinkCGU || !footerLinkMention) return;
+  if (!footerLinkAccueil || !footerLinkContact || !footerLinkCGU || !footerLinkPolitique) return;
   footerLinkAccueil.setAttribute("href", urlLink.accueil);
   footerLinkContact.setAttribute("href", urlLink.contact);
   footerLinkCGU.setAttribute("href", urlLink.cgu);
-  footerLinkMention.setAttribute("href", urlLink.mention);
+  footerLinkPolitique.setAttribute("href", urlLink.politique);
 
 
 }
@@ -378,8 +378,6 @@ function storeThemeColor(theme) {
   
   localStorage.setItem("themeColor", themeClear );
 
-
-  
 }
 
 /**
@@ -387,25 +385,26 @@ function storeThemeColor(theme) {
  *@return {*}
  */
 function useThemeColor() {
+  let inputCheckBox = document.querySelector("#toggle-switch");
   const body = document.body;
 
   // Lire une seule fois
   const raw = localStorage.getItem("themeColor");
 
-  // Si tu stockes une simple string ("dark", "clear", ...), pas besoin de JSON.parse
-  // Mais si ton code existant stocke via JSON.stringify, on gère les 2 cas.
+ 
   const themeColor = raw == null ? null : raw;
 
-  if (themeColor !== null) {
+  if (themeColor !== null && themeColor === themeDark ) {
     body.dataset.theme = themeColor;
+    inputCheckBox.checked = true;
+    
     return;
   }
-
-  // 1er chargement (pas de valeur) 
-  body.dataset.theme = themeClear;
-  storeThemeColor();
-
   
+  // Si pas de valeur ou si themeColor !== themeDark => par defaut theme clair appliqué
+  body.dataset.theme = themeClear;
+  inputCheckBox.checked = false;
+   
 }
 
 
@@ -417,8 +416,8 @@ function useThemeColor() {
    let toggleSwitch = document.querySelector(".swap");
    if (!toggleSwitch) return;
   toggleSwitch.addEventListener("click", (e) => {
-    /* moveSwitch(e); */
-    storeThemeColor();
+    
+    storeThemeColor(); 
     useThemeColor();
   });
 } 
