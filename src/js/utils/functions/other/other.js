@@ -1,9 +1,38 @@
 //import du contenu des infos bulles
 import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
+import { urlLink } from "@/js/utils/data/content/urlLink.js";
 
 //variable et constantes  globale
 const themeDark = "dim";
 const themeClear = "winter";
+
+/****************************** Elements contenu dans le nav bar*************************/
+/**** start */
+const navLinkAccueil = document.querySelector("#nav-lien-accueil");
+const navLinkContact = document.querySelector("#nav-lien-contact");
+/****************************** Elements contenu dans le nav bar*************************/
+/**** end */
+/****************************** Elements du footer*************************/
+/***************************************** start ************************************** */
+const footerLinkAccueil = document.querySelector("#footer-lien-accueil");
+const footerLinkContact = document.querySelector("#footer-lien-contact");
+const footerLinkCGU = document.querySelector("#footer-lien-cgu");
+const footerLinkMention = document.querySelector("#footer-lien-mention");
+/****************************** Elements du footer*************************/
+/***************************************** end ************************************** */
+
+function setLinkUrl() {
+  if (!navLinkAccueil || !navLinkContact) return;
+  navLinkAccueil.setAttribute("href", urlLink.accueil);
+  navLinkContact.setAttribute("href", urlLink.contact);
+  if (!footerLinkAccueil || !footerLinkContact || !footerLinkCGU || !footerLinkMention) return;
+  footerLinkAccueil.setAttribute("href", urlLink.accueil);
+  footerLinkContact.setAttribute("href", urlLink.contact);
+  footerLinkCGU.setAttribute("href", urlLink.cgu);
+  footerLinkMention.setAttribute("href", urlLink.mention);
+
+
+}
 
 /***********************************************************************
  * **************** concerne les collapse des articles *****************
@@ -495,7 +524,10 @@ function scrollToElement(elementToScroll) {
   });
 }
 
+
+
 export {
+  setLinkUrl,
   InsertTextInAElement,
   changeColor,
   createElemntInfoBulle,

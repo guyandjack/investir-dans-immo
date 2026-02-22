@@ -5,7 +5,13 @@
 //element loader
 const loader = document.querySelector(".container-loader");
 
-/****************************** Elements contenu dans banner page acceuil*************************/
+/****************************** Elements contenu dans le nav bar*************************/
+/**** start */
+const navLinkAccueil = document.querySelector("#nav-lien-accueil");
+const navLinkContact = document.querySelector("#nav-lien-contact");
+/****************************** Elements contenu dans le nav bar*************************/
+/**** end */
+/****************************** Elements contenu dans banner page accueil*************************/
 /**** start */
 
 //button de presenetation
@@ -218,6 +224,9 @@ const inputRadioRegimeForfaitaire =
 /***** fieldset #simulation *****/
 /*** start ****/
 
+let containerSimulation = document.querySelector("#simulation");
+let simulationTitre = document.querySelector(".simulation-titre");
+
 //Total revenus locatifs
 let totalRevenuLocatifValue = document.querySelector("#revenu-total-value");
 
@@ -255,9 +264,18 @@ let bilanApresImpositionValue = document.querySelector(
 //Cout mensuel location
 let coutMensuelTitre = document.querySelector("#cout-mensuel-titre");
 let coutMensuelValue = document.querySelector("#cout-mensuel-value");
-let containerCoutMensuel = document.querySelector("#cout-mensuel");
+let coutMensuelContainer = document.querySelector("#cout-mensuel");
+
 
 /***** fieldset #simulation *****/
 /*** end ****/
 /****************************** Elements du formulaire #calculette*************************/
+/***************************************** end ************************************** */
+/****************************** Elements du footer*************************/
+/***************************************** start ************************************** */
+const footerLinkAccueil = document.querySelector("#footer-lien-accueil");
+const footerLinkContact = document.querySelector("#footer-lien-contact");
+const footerLinkCGU = document.querySelector("#footer-lien-cgu");
+const footerLinkMention = document.querySelector("#footer-lien-mention");
+/****************************** Elements du footer*************************/
 /***************************************** end ************************************** */

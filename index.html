@@ -66,11 +66,11 @@
       <nav class="flex flex-row justify-start">
         <ul class="navbar navbar-end w-full gap-3 font-semibold text-base-content/80">
           <li>
-            <a class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
+            <a id="nav-lien-accueil" class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
               href="https://monprojetlocatif.org/index.html">Accueil</a>
           </li>
           <li>
-            <a class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
+            <a id="nav-lien-contact" class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
               href="https://monprojetlocatif.org/html/contact.html">Contact</a>
           </li>
           <li>
@@ -1190,7 +1190,7 @@
         </div>
 
         <div id="impot-cfe-container-input"
-          class="main-container-input hide-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
+          class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
           <div id="cfe"
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Contribution
@@ -1210,7 +1210,7 @@
           </div>
         </div>
         <div id="charge-non-deductible"
-          class="main-container-input charge-reel hide-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
+          class="main-container-input charge-reel  grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
           <div id="autrecharge"
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Autres charges non
@@ -1231,7 +1231,7 @@
         </div>
 
         <div id="charge-deductible"
-          class="main-container-input charge-reel hide-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
+          class="main-container-input charge-reel  grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
           <div
             class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges déductibles
@@ -1360,12 +1360,12 @@
         </div>
 
         <div id="cout-mensuel"
-          class="container-resultat-simulation card bg-base-100 border border-base-300 p-5 gap-3 text-center">
+          class="container-resultat-simulation card bg-base-100 border border-base-300 p-5 gap-3 text-center result-positif">
           <span id="cout-mensuel-titre" class="definition text-sm text-base-content/70">Dans ces conditions, votre bien
             en location vous coûte</span>
           <div class="resultat flex-row-center-center flex items-baseline justify-center gap-2 text-primary">
-            <span id="cout-mensuel-value" class="value text-3xl font-bold text-base-content"></span>
-            <span class="unity text-base text-base-content/60"> €/mois</span>
+            <span id="cout-mensuel-value" class="value text-3xl font-bold text-base-content color-positif"></span>
+            <span class="unity text-base text-base-content/60 color-negatif"> €/mois</span>
           </div>
         </div>
       </fieldset>
@@ -1378,19 +1378,23 @@
   <footer
     class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-10 gap-6 md:flex-row md:justify-evenly">
     <div class="container-list-footer text-center w-full max-w-4xl space-y-3 md:w-[50%]">
-      <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">A propos</div>
+      <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
       <ul class="menu-footer menu menu-vertical gap-2 text-sm">
         <li class="menu-footer-li text-base-content/80">
-          <a class="link link-hover text-base-content font-semibold"
+          <a id="footer-lien-accueil" class="link link-hover text-base-content font-semibold"
+            href="https://monprojetlocatif.org/html/contact.html">Accueil</a>
+        </li>
+        <li class="menu-footer-li text-base-content/80">
+          <a id="footer-lien-contact" class="link link-hover text-base-content font-semibold"
             href="https://monprojetlocatif.org/html/contact.html">Contact</a>
         </li>
         <!--<li class="menu-footer-li text-base-content/80"><a href="lien">Webmaster</a></li>-->
         <li class="menu-footer-li text-base-content/80">
-          <a class="link link-hover text-base-content font-semibold"
-            href="https://monprojetlocatif.org/html/cgu.html">Conditions générales d'utilisation</a>
+          <a id="footer-lien-cgu" class="link link-hover text-base-content font-semibold"
+            href="https://monprojetlocatif.org/html/cgu.html">Conditions générales d'utilisation (CGU)</a>
         </li>
         <li class="menu-footer-li text-base-content/80">
-          <a class="link link-hover text-base-content font-semibold"
+          <a id="footer-lien-mention" class="link link-hover text-base-content font-semibold"
             href="https://monprojetlocatif.org/html/cgu.html#mentions-legales">Mentions légales</a>
         </li>
       </ul>

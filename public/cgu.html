@@ -1,420 +1,279 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>
-      Conditions générales d'utilisation du site - Mentions légales et données
-      personnelles -
-    </title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditions générales d'utilisation &amp; obligations légales</title>
     <meta
       name="description"
-      content="Mises à disposition pour l'utilisateur du site, des informations obligatoires sur les CGU (Conditions générales d'utilisation), les mentions légales, et données personnelles."
+      content="Consultez les conditions générales d'utilisation, les mentions légales et notre politique de gestion des données personnelles."
     />
-
-    <meta charset="UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--google font-->
-
-    <!-- Feuilles de style-->
-    <link rel="stylesheet" href="../style/CSS/cgu.css" />
-
-    <!-- script page CGU -->
-    <script type="module" src="../javascript/cgu.js" defer></script>
+    <link rel="stylesheet" href="../src/style/main.css" />
+    <script type="module" src="../src/js/cgu.js"></script>
   </head>
-
-  <body>
-    <div class="container-page flex-column-start-center">
-      <header class="header flex-row-start-center">
-        <nav class="nav">
-          <ul class="menu flex-row-start-center">
+  <body
+    data-theme="winter"
+    class="min-h-screen w-full bg-base-200 text-base-content antialiased flex flex-col items-center"
+  >
+    <div class="container-page w-full flex flex-col items-center gap-10 px-4 py-10 lg:px-16">
+      <header
+        class="header w-full shadow-2xl rounded-3xl border border-base-300 px-6 py-4 gap-4 sticky top-6 z-30 backdrop-blur bg-base-100/80"
+      >
+        <nav class="flex flex-row justify-start">
+          <ul class="navbar navbar-end w-full gap-3 font-semibold text-base-content/80">
             <li>
-              <a class="menu-li-a" href="http://127.0.0.1:5500/index.html"
+              <a id="nav-lien-accueil" class="text-lg btn btn-sm btn-ghost rounded-full normal-case" href="https://monprojetlocatif.org/index.html"
                 >Accueil</a
               >
             </li>
             <li>
-              <a
-                class="menu-li-a"
-                href="http://127.0.0.1:5500/html/contact.html"
+              <a id="nav-lien-contact" class="text-lg btn btn-sm btn-ghost rounded-full normal-case" href="https://monprojetlocatif.org/html/contact.html"
                 >Contact</a
               >
             </li>
+            <li>
+              <label class="swap swap-rotate">
+                <input id="toggle-switch" type="checkbox" class="theme-controller" />
+                <svg class="swap-on h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
+                  />
+                </svg>
+                <svg class="swap-off h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
+                  />
+                </svg>
+              </label>
+            </li>
           </ul>
         </nav>
-        <div class="container-toggle flex-row-start-center">
-          <label for="toggle-switch" class="container-switch"
-            ><span class="switch light"></span></label
-          ><span class="toggle-text">Theme sombre</span>
-          <input id="toggle-switch" type="checkbox" value="dark" />
-        </div>
       </header>
-      <main class="container-cgu">
-        <h1 class="title-page h1">Conditions générales d'utilisation</h1>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title flex-row-start-center">
-            <span class="article-cgu-number">Article 1:</span>
-            <span class="article-cgu-title">Definitions</span>
-          </div>
-          <p class="text-cgu">
-            Est défini comme « Service »: Le site internet accessible à
-            l'adresse "www.monprojetlocatif.org".
-          </p>
 
-          <p class="text-cgu">
-            Est défini comme « Contenu »: Toutes données disponibles sur le «
-            Service » ou émanant de celui-ci.
+      <main class="w-full max-w-5xl flex flex-col gap-10">
+        <section class="legal-hero card bg-base-100/80 shadow-2xl border border-base-300 p-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Cadre légal</p>
+          <h1 class="text-3xl md:text-4xl font-bold text-base-content">Conditions générales d'utilisation</h1>
+          <p class="text-lg text-base-content/80">
+            Cette page précise le périmètre d'utilisation du service monprojetlocatif.org, les responsabilités de chaque partie, ainsi que les garanties offertes en matière de sécurité et de protection des données.
           </p>
-          <p class="text-cgu">
-            Est défini comme « Editeur »: Le créateur et l'éditeur du site
-            internet "monprojetlocatif.org".
-          </p>
-          <p class="text-cgu">
-            Est défini comme « Utilisateur »: Toute personne morale ou physique
-            qui utilise le « Service » ou « Contenu ».
-          </p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 2:</span>
-            <span class="article-cgu-title">Objet</span>
+          <div class="legal-pill-group">
+            <a class="legal-pill" href="#article-1">Définitions</a>
+            <a class="legal-pill" href="#mentions-legales">Mentions légales</a>
+            <a class="legal-pill" href="#article-9">Données personnelles</a>
+            <a class="legal-pill" href="#article-13">Juridiction</a>
           </div>
-          <p class="text-cgu">
-            Les présentes « conditions générales d'utilisation » ou « CGU » ont
-            pour objet l'encadrement juridique de l'utilisation du site
-            'monprojetlocatif.org' et de ses services. Ce contrat est conclu
-            entre :« l'Éditeur » et « l'Utilisateur ». Les « CGU » doivent être
-            acceptées par tout « Utilisateur », et son accès au site vaut
-            acceptation de ces conditions. Les présentes « CGU » sont régies par
-            les lois françaises quel que soit le lieu d'utilisation du service.
-            Toute contestation ou tout litige qui pourraient naître entre l'«
-            Editeur » et l'« Utilisateur », et après l'échec de toute tentative
-            de recherche de solutions amiable, seront de la compétence exclusive
-            des tribunaux dont dépend le lieu de residence de l'« Editeur ».La
-            langue de référence, pour le règlement de contentieux éventuels, est
-            le français.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div id="mentions-legales" class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 3:</span>
-            <span class="article-cgu-title">Mentions légales</span>
-          </div>
-          <p class="text-cgu">
-            Le site web 'monprojetlocatif.org' est édité par Guy&Jack Dev-Web
-            L'hébergeur du site est: " PlanetHoster "
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 4:</span>
-            <span class="article-cgu-title">Acces au service</span>
-          </div>
-          <p class="text-cgu">
-            Le « Service » est accessible gratuitement à tout « Utilisateur »
-            disposant d'un accès à internet. Tous les coûts afférents à l'accès
-            au « Service », que ce soient les frais matériels, logiciels ou
-            d'accès à internet, sont exclusivement à la charge de l'«
-            Utilisateur ». Il est seul responsable du bon fonctionnement de son
-            équipement informatique, logiciel et mise à jour, ainsi que de son
-            accès à internet. L'Editeur et ses éventuels partenaires s'efforcent
-            de permettre un accès de qualité au « Service », sauf en cas de
-            force majeure ou d'un événement hors du contrôle de ceux-ci et sous
-            réserve des éventuelles pannes et interventions de maintenance
-            nécessaire au bon fonctionnement du « Service » ainsi que de tout
-            dysfonctionnement du réseau ou des serveurs ou de tout autre
-            événement. Par conséquent, l'Editeur et ses éventuels partenaires ne
-            peuvent garantir une disponibilité du « Service » / « Contenu », une
-            fiabilité des transmissions et des performances en matière de temps
-            de réponse ou de qualité. Par ailleurs, l' « Editeur » et ses
-            éventuels partenaires se réservent la possibilité d'interrompre, de
-            suspendre, de modifier ou arrêter tout ou partie du « Service » ou
-            de son accès, à tout moment sans préavis afin d'en assurer la
-            maintenance, ou pour toute autre raison, le tout sans droit à
-            indemnités ou obligation. La responsabilité de l'Editeur et de ses
-            éventuels partenaires ne saurait être engagée en cas d'impossibilité
-            d'accès et/ou d'utilisation du « Service » / « Contenu » et ceci
-            pour n'importe quelle durée ainsi que d'une mauvaise utilisation du
-            service ou des conséquences qui peuvent en découler pour
-            l'Utilisateur ou tout tiers. De plus, il n'est prévu aucune
-            assistance technique, de quelque nature que ce soit, vis-à-vis de
-            l'Utilisateur. Il n'est concédé à l'« Utilisateur » qu'une
-            autorisation de consultation du « Service » / « Contenu » qu'à titre
-            personnel et privé, à l'exclusion de toute visualisation ou
-            diffusion publique. Toute consultation publique devra faire preuve
-            d'une demande préalable auprès de l'Editeur.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 5:</span>
-            <span class="article-cgu-title"
-              >Responsabilite de l'utilisateur</span
-            >
-          </div>
-          <p class="text-cgu">
-            L'« Utilisateur » est responsable des risques liés à l’utilisation
-            de son identifiant de connexion et de son mot de passe. Le mot de
-            passe de l’Utilisateur doit rester secret. En cas de divulgation du
-            mot de passe, l’Éditeur décline toute responsabilité. L’Utilisateur
-            assume l’entière responsabilité de l’utilisation qu’il fait des
-            informations et contenus présents sur le site
-            '<strong>monprojetlocatif.org</strong>'. Tout usage du service par
-            l'« Utilisateur » ayant directement ou indirectement pour
-            conséquence des dommages doit faire l'objet d'une indemnisation au
-            profit du site. L'« Editeur » permet aux membres de publier des
-            commentaires sur le site . Le membre s’engage à tenir des propos
-            respectueux des autres et de la loi et accepte que ces publications
-            soient modérées ou refusées par l’Éditeur, sans obligation de
-            justification. En publiant sur le site, l’Utilisateur cède à la
-            société éditrice le droit non exclusif et gratuit de représenter,
-            reproduire, adapter, modifier, diffuser et distribuer sa
-            publication, directement ou par un tiers autorisé. L’Éditeur
-            s'engage toutefois à citer le membre en cas d’utilisation de sa
-            publication.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 6:</span>
-            <span class="article-cgu-title">Responsabilite de l'éditeur</span>
-          </div>
-          <p class="text-cgu">
-            Tout dysfonctionnement du serveur ou du réseau ne peut engager la
-            responsabilité de l'Éditeur. De même, la responsabilité du site ne
-            peut être engagée en cas de force majeure ou du fait imprévisible et
-            insurmontable d'un tiers. Le site 'monprojetlocatif.org' s'engage à
-            mettre en œuvre tous les moyens nécessaires pour garantir la
-            sécurité et la confidentialité des données. Toutefois, il n'apporte
-            pas une garantie de sécurité totale. L'Éditeur se réserve la faculté
-            d'une non-garantie de la fiabilité des sources, bien que les
-            informations diffusées su le site soient réputées fiables.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 7:</span>
-            <span class="article-cgu-title">Limite de responsabilité</span>
-          </div>
-          <p class="text-cgu">
-            Le « Contenu » diffusé ou émanant du « Service » provient de sources
-            réputées fiables et il est un point d'honneur à ce que le « Contenu
-            » fasse preuve d'exactitude, soit précis et à jour. Néanmoins,
-            l'Editeur ne peut garantir et il ne peut être exclu que ce « Contenu
-            » soit susceptible de contenir d'éventuelles erreurs*
-            (inexactitudes, fautes, oublis, lacunes etc. qu'elles soient
-            techniques et/ou typographiques dues à des omissions, négligences,
-            défauts d'interprétations, absence prolongée involontaire etc.
-            (liste d'exemple non exhaustive)) (l'Editeur se réservant le droit
-            de toute correction et modification et à tout moment). De plus, le «
-            Contenu » de toute nature et sur tous supports, émanant du « Service
-            » est uniquement et purement donné à titre informatif ou indicatif
-            étant non contractuel et non exhaustif. Toutes informations d'ordre
-            technique ou règlementaire et normatif pouvant être recueillies dans
-            le « Contenu » / « Service » n'ont aucun caractère formel et ne
-            sauraient engager la responsabilité de l'Editeur. Il appartient par
-            conséquent à chaque « Utilisateur » de vérifier l'exactitude et la
-            pertinence des informations et renseignements mis à sa disposition
-            et qu'il pourrait obtenir dans le « Contenu » / « Service » ou
-            émanant de celui-ci avant de les utiliser dans une quelconque
-            application. En conséquence, L'Editeur ne peut donc, en aucun cas,
-            engager sa responsabilité à quelque titre que ce soit. L'utilisation
-            du « Contenu » de toute nature et sur tout support qu'il soit,
-            présent ou émanant du « Service » et ceci de n'importe quelle
-            manière, se fait sous l'entière et seule responsabilité de
-            l'Utilisateur. L'Utilisateur assume la totalité des conséquences
-            pouvant en découler, sans que l'Editeur puisse être recherché à
-            quelque titre que ce soit et sans recours contre ce dernier,
-            celui-ci ne pouvant en aucun cas être tenu responsable de tout
-            dommage de quelque nature qu'il soit résultant de l'interprétation
-            ou de l'utilisation du « Contenu » disponible ou émanant du «
-            Service », de même des informations consultées qui ne répondraient
-            pas à l'objectif pour lesquel elles ont été consultées. L'Editeur ne
-            saurait être tenu pour responsable des conséquences liées aux
-            éventuelles erreurs, inexactitudes, carences ou autres, mais
-            également de l'utilisation et des données, quel qu'elles soient,
-            présentes dans le « Contenu » et/ou « Service » ou émanant de
-            celui-ci, des atteintes aux droits de tierces personnes qui
-            pourraient résulter de cette utilisation et de tout préjudice direct
-            ou indirect pouvant en découler. De plus, l'« Utilisateur » s'engage
-            à indemniser l'Editeur de toutes conséquences dommageables liées
-            directement ou indirectement à l'usage qu'il fait du « Contenu »
-            et/ou du « Service ». L'Editeur ne saurait être, également, tenu
-            pour responsable, de n'importe quelle nature qu'il soit ainsi que
-            des dommages et des préjudices s'y afférant, directs ou indirects,
-            matériels ou immatériels, des renseignements, informations,
-            utilisations et contenus présents sur les liens d'autres sites ou
-            sources externes référencés dans le « Service » et/ou « Contenu »
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 8:</span>
-            <span class="article-cgu-title">Proprieté intellectuelle</span>
-          </div>
-          <p class="text-cgu">
-            Les contenus du site 'monprojetlocatif.org' (logos, textes, éléments
-            graphiques, vidéos, etc.) sont protégés par le droit d'auteur, en
-            vertu du Code de la propriété intellectuelle. L'Utilisateur devra
-            obtenir l'autorisation de l'Editeur du site avant toute
-            reproduction, copie ou publication de ces différents contenus. Ces
-            derniers peuvent être utilisés par l'« Utilisateur » à des fins
-            privées; tout usage commercial est interdit. L'Utilisateur est
-            entièrement responsable de tout contenu qu'il met en ligne et il
-            s'engage à ne pas porter atteinte à un tiers. L'Éditeur du site se
-            réserve le droit de modérer ou de supprimer librement et à tout
-            moment les contenus mis en ligne par l'« Utilisateur », et ce, sans
-            justification.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 9:</span>
-            <span class="article-cgu-title">Données personnelles</span>
-          </div>
-          <p class="text-cgu">
-            L'Utilisateur doit obligatoirement fournir des informations
-            personnelles pour procéder à son inscription sur le site. L'adresse
-            électronique (e-mail) de l'Utilisateur pourra notamment être
-            utilisée par le site 'monprojetlocatif.org' pour la communication
-            d'informations diverses et la gestion du
-            compte.'monprojetlocatif.org' garantit le respect de la vie privée
-            de l'Utilisateur, conformément à la loi n°78-17 du 6 janvier 1978
-            relative à l'informatique, aux fichiers et aux libertés. Le site est
-            déclaré auprès de la CNIL sous le numéro suivant : [numéro]. En
-            vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'«
-            Utilisateur » dispose d'un droit d'accès, de rectification, de
-            suppression et d'opposition de ses données personnelles. L'«
-            Utilisateur » exerce ce droit via : Un formulaire de contact.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 10:</span>
-            <span class="article-cgu-title">Liens hypertextes</span>
-          </div>
-          <p class="text-cgu">
-            L'« Editeur » propose des liens hypertextes vers des sites web
-            édités et/ou gérés par des tiers. Dans la mesure où aucun contrôle
-            n'est exercé sur ces ressources externes, l'« Utilisateur »
-            reconnaît que l'« Editeur » n'assume aucune responsabilité relative
-            à la mise à disposition de ces ressources et ne peut être tenu
-            responsable quant à leur contenu. Les liaisons du type hypertexte
-            vers le « Service » ou ses pages sont autorisées sous réserve que
-            ces liens ouvrent dans une nouvelle fenêtre.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 11:</span>
-            <span class="article-cgu-title"
-              >Évolution des conditions générales d'utilisation</span
-            >
-          </div>
-          <p class="text-cgu">
-            Le site 'monprojetlocatif.org' se réserve le droit de modifier les
-            clauses de ces conditions générales d'utilisation à tout moment et
-            sans justification.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
+        </section>
 
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 12:</span>
-            <span class="article-cgu-title">Durée du contrat</span>
-          </div>
-          <p class="text-cgu">
-            La durée du présent contrat est indéterminée. Le contrat produit ses
-            effets à l'égard de l'« Utilisateur » à compter du début de
-            l'utilisation du « Service ».
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
-        <div class="article-cgu flex-column-start-start">
-          <div class="article-cgu-container-title">
-            <span class="article-cgu-number">Article 13:</span>
-            <span class="article-cgu-title"
-              >Droit applicable et juridiction compétente</span
-            >
-          </div>
-          <p class="text-cgu">
-            Le présent contrat dépend de la législation française. En cas de
-            litige non résolu à l'amiable entre l'« Utilisateur » et l'« Éditeur
-            », les tribunaux du lieu de residence de l'« Editeur » du site sont
-            compétents pour régler le contentieux.
-          </p>
-          <p class="text-cgu"></p>
-          <p class="text-cgu"></p>
-        </div>
+        <section class="legal-grid" aria-label="Articles des conditions générales d'utilisation">
+          <article id="article-2" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 2</span>
+              <span class="article-cgu-title">Mentions Légales</span>
+            </div>
+            <p class="text-cgu">
+              Les présentes conditions générales d'utilisation ont pour objet d'encadrer juridiquement l'utilisation du site
+              monprojetlocatif.org et de ses services. Ce contrat est conclu entre l'Éditeur et l'Utilisateur. L'accès au site
+              implique l'acceptation pleine et entière des présentes conditions. Elles sont régies par le droit français, quel que
+              soit le lieu d'utilisation du service, et tout litige relève des tribunaux compétents du ressort de l'Éditeur.
+            </p>
+          </article>
+          <article id="article-1" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 1</span>
+              <span class="article-cgu-title">Définitions</span>
+            </div>
+            <p class="text-cgu">
+              Est défini comme « Service » : le site internet accessible à l'adresse <strong>www.monprojetlocatif.org</strong>.
+            </p>
+            <p class="text-cgu">
+              Est défini comme « Contenu » : toutes les données disponibles sur le « Service » ou émanant de celui-ci.
+            </p>
+            <p class="text-cgu">
+              Est défini comme « Éditeur » : le créateur et l'éditeur du site internet monprojetlocatif.org.
+            </p>
+            <p class="text-cgu">
+              Est défini comme « Utilisateur » : toute personne morale ou physique qui utilise le « Service » ou son « Contenu ».
+            </p>
+          </article>
+
+          <article id="article-2" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 2</span>
+              <span class="article-cgu-title">Objet</span>
+            </div>
+            <p class="text-cgu">
+              Les présentes conditions générales d'utilisation ont pour objet d'encadrer juridiquement l'utilisation du site monprojetlocatif.org et de ses services. Ce contrat est conclu entre l'Éditeur et l'Utilisateur. L'accès au site implique l'acceptation pleine et entière des présentes conditions. Elles sont régies par le droit français, quel que soit le lieu d'utilisation du service, et tout litige relève des tribunaux compétents du ressort de l'Éditeur.
+            </p>
+          </article>
+          
+
+          <article id="article-3" class="article-cgu">
+            <div id="mentions-legales" class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 3</span>
+              <span class="article-cgu-title">Mentions légales</span>
+            </div>
+            <p class="text-cgu">
+              Le site monprojetlocatif.org est édité par <strong>Guy&amp;Jack Dev-Web</strong>. L'hébergement est assuré par PlanetHoster.
+            </p>
+          </article>
+
+          <article id="article-4" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 4</span>
+              <span class="article-cgu-title">Accès au service</span>
+            </div>
+            <p class="text-cgu">
+              Le Service est accessible gratuitement à tout Utilisateur disposant d'un accès internet. Les coûts inhérents (matériel, logiciel, connexion) restent à la charge de l'Utilisateur, qui est également responsable du bon fonctionnement de son équipement. L'Éditeur et ses partenaires mettent tout en œuvre pour garantir un accès de qualité, sous réserve des opérations de maintenance, des aléas techniques ou des cas de force majeure. Ils se réservent le droit d'interrompre ou de modifier le Service sans préavis ni indemnité. Aucune assistance technique spécifique n'est prévue. L'Utilisateur bénéficie d'un droit de consultation privée ; toute diffusion publique requiert une autorisation expresse.
+            </p>
+          </article>
+
+          <article id="article-5" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 5</span>
+              <span class="article-cgu-title">Responsabilité de l'Utilisateur</span>
+            </div>
+            <p class="text-cgu">
+              L'Utilisateur est seul responsable de la confidentialité de ses identifiants. Toute divulgation ne saurait engager la responsabilité de l'Éditeur. Il répond des contenus et commentaires qu'il publie, s'engage à respecter la loi et accepte que ses contributions puissent être modérées. En publiant sur le site, il cède à l'Éditeur un droit non exclusif et gratuit de diffusion, l'Éditeur s'engageant à citer l'auteur.
+            </p>
+          </article>
+
+          <article id="article-6" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 6</span>
+              <span class="article-cgu-title">Responsabilité de l'Éditeur</span>
+            </div>
+            <p class="text-cgu">
+              Les dysfonctionnements réseaux, les faits imprévisibles ou la force majeure ne sauraient engager la responsabilité de l'Éditeur. Ce dernier met en œuvre les moyens nécessaires pour garantir la sécurité et la confidentialité des données sans offrir de garantie absolue. La fiabilité des sources est recherchée mais ne peut être assurée à 100 %.
+            </p>
+          </article>
+
+          <article id="article-7" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 7</span>
+              <span class="article-cgu-title">Limitation de responsabilité</span>
+            </div>
+            <p class="text-cgu">
+              Le Contenu publié provient de sources réputées fiables mais peut comporter des erreurs ou omissions. Il est fourni à titre informatif et non contractuel. L'Utilisateur doit vérifier l'exactitude des informations avant toute utilisation et demeure seul responsable de l'usage qu'il en fait. L'Éditeur ne pourra être tenu responsable des dommages directs ou indirects résultant de l'utilisation du Service ou des ressources externes référencées.
+            </p>
+          </article>
+
+          <article id="article-8" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 8</span>
+              <span class="article-cgu-title">Propriété intellectuelle</span>
+            </div>
+            <p class="text-cgu">
+              Les éléments du site (logos, textes, graphiques, vidéos, etc.) sont protégés par le Code de la propriété intellectuelle. Toute reproduction ou diffusion nécessite l'accord préalable de l'Éditeur. Un usage strictement privé est toléré ; tout usage commercial est interdit. L'Éditeur se réserve le droit de retirer tout contenu litigieux mis en ligne par un Utilisateur.
+            </p>
+          </article>
+
+          <article id="article-9" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 9</span>
+              <span class="article-cgu-title">Données personnelles</span>
+            </div>
+            <p class="text-cgu">
+              Certaines données personnelles sont nécessaires pour échanger avec l'équipe. L'adresse électronique peut servir à répondre aux demandes ou à transmettre des informations liées au compte. Monprojetlocatif.org respecte la loi Informatique et Libertés (n°78-17 du 6 janvier 1978). Toute personne peut exercer ses droits d'accès, de rectification et d'opposition via le formulaire de contact.
+            </p>
+          </article>
+
+          <article id="article-10" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 10</span>
+              <span class="article-cgu-title">Liens hypertextes</span>
+            </div>
+            <p class="text-cgu">
+              Des liens externes peuvent rediriger vers des sites tiers. L'Éditeur n'exerce aucun contrôle sur ces ressources et décline toute responsabilité concernant leur contenu. Les liens vers monprojetlocatif.org sont autorisés si l'ouverture se fait dans un nouvel onglet et respecte l'intégrité du Service.
+            </p>
+          </article>
+
+          <article id="article-11" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 11</span>
+              <span class="article-cgu-title">Évolution des CGU</span>
+            </div>
+            <p class="text-cgu">
+              L'Éditeur se réserve le droit de modifier les présentes conditions à tout moment, sans préavis. La version publiée sur cette page prévaut.
+            </p>
+          </article>
+
+          <article id="article-12" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 12</span>
+              <span class="article-cgu-title">Durée</span>
+            </div>
+            <p class="text-cgu">
+              Le contrat régissant l'utilisation du Service est conclu pour une durée indéterminée et prend effet dès la première utilisation du site par l'Utilisateur.
+            </p>
+          </article>
+
+          <article id="article-13" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">Article 13</span>
+              <span class="article-cgu-title">Droit applicable et juridiction compétente</span>
+            </div>
+            <p class="text-cgu">
+              Le présent contrat est soumis au droit français. En cas de litige non résolu à l'amiable, les tribunaux du ressort de l'Éditeur seront seuls compétents.
+            </p>
+          </article>
+        </section>
       </main>
     </div>
+
+    <footer
+      class="w-full flex flex-col justify-start items-center bg-base-300/70 px-6 py-10 gap-6 md:flex-row md:justify-evenly"
+    >
+      <div class="container-list-footer text-center w-full max-w-4xl space-y-3 md:w-[50%]">
+        <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
+        <ul class="menu-footer menu menu-vertical gap-2 text-sm">
+          <li class="menu-footer-li text-base-content/80">
+            <a id="footer-lien-accueil" class="link link-hover text-base-content font-semibold" href="https://monprojetlocatif.org/index.html"
+              >Accueil</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a id="footer-lien-contact" class="link link-hover text-base-content font-semibold" href="https://monprojetlocatif.org/html/contact.html"
+              >Contact</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a id="footer-lien-cgu" class="link link-hover text-base-content font-semibold" href="https://monprojetlocatif.org/html/cgu.html"
+              >Conditions générales d'utilisation</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a id="footer-lien-mention" class="link link-hover text-base-content font-semibold" href="https://monprojetlocatif.org/html/cgu.html#mentions-legales"
+              >Mentions légales</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="container-list-footer text-center w-full max-w-4xl space-y-3 md:w-[50%]">
+        <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Pour approfondir le sujet</div>
+        <ul class="menu-footer menu menu-vertical gap-2 text-sm">
+          <li class="menu-footer-li text-base-content/80">
+            <a class="link link-hover text-base-content font-semibold" href="https://www.service-public.fr/particuliers/vosdroits/F1165" target="_blank"
+              >Service-public.fr</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a class="link link-hover text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/" target="_blank"
+              >JeDéclareMonMeublé</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a class="link link-hover text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement" target="_blank"
+              >Particulier à Particulier (PAP)</a
+            >
+          </li>
+          <li class="menu-footer-li text-base-content/80">
+            <a class="link link-hover text-base-content font-semibold" href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html" target="_blank"
+              >Meilleurtaux.com</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
-  <footer class="footer flex-row-space-evenly-start">
-    <div class="flex-column-start-start container-list-footer">
-      <div class="title-list-footer">A propos</div>
-      <ul class="menu-footer">
-        <li class="menu-footer-li">
-          <a href="http://127.0.0.1:5500/html/contact.html">Contact</a>
-        </li>
-        <!--<li class="menu-footer-li"><a href="lien">Webmaster</a></li>-->
-        <li class="menu-footer-li">
-          <a href="http://127.0.0.1:5500/html/cgu.html"
-            >Conditions générales d'utilisation</a
-          >
-        </li>
-        <li class="menu-footer-li">
-          <a href="http://127.0.0.1:5500/html/cgu.html#mentions-legales"
-            >Mentions légales</a
-          >
-        </li>
-      </ul>
-    </div>
-    <div class="flex-column-start-start container-list-footer">
-      <div class="title-list-footer">Pour approfondir le sujet</div>
-      <ul class="menu-footer">
-        <li class="menu-footer-li">
-          <a href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-            >Servicepublic.fr</a
-          >
-        </li>
-        <li class="menu-footer-li">
-          <a href="https://www.jedeclaremonmeuble.com/guide-lmnp/">JD2M</a>
-        </li>
-        <li class="menu-footer-li">
-          <a href="https://www.pap.fr/bailleur/choisir-investissement"
-            >Particulier à particulier (PAP)</a
-          >
-        </li>
-        <li class="menu-footer-li">
-          <a
-            href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-            >Meilleurtaux.com</a
-          >
-        </li>
-        <li class="menu-footer-li"><a href="lien">texte du lien</a></li>
-      </ul>
-    </div>
-  </footer>
 </html>

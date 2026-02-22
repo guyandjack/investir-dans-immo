@@ -4,10 +4,13 @@
 
 //import des functions
 import {
+  setLinkUrl,
   eventToggleSwitch,
   useThemeColor,
   isToggleMoved,
 } from "./utils/functions/other/other.js";
+
+import { localOrProd } from "../js/utils/functions/localOrProd/localOrProd.js";
 
 // import des regEx
 import {
@@ -273,15 +276,16 @@ function checkUserValueMessage(id, message) {
 function submitForm(e) {
   e.preventDefault();
 
+  const { urlApi } = localOrProd();
+  let urlFetch = `${urlApi}/contact`;
+
   checkUserValueSujet().then((test) => {
     if (!test) {
       return;
     } else {
-      let urlTestFetch = "http://localhost:5000/contact";
-      let urlProdFetch =
-        "https://www.apimonprojetlocatif.monprojetlocatif.org/contact";
+     
 
-      fetch(urlTestFetch, {
+      fetch(urlFetch, {
         headers: {
           Accept: "application/json, text/plain",
           "Content-Type": "application/json",
@@ -296,7 +300,7 @@ function submitForm(e) {
             .then((data) => {
               let result = JSON.parse(JSON.stringify(data));
 
-              if (result.message_status !== "sended") {
+              if (result.status !== "success") {
                 displayValidDiv("Une erreur est survenue... 😞");
               } else {
                 displayValidDiv("message reçu! 👍");
@@ -448,6 +452,7 @@ function addEventControlOnInput() {
 }
 
 /*************************** script principal **************************/
+setLinkUrl();
 addEventControlOnInput();
 useThemeColor();
 isToggleMoved();

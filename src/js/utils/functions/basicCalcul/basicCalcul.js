@@ -80,7 +80,7 @@ function initInputValue() {
   inputNumberPrix.value = parseInt(dataValueInit.price, 10);
   inputNumberApport.value = parseInt(
     (dataValueInit.price * dataValueInit.rateAdvice) / 100,
-    10
+    10,
   );
   inputNumberTaeg.value = parseInt(dataValueInit.taeg, 10);
   inputNumberDuree.value = parseInt(dataValueInit.periode, 10);
@@ -91,13 +91,12 @@ function initInputValue() {
 
   inputNumberRevenuChargeComprise.value = parseInt(dataValueInit.incomeCc, 10);
   calculatedValue.incomeCc = parseInt(dataValueInit.incomeCc, 10);
-  
-  
+
   //charges et taxes
   inputNumberCopro.value = parseInt(dataValueInit.copro, 10);
   inputNumberGestion.value = parseInt(
     (dataValueInit.rateGestion / 100) * dataValueInit.income * 12,
-    10
+    10,
   );
   inputNumberApno.value = parseInt(dataValueInit.apno, 10);
   inputNumberAli.value = parseInt(dataValueInit.ali, 10);
@@ -106,7 +105,7 @@ function initInputValue() {
   inputNumberCfe.value = parseInt(dataValueInit.cfe, 10);
   inputNumberChargeNondeductible.value = parseInt(
     dataValueInit.nondeductible,
-    10
+    10,
   );
   inputNumberChargeDeductible.value = parseInt(dataValueInit.deductible, 10);
   calculatedValue.dutyDeductible = parseInt(dataValueInit.deductible, 10);
@@ -147,16 +146,19 @@ function initInputValue() {
   calculatedValue.fiscalChoiceMemo = "forfaitaire";
 
   //fieldset simulation
-  
+
   //revenu locatif de reference
- 
+
   if (dataValueInit.locationtype == "nue") {
-    totalRevenuReferenceValue.innerHTML = parseInt((dataValueInit.income * 12), 10);
-    
-  }
-  else {
-    totalRevenuReferenceValue.innerHTML = parseInt((dataValueInit.incomeCc * 12), 10);
-    
+    totalRevenuReferenceValue.innerHTML = parseInt(
+      dataValueInit.income * 12,
+      10,
+    );
+  } else {
+    totalRevenuReferenceValue.innerHTML = parseInt(
+      dataValueInit.incomeCc * 12,
+      10,
+    );
   }
 }
 
@@ -168,28 +170,26 @@ function initResultatFiscal() {
 
 //fonction qui calcule les revenus locatif sur un an
 function incomeByYear() {
-
-  let income = parseInt(inputNumberRevenuHorsCharge.value , 10);
-  let incomeCc = parseInt(inputNumberRevenuChargeComprise.value , 10);
+  let income = parseInt(inputNumberRevenuHorsCharge.value, 10);
+  let incomeCc = parseInt(inputNumberRevenuChargeComprise.value, 10);
 
   //insertion dans l'objet
-  calculatedValue.income = income ;
-  calculatedValue.incomeCc = incomeCc ;
+  calculatedValue.income = income;
+  calculatedValue.incomeCc = incomeCc;
 
   //insertion dans le DOM sous l'input revenu
   incomeOnYear.innerHTML = income * 12 + " €/an";
   incomeOnYearCc.innerHTML = incomeCc * 12 + " €/an";
 
   //insertion dans le DOM fielset "simulation"
-  
+
   totalRevenuLocatifValue.innerHTML = incomeCc * 12;
-  
+
   if (calculatedValue.locationType == "nue") {
     totalRevenuReferenceValue.innerHTML = income * 12;
   } else {
     totalRevenuReferenceValue.innerHTML = incomeCc * 12;
   }
-  
 }
 
 /**
@@ -207,7 +207,6 @@ function controlValueOfIncome() {
   let fiscalChoiceSave = calculatedValue.fiscalChoiceMemo;
   console.log("fiscal choice user memo: " + fiscalChoiceSave);
 
- 
   switch (typeLocation) {
     case "nue":
       seuil = 15300;
@@ -351,18 +350,18 @@ function balance() {
   getTotalDuty();
 
   console.log("calculated value incomeCC: " + calculatedValue.incomeCc);
-  let balance = parseInt((calculatedValue.incomeCc * 12) - calculatedValue.duty, 10);
-  
+  let balance = parseInt(
+    calculatedValue.incomeCc * 12 - calculatedValue.duty,
+    10,
+  );
+
   console.log("bilan avant impot: " + balance);
   calculatedValue.balance = balance;
   bilanAvantImpotValue.innerHTML = calculatedValue.balance;
-
-  
 }
 
 //détermination de l'assiette imposable en fonction du "type de location" et du "regime d'imposition"
 function getAssietteImposable() {
-
   //-1- location "nue" regime imposition forfaitaire
   if (
     calculatedValue.locationType == "nue" &&
@@ -371,16 +370,15 @@ function getAssietteImposable() {
     //abattement 30% sur loyer hors charge
     let assietteImposable = parseInt(
       (calculatedValue.income * 12 * 7) / 10,
-      10
+      10,
     );
     calculatedValue.assietteimposable = assietteImposable;
-    assietteImposableDefinition.innerHTML = "Revenu de reférence - abattement forfaitaire de 30%";
-      
-    
-      assietteImposableTitre.innerHTML = "Assiette imposable"
-      assietteImposableValue.innerHTML = assietteImposable;
-    
-    
+    assietteImposableDefinition.innerHTML =
+      "Revenu de reférence - abattement forfaitaire de 30%";
+
+    assietteImposableTitre.innerHTML = "Assiette imposable";
+    assietteImposableValue.innerHTML = assietteImposable;
+
     return assietteImposable;
   }
 
@@ -392,7 +390,7 @@ function getAssietteImposable() {
     //abattement 50% sur loyer charges comprises
     let assietteImposable = parseInt(
       (calculatedValue.incomeCc * 12 * 5) / 10,
-      10
+      10,
     );
     calculatedValue.assietteimposable = assietteImposable;
     assietteImposableDefinition.innerHTML =
@@ -404,14 +402,13 @@ function getAssietteImposable() {
   //-3- location "nue"  regime imposition "réel"
   else if (
     calculatedValue.locationType == "nue" &&
-    calculatedValue.fiscalChoice == "reel" 
-    )
-  {
+    calculatedValue.fiscalChoice == "reel"
+  ) {
     //loyer hors charge - charges deductibles
     console.log("charge deductible : " + calculatedValue.dutyDeductible);
     let assietteImposable = parseInt(
-      (calculatedValue.income * 12) - calculatedValue.dutyDeductible,
-      10
+      calculatedValue.income * 12 - calculatedValue.dutyDeductible,
+      10,
     );
     calculatedValue.assietteimposable = assietteImposable;
     assietteImposableDefinition.innerHTML =
@@ -420,11 +417,9 @@ function getAssietteImposable() {
 
     if (assietteImposable > 0) {
       assietteImposableTitre.innerHTML = "Assiette imposable";
-      
     }
     if (assietteImposable <= 0) {
       assietteImposableTitre.innerHTML = "Déficite foncier";
-      
     }
     return assietteImposable;
   }
@@ -437,8 +432,8 @@ function getAssietteImposable() {
     //loyer charges comprises - charges deductibles
     console.log("charge deductible : " + calculatedValue.dutyDeductible);
     let assietteImposable = parseInt(
-      (calculatedValue.incomeCc * 12) - calculatedValue.dutyDeductible,
-      10
+      calculatedValue.incomeCc * 12 - calculatedValue.dutyDeductible,
+      10,
     );
     calculatedValue.assietteimposable = assietteImposable;
     assietteImposableDefinition.innerHTML =
@@ -486,18 +481,28 @@ function calculeImpotRevenuFoncier() {
 function bilanApresImposition() {
   let bilanFinal = calculatedValue.balance - calculatedValue.impotFoncier;
   //affichage dans bilan final
-  
 
   if (bilanFinal <= 0) {
-    containerCoutMensuel.classList.add("negatif");
-    bilanApresImpositionValue.innerHTML = bilanFinal
-    coutMensuelTitre.innerHTML = "Dans ces conditions, votre bien en location vous coûte:";
-    coutMensuelValue.innerHTML = parseInt(Math.abs(bilanFinal / 12), 10);
+    containerSimulation.classList.remove("border-positif");
+    containerSimulation.classList.add("border-negatif");
+    simulationTitre.classList.remove("titre-positif");
+    simulationTitre.classList.add("titre-negatif");
+    coutMensuelContainer.classList.replace("result-positif", "result-negatif");
     
+    bilanApresImpositionValue.innerHTML = bilanFinal;
+    coutMensuelTitre.innerHTML =
+      "Dans ces conditions, votre bien en location vous coûte:";
+    coutMensuelValue.innerHTML = parseInt(Math.abs(bilanFinal / 12), 10);
   }
-  
+
+
   if (bilanFinal > 0) {
-    containerCoutMensuel.classList.remove("negatif");
+    containerSimulation.classList.remove("border-negatif");
+    containerSimulation.classList.add("border-positif");
+    simulationTitre.classList.remove("titre-negatif");
+    simulationTitre.classList.add("titre-positif");
+    coutMensuelContainer.classList.replace("result-negatif", "result-positif");
+
     bilanApresImpositionValue.innerHTML = bilanFinal;
     coutMensuelTitre.innerHTML =
       "Dans ces conditions, votre bien en location vous rapporte:";

@@ -1,32 +1,34 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: winter --default, dim --prefersdark;
+  themes:
+    winter --default,
+    dim --prefersdark;
 }
 
-.container-banner{
+.container-banner {
   position: relative;
   background-image: url(../assets/cabane.jpg);
   background-repeat: none;
   background-size: cover;
-
-  
 }
 
-.container-banner::after{
+.container-banner::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(0,0,0,0.7), 60%, transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), 60%, transparent);
 }
 
-.introduction-banner, .h1, .h2{
+.introduction-banner,
+.h1,
+.h2 {
   position: relative;
   z-index: 10;
 }
 
-.btn-simulateur{
+.btn-simulateur {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -42,40 +44,38 @@
   border-radius: 15px;
   cursor: pointer;
   transition: all linear 0.2s;
-
-  
 }
 
-.btn-simulateur:hover{
+.btn-simulateur:hover {
   border: 4px solid var(--color-accent);
   background-color: var(--color-accent);
   transition: all linear 0.2s;
 }
 
 .svg-icon-chevron-colapse,
-.svg-icon-chevron{
-transform: rotateZ(90deg);
-transition: all linear 0.2s;
+.svg-icon-chevron {
+  transform: rotateZ(90deg);
+  transition: all linear 0.2s;
 }
 
 .chevron-up {
-    transform: rotateZ(-90deg);
-    transition: all linear 0.2s;
-  }
-  
-.main-container-input{
+  transform: rotateZ(-90deg);
+  transition: all linear 0.2s;
+}
+
+.main-container-input {
   width: 90%;
 }
 
-.container-input-number{
+.container-input-number {
   position: relative;
 }
 
-.calculette-number{
+.calculette-number {
   padding-right: 5%;
 }
 
-.calculette-span{
+.calculette-span {
   position: absolute;
   top: 50%;
   left: 1rem;
@@ -84,64 +84,90 @@ transition: all linear 0.2s;
 
 .resultat-error.hide {
   height: 0px;
-  
-
-  }
-.display-error{
+}
+.display-error {
   align-self: center;
   width: 100%;
   padding: 1rem;
   border-radius: 12px;
   text-align: center;
   border: 2px solid var(--color-warning);
-  background-color: var(--color-warning) ;
+  background-color: var(--color-warning);
+}
 
-} 
+.border-negatif {
+  border: 2px solid var(--color-warning);
+}
 
+.border-positif {
+  border: 2px solid var(--color-success);
+}
+.titre-negatif {
+  color: var(--color-warning);
+}
 
-.negatif {
-  background-color: var(--warning);
-};
+.titre-positif {
+  color: var(--color-success);
+}
 
+.result-negatif {
+  border: 1px solid var(--color-warning);
+}
 
+.result-negatif span {
+  color: var(--color-warning);
+}
 
+.result-positif {
+  border: 1px solid var(--color-success);
+}
 
+.result-positif span {
+  color: var(--color-success);
+}
 
 @keyframe animation-error {
-  0%{
+  0% {
     opacity: 0;
   }
-  10%{
+  10% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
-.error-download{
+.error-download {
   position: absolute;
   top: 100%;
   width: 0px;
   height: 0px;
   overflow: none;
   opacity: 0;
-  
 }
 
-.animation-error{
+.animation-error {
   width: 100%;
   height: fit-content;
   opacity: 1;
   animation: opacity linear 5s normal 0s backwards;
-
 }
 
-
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 @layer components {
-
-  .list-li-a{
+  .list-li-a {
     @apply text-primary;
   }
 
@@ -198,7 +224,7 @@ transition: all linear 0.2s;
   }
 
   .hide-taxe {
-    @apply max-h-0 overflow-hidden transition-all duration-200 ease-linear;
+    @apply /* max-h-0 overflow-hidden transition-all duration-200 ease-linear */ hidden;
   }
 
   .display-error {
@@ -233,8 +259,6 @@ transition: all linear 0.2s;
     @apply max-h-0 p-0 overflow-hidden transition-all duration-500 ease-in-out;
   }
 
-  
-
   .info-bulle {
     @apply rounded-2xl border border-info bg-info/10 p-4 text-sm text-info-content shadow-xl;
   }
@@ -243,10 +267,171 @@ transition: all linear 0.2s;
     @apply text-sm font-semibold text-primary;
   }
 
- 
-
   .title-article span {
     @apply text-secondary;
   }
 
+  .legal-hero {
+    @apply space-y-4;
+  }
+
+  .legal-pill-group {
+    @apply flex flex-wrap gap-3 mt-6;
+  }
+
+  .legal-pill {
+    @apply inline-flex items-center rounded-full border border-base-300 bg-base-200/70 px-4 py-2 text-sm font-semibold text-base-content/80 transition-all duration-200 hover:border-primary hover:text-primary hover:bg-primary/10;
+  }
+
+  .legal-grid {
+    @apply grid gap-6;
+  }
+
+  @screen md {
+    .legal-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .article-cgu {
+    @apply card bg-base-100/90 border border-base-300 shadow-xl p-6 flex flex-col gap-3;
+  }
+
+  .article-cgu-container-title {
+    @apply flex flex-row items-center justify-between gap-4 border-b border-base-200 pb-3;
+  }
+
+  .article-cgu-number {
+    @apply text-xs font-bold uppercase tracking-[0.4em] text-primary/70;
+  }
+
+  .article-cgu-title {
+    @apply text-xl font-semibold text-base-content;
+  }
+
+  .text-cgu {
+    @apply text-base leading-relaxed text-base-content/80;
+  }
+
+  .contact-highlights {
+    @apply grid gap-4 mt-6;
+  }
+
+  @screen md {
+    .contact-highlights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .contact-highlights div {
+    @apply flex flex-col gap-2 rounded-2xl border border-base-200 bg-base-200/60 p-4;
+  }
+
+  .contact-highlights span {
+    @apply text-sm font-semibold text-primary/80;
+  }
+
+  .contact-grid {
+    @apply grid gap-6 items-start;
+  }
+
+  @screen lg {
+    .contact-grid {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  .contact-card {
+    @apply card bg-base-100/90 border border-base-300 shadow-xl p-6 flex flex-col gap-4;
+  }
+
+  .contact-card h2 {
+    @apply text-2xl font-semibold text-base-content;
+  }
+
+  .contact-card ul {
+    @apply list-disc pl-5 space-y-1 text-base-content/80;
+  }
+
+  .contact-meta {
+    @apply grid gap-3 text-sm text-base-content/80;
+  }
+
+  .contact-meta dt {
+    @apply font-semibold text-base-content;
+  }
+
+  .contact-meta dd a {
+    @apply link link-hover text-primary font-semibold;
+  }
+
+  .contact-form {
+    @apply card bg-base-100 border border-base-300 shadow-2xl p-6 flex flex-col gap-6;
+  }
+
+  .form-grid {
+    @apply grid gap-4;
+  }
+
+  @screen md {
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .form-field {
+    @apply flex flex-col gap-2;
+  }
+
+  .label {
+    @apply text-sm font-semibold text-base-content/70;
+  }
+
+  .input-contact {
+    @apply input w-full bg-base-100 border-base-300 focus:border-primary focus:ring-2 focus:ring-primary/40;
+  }
+
+  .button {
+    @apply btn btn-primary w-full text-base font-semibold tracking-wide shadow-lg;
+  }
+
+  .button.disabled {
+    @apply btn-disabled cursor-not-allowed opacity-60;
+  }
+
+  .button.enabled {
+    @apply btn-primary;
+  }
+
+  .error {
+    @apply text-sm font-medium text-error/90;
+  }
+
+  .error.hide-error {
+    @apply hidden;
+  }
+
+  .error.display-error {
+    @apply block rounded-2xl border border-error/30 bg-error/10 px-3 py-2 shadow-sm;
+  }
+
+  .valid {
+    @apply inset-x-0 top-10 mx-auto max-w-md rounded-2xl border border-primary/40 bg-base-100/95 shadow-2xl p-5 flex flex-col gap-3;
+  }
+
+  .hide-valid {
+    @apply hidden;
+  }
+
+  .display-valid {
+    @apply flex;
+  }
+
+  .closure {
+    @apply self-end cursor-pointer text-xs font-semibold uppercase tracking-[0.4em] text-primary;
+  }
+
+  .valid-text {
+    @apply text-base font-semibold text-base-content;
+  }
 }

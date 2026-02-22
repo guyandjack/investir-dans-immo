@@ -4,14 +4,14 @@
 
 //import des functions
 import {
+  setLinkUrl,
   eventToggleSwitch,
   useThemeColor,
-  isToggleMoved,
 } from "./utils/functions/other/other.js";
 
 /***************** script principal ************************ */
 
 //switch dark mode
+setLinkUrl();
 eventToggleSwitch();
 useThemeColor();
-isToggleMoved();
