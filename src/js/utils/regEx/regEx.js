@@ -22,7 +22,7 @@ const masqueMail = /^[0-9]{0,4}[0-9a-z_'.-]{2,30}@[0-9a-z_'.-]{2,20}\.[0-9a-zA-Z
 /***** Permet le controle de l' input "content" (le corps du message)  **********/
 
 //Motif qui autorise tous les carracteres à l' exeption des balises ouvrantes, accolades, crochets, signe multiplié et signe logique (ou)
-const masqueMessage = /^[^<>{}\[\]*|]{20,200}$/;
+const masqueMessage = /^[^<>{}\[\]*|]{20,300}$/;
 
 //Motif qui permet de controler si une expression est un nombre entier positif
 const masqueNumberInt = /^[^\-\D]?[0-9]{1,}$/;

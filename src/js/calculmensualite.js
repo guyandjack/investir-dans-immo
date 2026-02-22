@@ -5,6 +5,8 @@ import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
 
 //import des fonctions
 
+
+
 import {
   addEventOnPageLoading,
   addEventOnBannerButton,
@@ -22,6 +24,7 @@ import {
 } from "./utils/functions/addEvent/addEvent.js";
 
 import {
+  setLinkUrl,
   eventToggleSwitch,
   useThemeColor,
   isToggleMoved,
@@ -48,6 +51,9 @@ import { changeColor } from "./utils/functions/other/other.js";
 
 /**** Routine d'initialisation /
  /** start **/
+
+ //determine les url des liens de navigation
+setLinkUrl();
 
 //initialisation des inputs user
 initInputValue();
