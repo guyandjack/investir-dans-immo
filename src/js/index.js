@@ -8,6 +8,7 @@ import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
 
 
 import {
+ 
   addEventOnPageLoading,
   addEventOnBannerButton,
   addEventOnSimulateurButton,

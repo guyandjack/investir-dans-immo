@@ -76,6 +76,7 @@ function addEventOnPageLoading() {
   );
 }
 
+
 /**
  *  Ajoute des écouteurs evenement sur les boutton du banner
 
@@ -326,7 +327,7 @@ function addEventOnInputRadioTypeLocation() {
       calculatedValue.locationType = inputValue;
 
       //si location meublee est checked
-      if (calculatedValue.locationType == "meuble") {
+      if (calculatedValue.locationType === "meuble") {
         //affiche les inputs number et range CFE
         displayInputCfe();
 
@@ -345,7 +346,7 @@ function addEventOnInputRadioTypeLocation() {
       }
 
       //si location nue est checked
-      if (calculatedValue.locationType == "nue") {
+      if (calculatedValue.locationType === "nue") {
         //Cache les inputs cfe
         hideInputCfe();
 

@@ -7,6 +7,11 @@ const loader = document.querySelector(".container-loader");
 
 /****************************** Elements contenu dans le nav bar*************************/
 /**** start */
+const iconMenu = document.querySelector("#icon-menu");
+const iconClose = document.querySelector("#icon-close");
+const btnMenu = document.querySelector("#btn-menu");
+
+
 const navLinkAccueil = document.querySelector("#nav-lien-accueil");
 const navLinkContact = document.querySelector("#nav-lien-contact");
 /****************************** Elements contenu dans le nav bar*************************/

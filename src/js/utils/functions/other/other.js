@@ -21,6 +21,12 @@ const footerLinkPolitique = document.querySelector("#footer-lien-politique");
 /****************************** Elements du footer*************************/
 /***************************************** end ************************************** */
 
+
+/**
+ * determine la valeur de l'attribut href des liens du menu et du footer
+ *
+ * @return {*} 
+ */
 function setLinkUrl() {
   if (!navLinkAccueil || !navLinkContact) return;
   navLinkAccueil.setAttribute("href", urlLink.accueil);

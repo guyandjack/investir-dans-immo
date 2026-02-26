@@ -8,9 +8,10 @@
 
 .container-banner {
   position: relative;
-  background-image: url(../assets/cabane.jpg);
+  background-image: url(../assets/cabane-lac.jpg);
   background-repeat: none;
   background-size: cover;
+  border-radius: 20px;
 }
 
 .container-banner::after {
@@ -19,6 +20,35 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), 60%, transparent);
+  border-radius: 20px;
+}
+
+.btn-menu{
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.btn-menu:not([open]) #icon-close{
+  display: none;
+}
+
+.btn-menu:not([open]) #icon-menu{
+  display: block;
+}
+
+.btn-menu[open] #icon-menu {
+  display: none;
+}
+
+.btn-menu[open] #icon-close {
+  display: block;
+}
+
+.btn-menu summary::marker{
+  content:"";
 }
 
 .introduction-banner,
@@ -34,7 +64,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  font-size: 1.5rem;
+  /*font-size: 1rem;*/
   position: relative;
   z-index: 10;
   border: 4px solid var(--color-secondary);
@@ -73,6 +103,14 @@
 
 .calculette-number {
   padding-right: 5%;
+}
+
+.hide-taxe{
+  display: none;
+}
+
+.display-taxe{
+  display: block;
 }
 
 .calculette-span {
@@ -217,14 +255,6 @@
 
   .hide {
     @apply max-h-0 overflow-hidden p-0 transition-all duration-300 ease-linear;
-  }
-
-  .display-taxe {
-    @apply max-h-[420px] overflow-hidden transition-all duration-500 ease-linear;
-  }
-
-  .hide-taxe {
-    @apply /* max-h-0 overflow-hidden transition-all duration-200 ease-linear */ hidden;
   }
 
   .display-error {
