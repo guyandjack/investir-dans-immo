@@ -4,6 +4,14 @@
 
 //Import des regEx
 import { masqueNumberFloat, masqueNumberInt } from "../../regEx/regEx.js";
+import {
+  inputNumberApport,
+  inputNumberPrix,
+  inputNumberRevenuList,
+  inputsNumberTaxe,
+  resultat,
+  resultatError,
+} from "../../refDOM/refDOM.js";
 
 /**
  *Determine si l'expression' entrée en parametre est un nombre.

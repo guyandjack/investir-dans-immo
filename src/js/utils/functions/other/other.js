@@ -1,25 +1,35 @@
 //import du contenu des infos bulles
 import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
 import { urlLink } from "@/js/utils/data/content/urlLink.js";
+import {
+  chargeForfaitaireList,
+  chargeReelList,
+  colapseForfaitaire1,
+  colapseForfaitaire2,
+  colapseReel1,
+  colapseReel2,
+  collapseRang1LocationMeuble,
+  collapseRang1LocationNue,
+  containerInputCfe,
+  containerInputRadioFiscal,
+  footerLinkAccueil,
+  footerLinkCGU,
+  footerLinkContact,
+  footerLinkPolitique,
+  footerLinkMention,
+  gainAdvice,
+  inputNumberApport,
+  inputNumberPrix,
+  inputRadioLocationNue,
+  navLinkAccueil,
+  navLinkContact,
+  uniteGain,
+} from "../../refDOM/refDOM.js";
+import { calculatedValue } from "../../data/data.js";
 
 //variable et constantes  globale
 const themeDark = "dim";
 const themeClear = "winter";
-
-/****************************** Elements contenu dans le nav bar*************************/
-/**** start */
-const navLinkAccueil = document.querySelector("#nav-lien-accueil");
-const navLinkContact = document.querySelector("#nav-lien-contact");
-/****************************** Elements contenu dans le nav bar*************************/
-/**** end */
-/****************************** Elements du footer*************************/
-/***************************************** start ************************************** */
-const footerLinkAccueil = document.querySelector("#footer-lien-accueil");
-const footerLinkContact = document.querySelector("#footer-lien-contact");
-const footerLinkCGU = document.querySelector("#footer-lien-cgu");
-const footerLinkPolitique = document.querySelector("#footer-lien-politique");
-/****************************** Elements du footer*************************/
-/***************************************** end ************************************** */
 
 
 /**

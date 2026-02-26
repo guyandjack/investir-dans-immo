@@ -12,6 +12,27 @@
  *
  * *************************************************************************************/
 
+import {
+  btnDownloadList,
+  btnSimulateur,
+  colapseForfaitaire1,
+  colapseForfaitaire2,
+  colapseReel1,
+  colapseReel2,
+  inputNumberApport,
+  inputNumberDuree,
+  inputNumberPrix,
+  inputNumberTaeg,
+  linkColapseForfaitaire1,
+  linkColapseForfaitaire2,
+  linkColapseReel1,
+  linkColapseReel2,
+  listOfButton,
+  loader,
+  totalRevenuReferenceValue,
+} from "../../refDOM/refDOM.js";
+import { calculatedValue } from "../../data/data.js";
+
 //Import de fonction de calcul et d'initialisation de plus bas niveau
 
 import {

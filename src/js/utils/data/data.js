@@ -1,5 +1,5 @@
-//Objet qui contient toutes  les valeurs des inputs utilisateur
-let UserInputValueContainer = {
+﻿//Objet qui contient toutes  les valeurs des inputs utilisateur
+const UserInputValueContainer = {
   //fieldset "calculette"
   financement: 0,
   apport: 0,
@@ -22,25 +22,23 @@ let UserInputValueContainer = {
   cfe: 0,
   chargeNonDeductible: 0,
   chargeDeductible: 0,
-
-  
 };
 
 //Objet qui contient toutes les valeurs calculées relatif au pret
-let calculatedValue = {
+const calculatedValue = {
   //mensualite
   capital: 0,
   mensualite: 0,
   interet: 0,
 
   //revenus locatif
-  income: 0, 
+  income: 0,
   incomeCc: 0,
-  assietteimposable:0,
-  
+  assietteimposable: 0,
+
   //charges et taxes
   duty: 0,
-  dutyDeductible:0,
+  dutyDeductible: 0,
   balance: 0,
 
   //type de location
@@ -54,10 +52,10 @@ let calculatedValue = {
   impotFoncier: 0,
 };
 
-//Objet qui contient les valeurs predeterminé relatif au pret,
+//Objet qui contient les valeurs prédéterminé relatif au pret,
 //utilisé pour initialiser les inputs utilisateurs
 
-let dataValueInit = {
+const dataValueInit = {
   //mensualite
   price: 200000,
   rateAdvice: 20,
@@ -70,7 +68,7 @@ let dataValueInit = {
   //revenu
   income: 666,
   incomeCc: 833,
- 
+
   //charges et taxes
   copro: 1200,
   rateGestion: 10,
@@ -90,5 +88,7 @@ let dataValueInit = {
 
   //choix imposition
   fiscalChoice: "forfaitaire",
-  fiscalChoiceMemo: "forfaitaire"
+  fiscalChoiceMemo: "forfaitaire",
 };
+
+export { UserInputValueContainer, calculatedValue, dataValueInit };

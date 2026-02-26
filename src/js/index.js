@@ -2,6 +2,12 @@
 
 //import du contenu des infos Bulles
 import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
+import {
+  inputNumberApport,
+  inputNumberDuree,
+  inputNumberPrix,
+  inputNumberTaeg,
+} from "./utils/refDOM/refDOM.js";
 
 //import des fonctions
 
