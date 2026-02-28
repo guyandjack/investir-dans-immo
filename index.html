@@ -3,7 +3,18 @@
 
 <head>
   <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-  <link rel="preload" fetchpriority="high" as="image" href="/src/assets/cabane-lac.jpg" type="image/png" />
+  <link
+  rel="preload"
+  as="image"
+  fetchpriority="high"
+  href="/src/assets/cabane-lac-1000px.webp"
+  imagesrcset="
+    /src/assets/cabane-lac-500px.webp 500w,
+    /src/assets/cabane-lac-1000px.webp 1000w,
+    /src/assets/cabane-lac-1500px.webp 1500w"
+  imagesizes="(max-width: 360px) 300px, (max-width: 1100px) 100vw, 1068px"
+  type="image/webp"
+/>
 
   <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
 
@@ -13,6 +24,10 @@
   <meta charset="UTF-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/src/assets/cabane-lac-500px.webp" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
   <!--google icon-->
 
@@ -20,7 +35,7 @@
   <link rel="stylesheet" href="/src/style/main.css" />
 
   <!--script principal-->
-  <script type="module" src="src/js/index.js"></script>
+  <script type="module" src="/src/js/index.js"></script>
 </head>
 
 <body data-theme="winter" class="w-full text-base-content antialiased flex flex-col justify-start items-center">
@@ -65,6 +80,11 @@
     <header>
       <div
         class="container-banner h-[600px] flex flex-col justify-evenly items-center  hero bg-base-100 shadow-2xl  p-8  text-center">
+        <img class="hero-image " src="/src/assets/cabane-lac-1000px.webp" srcset="
+            /src/assets/cabane-lac-500px.webp 500w,
+            /src/assets/cabane-lac-1000px.webp 1000w,
+            /src/assets/cabane-lac-1500px.webp 1500w" sizes="(max-width: 360px) 300px, (max-width: 1100px) 100vw, 1068px"
+          width="1068" height="600" alt="Cabane au bord du lac" fetchpriority="high" decoding="async" />
         <nav>
           <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
           <details class="btn-menu">

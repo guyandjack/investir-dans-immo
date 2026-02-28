@@ -10,4 +10,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, "index.html"),
+        cgu: path.resolve(__dirname, "public/cgu.html"),
+        contact: path.resolve(__dirname, "public/contact.html"),
+        politique: path.resolve(__dirname, "public/politique-de-confidentialite.html"),
+      },
+    },
+  },
 });

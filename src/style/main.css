@@ -6,12 +6,17 @@
     dim --prefersdark;
 }
 
-.container-banner {
+ .container-banner {
   position: relative;
-  background-image: url(../assets/cabane-lac.jpg);
-  background-repeat: none;
-  background-size: cover;
+  
   border-radius: 20px;
+} 
+
+.hero-img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .container-banner::after {
