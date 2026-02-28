@@ -1,4 +1,4 @@
-/**********script page calculette********* */
+﻿/**********script page calculette********* */
 
 //import du contenu des infos Bulles
 import { infoBulleCalculMensualite } from "./utils/data/content/infoBulle.js";
@@ -83,7 +83,7 @@ changeColor();
 //Calcule le revenu sur un an avec les valeurs d'initialiasation
 incomeByYear();
 
-//Test si au moins une input "tranche d'imposition" et "choix du regime fiscal" a ete selectionnée
+//Test si au moins une input "tranche d'imposition" et "choix du regime fiscal" a ete selectionnÃ©e
 checkValueUserRadioFiscal();
 
 //Billan avant imposition
@@ -103,7 +103,7 @@ addEventOnBannerButton();
 //concerne le bouton simulateur
 addEventOnSimulateurButton();
 
-//Ajoute les écouteurs d'évènements pour un calcul automatique des impots sur revenus foncier
+//Ajoute les Ã©couteurs d'Ã©vÃ¨nements pour un calcul automatique des impots sur revenus foncier
 
 addEventOnInputMonthly();
 addEventOnInputIncome();
@@ -133,7 +133,7 @@ if ("serviceWorker" in navigator) {
   if (import.meta.env.PROD) {
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("/service-worker.js")
+        .register("/pwa-sw.js")
         .catch((error) => console.error("SW registration failed:", error));
     });
   } else {
@@ -142,3 +142,4 @@ if ("serviceWorker" in navigator) {
     });
   }
 }
+

@@ -8,29 +8,34 @@
 
  .container-banner {
   position: relative;
-  
-  border-radius: 20px;
+  border-radius: 30px;
+  overflow: hidden;
 } 
-
-.hero-img{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .container-banner::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
+  top:0;
+  left:0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), 60%, transparent);
-  border-radius: 20px;
 }
+
+.hero-img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  object-fit: cover;
+  
+}
+
 
 .btn-menu{
   position: absolute;
-  z-index: 10;
+  z-index: 20;
   top: 20px;
   left: 20px;
   cursor: pointer;
@@ -128,14 +133,16 @@
 .resultat-error.hide {
   height: 0px;
 }
+
 .display-error {
   align-self: center;
   width: 100%;
   padding: 1rem;
   border-radius: 12px;
   text-align: center;
-  border: 2px solid var(--color-warning);
-  background-color: var(--color-warning);
+  border: 4px solid orangered;
+  background-color: orange;
+  color: black;
 }
 
 .border-negatif {
@@ -439,7 +446,7 @@
   }
 
   .error {
-    @apply text-sm font-medium text-error/90;
+    @apply text-sm font-medium text-error;
   }
 
   .error.hide-error {
@@ -447,7 +454,7 @@
   }
 
   .error.display-error {
-    @apply block rounded-2xl border border-error/30 bg-error/10 px-3 py-2 shadow-sm;
+    @apply block rounded-2xl ;
   }
 
   .valid {

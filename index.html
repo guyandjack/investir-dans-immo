@@ -25,11 +25,30 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0ea5e9" />
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="/src/assets/cabane-lac-500px.webp" />
-  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="icon" type="image/webp" sizes="192x192" href="/icons/icon-192.webp" />
+  <link rel="icon" type="image/webp" sizes="512x512" href="/icons/icon-512.webp" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.webp" />
+ <link rel="manifest" href="/manifest.webmanifest">
 
-  <!--google icon-->
+  <!-- Favicon classique -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-48x48.png">
+
+<!-- Favicon SVG (meilleure qualité si supporté) -->
+<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+
+<!-- Icône iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+
+<!-- Manifest PWA -->
+<link rel="manifest" href="/manifest.webmanifest">
+
+<!-- Couleur barre navigateur mobile -->
+<meta name="theme-color" content="#0ea5e9">
+
 
   <!-- Feuilles de style-->
   <link rel="stylesheet" href="/src/style/main.css" />
@@ -79,12 +98,12 @@
     </aside>
     <header>
       <div
-        class="container-banner h-[600px] flex flex-col justify-evenly items-center  hero bg-base-100 shadow-2xl  p-8  text-center">
-        <img class="hero-image " src="/src/assets/cabane-lac-1000px.webp" srcset="
+        class="container-banner h-[700px] flex flex-col justify-evenly items-center shadow-2xl  p-8 lg:h-[600px]">
+        <img class="hero-img" src="/src/assets/cabane-lac-1000px.webp" srcset="
             /src/assets/cabane-lac-500px.webp 500w,
             /src/assets/cabane-lac-1000px.webp 1000w,
             /src/assets/cabane-lac-1500px.webp 1500w" sizes="(max-width: 360px) 300px, (max-width: 1100px) 100vw, 1068px"
-          width="1068" height="600" alt="Cabane au bord du lac" fetchpriority="high" decoding="async" />
+          alt="Cabane au bord du lac" fetchpriority="high" decoding="async" />
         <nav>
           <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
           <details class="btn-menu">
@@ -98,16 +117,16 @@
             </svg>
 
           </summary>
-            <ul class="bg-base-100 rounded-box z-1 w-auto p-2 shadow-sm">
+            <ul class="flex flex-col justify-evenly items-center bg-base-100 rounded-box z-1 w-auto p-2 shadow-sm h-[180px]">
               <li>
-                <a id="nav-lien-accueil" class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
+                <a id="nav-lien-accueil" class="text-lg btn btn-sm btn-ghost rounded-full normal-case p-3"
                   href="https://monprojetlocatif.org/index.html">Accueil</a>
               </li>
               <li>
-                <a id="nav-lien-contact" class="text-lg btn btn-sm btn-ghost rounded-full normal-case"
+                <a id="nav-lien-contact" class="text-lg btn btn-sm btn-ghost rounded-full normal-case p-3"
                   href="https://monprojetlocatif.org/html/contact.html">Contact</a>
               </li>
-              <li>
+              <li class="btn btn-gost">
                 <label class="swap swap-rotate">
 
                   <!-- this hidden checkbox controls the state -->

@@ -16,7 +16,9 @@
   },
   "devDependencies": {
     "daisyui": "^5.3.7",
+    "favicons": "^7.2.0",
+    "pwa-asset-generator": "^8.1.2",
     "vite": "^7.1.7",
-    "vite-plugin-pwa": "^1.1.0"
+    "vite-plugin-pwa": "^1.2.0"
   }
 }
