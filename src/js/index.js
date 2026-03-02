@@ -52,6 +52,8 @@ import { checkValueUserRadioFiscal } from "./utils/functions/checkValueUser/chec
 
 import { changeColor } from "./utils/functions/other/other.js";
 
+import { registerSW } from "virtual:pwa-register";
+
 /************************************************************************************************************* */
 /********************************************** Script principal ************************************************/
 /***************************************************************************************************************** */
@@ -133,7 +135,7 @@ if ("serviceWorker" in navigator) {
   if (import.meta.env.PROD) {
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("/pwa-sw.js")
+        .register("/sw.js")
         .catch((error) => console.error("SW registration failed:", error));
     });
   } else {
@@ -142,4 +144,8 @@ if ("serviceWorker" in navigator) {
     });
   }
 }
+
+
+
+registerSW({ immediate: true });
 

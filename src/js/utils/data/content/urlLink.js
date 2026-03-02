@@ -1,18 +1,19 @@
 
-import { localOrProd } from "../../functions/localOrProd/localOrProd";
+import { getRuntimeEnv } from "../../functions/getRuntimeEnv/getRuntimeEnv";
 
-const { url } = localOrProd();
+const env = getRuntimeEnv();
 
 const urlLink = {
   
-    accueil: `${url}`,
-    contact: `${url}/public/contact.html`,
-    cgu: `${url}/public/cgu.html`,
-    mention: `${url}/public/mention-legale.html`,
-    politique: `${url}/public/politique-de-confidentialite.html`
+    accueil: `${env.baseUrl}`,
+    contact: `${env.baseUrl}/html/contact.html`,
+    cgu: `${env.baseUrl}/html/cgu.html`,
+    mention: `${env.baseUrl}/html/mention-legale.html`,
+    politique: `${env.baseUrl}/html/politique-de-confidentialite.html`
   
 
   
 };
 
-export {urlLink}
+export { urlLink };
+

@@ -4,20 +4,20 @@
 
 //import des functions
 import {
-  setLinkUrl,
   eventToggleSwitch,
-  useThemeColor,
   isToggleMoved,
+  setLinkUrl,
+  useThemeColor,
 } from "./utils/functions/other/other.js";
 
-import { localOrProd } from "../js/utils/functions/localOrProd/localOrProd.js";
+import { getRuntimeEnv } from "../js/utils/functions/getRuntimeEnv/getRuntimeEnv.js";
 
 // import des regEx
 import {
   masqueCivilite,
-  masqueText,
   masqueMail,
   masqueMessage,
+  masqueText,
 } from "./utils/regEx/regEx.js";
 
 //Objet contenant les messages d'erreurs
@@ -276,8 +276,8 @@ function checkUserValueMessage(id, message) {
 function submitForm(e) {
   e.preventDefault();
 
-  const { urlApi } = localOrProd();
-  let urlFetch = `${urlApi}/contact`;
+  const  env  = getRuntimeEnv();
+  let urlFetch = `${env.apiUrl}/contact`;
 
   checkUserValueSujet().then((test) => {
     if (!test) {

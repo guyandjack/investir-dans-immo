@@ -1,5 +1,5 @@
 //import ds fonctions
-import { localOrProd } from "../localOrProd/localOrProd";
+import { getRuntimeEnv } from "../getRuntimeEnv/getRuntimeEnv";
 
 //Correspondance de fichiers a telecharger
 const refDownloadFile = {
@@ -23,13 +23,13 @@ function downloadError(elementCliked, errorMessage) {
 
 
 async function FetchForDownload(e) {
-   const { urlApi } = localOrProd();
+   const env = getRuntimeEnv();
    let buttonClicked = e.currentTarget;
    let buttonData = buttonClicked.dataset.download;
    let fileToDownload = refDownloadFile[buttonData];
-   let urlFetch = `${urlApi}/public/${fileToDownload}`;
+   let urlFetch = `${env.apiUrl}/public/${fileToDownload}`;
   try {
-    const response = await fetch(`${urlApi}/download`, {
+    const response = await fetch(`${env.apiUrl}/download`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

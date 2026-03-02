@@ -21,6 +21,8 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       strategies: "injectManifest",
+      srcDir: "src",
+      filename: "service-worker.js",
       includeAssets: [
         "icons/apple-icon-180.png",
         "icons/icon-192.webp",
@@ -30,14 +32,7 @@ export default defineConfig({
         "icons/manifest-icon-512.maskable.png",
       ],
       manifest,
-      srcDir: "src",
-      injectManifest: {
-        swSrc: "src/service-worker.js",
-        swDest: "pwa-sw.js",
-      },
-      devOptions: {
-        enabled: false,
-      },
+      devOptions: { enabled: false },
     }),
   ],
   resolve: {
@@ -49,11 +44,11 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, "index.html"),
-        cgu: path.resolve(__dirname, "public/cgu.html"),
-        contact: path.resolve(__dirname, "public/contact.html"),
+        cgu: path.resolve(__dirname, "html/cgu.html"),
+        contact: path.resolve(__dirname, "html/contact.html"),
         politique: path.resolve(
           __dirname,
-          "public/politique-de-confidentialite.html",
+          "html/politique-de-confidentialite.html",
         ),
       },
     },
