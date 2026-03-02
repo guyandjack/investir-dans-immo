@@ -130,20 +130,30 @@ isToggleMoved();
 //controle le loader
 addEventOnPageLoading();
 
-//enregistre le service worker pour le mode PWA
+// Enregistre le Service Worker uniquement en production / preview
 if ("serviceWorker" in navigator) {
   if (import.meta.env.PROD) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .catch((error) => console.error("SW registration failed:", error));
+    window.addEventListener("load", async () => {
+      try {
+        await navigator.serviceWorker.register(
+          `${import.meta.env.BASE_URL}service-worker.js`
+        );
+        console.log("Service Worker enregistré");
+      } catch (error) {
+        console.error("SW registration failed:", error);
+      }
     });
   } else {
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      registrations.forEach((registration) => registration.unregister());
-    });
+    // En mode dev : on nettoie les anciens SW
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (const registration of registrations) {
+      await registration.unregister();
+    }
+    console.log("Service Workers supprimés (mode dev)");
   }
 }
+
+
 
 
 
