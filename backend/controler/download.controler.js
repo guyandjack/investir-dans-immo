@@ -1,4 +1,4 @@
-import path from "path";
+const path = require("path");
 
 const refDownloadFile = {
   tab_res: "tableau-resume.xlsx",
@@ -43,4 +43,4 @@ const sendFile = (req, res) => {
   });
 };
 
-export { sendFile };
+module.exports = { sendFile };

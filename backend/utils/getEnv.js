@@ -11,4 +11,4 @@ const getEnv = () => {
   };
 };
 
-export { getEnv };
+module.exports = { getEnv };

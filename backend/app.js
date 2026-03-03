@@ -1,28 +1,26 @@
 //Import des packages
 
 // import des librairies
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
-import rateLimit from "express-rate-limit";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import bodyparser from "body-parser";
+const bodyparser = require("body-parser");
+const cors = require("cors");
+const express = require("express");
+const rateLimit = require("express-rate-limit");
+const morgan = require("morgan");
+const path = require("node:path");
+
 
 //Import des functions
 // methode de journalsiation des evenements
-import  logger  from "./logger.js";
+const logger = require("./logger");
 
 //Import des routes "conctact"
-import routeApiContact from "./routes/contactRoute.js";
+const routeApiContact = require("./routes/contactRoute");
 
 //Import des routes "download"
-import routeApiDownload from"./routes/downloadRoute.js";
+const routeApiDownload = require("./routes/downloadRoute");
 
 //Appli express
 const appli = express();
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 //parametrage du header de réponse pour annuler la sécurité "CORS"
 // ✅ CORS
@@ -110,7 +108,4 @@ appli.use("/", routeApiContact);
 
 appli.use("/", routeApiDownload);
 
-
-
-
-export default  appli;
+module.exports = appli;

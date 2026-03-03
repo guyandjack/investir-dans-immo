@@ -39,5 +39,4 @@ const regEx = {
   masqueNumber,
 };
 
-export { masqueCivilite, masqueText, masqueMail, masqueMessage, masqueNumber };
-export default regEx;
+module.exports = regEx;

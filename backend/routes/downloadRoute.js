@@ -2,8 +2,8 @@
 /**************  definission de toutes les routes "invest immo" **************/
 /***************************************************************************** */
 ///import du controler qui gere les download
-import { sendFile } from "../controler/download.controler.js";
-import express from "express";
+const { sendFile } = require("../controler/download.controler");
+const express = require("express");
 
 const router = express.Router();
 
@@ -13,5 +13,4 @@ const router = express.Router();
 
 router.post("/download", sendFile);
 
-
-export default router;
+module.exports = router;

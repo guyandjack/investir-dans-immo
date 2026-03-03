@@ -1,5 +1,5 @@
-import winston from "winston";
-import path from "node:path";
+const winston = require("winston");
+const path = require("node:path");
 
 const logger = winston.createLogger({
   level: "info",
@@ -41,4 +41,4 @@ console.error = (...args) => {
   logger.error(args.map(formatArg).join(" "));
 };
 
-export default logger;
+module.exports = logger;

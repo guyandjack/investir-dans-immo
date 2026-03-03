@@ -331,6 +331,7 @@ function deleteElement(elementId) {
  */
 function moveSwitch() {
   let switchToggle = document.querySelector(".switch");
+  if (!switchToggle) return;
 
   if (switchToggle.classList.contains("move")) {
     switchToggle.classList.remove("move");
@@ -352,6 +353,7 @@ function moveSwitch() {
  */
 function isToggleMoved() {
   let switchToggle = document.querySelector(".switch");
+  if (!switchToggle) return;
 
   if (localStorage.getItem("toggle") == "ok") {
     if (!switchToggle.classList.contains("move")) {

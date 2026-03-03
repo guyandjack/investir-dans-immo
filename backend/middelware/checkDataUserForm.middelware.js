@@ -1,9 +1,9 @@
-import { body, validationResult, matchedData } from "express-validator";
-import regEx from "../utils/regEx.js";
+const { body, validationResult, matchedData } = require("express-validator");
+const regEx = require("../utils/regEx");
 
 const CIVILITIES = ["Monsieur", "Madame", "Mademoiselle"];
 
-export const checkDataUserForm = [
+const checkDataUserForm = [
   body("civilite")
     .trim()
     .isIn(CIVILITIES)
@@ -45,4 +45,4 @@ export const checkDataUserForm = [
   },
 ];
 
-export default checkDataUserForm;
+module.exports = { checkDataUserForm };

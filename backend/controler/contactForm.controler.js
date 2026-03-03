@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 const successResponse = {
   status: "success",
@@ -11,12 +11,7 @@ const validationResponse = {
   message: "Données invalides",
   code: "401",
 };
-
-
-
-
-
-export const handleContactForm = (req, res) => {
+const handleContactForm = (req, res) => {
   const isProd = process.env.NODE_ENV;
   console.log("isprod: ", isProd);
   const ADRESS =
@@ -39,9 +34,9 @@ export const handleContactForm = (req, res) => {
     return res.status(500).json({
       status: "error",
       message: "Server error",
-      code: "500"
-  })
-}
+      code: "500",
+    });
+  }
 
   if (Array.isArray(req.validationErrors) && req.validationErrors.length > 0) {
     return res.status(200).json({
@@ -82,4 +77,4 @@ export const handleContactForm = (req, res) => {
   });
 };
 
-export default handleContactForm;
+module.exports = { handleContactForm };

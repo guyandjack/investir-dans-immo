@@ -1,16 +1,14 @@
 // -----------------------------------------------------------------------------
 // 1) Configuration d'environnement (doit être chargée AVANT le reste)
 // -----------------------------------------------------------------------------
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import dotenv from "dotenv";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const path = require("node:path");
+const dotenv = require("dotenv");
 dotenv.config({ path: path.join(__dirname, ".env") });
 
-import http from "node:http";
-import morgan from "morgan";
-import logger from "./logger.js";
-import appli from "./app.js";
+const http = require("node:http");
+const morgan = require("morgan");
+const logger = require("./logger");
+const appli = require("./app");
 
 
 

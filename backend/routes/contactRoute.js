@@ -2,10 +2,12 @@
 /**************  definission de toutes les routes "invest immo" **************/
 /***************************************************************************** */
 
-import express from "express";
+const express = require("express");
 
-import { checkDataUserForm } from "../middelware/checkDataUserForm.middelware.js";
-import { handleContactForm } from "../controler/contactForm.controler.js";
+const {
+  checkDataUserForm,
+} = require("../middelware/checkDataUserForm.middelware");
+const { handleContactForm } = require("../controler/contactForm.controler");
 
 const router = express.Router();
 
@@ -22,7 +24,4 @@ const router = express.Router();
 
 router.post("/contact", checkDataUserForm, handleContactForm);
 
-
-
-
-export default router;
+module.exports = router;
