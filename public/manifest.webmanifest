@@ -2,39 +2,39 @@
   "name": "Mon Projet Locatif",
   "short_name": "MPL",
   "description": "Simulateur immobilier pour estimer les mensualités, charges et fiscalité de votre projet locatif.",
-  "id": "/",
-  "start_url": "/",
+  "id": "/mpl",
+  "start_url": "/index.html?source=pwa",
   "scope": "/",
   "display": "standalone",
-  "display_override": [
-    "standalone",
-    "browser"
-  ],
   "orientation": "portrait-primary",
   "background_color": "#f4f6fb",
   "theme_color": "#0ea5e9",
   "lang": "fr-FR",
-  "categories": [
-    "finance",
-    "productivity"
-  ],
+  "dir": "ltr",
+  "categories": ["finance", "productivity"],
   "icons": [
     {
-      "src": "/icons/icon-192.webp",
+      "src": "/icons/manifest-icon-192.png",
       "sizes": "192x192",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.webp",
+      "src": "/icons/manifest-icon-512.png",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-maskable.webp",
+      "src": "/icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/manifest-icon-512.maskable.png",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
@@ -42,34 +42,34 @@
     {
       "name": "Simuler un crédit",
       "short_name": "Simulateur",
-      "url": "/index.html#simulateur",
+      "url": "/index.html?source=shortcut#calculette",
       "icons": [
         {
-          "src": "/icons/icon-192.webp",
+          "src": "/icons/icon-192.png",
           "sizes": "192x192",
-          "type": "image/webp"
+          "type": "image/png"
         }
       ]
     },
     {
       "name": "Contact",
-      "url": "/contact.html",
+      "url": "/contact.html?source=shortcut",
       "icons": [
         {
-          "src": "/icons/icon-192.webp",
+          "src": "/icons/icon-192.png",
           "sizes": "192x192",
-          "type": "image/webp"
+          "type": "image/png"
         }
       ]
     },
     {
       "name": "CGU",
-      "url": "/cgu.html",
+      "url": "/cgu.html?source=shortcut",
       "icons": [
         {
-          "src": "/icons/icon-192.webp",
+          "src": "/icons/icon-192.png",
           "sizes": "192x192",
-          "type": "image/webp"
+          "type": "image/png"
         }
       ]
     }

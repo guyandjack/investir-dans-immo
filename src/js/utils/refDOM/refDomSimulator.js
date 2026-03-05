@@ -1,0 +1,203 @@
+/****************************************************************************
+ * Références DOM du simulateur (formulaire, calculs, résultats)
+ * Chargées uniquement lorsque le simulateur est initialisé.
+ ****************************************************************************/
+
+const inputNumberPrix = document.querySelector("input[name='number-prix']");
+const inputNumberApport = document.querySelector("input[name='number-apport']");
+const inputNumberTaeg = document.querySelector("input[name='number-taeg']");
+const inputNumberDuree = document.querySelector("input[name='number-duree']");
+
+const inputRangePrix = document.querySelector("input[name='range-prix']");
+const inputRangeApport = document.querySelector("input[name='range-apport']");
+const inputRangeTaeg = document.querySelector("input[name='range-taeg']");
+const inputRangeDuree = document.querySelector("input[name='range-duree']");
+
+const gainAdvice = document.querySelector(".gain-advice");
+const uniteGain = document.querySelector("#gain");
+
+const containerResultat = document.querySelector("#cont-result");
+const containerInterest = document.querySelector("#cont-interest");
+
+const mensualiteTextStart = document.querySelector("#mensualite-text-start");
+const resultat = document.querySelector("#mensualite");
+const mensualiteTextEnd = document.querySelector("#mensualite-text-end");
+
+const interestTextStart = document.querySelector("#interest-text-start");
+const interestCredit = document.querySelector("#interest");
+const interestTextEnd = document.querySelector("#interest-text-end");
+
+const resultatError = document.querySelector("#resultat-error-calculette");
+
+const inputRadioLocationNue = document.querySelector("#location-nue");
+const inputRadioLocationMeuble = document.querySelector("#location-meuble");
+
+const inputNumberRevenuHorsCharge = document.querySelector(
+  "input[name='number-revenu_hors_charge']",
+);
+const inputNumberRevenuChargeComprise = document.querySelector(
+  "input[name='number-revenu_charge_comprise']",
+);
+
+const inputRangeRevenuHorsCharge = document.querySelector(
+  "input[name='range-revenu_hors_charge']",
+);
+const inputRangeRevenuChargeComprise = document.querySelector(
+  "input[name='range-revenu_charge_comprise']",
+);
+
+const inputNumberRevenuList = document.querySelectorAll(
+  "#revenu-locatif input[type='number']",
+);
+
+const incomeOnYear = document.querySelector(".income-year");
+const incomeOnYearCc = document.querySelector(".income-year-cc");
+
+const containerChargeTaxe = document.querySelector("#charge-taxe");
+const inputsNumberTaxe = document.querySelectorAll(
+  "#charge-taxe input[type='number']",
+);
+
+const containerInputCfe = document.querySelector("#impot-cfe-container-input");
+const containerInputNonDeductible = document.querySelector(
+  "#charge-non-deductible",
+);
+const containerInputDeductible = document.querySelector("#charge-deductible");
+
+const chargeForfaitaireList = document.querySelectorAll(".charge-forfaitaire");
+const chargeReelList = document.querySelectorAll(".charge-reel");
+
+const inputNumberCopro = document.querySelector("input[name='number-copro']");
+const inputNumberGestion = document.querySelector("input[name='number-gestion']");
+const inputNumberApno = document.querySelector("input[name='number-apno']");
+const inputNumberAli = document.querySelector("input[name='number-ali']");
+const inputNumberFoncier = document.querySelector("input[name='number-foncier']");
+const inputNumberHabitation = document.querySelector(
+  "input[name='number-habitation']",
+);
+const inputNumberCfe = document.querySelector("input[name='number-cfe']");
+const inputNumberChargeNondeductible = document.querySelector(
+  "input[name='number-nondeductible']",
+);
+const inputNumberChargeDeductible = document.querySelector(
+  "input[name='number-deductible']",
+);
+
+const inputRangeCopro = document.querySelector("input[name='range-copro']");
+const inputRangeGestion = document.querySelector("input[name='number-gestion']");
+const inputRangeApno = document.querySelector("input[name='range-apno']");
+const inputRangeAli = document.querySelector("input[name='range-ali']");
+const inputRangeFoncier = document.querySelector("input[name='range-foncier']");
+const inputRangeHabitation = document.querySelector("input[name='range-habitation']");
+const inputRangeCfe = document.querySelector("input[name='range-cfe']");
+const inputRangeChargeNondeductible = document.querySelector(
+  "input[name='range-nondeductible']",
+);
+const inputRangeChargeDeductible = document.querySelector(
+  "input[name='range-deductible']",
+);
+
+const titreRegimeImposition = document.querySelector("#title-regime-fiscal");
+const containerInputRadioFiscal = document.querySelector(
+  "#regime-fiscal-container-radio",
+);
+const containerInputFiscal = document.querySelector("#regime-fiscal-container-input");
+const inputRadioTauxMarginalDefault = document.querySelector("[id='30']");
+const inputRadioRegimeReel = document.querySelector("#impot-reel");
+const inputRadioRegimeForfaitaire =
+  document.querySelector("#impot-forfaitaire");
+
+const containerSimulation = document.querySelector("#simulation");
+const simulationTitre = document.querySelector(".simulation-titre");
+const totalRevenuLocatifValue = document.querySelector("#revenu-total-value");
+const totalRevenuReferenceValue = document.querySelector("#revenu-reference-value");
+const toltalChargeValue = document.querySelector("#charge-total-value");
+const bilanAvantImpotValue = document.querySelector("#bilan-avant-impot-value");
+const assietteImposableDefinition = document.querySelector(
+  "#assiette-imposable-definition",
+);
+const assietteImposableValue = document.querySelector("#assiette-imposable-value");
+const assietteImposableTitre = document.querySelector("#assiette-imposable-titre");
+const impotFoncierValue = document.querySelector("#impot-foncier-value");
+const bilanApresImpositionValue = document.querySelector(
+  "#bilan-apres-imposition-value",
+);
+const coutMensuelTitre = document.querySelector("#cout-mensuel-titre");
+const coutMensuelValue = document.querySelector("#cout-mensuel-value");
+const coutMensuelContainer = document.querySelector("#cout-mensuel");
+
+export {
+  inputNumberPrix,
+  inputNumberApport,
+  inputNumberTaeg,
+  inputNumberDuree,
+  inputRangePrix,
+  inputRangeApport,
+  inputRangeTaeg,
+  inputRangeDuree,
+  gainAdvice,
+  uniteGain,
+  containerResultat,
+  containerInterest,
+  mensualiteTextStart,
+  resultat,
+  mensualiteTextEnd,
+  interestTextStart,
+  interestCredit,
+  interestTextEnd,
+  resultatError,
+  inputRadioLocationNue,
+  inputRadioLocationMeuble,
+  inputNumberRevenuHorsCharge,
+  inputNumberRevenuChargeComprise,
+  inputRangeRevenuHorsCharge,
+  inputRangeRevenuChargeComprise,
+  inputNumberRevenuList,
+  incomeOnYear,
+  incomeOnYearCc,
+  containerChargeTaxe,
+  inputsNumberTaxe,
+  containerInputCfe,
+  containerInputNonDeductible,
+  containerInputDeductible,
+  chargeForfaitaireList,
+  chargeReelList,
+  inputNumberCopro,
+  inputNumberGestion,
+  inputNumberApno,
+  inputNumberAli,
+  inputNumberFoncier,
+  inputNumberHabitation,
+  inputNumberCfe,
+  inputNumberChargeNondeductible,
+  inputNumberChargeDeductible,
+  inputRangeCopro,
+  inputRangeGestion,
+  inputRangeApno,
+  inputRangeAli,
+  inputRangeFoncier,
+  inputRangeHabitation,
+  inputRangeCfe,
+  inputRangeChargeNondeductible,
+  inputRangeChargeDeductible,
+  titreRegimeImposition,
+  containerInputRadioFiscal,
+  containerInputFiscal,
+  inputRadioTauxMarginalDefault,
+  inputRadioRegimeReel,
+  inputRadioRegimeForfaitaire,
+  containerSimulation,
+  simulationTitre,
+  totalRevenuLocatifValue,
+  totalRevenuReferenceValue,
+  toltalChargeValue,
+  bilanAvantImpotValue,
+  assietteImposableDefinition,
+  assietteImposableValue,
+  assietteImposableTitre,
+  impotFoncierValue,
+  bilanApresImpositionValue,
+  coutMensuelTitre,
+  coutMensuelValue,
+  coutMensuelContainer,
+};

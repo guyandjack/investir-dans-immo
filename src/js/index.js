@@ -131,7 +131,7 @@ isToggleMoved();
 addEventOnPageLoading();
 
 // Enregistre le Service Worker uniquement en production / preview
-if ("serviceWorker" in navigator) {
+/*if ("serviceWorker" in navigator) {
   if (import.meta.env.PROD) {
     window.addEventListener("load", async () => {
       try {
@@ -154,8 +154,11 @@ if ("serviceWorker" in navigator) {
 }
 
 
+registerSW({ immediate: true });*/
 
-
-
-registerSW({ immediate: true });
-
+if (import.meta.env.PROD) {
+  // Après le premier rendu, pas immédiat
+  window.addEventListener("load", () => {
+    registerSW({ immediate: false });
+  });
+}

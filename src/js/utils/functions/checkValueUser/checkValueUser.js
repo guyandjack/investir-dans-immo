@@ -11,7 +11,7 @@ import {
   inputsNumberTaxe,
   resultat,
   resultatError,
-} from "../../refDOM/refDOM.js";
+} from "../../refDOM/refDomSimulator.js";
 
 /**
  *Determine si l'expression' entrée en parametre est un nombre.
