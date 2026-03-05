@@ -117,6 +117,8 @@ const ensureSimulatorReady = () => {
       import("./utils/functions/other/other-v2.js"),
     ]);
 
+    const { changeColor } = otherModule;
+
     const {
       initInputValue,
       initResultatFiscal,
@@ -160,7 +162,7 @@ const ensureSimulatorReady = () => {
       addEventOnButtonDownload,
       addEventOnIconInfo,
     } = addEventModule;
-    const { changeColor } = otherModule;
+    
 
     addEventOnBannerButton();
     addEventOnSimulateurButton();

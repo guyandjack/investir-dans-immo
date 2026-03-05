@@ -57,31 +57,31 @@ const calculatedValue = {
 
 const dataValueInit = {
   //mensualite
-  price: 200000,
-  rateAdvice: 20,
-  taeg: 4,
+  price: 0,
+  rateAdvice: 0,
+  taeg: 1,
   periode: 20,
 
   //type de location
   locationtype: "nue",
 
   //revenu
-  income: 666,
-  incomeCc: 833,
+  income: 0,
+  incomeCc: 0,
 
   //charges et taxes
-  copro: 1200,
-  rateGestion: 10,
-  apno: 200,
-  ali: 1000,
-  foncier: 1500,
-  habitation: 1200,
-  cfe: 500,
-  nondeductible: 2000,
-  deductible: 5000,
+  copro: 0,
+  rateGestion: 0,
+  apno: 0,
+  ali: 0,
+  foncier: 0,
+  habitation: 0,
+  cfe: 0,
+  nondeductible: 0,
+  deductible: 0,
 
   //taux marginal imposition
-  tauxImpotRevenu: 30,
+  tauxImpotRevenu: 0,
 
   //taux prelevement sociaux
   tauxImpoFoncier: 17.2,

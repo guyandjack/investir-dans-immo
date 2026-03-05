@@ -216,6 +216,21 @@
   border-width: 0;
 }
 
+.menu-footer{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+  
+}
+
+.menu-footer-li{
+  width: 100%;
+  text-align: center;
+  
+}
+
 @layer components {
   .list-li-a {
     @apply text-primary;
