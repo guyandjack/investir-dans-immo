@@ -6,6 +6,10 @@
     dim --prefersdark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
  .container-banner {
   position: relative;
   border-radius: 30px;
@@ -33,13 +37,29 @@
 }
 
 
-.btn-menu{
+.btn-menu
+{
   position: absolute;
   z-index: 20;
   top: 20px;
   left: 20px;
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .btn-menu-simulator {
+    position: fixed;
+    
+  }
+}
+
+@media (min-width: 992px) {
+  .btn-menu-simulator {
+    left: 15%;
+    
+  }
+}
+
 
 .btn-menu:not([open]) #icon-close{
   display: none;
@@ -92,7 +112,38 @@
   transition: all linear 0.2s;
 }
 
-.svg-icon-chevron-colapse,
+.svg-icon-arrow{
+  transform: rotateZ(-90deg);
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-details > summary,
+.article-subdetails > summary {
+  list-style: none;
+}
+
+.article-subdetails {
+  margin-left: 1rem;
+}
+
+.article-details svg,
+.article-subdetails svg {
+  transition: transform 0.25s ease;
+}
+
+.article-details[open] > summary svg,
+.article-subdetails[open] > summary svg {
+  transform: rotate(90deg);
+}
+
+/* .svg-icon-chevron-colapse,
 .svg-icon-chevron {
   transform: rotateZ(90deg);
   transition: all linear 0.2s;
@@ -101,7 +152,7 @@
 .chevron-up {
   transform: rotateZ(-90deg);
   transition: all linear 0.2s;
-}
+} */
 
 .main-container-input {
   width: 90%;

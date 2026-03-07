@@ -2,6 +2,7 @@
  * Références DOM du simulateur (formulaire, calculs, résultats)
  * Chargées uniquement lorsque le simulateur est initialisé.
  ****************************************************************************/
+const loader = document.querySelector(".container-loader");
 
 const inputNumberPrix = document.querySelector("input[name='number-prix']");
 const inputNumberApport = document.querySelector("input[name='number-apport']");
@@ -127,6 +128,7 @@ const coutMensuelValue = document.querySelector("#cout-mensuel-value");
 const coutMensuelContainer = document.querySelector("#cout-mensuel");
 
 export {
+  loader,
   inputNumberPrix,
   inputNumberApport,
   inputNumberTaeg,

@@ -9,7 +9,6 @@ import {
   inputNumberPrix,
   inputNumberRevenuList,
   inputsNumberTaxe,
-  resultat,
   resultatError,
 } from "../../refDOM/refDomSimulator.js";
 

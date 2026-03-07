@@ -3,11 +3,11 @@
  *
  * API (exports) identique à ton fichier actuel :
  *  addEventOnPageLoading,
- *  addEventOnBannerButton,
+ *  
  *  addEventOnSimulateurButton,
  *  addEventOnButtonDownload,
- *  addEventOnIconColapseArticle,
- *  addEventOnIconInfo,
+ *  
+ *  
  *  addEventOnInputDuty,
  *  addEventOnInputIncome,
  *  addEventOnInputMonthly,
@@ -22,20 +22,13 @@
  ****************************************************************************************/
 
 import {
+  containerLinkBanner,
   btnDownloadList,
-  btnSimulateur,
-  colapseForfaitaire1,
-  colapseForfaitaire2,
-  colapseReel1,
-  colapseReel2,
-  linkColapseForfaitaire1,
-  linkColapseForfaitaire2,
-  linkColapseReel1,
-  linkColapseReel2,
-  listOfButton,
-  loader,
+  
+  
 } from "../../refDOM/refDomUi.js";
 import {
+  loader,
   inputNumberApport,
   inputNumberDuree,
   inputNumberPrix,
@@ -47,20 +40,17 @@ import { calculatedValue } from "../../data/data.js";
 
 import {
   changeColor,
-  createElemntInfoBulle,
-  deleteElement,
+  
   displayChargeForfaitaire,
   displayChargeReel,
   displayInputCfe,
-  extendOrCloseColapseInArticle,
-  getIdOfParentElementHover,
+  
   hideChargeForfaitaire,
   hideChargeReel,
   hideInputCfe,
-  insertContentInfoBulle,
+  
   linkInput,
-  scrollToElement,
-  styleOfInfoBulle,
+  
 } from "../other/other-v2.js";
 
 import {
@@ -252,51 +242,27 @@ function addEventOnPageLoading() {
   setTimeout(hideLoader, 3000);
 }
 
-/* ------------------------- Banner / simulateur ------------------------- */
+/* ------------------------- Banner  ------------------------- */
 
-function addEventOnBannerButton() {
-  if (!listOfButton) return;
-  // Laisser comme avant (peu d’éléments)
-  listOfButton.forEach((btn) => {
-    btn.addEventListener("click", (evt) => {
-      const elementToScrollId = evt.target?.name;
-      if (!elementToScrollId) return;
 
-      const elementToScroll = document.querySelector("#" + elementToScrollId);
-      if (!elementToScroll) return;
 
-      scrollToElement(elementToScroll);
+function addEventOnLinkBanner() {
+  containerLinkBanner.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link) return;
 
-      const collapseElement = elementToScroll.querySelector(".colapse");
-      if (collapseElement?.classList?.contains("colapse-close")) {
-        collapseElement.classList.replace("colapse-close", "colapse-open");
-      }
+    const id = link.hash.slice(1);
 
-      const chevronTitle = elementToScroll.querySelector(
-        ".svg-icon-chevron-colapse",
-      );
-      chevronTitle?.classList?.toggle("chevron-up");
-    });
+    const details = document.querySelector(`#${id} details`);
+    if (!details) return;
+
+    details.open = true;
   });
 }
 
-function addEventOnSimulateurButton() {
-  if (!btnSimulateur) return;
-  btnSimulateur.addEventListener("click", (evt) => {
-    const elementToScrollId = evt.target?.name;
-    if (!elementToScrollId) return;
-
-    const elementToScroll = document.querySelector("#" + elementToScrollId);
-    if (!elementToScroll) return;
-
-    const y =
-      elementToScroll.getBoundingClientRect().top + window.pageYOffset - 200;
-
-    window.scrollTo({ top: y, behavior: "smooth" });
-  });
-}
 
 /* ------------------------- Inputs (delegation) ------------------------- */
+
 
 function addEventOnInputMonthly() {
   if (delegatedInputsMonthly) return;
@@ -443,88 +409,9 @@ function addEventOnInputRadioFiscal() {
   });
 }
 
-/* ------------------------- Articles / liens / download ------------------------- */
+/* -------------------------  download ------------------------- */
 
-function addEventOnIconColapseArticle() {
-  if (delegatedArticles) return;
-  delegatedArticles = true;
 
-  document.addEventListener("click", (e) => {
-    const titleArticle = e.target?.closest?.("h3.title-article");
-    if (!titleArticle) return;
-
-    const icon = titleArticle.firstElementChild;
-    const parent = titleArticle.parentElement;
-    const parentId = parent?.id;
-
-    // identifie les collapse enfants
-    let collapseEnfant1 = null;
-    let collapseEnfant2 = null;
-    let exist = false;
-
-    switch (parentId) {
-      case "article-imposition-1":
-        collapseEnfant1 = colapseForfaitaire1;
-        collapseEnfant2 = colapseReel1;
-        exist = true;
-        break;
-      case "article-imposition-2":
-        collapseEnfant1 = colapseForfaitaire2;
-        collapseEnfant2 = colapseReel2;
-        exist = true;
-        break;
-      default:
-        break;
-    }
-
-    const colapseElement = parent?.querySelector?.("div.colapse");
-    if (!colapseElement) return;
-
-    icon?.classList?.toggle("chevron-up");
-
-    if (colapseElement.classList.contains("colapse-close")) {
-      colapseElement.classList.replace("colapse-close", "colapse-open");
-      return;
-    }
-
-    if (colapseElement.classList.contains("colapse-open")) {
-      if (exist) {
-        if (collapseEnfant1?.classList?.contains("colapse-article-open")) {
-          collapseEnfant1.classList.replace(
-            "colapse-article-open",
-            "colapse-article-close",
-          );
-          colapseElement.classList.remove("colapse-grow");
-        }
-        if (collapseEnfant2?.classList?.contains("colapse-article-open")) {
-          collapseEnfant2.classList.replace(
-            "colapse-article-open",
-            "colapse-article-close",
-          );
-          colapseElement.classList.remove("colapse-grow");
-        }
-      }
-      colapseElement.classList.replace("colapse-open", "colapse-close");
-      return;
-    }
-  });
-}
-
-function addEventOnLinkArticle() {
-  // On garde ta logique (4 liens), mais on la met safe (null checks)
-  linkColapseForfaitaire1?.addEventListener("click", (e) => {
-    extendOrCloseColapseInArticle(e);
-  });
-  linkColapseForfaitaire2?.addEventListener("click", (e) => {
-    extendOrCloseColapseInArticle(e);
-  });
-  linkColapseReel1?.addEventListener("click", (e) => {
-    extendOrCloseColapseInArticle(e);
-  });
-  linkColapseReel2?.addEventListener("click", (e) => {
-    extendOrCloseColapseInArticle(e);
-  });
-}
 
 function addEventOnButtonDownload() {
   if (delegatedDownloads) return;
@@ -541,52 +428,21 @@ function addEventOnButtonDownload() {
   });
 }
 
-/* ------------------------- Info bulles (optionnel) ------------------------- */
 
-function addEventOnIconInfo() {
-  // Tu l'avais commenté chez toi (probablement pas critique).
-  // On garde la même implémentation, mais on évite de faire trop au chargement :
-  // On délègue sur document.
-  document.addEventListener("mouseover", (evt) => {
-    const icon = evt.target?.closest?.(".svg-icon-info");
-    if (!icon) return;
-
-    const id = getIdOfParentElementHover(evt);
-    if (!id) return;
-
-    createElemntInfoBulle("#" + id)
-      .then((element) => {
-        const ele = insertContentInfoBulle(element, id);
-        styleOfInfoBulle(ele);
-      })
-      .catch((e) => console.log("error: " + e));
-  });
-
-  document.addEventListener("mouseout", (evt) => {
-    const icon = evt.target?.closest?.(".svg-icon-info");
-    if (!icon) return;
-
-    const id = getIdOfParentElementHover(evt);
-    if (!id) return;
-
-    deleteElement(id);
-  });
-}
 
 /* ------------------------- Exports (API identique) ------------------------- */
 
 export {
   addEventOnPageLoading,
-  addEventOnBannerButton,
-  addEventOnSimulateurButton,
+  
+  addEventOnLinkBanner,
   addEventOnButtonDownload,
-  addEventOnIconColapseArticle,
-  addEventOnIconInfo,
+  
   addEventOnInputDuty,
   addEventOnInputIncome,
   addEventOnInputMonthly,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnInputRadioTypeLocation,
-  addEventOnLinkArticle,
+  
 };

@@ -44,8 +44,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, "index.html"),
-        cgu: path.resolve(__dirname, "html/cgu.html"),
+        simulateur: path.resolve(__dirname, "html/simulateur-rentabilite-locative.html"),
         contact: path.resolve(__dirname, "html/contact.html"),
+        cgu: path.resolve(__dirname, "html/cgu.html"),
         politique: path.resolve(
           __dirname,
           "html/politique-de-confidentialite.html",

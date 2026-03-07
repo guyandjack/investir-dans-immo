@@ -1,13 +1,3 @@
-import { urlLink } from "@/js/utils/data/content/urlLink.js";
-import {
-  footerLinkAccueil,
-  footerLinkCGU,
-  footerLinkContact,
-  footerLinkMention,
-  footerLinkPolitique,
-  navLinkAccueil,
-  navLinkContact,
-} from "../../refDOM/refDomUi.js";
 
 const themeDark = "dim";
 const themeClear = "winter";
@@ -42,16 +32,43 @@ const getToggleSwap = () => {
   return toggleRefs.swap;
 };
 
-function setLinkUrl() {
-  navLinkAccueil?.setAttribute("href", urlLink.accueil);
-  navLinkContact?.setAttribute("href", urlLink.contact);
+/* const queryHeaderLinks = () => ({
+  navAccueil: document.querySelector("#nav-lien-accueil"),
+  navContact: document.querySelector("#nav-lien-contact"),
+  simulateurButtons: document.querySelectorAll(".btn-simulateur"),
+});
 
-  footerLinkAccueil?.setAttribute("href", urlLink.accueil);
-  footerLinkContact?.setAttribute("href", urlLink.contact);
-  footerLinkCGU?.setAttribute("href", urlLink.cgu);
-  footerLinkPolitique?.setAttribute("href", urlLink.politique);
-  footerLinkMention?.setAttribute("href", urlLink.mention);
+const queryFooterLinks = () => ({
+  accueil: document.querySelector("#footer-lien-accueil"),
+  contact: document.querySelector("#footer-lien-contact"),
+  cgu: document.querySelector("#footer-lien-cgu"),
+  politique: document.querySelector("#footer-lien-politique"),
+  mention: document.querySelector("#footer-lien-mention"),
+});
+
+function setLinkUrlNav() {
+  const { navAccueil, navContact, simulateurButtons } = queryHeaderLinks();
+  navAccueil?.setAttribute("href", urlLink.accueil);
+  navContact?.setAttribute("href", urlLink.contact);
+  simulateurButtons?.forEach((link) => {
+    link.setAttribute("href", urlLink.simulateur);
+  });
 }
+
+function setLinkUrlFooter() {
+  const { accueil, contact, cgu, politique, mention } = queryFooterLinks();
+  accueil?.setAttribute("href", urlLink.accueil);
+  contact?.setAttribute("href", urlLink.contact);
+  cgu?.setAttribute("href", urlLink.cgu);
+  politique?.setAttribute("href", urlLink.politique);
+  mention?.setAttribute("href", urlLink.mention);
+}
+
+function setLinkUrl() {
+  setLinkUrlNav();
+  setLinkUrlFooter();
+} */
+
 
 function storeThemeColor() {
   const checkbox = getToggleCheckbox();
@@ -71,7 +88,7 @@ function useThemeColor() {
   }
 }
 
-function isToggleMoved() {
+/* function isToggleMoved() {
   const switchToggle = getToggleSwitch();
   if (!switchToggle) return;
 
@@ -86,7 +103,7 @@ function isToggleMoved() {
   if (switchToggle.classList.contains("move")) {
     switchToggle.classList.remove("move");
   }
-}
+} */
 
 let toggleSwitchListenerAttached = false;
 
@@ -101,4 +118,11 @@ function eventToggleSwitch() {
   });
 }
 
-export { setLinkUrl, eventToggleSwitch, useThemeColor, isToggleMoved };
+export {
+  //setLinkUrl,
+  //setLinkUrlNav,
+  //setLinkUrlFooter,
+  eventToggleSwitch,
+  useThemeColor,
+  //isToggleMoved,
+};

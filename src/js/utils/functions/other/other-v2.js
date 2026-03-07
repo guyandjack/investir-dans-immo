@@ -1,7 +1,6 @@
 // Version optimisée pour limiter les accès DOM répétitifs et les longs tasks
-import { infoBulleCalculMensualite } from "../../data/content/infoBulle.js";
-import { urlLink } from "@/js/utils/data/content/urlLink.js";
-import {
+
+/* import {
   collapseRang1LocationMeuble,
   collapseRang1LocationNue,
   colapseForfaitaire1,
@@ -15,7 +14,7 @@ import {
   footerLinkPolitique,
   navLinkAccueil,
   navLinkContact,
-} from "../../refDOM/refDomUi.js";
+} from "../../refDOM/refDomUi.js"; */
 import {
   chargeForfaitaireList,
   chargeReelList,
@@ -76,7 +75,7 @@ const changeBlockState = (list, from, to) => {
   list.forEach((item) => toggleClass(item, from, to));
 };
 
-const collapseConfig = {
+/* const collapseConfig = {
   "forfaitaire-a": {
     selected: colapseForfaitaire1,
     parent: collapseRang1LocationNue,
@@ -97,7 +96,7 @@ const collapseConfig = {
     parent: collapseRang1LocationMeuble,
     sibling: colapseForfaitaire2,
   },
-};
+}; */
 
 const toggleRefs = {
   checkbox: null,
@@ -143,16 +142,7 @@ const safeNumber = (value) => {
   return Number.isFinite(parsed) ? parsed : 0;
 };
 
-function setLinkUrl() {
-  navLinkAccueil?.setAttribute("href", urlLink.accueil);
-  navLinkContact?.setAttribute("href", urlLink.contact);
 
-  footerLinkAccueil?.setAttribute("href", urlLink.accueil);
-  footerLinkContact?.setAttribute("href", urlLink.contact);
-  footerLinkCGU?.setAttribute("href", urlLink.cgu);
-  footerLinkPolitique?.setAttribute("href", urlLink.politique);
-  footerLinkMention?.setAttribute("href", urlLink.mention);
-}
 
 let lastColorApplied = "";
 
@@ -294,7 +284,7 @@ async function displayAElement(selector) {
 async function InsertTextInAElement(selector, text) {
   const element = getCachedElement(selector);
   if (!element) return false;
-  element.innerHTML = text;
+  element.textContent = text;
   return true;
 }
 
@@ -304,7 +294,7 @@ function getIdOfParentElementHover(evt) {
   return parent?.id ?? null;
 }
 
-async function createElemntInfoBulle(idInsertion) {
+/* async function createElemntInfoBulle(idInsertion) {
   const insertionPoint = getCachedElement(idInsertion);
   if (!insertionPoint) return null;
 
@@ -343,9 +333,9 @@ function insertContentInfoBulle(element, refContent) {
   paraList[2] && (paraList[2].textContent = content["contenu3"]);
 
   return element;
-}
+} */
 
-function deleteElement(elementId) {
+/* function deleteElement(elementId) {
   if (!elementId) return;
   const parent = getCachedElement(`#${elementId}`);
   const infobulle = parent?.querySelector(".info-bulle:last-child")
@@ -354,9 +344,9 @@ function deleteElement(elementId) {
   if (infobulle?.classList?.contains("info-bulle")) {
     infobulle.remove();
   }
-}
+} */
 
-function moveSwitch() {
+/* function moveSwitch() {
   const switchToggle = getToggleSwitch();
   if (!switchToggle) return;
 
@@ -368,9 +358,9 @@ function moveSwitch() {
 
   switchToggle.classList.add("move");
   localStorage.setItem("toggle", "ok");
-}
+} */
 
-function isToggleMoved() {
+/* function isToggleMoved() {
   const switchToggle = getToggleSwitch();
   if (!switchToggle) return;
 
@@ -385,13 +375,13 @@ function isToggleMoved() {
   if (switchToggle.classList.contains("move")) {
     switchToggle.classList.remove("move");
   }
-}
+} */
 
-function changeTextToggle(text) {
+/* function changeTextToggle(text) {
   const textToggle = getToggleText();
   if (!textToggle) return;
   textToggle.textContent = text;
-}
+} */
 
 function storeThemeColor() {
   const checkbox = getToggleCheckbox();
@@ -424,7 +414,7 @@ function eventToggleSwitch() {
   });
 }
 
-function extendOrCloseColapseInArticle(e) {
+/* function extendOrCloseColapseInArticle(e) {
   const elementLiId = e?.currentTarget?.id;
   if (!elementLiId) return;
 
@@ -467,29 +457,29 @@ function extendOrCloseColapseInArticle(e) {
       "colapse-article-close",
     );
   }
-}
+} */
 
-function scrollToElement(elementToScroll) {
+/* function scrollToElement(elementToScroll) {
   elementToScroll?.scrollIntoView({
     behavior: "smooth",
     block: "center",
     inline: "nearest",
   });
-}
+} */
 
 export {
-  setLinkUrl,
+  //setLinkUrl,
   InsertTextInAElement,
   changeColor,
-  createElemntInfoBulle,
-  deleteElement,
+  //createElemntInfoBulle,
+  //deleteElement,
   displayAElement,
   displayChargeForfaitaire,
   displayChargeReel,
   displayInputCfe,
   displayInputRadioRegimeFiscal,
   eventToggleSwitch,
-  extendOrCloseColapseInArticle,
+  //extendOrCloseColapseInArticle,
   getIdOfParentElementHover,
   getLocationType,
   getTauxMarginalImposition,
@@ -498,10 +488,10 @@ export {
   hideChargeReel,
   hideInputCfe,
   hideInputRadioRegimeFiscal,
-  insertContentInfoBulle,
-  isToggleMoved,
+  //insertContentInfoBulle,
+  //isToggleMoved,
   linkInput,
-  scrollToElement,
-  styleOfInfoBulle,
+  //scrollToElement,
+  //styleOfInfoBulle,
   useThemeColor,
 };

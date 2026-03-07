@@ -5,10 +5,8 @@
 //import des functions
 import {
   eventToggleSwitch,
-  isToggleMoved,
-  setLinkUrl,
   useThemeColor,
-} from "./utils/functions/other/other.js";
+} from "./utils/functions/other/other-ui-v2.js";
 
 import { getRuntimeEnv } from "../js/utils/functions/getRuntimeEnv/getRuntimeEnv.js";
 
@@ -452,7 +450,6 @@ function addEventControlOnInput() {
 }
 
 /*************************** script principal **************************/
-setLinkUrl();
 addEventControlOnInput();
 useThemeColor();
-isToggleMoved();
+

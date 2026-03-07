@@ -4,14 +4,13 @@
 
 //import des functions
 import {
-  setLinkUrl,
   eventToggleSwitch,
   useThemeColor,
-} from "./utils/functions/other/other.js";
+} from "./utils/functions/other/other-ui-v2.js";
 
 /***************** script principal ************************ */
 
 //switch dark mode
-setLinkUrl();
+
 eventToggleSwitch();
 useThemeColor();
