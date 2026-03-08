@@ -60,6 +60,11 @@
           <path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
         </g>
 
+        <!-- helper dropdown icon -->
+        <symbol id="icon-helper" viewBox="0 0 24 24" fill="none">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </symbol>
+
         <!-- chevron collapse -->
         <g id="icon-chevron">
           <path d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z"></path>
@@ -131,27 +136,24 @@
           <h4 class="w-full text-xl font-semibold text-secondary text-center">Evaluer votre rentabilité locative</h4>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
             <div id="financement" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Montant du
+              <label for="input-financement" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Montant du
                 projet:</label>
-              <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button" popovertarget="popover-help-financement" popovertargetaction="toggle">
-                <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                  <use xlink:href="#icon-info" fill="currentColor"></use>
-                </svg>
-              </button>
-              <div id="popover-help-financement" class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left" popover="auto">
-                <h5 class="title-h5">Le projet à financer</h5>
-                <div class="cont-text">
-                  est le montant total financé par votre emprunt bancaire, il
-                  comprend généralement, le prix du bien, les montants des
-                  travaux, les frais de notaire, frais d'hypothèque, etc....
+              <div class="dropdown dropdown-bottom dropdown-center">
+                <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-primary border border-base-200">
+                  <svg class="h-4 w-4 stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <use xlink:href="#icon-helper"></use>
+                  </svg>
                 </div>
-                <button class="btn-popover btn-close btn btn-error btn-xs btn-circle text-base-100 absolute top-2 right-2" type="button" popovertarget="popover-help-financement" popovertargetaction="hide">
-                  X
-                </button>
+                <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
+                  <div class="card-body text-left text-sm space-y-2">
+                    <h5 class="card-title text-sm font-semibold text-base-content">Le projet à financer</h5>
+                    <p>est le montant total financé par votre emprunt bancaire, il comprend généralement le prix du bien, les montants des travaux, les frais de notaire, frais d'hypothèque, etc.</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="container-input-number input-valid">
-              <input id="input-financement" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-prix" max="1000000" min="0" step="1000" required="">
+              <input id="input-financement" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-prix" max="1000000" min="0" step="1000" required="">
               <span id="price" class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€</span>
             </div>
             <div id="error-financement" class="error-input text-error text-sm min-h-5"></div>
@@ -162,27 +164,24 @@
           </div>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
             <div id="apport" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Apport personnel
+              <label for="input-apport" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Apport personnel
                 :</label>
-              <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button" popovertarget="popover-help-apport" popovertargetaction="toggle">
-                <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                  <use xlink:href="#icon-info" fill="currentColor"></use>
-                </svg>
-              </button>
-              <div id="popover-help-apport" class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left" popover="auto">
-                <h5 class="title-h5">L'apport personnel</h5>
-                <div class="cont-text">
-                  désigne la somme investie dans le projet sans avoir recours à
-                  un crédit bancaire. Concrètement, il s'agit de la somme
-                  disponible immédiatement.
+              <div class="dropdown dropdown-bottom dropdown-center">
+                <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-primary border border-base-200">
+                  <svg class="h-4 w-4 stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <use xlink:href="#icon-helper"></use>
+                  </svg>
                 </div>
-                <button class="btn-popover btn-close btn btn-error btn-xs btn-circle text-base-100 absolute top-2 right-2" type="button" popovertarget="popover-help-apport" popovertargetaction="hide">
-                  X
-                </button>
+                <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
+                  <div class="card-body text-left text-sm space-y-2">
+                    <h5 class="card-title text-sm font-semibold text-base-content">L'apport personnel</h5>
+                    <p>désigne la somme investie dans le projet sans avoir recours à un crédit bancaire. Concrètement, il s'agit de la somme disponible immédiatement.</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="container-input-number input-valid">
-              <input id="input-apport" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-apport" max="1000000" min="0" step="1000" required="">
+              <input id="input-apport" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-apport" max="1000000" min="0" step="1000" required="">
               <span id="gain" class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€</span>
             </div>
             <div id="error-apport" class="error-input text-error text-sm min-h-5"></div>
@@ -194,29 +193,24 @@
           </div>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
             <div id="taeg" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taux annuel effectif
+              <label for="input-taeg" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taux annuel effectif
                 global:</label>
-              <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button" popovertarget="popover-help-taeg" popovertargetaction="toggle">
-                <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                  <use xlink:href="#icon-info" fill="currentColor"></use>
-                </svg>
-              </button>
-              <div id="popover-help-taeg" class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left" popover="auto">
-                <h5 class="title-h5">Le TAEG</h5>
-                <div class="cont-text">
-                  est le Taux Annuel Effectif Global. Il prend en compte la
-                  totalité des frais occasionnés par un prêt. Il comprend les
-                  intérêts bancaires,frais de dossier, frais de courtier, coût
-                  de l'assurance emprunteur, frais de garanties (hypothèque ou
-                  cautionnement),etc....
+              <div class="dropdown dropdown-bottom dropdown-center">
+                <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-primary border border-base-200">
+                  <svg class="h-4 w-4 stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <use xlink:href="#icon-helper"></use>
+                  </svg>
                 </div>
-                <button class="btn-popover btn-close btn btn-error btn-xs btn-circle text-base-100 absolute top-2 right-2" type="button" popovertarget="popover-help-taeg" popovertargetaction="hide">
-                  X
-                </button>
+                <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
+                  <div class="card-body text-left text-sm space-y-2">
+                    <h5 class="card-title text-sm font-semibold text-base-content">Le TAEG</h5>
+                    <p>est le Taux Annuel Effectif Global. Il prend en compte la totalité des frais occasionnés par un prêt&nbsp;: intérêts bancaires, frais de dossier, frais de courtier, coût de l'assurance emprunteur, frais de garanties (hypothèque ou cautionnement), etc.</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="container-input-number input-valid">
-              <input id="input-taeg" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-taeg" max="8" min="0.1" step="0.01" required="">
+              <input id="input-taeg" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-taeg" max="8" min="0.1" step="0.01" required="">
               <span id="rate" class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">%</span>
             </div>
             <div id="error-taeg" class="error-input text-error text-sm min-h-5"></div>
@@ -227,10 +221,10 @@
           </div>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
             <div id="duree" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Durée:</label>
+              <label for="input-duree" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Durée:</label>
             </div>
             <div class="container-input-number input-valid">
-              <input id="input-duree" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-duree" min="2" max="35" step="1" required="">
+              <input id="input-duree" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-duree" min="2" max="35" step="1" required="">
               <span id="periode" class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">Ans</span>
             </div>
             <div id="error-duree" class="error-input text-error text-sm min-h-5"></div>
@@ -273,21 +267,18 @@
         <fieldset id="type-location" class="flex-column-start-start fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
           <div id="type" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <h3 class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Type de location</h3>
-            <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button" popovertarget="popover-help-type" popovertargetaction="toggle">
-              <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-info" fill="currentColor"></use>
-              </svg>
-            </button>
-            <div id="popover-help-type" class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left" popover="auto">
-              <h4 class="title-h5">Le type de location</h4>
-              <div class="cont-text">
-                a pour effet de modifer le revenu locatif de référence pour le
-                calcul de l'impot foncier, la CFE est redevable dans certains
-                cas...
+            <div class="dropdown dropdown-bottom dropdown-center">
+              <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-primary border border-base-200">
+                <svg class="h-4 w-4 stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <use xlink:href="#icon-helper"></use>
+                </svg>
               </div>
-              <button class="btn-popover btn-close btn btn-error btn-xs btn-circle text-base-100 absolute top-2 right-2" type="button" popovertarget="popover-help-type" popovertargetaction="hide">
-                X
-              </button>
+              <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
+                <div class="card-body text-left text-sm space-y-2">
+                  <h5 class="card-title text-sm font-semibold text-base-content">Le type de location</h5>
+                  <p>a pour effet de modifier le revenu locatif de référence pour le calcul de l'impôt foncier. La CFE est redevable dans certains cas.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div id="location-type-container-radio" class="main-container-input-radio grid gap-4 md:grid-cols-2">
@@ -334,21 +325,18 @@
           <div id="regime" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
             <h3 id="title-regime-fiscal" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">
               Choix du régime d'imposition</h3>
-            <button class="btn-popover btn btn-circle btn-ghost btn-xs text-primary border border-base-200" type="button" popovertarget="popover-help-fiscal" popovertargetaction="toggle">
-              <svg class="svg-icon-info" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-info" fill="currentColor"></use>
-              </svg>
-            </button>
-            <div id="popover-help-fiscal" class="popover w-[400px] top-[50%] left-[50%] rounded-2xl border border-base-200 bg-base-100 shadow-2xl p-4 space-y-3 text-sm text-left" popover="auto">
-              <h4 class="title-h5">Le régime d'imposition</h4>
-              <div class="cont-text">
-                détermine la façon dont vous serez imposé sur vos revenus
-                locatifs. Abattement forfaitaire ou charges déductibles déduit
-                des revenus locatifs.
+            <div class="dropdown dropdown-bottom dropdown-center">
+              <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-primary border border-base-200">
+                <svg class="h-4 w-4 stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <use xlink:href="#icon-helper"></use>
+                </svg>
               </div>
-              <button class="btn-popover btn-close btn btn-error btn-xs btn-circle text-base-100 absolute top-2 right-2" type="button" popovertarget="popover-help-fiscal" popovertargetaction="hide">
-                X
-              </button>
+              <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
+                <div class="card-body text-left text-sm space-y-2">
+                  <h5 class="card-title text-sm font-semibold text-base-content">Le régime d'imposition</h5>
+                  <p>détermine la façon dont vous serez imposé sur vos revenus locatifs&nbsp;: abattement forfaitaire ou charges déductibles retranchées des revenus locatifs.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div id="regime-fiscal-container-radio" class="main-container-input-radio grid gap-4 md:grid-cols-2 display">
@@ -365,9 +353,9 @@
         <fieldset id="revenu-locatif" class="flex flex-col justify-start items-center fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
           <h3 class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Revenus locatifs</h3>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label id="label-revenu" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Loyer hors charge</label>
+            <label id="label-revenu" for="input-revenu-hors-charge" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Loyer hors charge</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-revenu_hors_charge" max="10000" min="0" step="1" required="">
+              <input id="input-revenu-hors-charge" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-revenu_hors_charge" max="10000" min="0" step="1" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / Mois</span>
             </div>
             <div class="income-year text-xs text-base-content/70 italic"></div>
@@ -379,10 +367,10 @@
             <div id="error-revenu" class="error-input text-error text-sm min-h-5"></div>
           </div>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label id="label-revenu-cc" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Loyer charges
+            <label id="label-revenu-cc" for="input-revenu-charge-comprise" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Loyer charges
               comprises</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-revenu_charge_comprise" max="10000" min="0" step="1" required="">
+              <input id="input-revenu-charge-comprise" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-revenu_charge_comprise" max="10000" min="0" step="1" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / Mois</span>
             </div>
             <div class="income-year-cc text-xs text-base-content/70 italic"></div>
@@ -398,10 +386,10 @@
             Charges et taxes<span> <sup>(1)</sup></span>
           </h3>
           <div class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges de
+            <label for="input-copro" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges de
               coproprieté</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-copro" max="30000" min="0" step="100" required="">
+              <input id="input-copro" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-copro" max="30000" min="0" step="100" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-copro" class="error-input text-error text-sm min-h-5"></div>
@@ -411,10 +399,10 @@
             </div>
           </div>
           <div class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Gestion locative
+            <label for="input-gestion" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Gestion locative
             </label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-gestion" max="3000" min="0" step="50" required="">
+              <input id="input-gestion" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-gestion" max="3000" min="0" step="50" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-gestion" class="error-input text-error text-sm min-h-5"></div>
@@ -425,11 +413,11 @@
           </div>
           <div class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
             <div id="apno" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Assurance
+              <label for="input-apno" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Assurance
                 propriétaire non occupant</label>
             </div>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-apno" max="1000" min="0" step="50" required="">
+              <input id="input-apno" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-apno" max="1000" min="0" step="50" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-apno" class="error-input text-error text-sm min-h-5"></div>
@@ -439,10 +427,10 @@
             </div>
           </div>
           <div class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Assurance loyers
+            <label for="input-ali" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Assurance loyers
               impayés</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-ali" max="2000" min="0" step="50" required="">
+              <input id="input-ali" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-ali" max="2000" min="0" step="50" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-ali" class="error-input text-error text-sm min-h-5"></div>
@@ -452,9 +440,9 @@
             </div>
           </div>
           <div class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe foncière</label>
+            <label for="input-foncier" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe foncière</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-foncier" max="10000" min="0" step="100" required="">
+              <input id="input-foncier" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-foncier" max="10000" min="0" step="100" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-foncier" class="error-input text-error text-sm min-h-5"></div>
@@ -464,10 +452,10 @@
             </div>
           </div>
           <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe
+            <label for="input-habitation" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Taxe
               d'habitation</label>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-habitation" max="10000" min="0" step="100" required="">
+              <input id="input-habitation" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-habitation" max="10000" min="0" step="100" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-habitation" class="error-input text-error text-sm min-h-5"></div>
@@ -478,11 +466,11 @@
           </div>
           <div id="impot-cfe-container-input" class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
             <div id="cfe" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Contribution
+              <label for="input-cfe" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Contribution
                 fonciére des entreprises</label>
             </div>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-cfe" max="3000" min="0" value="500" step="100" required="">
+              <input id="input-cfe" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-cfe" max="3000" min="0" value="500" step="100" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-cfe" class="error-input text-error text-sm min-h-5"></div>
@@ -493,11 +481,11 @@
           </div>
           <div id="charge-non-deductible" class="main-container-input charge-reel  grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
             <div id="autrecharge" class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Autres charges non
+              <label for="input-nondeductible" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Autres charges non
                 déductibles</label>
             </div>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-nondeductible" max="10000" min="0" step="500" required="">
+              <input id="input-nondeductible" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-nondeductible" max="10000" min="0" step="500" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-nondeductible" class="error-input text-error text-sm min-h-5"></div>
@@ -508,11 +496,11 @@
           </div>
           <div id="charge-deductible" class="main-container-input charge-reel  grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
             <div class="container-label flex-row-start-center flex items-center gap-3 text-sm font-semibold text-base-content">
-              <label class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges déductibles
+              <label for="input-deductible" class="label text-sm font-semibold uppercase tracking-wide text-base-content/70">Charges déductibles
                 (dont amortissements)</label>
             </div>
             <div class="container-input-number flex items-center gap-3 w-full">
-              <input class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-right" type="number" name="number-deductible" max="10000" min="0" step="500" required="">
+              <input id="input-deductible" class="calculette-number input input-bordered input-primary w-full text-lg font-semibold text-center" type="number" name="number-deductible" max="10000" min="0" step="500" required="">
               <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ / An</span>
             </div>
             <div id="error-deductible" class="error-input text-error text-sm min-h-5"></div>

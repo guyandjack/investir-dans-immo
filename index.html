@@ -3,12 +3,28 @@
 
 <head>
 
+    <!--preload du css non blocant, pour ensuite applique le css une fois chargé-->
+    <link rel="preload" href="/src/style/main.css" as="style" onload="this.rel='stylesheet'">
+
     <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-    <link rel="preload" as="image" href="/assets/cabane-lac-1000px.webp" fetchpriority="high" imagesrcset="
-        /assets/cabane-lac-500px.webp 500w,
-        /assets/cabane-lac-1000px.webp 1000w,
-        /assets/cabane-lac-2000px.webp 2000w
-      " imagesizes="(max-width: 1000px) 100vw, 1000px" />
+    <link rel="preload" as="image" href="/assets/cabane-lac-mobile-800px.webp" fetchpriority="high"
+        media="(max-width: 639px)" imagesrcset="
+        /assets/cabane-lac-mobile-400px.webp 400w,
+        /assets/cabane-lac-mobile-500px.webp 500w,
+        /assets/cabane-lac-mobile-600px.webp 600w,
+        /assets/cabane-lac-mobile-700px.webp 700w,
+        /assets/cabane-lac-mobile-800px.webp 800w,
+      " imagesizes="100vw" />
+    
+    <link rel="preload" as="image" href="/assets/cabane-lac-desk-1000px.webp" fetchpriority="high"
+        media="(min-width: 640px)" imagesrcset="
+        /assets/cabane-lac-desk-700px.webp 700w,
+        /assets/cabane-lac-desk-800px.webp 800w,
+        /assets/cabane-lac-desk-900px.webp 900w,
+        /assets/cabane-lac-desk-1000px.webp 1000w,
+        /assets/cabane-lac-desk-1400px.webp 1400w,
+        /assets/cabane-lac-desk-2000px.webp 2000w
+      " imagesizes="100vw" />
     <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
     <meta name="description"
         content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
@@ -31,7 +47,9 @@
 
 
     <!-- Feuilles de style-->
+     <noscript>
     <link rel="stylesheet" href="/src/style/main.css">
+     </noscript>
 
     <!--script principal-->
     <script type="module" src="/src/js/index.js"></script>
@@ -79,20 +97,32 @@
             </g>
         </defs>
     </svg>
-    <div class="container-page flex flex-col justify-start items-center gap-10 p-4 lg:px-16">
-        <!-- <aside class="container-loader flex-row-center-center flex">
-        <div class="loader"></div>
-        <span class="loader-text">Chargement...</span>
-      </aside> -->
-        <header>
+    <div class="container-page flex flex-col justify-start items-center gap-10 lg:px-16 ">
+        
+        <header class="min-w-0">
             <div
-                class="container-banner w-full h-screen md:h-[600px] flex flex-col justify-evenly items-center shadow-2xl px-4">
-                <img class="hero-img" src="/assets/cabane-lac-1000px.webp" srcset="
-              /assets/cabane-lac-500px.webp 500w,
-              /assets/cabane-lac-1000px.webp 1000w,
-              /assets/cabane-lac-2000px.webp 2000w
-            " sizes="(max-width: 1000px) 100vw, 1000px" alt="Cabane au bord du lac" fetchpriority="high"
-                    decoding="async">
+                class="container-banner min-w-0 aspect-[9/16] sm:aspect-[16/9] min-h-screen md:min-h-0 shadow-2xl flex flex-col justify-evenly items-center">
+                <picture class="absolute inset-0 block w-full h-full">
+                    <source media="(min-width: 640px)" srcset="
+                        /assets/cabane-lac-desk-700px.webp 700w,
+                        /assets/cabane-lac-desk-800px.webp 800w,
+                        /assets/cabane-lac-desk-900px.webp 900w,
+                        /assets/cabane-lac-desk-1000px.webp 1000w,
+                        /assets/cabane-lac-desk-1400px.webp 1400w,
+                        /assets/cabane-lac-desk-2000px.webp 2000w
+                      " sizes="100vw" type="image/webp" />
+                
+                    <source media="(max-width: 639px)" srcset="
+                        /assets/cabane-lac-mobile-400px.webp 400w,
+                        /assets/cabane-lac-mobile-500px.webp 500w,
+                        /assets/cabane-lac-mobile-600px.webp 600w,
+                        /assets/cabane-lac-mobile-700px.webp 700w,
+                        /assets/cabane-lac-mobile-800px.webp 800w,
+                      " sizes="100vw" type="image/webp" />
+                
+                    <img class="hero-img" src="/assets/cabane-lac-mobile-800px.webp"
+                        alt="Cabane au bord du lac" fetchpriority="high" decoding="async" width="800" height="1421" />
+                </picture>
                 <nav>
 
                     <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
@@ -154,7 +184,7 @@
                         réalité
                     </h2>
                 </div>
-                <ul class="introduction-banner flex flex-wrap items-center justify-center gap-4 w-full">
+                <ul class="introduction-banner flex flex-wrap items-center justify-center gap-4 w-full px-10">
                     <li>
                         <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
                             href="#article-taeg">
@@ -201,7 +231,7 @@
                 </a>
             </div>
         </header>
-        <div class="container-introduction-text prose prose-base max-w-4xl w-full text-base-content/80 space-y-4">
+        <div class="text-base-content/80 space-y-4 px-4">
             <p class="introduction-text">
                 Investir dans l'immobilier, est-ce le bon choix? Une
                 <strong>rente locative</strong>, oui mais à quelle condition? Les

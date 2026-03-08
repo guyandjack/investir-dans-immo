@@ -1,20 +1,6 @@
 // Version optimisée pour limiter les accès DOM répétitifs et les longs tasks
 
-/* import {
-  collapseRang1LocationMeuble,
-  collapseRang1LocationNue,
-  colapseForfaitaire1,
-  colapseForfaitaire2,
-  colapseReel1,
-  colapseReel2,
-  footerLinkAccueil,
-  footerLinkCGU,
-  footerLinkContact,
-  footerLinkMention,
-  footerLinkPolitique,
-  navLinkAccueil,
-  navLinkContact,
-} from "../../refDOM/refDomUi.js"; */
+
 import {
   chargeForfaitaireList,
   chargeReelList,
@@ -75,28 +61,7 @@ const changeBlockState = (list, from, to) => {
   list.forEach((item) => toggleClass(item, from, to));
 };
 
-/* const collapseConfig = {
-  "forfaitaire-a": {
-    selected: colapseForfaitaire1,
-    parent: collapseRang1LocationNue,
-    sibling: colapseReel1,
-  },
-  "reel-a": {
-    selected: colapseReel1,
-    parent: collapseRang1LocationNue,
-    sibling: colapseForfaitaire1,
-  },
-  "forfaitaire-b": {
-    selected: colapseForfaitaire2,
-    parent: collapseRang1LocationMeuble,
-    sibling: colapseReel2,
-  },
-  "reel-b": {
-    selected: colapseReel2,
-    parent: collapseRang1LocationMeuble,
-    sibling: colapseForfaitaire2,
-  },
-}; */
+
 
 const toggleRefs = {
   checkbox: null,
@@ -113,13 +78,13 @@ const getToggleCheckbox = () => {
   return toggleRefs.checkbox;
 };
 
-const getToggleSwitch = () => {
+/* const getToggleSwitch = () => {
   if (toggleRefs.switch && toggleRefs.switch.isConnected) {
     return toggleRefs.switch;
   }
   toggleRefs.switch = document.querySelector(".switch");
   return toggleRefs.switch;
-};
+}; */
 
 const getToggleSwap = () => {
   if (toggleRefs.swap && toggleRefs.swap.isConnected) {
@@ -129,13 +94,13 @@ const getToggleSwap = () => {
   return toggleRefs.swap;
 };
 
-const getToggleText = () => {
+/* const getToggleText = () => {
   if (toggleRefs.text && toggleRefs.text.isConnected) {
     return toggleRefs.text;
   }
   toggleRefs.text = document.querySelector(".toggle-text");
   return toggleRefs.text;
-};
+}; */
 
 const safeNumber = (value) => {
   const parsed = parseFloat(value);
@@ -294,94 +259,7 @@ function getIdOfParentElementHover(evt) {
   return parent?.id ?? null;
 }
 
-/* async function createElemntInfoBulle(idInsertion) {
-  const insertionPoint = getCachedElement(idInsertion);
-  if (!insertionPoint) return null;
 
-  const fragment = document.createDocumentFragment();
-  const containerDiv = document.createElement("div");
-  const title = document.createElement("h3");
-  const para1 = document.createElement("p");
-  const para2 = document.createElement("p");
-  const para3 = document.createElement("p");
-  const closure = document.createElement("div");
-
-  closure.textContent = "fermer";
-
-  containerDiv.append(title, para1, para2, para3, closure);
-  fragment.appendChild(containerDiv);
-  insertionPoint.appendChild(fragment);
-
-  return containerDiv;
-}
-
-function styleOfInfoBulle(element) {
-  element?.classList?.add("info-bulle");
-}
-
-function insertContentInfoBulle(element, refContent) {
-  if (!element) return null;
-  const titre = element.querySelector("h3");
-  const paraList = element.querySelectorAll("p");
-  const content = infoBulleCalculMensualite[refContent];
-
-  if (!content) return element;
-
-  if (titre) titre.textContent = content["titre"];
-  paraList[0] && (paraList[0].textContent = content["contenu1"]);
-  paraList[1] && (paraList[1].textContent = content["contenu2"]);
-  paraList[2] && (paraList[2].textContent = content["contenu3"]);
-
-  return element;
-} */
-
-/* function deleteElement(elementId) {
-  if (!elementId) return;
-  const parent = getCachedElement(`#${elementId}`);
-  const infobulle = parent?.querySelector(".info-bulle:last-child")
-    ?? parent?.lastElementChild;
-
-  if (infobulle?.classList?.contains("info-bulle")) {
-    infobulle.remove();
-  }
-} */
-
-/* function moveSwitch() {
-  const switchToggle = getToggleSwitch();
-  if (!switchToggle) return;
-
-  if (switchToggle.classList.contains("move")) {
-    switchToggle.classList.remove("move");
-    localStorage.removeItem("toggle");
-    return;
-  }
-
-  switchToggle.classList.add("move");
-  localStorage.setItem("toggle", "ok");
-} */
-
-/* function isToggleMoved() {
-  const switchToggle = getToggleSwitch();
-  if (!switchToggle) return;
-
-  const shouldMove = localStorage.getItem("toggle") === "ok";
-  if (shouldMove) {
-    if (!switchToggle.classList.contains("move")) {
-      switchToggle.classList.add("move");
-    }
-    return;
-  }
-
-  if (switchToggle.classList.contains("move")) {
-    switchToggle.classList.remove("move");
-  }
-} */
-
-/* function changeTextToggle(text) {
-  const textToggle = getToggleText();
-  if (!textToggle) return;
-  textToggle.textContent = text;
-} */
 
 function storeThemeColor() {
   const checkbox = getToggleCheckbox();
@@ -414,72 +292,20 @@ function eventToggleSwitch() {
   });
 }
 
-/* function extendOrCloseColapseInArticle(e) {
-  const elementLiId = e?.currentTarget?.id;
-  if (!elementLiId) return;
 
-  const config = collapseConfig[elementLiId];
-  if (!config) return;
-
-  const { selected, parent, sibling } = config;
-  if (!selected || !parent || !sibling) return;
-
-  const iconSvgMatched = e.currentTarget.lastElementChild;
-  iconSvgMatched?.classList?.toggle("chevron-up");
-
-  if (selected.classList.contains("colapse-article-close")) {
-    if (!parent.classList.contains("colapse-grow")) {
-      parent.classList.add("colapse-grow");
-    }
-    selected.classList.replace(
-      "colapse-article-close",
-      "colapse-article-open",
-    );
-    return;
-  }
-
-  if (selected.classList.contains("colapse-article-open")) {
-    const shrinkParentIfNeeded = () => {
-      if (
-        parent.classList.contains("colapse-grow") &&
-        sibling.classList.contains("colapse-article-close")
-      ) {
-        parent.classList.remove("colapse-grow");
-      }
-    };
-
-    selected.addEventListener("transitionend", shrinkParentIfNeeded, {
-      once: true,
-    });
-
-    selected.classList.replace(
-      "colapse-article-open",
-      "colapse-article-close",
-    );
-  }
-} */
-
-/* function scrollToElement(elementToScroll) {
-  elementToScroll?.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-    inline: "nearest",
-  });
-} */
 
 export {
-  //setLinkUrl,
+  
   InsertTextInAElement,
   changeColor,
-  //createElemntInfoBulle,
-  //deleteElement,
+  
   displayAElement,
   displayChargeForfaitaire,
   displayChargeReel,
   displayInputCfe,
   displayInputRadioRegimeFiscal,
   eventToggleSwitch,
-  //extendOrCloseColapseInArticle,
+  
   getIdOfParentElementHover,
   getLocationType,
   getTauxMarginalImposition,
@@ -488,10 +314,8 @@ export {
   hideChargeReel,
   hideInputCfe,
   hideInputRadioRegimeFiscal,
-  //insertContentInfoBulle,
-  //isToggleMoved,
+  
   linkInput,
-  //scrollToElement,
-  //styleOfInfoBulle,
+  
   useThemeColor,
 };

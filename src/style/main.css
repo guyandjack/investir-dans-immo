@@ -10,11 +10,18 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
+
  .container-banner {
   position: relative;
-  border-radius: 30px;
   overflow: hidden;
+  width: 100%;
 } 
+
 
 .container-banner::after {
   content: "";
@@ -23,15 +30,13 @@ html {
   height: 100%;
   top:0;
   left:0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), 60%, transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5));
 }
 
 .hero-img{
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
-  left:0;
   object-fit: cover;
   
 }
@@ -42,13 +47,14 @@ html {
   position: absolute;
   z-index: 20;
   top: 20px;
-  left: 20px;
+  left: 10%;
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
   .btn-menu-simulator {
     position: fixed;
+    left:5%;
     
   }
 }
@@ -155,16 +161,14 @@ summary::-webkit-details-marker {
 } */
 
 .main-container-input {
-  width: 90%;
+  position: relative;
+  width: 95%;
 }
 
 .container-input-number {
   position: relative;
 }
 
-.calculette-number {
-  padding-right: 5%;
-}
 
 .hide-taxe{
   display: none;
@@ -288,7 +292,7 @@ summary::-webkit-details-marker {
   }
 
   .container-page {
-    @apply w-full max-w-[2000px] flex flex-col justify-center items-center bg-gradient-to-b from-base-100 via-base-200 to-base-300 pb-20;
+    @apply relative w-full max-w-[2000px] flex flex-col justify-center items-center bg-gradient-to-b from-base-100 via-base-200 to-base-300 pb-20;
   }
 
   .container-loader {
@@ -339,7 +343,7 @@ summary::-webkit-details-marker {
     @apply max-h-[500px] text-lg;
   }
 
-  .colapse {
+  /* .colapse {
     @apply border border-base-200 bg-base-100 rounded-2xl shadow-inner;
   }
 
@@ -353,7 +357,7 @@ summary::-webkit-details-marker {
 
   .colapse-grow {
     @apply max-h-[4000px];
-  }
+  } */
 
   .colapse-article {
     @apply border border-base-200 bg-base-100 rounded-2xl;

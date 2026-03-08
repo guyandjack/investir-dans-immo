@@ -27,7 +27,7 @@ import {
 import { changeColor } from "./utils/functions/other/other-v2.js";
 import { registerServiceWorker } from "./utils/registerServiceWorker.js";
 
-const once = (fn) => {
+/* const once = (fn) => {
   let promise = null;
   return () => {
     if (!promise) {
@@ -54,7 +54,7 @@ const observeSection = (selector, callback, options = { rootMargin: "0px 0px -20
   }, options);
 
   observer.observe(target);
-};
+}; */
 
 const getInputInt = (selector) => {
   const value = document.querySelector(selector)?.value ?? "0";

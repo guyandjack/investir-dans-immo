@@ -85,7 +85,7 @@ const inputNumberChargeDeductible = document.querySelector(
 );
 
 const inputRangeCopro = document.querySelector("input[name='range-copro']");
-const inputRangeGestion = document.querySelector("input[name='number-gestion']");
+const inputRangeGestion = document.querySelector("input[name='range-gestion']");
 const inputRangeApno = document.querySelector("input[name='range-apno']");
 const inputRangeAli = document.querySelector("input[name='range-ali']");
 const inputRangeFoncier = document.querySelector("input[name='range-foncier']");
