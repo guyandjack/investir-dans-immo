@@ -51,7 +51,7 @@
           <div class="drawer drawer-end">
             <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
             <div class="drawer-content flex w-full justify-end">
-              <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+              <label for="main-drawer" class="cursor-pointer p-2">
                 <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
                   <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
                   <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
@@ -59,18 +59,18 @@
               </label>
             </div>
             <div class="drawer-side z-10">
-              <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+              <label for="main-drawer"  class="drawer-overlay"></label>
               <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
                 <li>
-                  <a id="nav-lien-accueil" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
                     href="/index.html">Accueil</a>
                 </li>
                 <li>
-                  <a id="nav-lien-simulateur" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-simulateur" class="link-secondary justify-start normal-case text-lg"
                     href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
                 </li>
                 <li>
-                  <a id="nav-lien-contact" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-contact" class="link-secondary justify-start normal-case text-lg"
                     href="/html/contact.html">Contact</a>
                 </li>
                 <li class="pt-4 border-t border-base-200">
@@ -94,7 +94,7 @@
         </nav>
       </header>
 
-      <main class="w-full max-w-5xl flex flex-col gap-10">
+      <main class="main-other-page">
         <section class="legal-hero card bg-base-100/80 shadow-2xl border border-base-300 p-8">
           <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Cadre légal</p>
           <h1 class="text-3xl md:text-4xl font-bold text-base-content">Conditions générales d'utilisation</h1>
@@ -103,34 +103,27 @@
           </p>
           <div class="legal-pill-group">
             <a class="legal-pill" href="#article-1">Définitions</a>
-            <a class="legal-pill" href="#mentions-legales">Mentions légales</a>
-            <a class="legal-pill" href="#article-9">Données personnelles</a>
-            <a class="legal-pill" href="#article-13">Juridiction</a>
+            <a class="legal-pill" href="#article-2">Objet</a>
+            <a class="legal-pill" href="#article-3">Mentions légales</a>
+            <a class="legal-pill" href="#article-4">Accès au service</a>
+            <a class="legal-pill" href="#article-5">Responsabilité</a>
+            <a class="legal-pill" href="#article-8">Propriété intélectuelle</a>
+            <a class="legal-pill" href="#article-9">Données Personnelles</a>
+            <a class="legal-pill" href="#article-10">Liens hypertextes</a>
+            <a class="legal-pill" href="#article-11">Evolution des CGU</a>
+            <a class="legal-pill" href="#article-12">Durée</a>
+            <a class="legal-pill" href="#article-13">Droit applicable</a>
           </div>
         </section>
 
         <section class="legal-grid" aria-label="Articles des conditions générales d'utilisation">
-          <article id="article-2" class="article-cgu">
-            <div class="article-cgu-container-title">
-              <span class="article-cgu-number"></span>
-              <span class="article-cgu-title">Mentions Légales</span>
-            </div>
-            
-              <article class="article-cgu">
-                <h2>Informations de l'entreprise</h2>
-                <ul class="text-cgu info-list">
-                  <li>Nom : Helveclick</li>
-                  <li>Adresse : chemin du mont Paisible 1 <br>3963 Montana</li>
-                  <li>Téléphone : +41 78 894 09 87</li>
-                  <li>Email : info@helveclick.ch</li>
-                </ul>
-              </art>
-            
-          </article>
+          
           <article id="article-1" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 1</span>
-              <span class="article-cgu-title">Définitions</span>
+              <h2>
+                <span class="article-cgu-title">Définitions</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Est défini comme « Service » : le site internet accessible à l'adresse <strong>www.monprojetlocatif.org</strong>.
@@ -149,7 +142,9 @@
           <article id="article-2" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 2</span>
-              <span class="article-cgu-title">Objet</span>
+              <h2>
+                <span class="article-cgu-title">Objet</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Les présentes conditions générales d'utilisation ont pour objet d'encadrer juridiquement l'utilisation du site monprojetlocatif.org et de ses services. Ce contrat est conclu entre l'Éditeur et l'Utilisateur. L'accès au site implique l'acceptation pleine et entière des présentes conditions. Elles sont régies par le droit français, quel que soit le lieu d'utilisation du service, et tout litige relève des tribunaux compétents du ressort de l'Éditeur.
@@ -160,17 +155,28 @@
           <article id="article-3" class="article-cgu">
             <div id="mentions-legales" class="article-cgu-container-title">
               <span class="article-cgu-number">Article 3</span>
-              <span class="article-cgu-title">Mentions légales</span>
+              <h2>
+                <span class="article-cgu-title">Mentions légales</span>
+              </h2>
             </div>
-            <p class="text-cgu">
+                     <p class="text-cgu">
               Le site monprojetlocatif.org est édité par <strong>Helveclick</strong>. L'hébergement est assuré par PlanetHoster.
             </p>
+            <h2>Informations de l'entreprise</h2>
+            <ul class="text-cgu info-list">
+              <li>Nom : Helveclick</li>
+              <li>Adresse : chemin du mont Paisible 1 <br>3963 Montana</li>
+              <li>Téléphone : +41 78 894 09 87</li>
+              <li>Email : info@helveclick.ch</li>
+            </ul>
           </article>
 
           <article id="article-4" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 4</span>
-              <span class="article-cgu-title">Accès au service</span>
+              <h2>
+                <span class="article-cgu-title">Accès au service</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Le Service est accessible gratuitement à tout Utilisateur disposant d'un accès internet. Les coûts inhérents (matériel, logiciel, connexion) restent à la charge de l'Utilisateur, qui est également responsable du bon fonctionnement de son équipement. L'Éditeur et ses partenaires mettent tout en œuvre pour garantir un accès de qualité, sous réserve des opérations de maintenance, des aléas techniques ou des cas de force majeure. Ils se réservent le droit d'interrompre ou de modifier le Service sans préavis ni indemnité. Aucune assistance technique spécifique n'est prévue. L'Utilisateur bénéficie d'un droit de consultation privée ; toute diffusion publique requiert une autorisation expresse.
@@ -180,7 +186,9 @@
           <article id="article-5" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 5</span>
-              <span class="article-cgu-title">Responsabilité de l'Utilisateur</span>
+              <h2>
+                <span class="article-cgu-title">Responsabilité de l'Utilisateur</span>
+              </h2>
             </div>
             <p class="text-cgu">
               L'Utilisateur est seul responsable de la confidentialité de ses identifiants. Toute divulgation ne saurait engager la responsabilité de l'Éditeur. Il répond des contenus et commentaires qu'il publie, s'engage à respecter la loi et accepte que ses contributions puissent être modérées. En publiant sur le site, il cède à l'Éditeur un droit non exclusif et gratuit de diffusion, l'Éditeur s'engageant à citer l'auteur.
@@ -190,7 +198,9 @@
           <article id="article-6" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 6</span>
-              <span class="article-cgu-title">Responsabilité de l'Éditeur</span>
+              <h2>
+                <span class="article-cgu-title">Responsabilité de l'Éditeur</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Les dysfonctionnements réseaux, les faits imprévisibles ou la force majeure ne sauraient engager la responsabilité de l'Éditeur. Ce dernier met en œuvre les moyens nécessaires pour garantir la sécurité et la confidentialité des données sans offrir de garantie absolue. La fiabilité des sources est recherchée mais ne peut être assurée à 100 %.
@@ -200,7 +210,9 @@
           <article id="article-7" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 7</span>
-              <span class="article-cgu-title">Limitation de responsabilité</span>
+              <h2>
+                <span class="article-cgu-title">Limitation de responsabilité</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Le Contenu publié provient de sources réputées fiables mais peut comporter des erreurs ou omissions. Il est fourni à titre informatif et non contractuel. L'Utilisateur doit vérifier l'exactitude des informations avant toute utilisation et demeure seul responsable de l'usage qu'il en fait. L'Éditeur ne pourra être tenu responsable des dommages directs ou indirects résultant de l'utilisation du Service ou des ressources externes référencées.
@@ -210,7 +222,9 @@
           <article id="article-8" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 8</span>
-              <span class="article-cgu-title">Propriété intellectuelle</span>
+              <h2>
+                <span class="article-cgu-title">Propriété intellectuelle</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Les éléments du site (logos, textes, graphiques, vidéos, etc.) sont protégés par le Code de la propriété intellectuelle. Toute reproduction ou diffusion nécessite l'accord préalable de l'Éditeur. Un usage strictement privé est toléré ; tout usage commercial est interdit. L'Éditeur se réserve le droit de retirer tout contenu litigieux mis en ligne par un Utilisateur.
@@ -220,7 +234,9 @@
           <article id="article-9" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 9</span>
-              <span class="article-cgu-title">Données personnelles</span>
+              <h2>
+                <span class="article-cgu-title">Données personnelles</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Certaines données personnelles sont nécessaires pour échanger avec l'équipe. L'adresse électronique peut servir à répondre aux demandes ou à transmettre des informations liées au compte. Monprojetlocatif.org respecte la loi Informatique et Libertés (n°78-17 du 6 janvier 1978). Toute personne peut exercer ses droits d'accès, de rectification et d'opposition via le formulaire de contact.
@@ -230,7 +246,9 @@
           <article id="article-10" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 10</span>
-              <span class="article-cgu-title">Liens hypertextes</span>
+              <h2>
+                <span class="article-cgu-title">Liens hypertextes</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Des liens externes peuvent rediriger vers des sites tiers. L'Éditeur n'exerce aucun contrôle sur ces ressources et décline toute responsabilité concernant leur contenu. Les liens vers monprojetlocatif.org sont autorisés si l'ouverture se fait dans un nouvel onglet et respecte l'intégrité du Service.
@@ -240,7 +258,9 @@
           <article id="article-11" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 11</span>
-              <span class="article-cgu-title">Évolution des CGU</span>
+              <h2>
+                <span class="article-cgu-title">Évolution des CGU</span>
+              </h2>
             </div>
             <p class="text-cgu">
               L'Éditeur se réserve le droit de modifier les présentes conditions à tout moment, sans préavis. La version publiée sur cette page prévaut.
@@ -250,7 +270,9 @@
           <article id="article-12" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 12</span>
-              <span class="article-cgu-title">Durée</span>
+              <h2>
+                <span class="article-cgu-title">Durée</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Le contrat régissant l'utilisation du Service est conclu pour une durée indéterminée et prend effet dès la première utilisation du site par l'Utilisateur.
@@ -260,7 +282,9 @@
           <article id="article-13" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">Article 13</span>
-              <span class="article-cgu-title">Droit applicable et juridiction compétente</span>
+              <h2>
+                <span class="article-cgu-title">Droit applicable et juridiction compétente</span>
+              </h2>
             </div>
             <p class="text-cgu">
               Le présent contrat est soumis au droit français. En cas de litige non résolu à l'amiable, les tribunaux du ressort de l'Éditeur seront seuls compétents.
@@ -280,7 +304,7 @@
               <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
-              <a id="footer-lien-contact" class="text-base-content font-semibold"
+              <a id="footer-lien-simulateur" class="text-base-content font-semibold"
                 href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
@@ -304,28 +328,28 @@
           <ul class="menu-footer gap-2 text-sm">
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-                target="blank">Servicepublic.fr</a>
+                target="_blank" rel="noopener noreferrer">Servicepublic.fr</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
-                target="blank">JD2M</a>
+                target="_blank" rel="noopener noreferrer">JD2M</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
-                target="blank">Particulier à
+                target="_blank" rel="noopener noreferrer">Particulier à
                 particulier (PAP)</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
                 href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                target="blank">Meilleurtaux.com</a>
+                target="_blank" rel="noopener noreferrer">Meilleurtaux.com</a>
             </li>
           </ul>
         </div>
       </div>
       <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+        <a class="link link-info" href="https://helveclick.ch" target="_blank" rel="noopener noreferrer">Helveclick</a>
       </p>
     </footer>
     </div>

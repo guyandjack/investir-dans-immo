@@ -20,9 +20,9 @@ import {
 
 //Objet contenant les messages d'erreurs
 let listOfMessageError = {
-  civilite: "Veuillez indiquer un etat civil valide !",
-  lastname: "Veuillez entrer un nom valid !",
-  firstname: "Veuillez entrer un prenom valide !",
+  civilite: "Veuillez indiquer un état civil valide !",
+  lastname: "Veuillez entrer un nom valide !",
+  firstname: "Veuillez entrer un prénom valide !",
   email: "Veuillez entrer un email valide !",
   message: "Veuillez entrer un message valide!",
   submit: "Veuillez compléter le formulaire !",
@@ -91,7 +91,7 @@ function displayErrorMessage(id, errorMessage) {
   //selection du div error
   let divErrorMatch = document.querySelector(`#${divErrorId}`);
 
-  divErrorMatch.innerHTML = errorMessage;
+  divErrorMatch.textContent = errorMessage;
 
   //affichage du diverror
   if (divErrorMatch.classList.contains("hide-error")) {
@@ -111,7 +111,7 @@ function deleteErrorMessage(id) {
   //selection du div error
   let divErrorMatch = document.querySelector(`#${divErrorId}`);
 
-  divErrorMatch.innerHTML = "";
+  divErrorMatch.textContent = "";
 
   //cache le diverror
   if (divErrorMatch.classList.contains("display-error")) {
@@ -418,7 +418,7 @@ function addEventControlOnInput() {
 
   //input user
   inputCivilite.addEventListener("input", (e) => {
-    checkUserValueCivilite(e.target.id, e.target.value);
+    checkUserValueCivilite(e.target.id, e.target.value || "error");
   });
 
   inputLastname.addEventListener("input", (e) => {

@@ -25,7 +25,7 @@
             
       
     <link rel="stylesheet" href="../src/style/main.css" />
-    <script type="module" src="../src/js/contact.js" defer></script>
+    <script type="module" src="../src/js/contact.js"></script>
   </head>
   <body
     data-theme="winter"
@@ -52,7 +52,7 @@
           <div class="drawer drawer-end">
             <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
             <div class="drawer-content flex w-full justify-end">
-              <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+              <label for="main-drawer" class="cursor-pointer p-2">
                 <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
                   <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
                   <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
@@ -60,18 +60,18 @@
               </label>
             </div>
             <div class="drawer-side z-10">
-              <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+              <label for="main-drawer" class="drawer-overlay"></label>
               <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
                 <li>
-                  <a id="nav-lien-accueil" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
                     href="/index.html">Accueil</a>
                 </li>
                 <li>
-                  <a id="nav-lien-simulateur" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-simulateur" class="link-secondary justify-start normal-case text-lg"
                     href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
                 </li>
                 <li>
-                  <a id="nav-lien-contact" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-contact" class="link-secondary justify-start normal-case text-lg"
                     href="/html/contact.html">Contact</a>
                 </li>
                 <li class="pt-4 border-t border-base-200">
@@ -95,7 +95,7 @@
         </nav>
       </header>
 
-      <main class="w-full max-w-5xl flex flex-col gap-10">
+      <main class="main-other-page">
         <section class="contact-hero card bg-base-100/80 border border-base-300 shadow-2xl p-8">
           <p class="text-sm font-semibold uppercase tracking-[0.3em] text-secondary/80">Support</p>
           <h1 class="text-3xl md:text-4xl font-bold">Contactez-nous</h1>
@@ -118,15 +118,15 @@
           </div>
         </section>
 
-        <section class="contact-grid">
+        
           
 
           <form class="contact-form" method="post">
-            <div class="form-grid">
+            
               <div class="form-field">
                 <label for="civilite" class="label">Civilité</label>
-                <select id="civilite" class="input-contact" required>
-                  <option value="error">-- À sélectionner --</option>
+                <select id="civilite" name="civilite" class="input-contact" required>
+                  <option value="">-- À sélectionner --</option>
                   <option value="Monsieur">Monsieur</option>
                   <option value="Madame">Madame</option>
                   <option value="Mademoiselle">Mademoiselle</option>
@@ -136,38 +136,39 @@
 
               <div class="form-field">
                 <label for="lastname" class="label">Nom</label>
-                <input id="lastname" class="input-contact" type="text" min="2" max="25" required />
+                <input id="lastname" name="lastname" class="input-contact" type="text" minlength="2" maxlength="25" required />
                 <div id="error-lastname" class="error hide-error"></div>
               </div>
 
               <div class="form-field">
                 <label for="firstname" class="label">Prénom</label>
-                <input id="firstname" class="input-contact" type="text" min="2" max="25" required />
+                <input id="firstname" name="firstname" class="input-contact" type="text" minlength="2" maxlength="25" required />
                 <div id="error-firstname" class="error hide-error"></div>
               </div>
 
               <div class="form-field">
                 <label for="email" class="label">Email</label>
-                <input id="email" class="input-contact" type="email" min="8" max="100" required />
+                <input id="email" name="email" class="input-contact" type="email" minlength="8" maxlength="100" required />
                 <div id="error-email" class="error hide-error"></div>
               </div>
-            </div>
+            
 
             <div class="form-field sr-only">
-              <label for="sujet" class="label">Sujet</label>
-              <input id="sujet" class="input-contact" type="hidden" value="" max="25" required />
+              <label  class="label">Sujet
+                <input id="sujet" name="sujet" class="input-contact" type="hidden" value="" />
+
+              </label>
               <div id="error-sujet" class="error hide-error"></div>
             </div>
 
             <div class="form-field">
               <label for="message" class="label">Message</label>
-              <textarea id="message" class="input-contact h-auto" rows="8" minlength="20" maxlength="300" required>
-              </textarea>
+              <textarea id="message" name="message" class="input-contact h-auto" rows="8" minlength="20" maxlength="300" required></textarea>
               <div id="error-message" class="error hide-error"></div>
             </div>
 
             
-
+            <div class="form-field">
             <button id="btn" type="submit" class="button disabled" disabled>
               Envoyer votre message
             </button>
@@ -176,12 +177,13 @@
               <div class="closure">Fermer</div>
               <div class="valid-text"></div>
             </div>
+            </div>
           </form>
-        </section>
+        
       </main>
     <footer class="flex flex-col justify-start items-center w-full">
       <div
-        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-5 gap-6 md:flex-row md:justify-evenly">
+        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-5 gap-y-12 md:flex-row md:justify-evenly">
         <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
           <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
           <ul class="menu-footer gap-2 text-sm">
@@ -189,7 +191,7 @@
               <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
-              <a id="footer-lien-contact" class="text-base-content font-semibold"
+              <a id="footer-lien-simulateur" class="text-base-content font-semibold"
                 href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
@@ -213,28 +215,28 @@
           <ul class="menu-footer gap-2 text-sm">
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-                target="blank">Servicepublic.fr</a>
+                target="_blank" rel="noopener noreferrer">Servicepublic.fr</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
-                target="blank">JD2M</a>
+                target="_blank" rel="noopener noreferrer">JD2M</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
-                target="blank">Particulier à
+                target="_blank" rel="noopener noreferrer">Particulier à
                 particulier (PAP)</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
                 href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                target="blank">Meilleurtaux.com</a>
+                target="_blank" rel="noopener noreferrer">Meilleurtaux.com</a>
             </li>
           </ul>
         </div>
       </div>
       <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+        <a class="link link-info" href="https://helveclick.ch" target="_blank" rel="noopener noreferrer">Helveclick</a>
       </p>
     </footer>
     </div>

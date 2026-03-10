@@ -52,7 +52,7 @@
           <div class="drawer drawer-end">
             <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
             <div class="drawer-content flex w-full justify-end">
-              <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+              <label for="main-drawer" class="cursor-pointer p-2">
                 <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
                   <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
                   <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
@@ -60,18 +60,18 @@
               </label>
             </div>
             <div class="drawer-side z-10">
-              <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+              <label for="main-drawer" class="drawer-overlay"></label>
               <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
                 <li>
-                  <a id="nav-lien-accueil" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
                     href="/index.html">Accueil</a>
                 </li>
                 <li>
-                  <a id="nav-lien-simulateur" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-simulateur" class="link-secondary justify-start normal-case text-lg"
                     href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
                 </li>
                 <li>
-                  <a id="nav-lien-contact" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-contact" class="link-secondary justify-start normal-case text-lg"
                     href="/html/contact.html">Contact</a>
                 </li>
                 <li class="pt-4 border-t border-base-200">
@@ -95,7 +95,7 @@
         </nav>
       </header>
 
-      <main class="w-full max-w-5xl flex flex-col gap-10">
+      <main class="main-other-page">
         <section class="legal-hero card bg-base-100/80 shadow-2xl border border-base-300 p-8">
           <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary/80">Protection des données</p>
           <h1 class="text-3xl md:text-4xl font-bold text-base-content">Politique de confidentialité</h1>
@@ -103,11 +103,10 @@
             Cette politique précise quelles données sont collectées via le formulaire de contact, la façon dont elles sont utilisées, protégées et conservées, ainsi que vos droits pour les consulter ou les supprimer. 
           </p>
           <div class="legal-pill-group">
-            <a class="legal-pill" href="#collecte">Collecte</a>
-            <a class="legal-pill" href="#utilisation">Utilisation</a>
-            <a class="legal-pill" href="#emailing">E-mailing</a>
+            <a class="legal-pill" href="#collecte">Données personnelles</a>
+            <a class="legal-pill" href="#cookies">Cookie</a>
             <a class="legal-pill" href="#droits">Vos droits</a>
-            <a class="legal-pill" href="#contact">Contact</a>
+           
           </div>
         </section>
 
@@ -132,9 +131,33 @@
             </p>
           </article>
 
-          <article id="emailing" class="article-cgu">
+          <article id="securite" class="article-cgu">
             <div class="article-cgu-container-title">
               <span class="article-cgu-number">03</span>
+              <span class="article-cgu-title">Protection des données</span>
+            </div>
+            <p class="text-cgu">
+              Des mesures de sécurité techniques et organisationnelles sont mises en place pour prévenir toute divulgation, perte
+              ou altération des informations transmises. Seules les personnes autorisées ont accès aux données et elles ne sont
+              utilisées que pour les finalités décrites dans cette politique.
+            </p>
+          </article>
+          
+          <article id="conservation" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">04</span>
+              <span class="article-cgu-title">Durée de conservation</span>
+            </div>
+            <p class="text-cgu">
+              Les données sont conservées pendant la durée nécessaire au traitement de votre demande. Elles peuvent être gardées
+              plus longtemps pour répondre à des obligations légales ou commerciales, mais ne le seront jamais indéfiniment sans
+              votre consentement.
+            </p>
+          </article>
+
+          <article id="emailing" class="article-cgu">
+            <div class="article-cgu-container-title">
+              <span class="article-cgu-number">05</span>
               <span class="article-cgu-title">E-mailing</span>
             </div>
             <p class="text-cgu">
@@ -144,7 +167,7 @@
 
           <article id="cookies" class="article-cgu">
             <div class="article-cgu-container-title">
-              <span class="article-cgu-number">04</span>
+              <span class="article-cgu-number">06</span>
               <span class="article-cgu-title">Cookies</span>
             </div>
             <p class="text-cgu">
@@ -152,25 +175,7 @@
             </p>
           </article>
 
-          <article id="securite" class="article-cgu">
-            <div class="article-cgu-container-title">
-              <span class="article-cgu-number">05</span>
-              <span class="article-cgu-title">Protection des données</span>
-            </div>
-            <p class="text-cgu">
-              Des mesures de sécurité techniques et organisationnelles sont mises en place pour prévenir toute divulgation, perte ou altération des informations transmises. Seules les personnes autorisées ont accès aux données et elles ne sont utilisées que pour les finalités décrites dans cette politique.
-            </p>
-          </article>
-
-          <article id="conservation" class="article-cgu">
-            <div class="article-cgu-container-title">
-              <span class="article-cgu-number">06</span>
-              <span class="article-cgu-title">Durée de conservation</span>
-            </div>
-            <p class="text-cgu">
-              Les données sont conservées pendant la durée nécessaire au traitement de votre demande. Elles peuvent être gardées plus longtemps pour répondre à des obligations légales ou commerciales, mais ne le seront jamais indéfiniment sans votre consentement.
-            </p>
-          </article>
+          
 
           <article id="droits" class="article-cgu">
             <div class="article-cgu-container-title">
@@ -218,7 +223,7 @@
               <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
-              <a id="footer-lien-contact" class="text-base-content font-semibold"
+              <a id="footer-lien-simulateur" class="text-base-content font-semibold"
                 href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
@@ -242,28 +247,28 @@
           <ul class="menu-footer gap-2 text-sm">
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-                target="blank">Servicepublic.fr</a>
+                target="_blank" rel="noopener noreferrer">Servicepublic.fr</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
-                target="blank">JD2M</a>
+                target="_blank" rel="noopener noreferrer">JD2M</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
-                target="blank">Particulier à
+                target="_blank" rel="noopener noreferrer">Particulier à
                 particulier (PAP)</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
                 href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                target="blank">Meilleurtaux.com</a>
+                target="_blank" rel="noopener noreferrer">Meilleurtaux.com</a>
             </li>
           </ul>
         </div>
       </div>
       <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+        <a class="link link-info" href="https://helveclick.ch" target="_blank" rel="noopener noreferrer">Helveclick</a>
       </p>
     </footer>
     </div>

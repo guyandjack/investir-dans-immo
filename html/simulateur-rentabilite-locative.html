@@ -79,7 +79,7 @@
           <div class="drawer drawer-end">
             <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
             <div class="drawer-content flex w-full justify-end">
-              <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+              <label for="main-drawer" class="cursor-pointer p-2">
                 <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
                   <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
                   <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
@@ -87,18 +87,18 @@
               </label>
             </div>
             <div class="drawer-side z-10">
-              <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+              <label for="main-drawer" class="drawer-overlay"></label>
               <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
                 <li>
-                  <a id="nav-lien-accueil" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
                     href="/index.html">Accueil</a>
                 </li>
                 <li>
-                  <a id="nav-lien-simulateur" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-simulateur" class="link-secondary justify-start normal-case text-lg"
                     href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
                 </li>
                 <li>
-                  <a id="nav-lien-contact" class="btn btn-ghost justify-start normal-case text-lg"
+                  <a id="nav-lien-contact" class="link-secondary justify-start normal-case text-lg"
                     href="/html/contact.html">Contact</a>
                 </li>
                 <li class="pt-4 border-t border-base-200">
@@ -121,7 +121,7 @@
           </div>
         </nav>
       </header>
-      <main></main>
+      <main class="main-other-page">
 
 <form id="calculette" class="calculette-mensualite w-full max-w-xl mx-auto space-y-8 mt-16" action="calculmensualite.js">
         <fieldset id="calculette-mensualite" class="flex flex-col justify-start items-center fieldset space-y-5 bg-base-100/80 border border-base-300 rounded-3xl shadow-xl p-6">
@@ -268,7 +268,7 @@
               </div>
               <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
                 <div class="card-body text-left text-sm space-y-2">
-                  <h5 class="card-title text-sm font-semibold text-base-content">Le type de location</h5>
+                  <h4 class="card-title text-sm font-semibold text-base-content">Le type de location</h4>
                   <p>a pour effet de modifier le revenu locatif de référence pour le calcul de l'impôt foncier. La CFE est redevable dans certains cas.</p>
                 </div>
               </div>
@@ -326,7 +326,7 @@
               </div>
               <div tabindex="0" class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-72 shadow-sm">
                 <div class="card-body text-left text-sm space-y-2">
-                  <h5 class="card-title text-sm font-semibold text-base-content">Le régime d'imposition</h5>
+                  <h4 class="card-title text-sm font-semibold text-base-content">Le régime d'imposition</h4>
                   <p>détermine la façon dont vous serez imposé sur vos revenus locatifs&nbsp;: abattement forfaitaire ou charges déductibles retranchées des revenus locatifs.</p>
                 </div>
               </div>
@@ -618,7 +618,7 @@
               <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
-              <a id="footer-lien-contact" class="text-base-content font-semibold"
+              <a id="footer-lien-simulateur" class="text-base-content font-semibold"
                 href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
@@ -642,28 +642,28 @@
           <ul class="menu-footer gap-2 text-sm">
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-                target="blank">Servicepublic.fr</a>
+                target="_blank" rel="noopener noreferrer">Servicepublic.fr</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
-                target="blank">JD2M</a>
+                target="_blank" rel="noopener noreferrer">JD2M</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
-                target="blank">Particulier à
+                target="_blank" rel="noopener noreferrer">Particulier à
                 particulier (PAP)</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
                 href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                target="blank">Meilleurtaux.com</a>
+                target="_blank" rel="noopener noreferrer">Meilleurtaux.com</a>
             </li>
           </ul>
         </div>
       </div>
       <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+        <a class="link link-info" href="https://helveclick.ch" target="_blank" rel="noopener noreferrer">Helveclick</a>
       </p>
     </footer>
     </div>

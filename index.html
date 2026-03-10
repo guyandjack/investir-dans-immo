@@ -3,6 +3,12 @@
 
 <head>
 
+  <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
+  <meta name="description"
+    content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!--preload du css non blocant, pour ensuite applique le css une fois chargé-->
   <link rel="preload" href="/src/style/main.css" as="style" onload="this.rel='stylesheet'">
 
@@ -14,7 +20,7 @@
         /assets/cabane-lac-mobile-500px.webp 500w,
         /assets/cabane-lac-mobile-600px.webp 600w,
         /assets/cabane-lac-mobile-700px.webp 700w,
-        /assets/cabane-lac-mobile-800px.webp 800w,
+        /assets/cabane-lac-mobile-800px.webp 800w
       " imagesizes="100vw" />
     <link rel="preload" as="image" href="/assets/cabane-lac-desk-1000px.webp" fetchpriority="high"
         media="(min-width: 640px)" imagesrcset="
@@ -26,11 +32,7 @@
         /assets/cabane-lac-desk-2000px.webp 2000w
       " imagesizes="(min-width: 1300px) 1300px, 100vw" />
 
-  <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
-  <meta name="description"
-    content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.webmanifest">
@@ -62,7 +64,7 @@
 <body data-theme="winter" class="w-full text-base-content antialiased flex flex-col justify-start items-center">
 
   <!--icon svg information -->
-  <svg xmlns="http://www.w3.org/2000/svg" height="0px" width="0px" absolute>
+  <svg xmlns="http://www.w3.org/2000/svg" height="0px" width="0px">
     <defs>
 
       <!-- icon menu -->
@@ -100,9 +102,9 @@
         </a>
 
         <div class="drawer drawer-end">
-          <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
+          <input id="main-drawer" type="checkbox" class="drawer-toggle">
           <div class="drawer-content flex w-full justify-end">
-            <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+            <label for="main-drawer" class="cursor-pointer p-2">
               <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
                 <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
                 <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
@@ -110,7 +112,7 @@
             </label>
           </div>
           <div class="drawer-side z-10">
-            <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+            <label for="main-drawer" class="drawer-overlay"></label>
             <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
               <li>
                 <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
@@ -767,7 +769,7 @@
               <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
-              <a id="footer-lien-contact" class="text-base-content font-semibold"
+              <a id="footer-lien-simulateur" class="text-base-content font-semibold"
                 href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
@@ -791,28 +793,28 @@
           <ul class="menu-footer gap-2 text-sm">
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
-                href="https://www.service-public.fr/particuliers/vosdroits/F1165" target="blank">Servicepublic.fr</a>
+                href="https://www.service-public.fr/particuliers/vosdroits/F1165" target="_blank" rel="noopener noreferrer">Servicepublic.fr</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
-                target="blank">JD2M</a>
+                target="_blank" rel="noopener noreferrer">JD2M</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
-                target="blank">Particulier à
+                target="_blank" rel="noopener noreferrer">Particulier à
                 particulier (PAP)</a>
             </li>
             <li class="menu-footer-li text-base-content/80">
               <a class="text-base-content font-semibold"
                 href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                target="blank">Meilleurtaux.com</a>
+                target="_blank" rel="noopener noreferrer">Meilleurtaux.com</a>
             </li>
           </ul>
         </div>
       </div>
       <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+        <a class="link link-info" href="https://helveclick.ch" target="_blank" rel="noopener noreferrer">Helveclick</a>
       </p>
     </footer>
   </div>
