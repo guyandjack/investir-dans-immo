@@ -1,7 +1,7 @@
 import { favicons } from "favicons";
 import fs from "fs";
 
-const source = "public/logo-mpl-v2.png";
+const source = "public/favicon-mpl.png";
 const configuration = {
   path: "/favicons/",
   appName: "Mon Projet Locatif",

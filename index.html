@@ -3,11 +3,12 @@
 
 <head>
 
-    <!--preload du css non blocant, pour ensuite applique le css une fois chargé-->
-    <link rel="preload" href="/src/style/main.css" as="style" onload="this.rel='stylesheet'">
+  <!--preload du css non blocant, pour ensuite applique le css une fois chargé-->
+  <link rel="preload" href="/src/style/main.css" as="style" onload="this.rel='stylesheet'">
 
-    <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-    <link rel="preload" as="image" href="/assets/cabane-lac-mobile-800px.webp" fetchpriority="high"
+  <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
+
+  <link rel="preload" as="image" href="/assets/cabane-lac-mobile-600px.webp" fetchpriority="high"
         media="(max-width: 639px)" imagesrcset="
         /assets/cabane-lac-mobile-400px.webp 400w,
         /assets/cabane-lac-mobile-500px.webp 500w,
@@ -15,7 +16,6 @@
         /assets/cabane-lac-mobile-700px.webp 700w,
         /assets/cabane-lac-mobile-800px.webp 800w,
       " imagesizes="100vw" />
-    
     <link rel="preload" as="image" href="/assets/cabane-lac-desk-1000px.webp" fetchpriority="high"
         media="(min-width: 640px)" imagesrcset="
         /assets/cabane-lac-desk-700px.webp 700w,
@@ -24,838 +24,798 @@
         /assets/cabane-lac-desk-1000px.webp 1000w,
         /assets/cabane-lac-desk-1400px.webp 1400w,
         /assets/cabane-lac-desk-2000px.webp 2000w
-      " imagesizes="100vw" />
-    <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
-    <meta name="description"
-        content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      " imagesizes="(min-width: 1300px) 1300px, 100vw" />
 
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.webmanifest">
-    <meta name="theme-color" content="#0ea5e9">
+  <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
+  <meta name="description"
+    content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- iOS (A2HS) -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="/icons/apple-icon-180.png">
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
 
+  <!-- iOS (A2HS) -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/icons/apple-icon-180.png">
 
-    <!-- Favicon classique -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
+  <!-- Favicon classique -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/favicons/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
 
-
-    <!-- Feuilles de style-->
-     <noscript>
+  <!-- Feuilles de style-->
+  <noscript>
     <link rel="stylesheet" href="/src/style/main.css">
-     </noscript>
+  </noscript>
 
-    <!--script principal-->
-    <script type="module" src="/src/js/index.js"></script>
-
-
+  <!--script principal-->
+  <script type="module" src="/src/js/index.js"></script>
 </head>
 
 <body data-theme="winter" class="w-full text-base-content antialiased flex flex-col justify-start items-center">
 
-    <!--icon svg information -->
-    <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
-        <defs>
+  <!--icon svg information -->
+  <svg xmlns="http://www.w3.org/2000/svg" height="0px" width="0px" absolute>
+    <defs>
 
-            <!-- icon menu -->
-            <g id="svg-icon-menu">
-                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
-            </g>
+      <!-- icon menu -->
+      <g id="svg-icon-menu">
+        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+      </g>
 
-            <!-- icon close -->
-            <g id="svg-icon-close">
-                <path
-                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z">
-                </path>
-            </g>
 
-            <!-- information -->
-            <g id="icon-info">
-                <path
-                    d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
-                </path>
-            </g>
+      <!-- information -->
+      <g id="icon-info">
+        <path
+          d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
+        </path>
+      </g>
 
-            <!-- chevron collapse -->
-            <g id="icon-chevron">
-                <path
-                    d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z">
-                </path>
-            </g>
+      <!-- chevron collapse -->
+      <g id="icon-chevron">
+        <path d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z">
+        </path>
+      </g>
 
-            <!-- arrow btn simulateur -->
-            <g id="icon-arrow">
-                <path
-                    d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
-                </path>
-            </g>
-        </defs>
-    </svg>
-    <div class="container-page flex flex-col justify-start items-center gap-10 lg:px-16 ">
-        
-        <header class="min-w-0">
-            <div
-                class="container-banner min-w-0 aspect-[9/16] sm:aspect-[16/9] min-h-screen md:min-h-0 shadow-2xl flex flex-col justify-evenly items-center">
-                <picture class="absolute inset-0 block w-full h-full">
-                    <source media="(min-width: 640px)" srcset="
+      <!-- arrow btn simulateur -->
+      <g id="icon-arrow">
+        <path
+          d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
+        </path>
+      </g>
+    </defs>
+  </svg>
+  <div class="container-page">
+    <header class="header">
+      <nav class="nav">
+        <a class="logo" href="/">
+          <img src="/logo/logo-mpl.svg" alt="logo">
+        </a>
+
+        <div class="drawer drawer-end">
+          <input id="main-drawer" type="checkbox" class="drawer-toggle" aria-label="Basculer le menu">
+          <div class="drawer-content flex w-full justify-end">
+            <label for="main-drawer" class="cursor-pointer p-2" aria-label="Ouvrir le menu">
+              <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
+                <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
+                <!-- <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path> -->
+              </svg>
+            </label>
+          </div>
+          <div class="drawer-side z-10">
+            <label for="main-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+            <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
+              <li>
+                <a id="nav-lien-accueil" class="link-secondary justify-start normal-case text-lg"
+                  href="/index.html">Accueil</a>
+              </li>
+              <li>
+                <a id="nav-lien-simulateur" class="link-secondary justify-start normal-case text-lg"
+                  href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
+              </li>
+              <li>
+                <a id="nav-lien-contact" class="link-secondary justify-start normal-case text-lg"
+                  href="/html/contact.html">Contact</a>
+              </li>
+              <li class="pt-4 border-t border-base-200">
+                <label class="swap swap-rotate">
+                  <input id="toggle-switch" type="checkbox" class="theme-controller">
+                  <svg class="swap-on h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z">
+                    </path>
+                  </svg>
+                  <svg class="swap-off h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z">
+                    </path>
+                  </svg>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="container-banner aspect-[9/16] sm:aspect-[16/9] min-h-screen sm:min-h-0 sm:max-w-[1300px] shadow-2xl flex flex-col justify-evenly items-center">
+        <picture class="absolute inset-0 block w-full h-full">
+          <source media="(min-width: 640px)" srcset="
                         /assets/cabane-lac-desk-700px.webp 700w,
                         /assets/cabane-lac-desk-800px.webp 800w,
                         /assets/cabane-lac-desk-900px.webp 900w,
                         /assets/cabane-lac-desk-1000px.webp 1000w,
                         /assets/cabane-lac-desk-1400px.webp 1400w,
                         /assets/cabane-lac-desk-2000px.webp 2000w
-                      " sizes="100vw" type="image/webp" />
-                
-                    <source media="(max-width: 639px)" srcset="
+                      " sizes="
+                        (min-width:1300px) 1300px, 100vw
+                        
+                        " type="image/webp">
+          <source media="(max-width: 639px)" srcset="
                         /assets/cabane-lac-mobile-400px.webp 400w,
                         /assets/cabane-lac-mobile-500px.webp 500w,
                         /assets/cabane-lac-mobile-600px.webp 600w,
                         /assets/cabane-lac-mobile-700px.webp 700w,
-                        /assets/cabane-lac-mobile-800px.webp 800w,
-                      " sizes="100vw" type="image/webp" />
-                
-                    <img class="hero-img" src="/assets/cabane-lac-mobile-800px.webp"
-                        alt="Cabane au bord du lac" fetchpriority="high" decoding="async" width="800" height="1421" />
-                </picture>
-                <nav>
-
-                    <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
-                    <details class="btn-menu">
-                        <summary class="">
-                            <svg id="icon-menu" class="block" width="50px" height="50px" viewBox="0 -960 960 960">
-                                <use xlink:href="#svg-icon-menu" fill="#FFFFFF"></use>
-                            </svg>
-                            <svg id="icon-close" class="hidden" width="50px" height="50px" viewBox="0 -960 960 960">
-                                <use xlink:href="#svg-icon-close" fill="#FF0000"></use>
-                            </svg>
-                        </summary>
-                        <ul
-                            class="flex flex-col justify-evenly items-center bg-base-100 rounded-box z-1 w-auto p-2 shadow-sm h-[180px]">
-                            <li>
-                                <a id="nav-lien-accueil"
-                                    class="text-lg btn btn-sm btn-ghost rounded-full normal-case p-3"
-                                    href="/index.html">Accueil</a>
-                            </li>
-                            <li>
-                                <a id="nav-lien-contact"
-                                    class="text-lg btn btn-sm btn-ghost rounded-full normal-case p-3"
-                                    href="html/contact.html">Contact</a>
-                            </li>
-                            <li class="btn btn-gost">
-                                <label class="swap swap-rotate">
-
-                                    <!-- this hidden checkbox controls the state -->
-                                    <input id="toggle-switch" type="checkbox" class="theme-controller">
-
-                                    <!-- sun icon -->
-                                    <svg class="swap-on h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z">
-                                        </path>
-                                    </svg>
-
-                                    <!-- moon icon -->
-                                    <svg class="swap-off h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            d="
-                        M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z">
-                                        </path>
-                                    </svg>
-                                </label>
-                            </li>
-                        </ul>
-                    </details>
-                </nav>
-                <div class="flex flex-col gap-3 text-center">
-                    <h1 class="title h1 text-4xl md:text-5xl text-white tracking-tight text-base-content">Mon projet
-                        locatif...
-                    </h1>
-                    <h2 class="title h2 text-2xl md:text-3xl text-white font-semibold text-base-content/50">Ce qu'il va
-                        me coûter
-                        en
-                        réalité
-                    </h2>
-                </div>
-                <ul class="introduction-banner flex flex-wrap items-center justify-center gap-4 w-full px-10">
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-taeg">
-                            TAEG
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md outline-[0px] md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-mensualite">
-                            Mensualités
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-emprunt">
-                            Coût d'un emprunt
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-location">
-                            Type de location
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-revenu">
-                            Revenus locatifs
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
-                            href="#article-imposition-1">
-                            Fiscalité
-                        </a>
-                    </li>
-                </ul>
-                <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html">
-
-                    SIMULATEUR
-                    <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
-                        <use xlink:href="#icon-arrow" fill="currentColor"></use>
-                    </svg>
-                </a>
-            </div>
-        </header>
-        <div class="text-base-content/80 space-y-4 px-4">
-            <p class="introduction-text">
-                Investir dans l'immobilier, est-ce le bon choix? Une
-                <strong>rente locative</strong>, oui mais à quelle condition? Les
-                revenus locatifs ont un coût, qui selon le cas est loin d'être
-                négligeable.
-            </p>
-            <p class="introduction-text">
-                Notre petit<strong> calculateur</strong> va nous simplifier la vie en
-                faisant une<strong>
-                    simulation de prêt immobilier ammortissable à taux fixe </strong>.(le plus courant)
-            </p>
-            <p class="introduction-text">
-                Il va calculer pour nous les <strong>mensualités</strong>,
-                <strong>le coût de l'emprunt</strong>, établir un bilan avant et après
-                imposition en fonction des différentes charges.
-            </p>
-            <p class="introduction-text">
-                Cela nous permettra de voir un peu plus clair, et de ce fait, de
-                prendre de meilleures décisions.
-            </p>
+                        /assets/cabane-lac-mobile-800px.webp 800w
+                      " sizes="100vw" type="image/webp">
+          <img class="hero-img" src="/assets/cabane-lac-mobile-600px.webp" alt="Cabane au bord du lac"
+            fetchpriority="high" decoding="async" width="600" height="1066">
+        </picture>
+        <div class="flex flex-col gap-3 text-center">
+          <h1 class="title h1 text-4xl md:text-5xl text-white tracking-tight text-base-content">Mon projet
+            locatif...
+          </h1>
+          <h2 class="title h2 text-2xl md:text-3xl text-white font-semibold text-base-content/50">Ce qu'il va
+            me coûter
+            en
+            réalité
+          </h2>
         </div>
-        <p class="main-title-article h2 title text-3xl font-bold text-center text-base-content">
-            Quelques notions pour bien se comprendre...
-        </p>
-        <ul class="container-article flex-column-start-start space-y-4 w-full max-w-5xl">
-            <li id="article-taeg" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Taux annuel effectif global</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Le TAEG est un élément important du plan de financement, il
-                            intègre l'ensemble des <strong>coûts liés au crédit</strong>. De
-                            ce fait, il est le premier indice de comparaison des offres
-                            bancaires.
-                        </p>
-                        <p>
-                            Il intègre les coûts liés aux assurances, aux frais de dossier,
-                            aux frais annexes et naturellement aux interêts bancaires.
-                        </p>
-                        <p>Pour calculer vos mensualités il faut utiliser le TAEG.</p>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-mensualite" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Mensualités</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Les
-                            <strong>mensualités d'un prêt amortissable à taux fixe</strong>
-                            ont un montant constant tout au long de la période d'emprunt.
-                            Elles incluent à la fois le capital et les intérêts.
-                        </p>
-                        <p>
-                            Les <strong>prêts amortissables à taux fixe</strong> sont les
-                            plus courant.Ils permettent d'avoir une vision claire et
-                            simplifiée des mensualités. En effet il est plus facile de
-                            prévoir un endettement lorsque les charges sont fixes tout au
-                            long de l'année.
-                        </p>
-                        <p>
-                            Calculer le montant de la mensualité de crédit permet ainsi de
-                            définir la faisabilité de votre projet.
-                        </p>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-emprunt" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Coût du crédit immobilier</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Le <strong>coût du crédit immobilier</strong> est imputable aux
-                            interêts bancaires, aux frais liés aux assurances, aux frais de
-                            dossier, aux frais annexes.
-                        </p>
-                        <p>
-                            Le coût global de votre emprunt est égal à la différence entre
-                            le total des mensualités et le montant de l'emprunt. Ce chiffre
-                            doit également vous être communiqué par votre banquier.
-                        </p>
-                        <p>
-                            Le coût du crédit = (montant des mensualités * nombre
-                            d'échéances) - capital emprunté.
-                        </p>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-location" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Location nue ou meublée</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Une <strong>location "meublée"</strong> doit au minimum
-                            comprendre :
-                        </p>
-                        <ul class="list-exemple">
-                            <li class="list-exemple-li">Réfrigérateur</li>
-                            <li class="list-exemple-li">
-                                Appareil de cuisson(gazinière, plaque...)
-                            </li>
-                            <li class="list-exemple-li">Four ou four à micro-onde</li>
-                            <li class="list-exemple-li">
-                                Congélateur ou compartiment à congélation du réfrigérateur
-                                d'une température maximale de -6°
-                            </li>
-                            <li class="list-exemple-li">
-                                Vaisselle en quantité suffisante pour que les locataires
-                                puissent prendre les repas
-                            </li>
-                            <li class="list-exemple-li">Sièges</li>
-                            <li class="list-exemple-li">Table</li>
-                            <li class="list-exemple-li">Ustensiles de cuisine</li>
-                            <li class="list-exemple-li">Étagères de rangement</li>
-                            <li class="list-exemple-li">Literie complète</li>
-                            <li class="list-exemple-li">
-                                Volets ou rideaux dans les chambres
-                            </li>
-                            <li class="list-exemple-li">Luminaires</li>
-                            <li class="list-exemple-li">
-                                Matériel d'entretien ménager adapté aux caractéristiques du
-                                logement.
-                            </li>
-                        </ul>
-                        <p>
-                            Un location ne comprenant pas au minimum ces éléments, est une
-                            <strong>location "nue"</strong>.
-                        </p>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-revenu" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Revenus locatifs</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Qu'il s'agisse de revenus fonciers (location nue) ou de
-                            bénéfices industriels et commerciaux (location meublée) ils
-                            doivent être déclarés puisqu'ils sont soumis à l'impôt sur le
-                            revenu et aux prélèvements sociaux.
-                        </p>
-                        <p>
-                            Ils peuvent être déclarés selon deux modalités : le régime
-                            forfaitaire, simple mais pas toujours optimal, et le régime
-                            réel, De plus, les propriétaires bayeurs en meublé doivent
-                            s'acquitter la CFE (Cotisation foncière des entreprises).
-                        </p>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-imposition-1" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details" id="loc-nue">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Imposition et fiscalité (location nue)</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Les loyers issus d'une
-                            <strong>location "nue"</strong> constituent des revenus
-                            fonciers.<br>Il existe deux régimes d'imposition:
-                        </p>
-        
-                        <div class="space-y-4">
-                            <details class="article-subdetails" id="forfaitaire-a">
-                                <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                                        <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                                    </svg>
-                                    <h4 id="f1">Forfaitaire</h4>
-                                </summary>
-        
-                                <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
-                                    <p>
-                                        Dans cette situation les revenus imposables sont
-                                        constitués des loyers hors charge, avec un abattement
-                                        forfaitaire de 30%.<br>
-                                        Après abattement, on applique le taux marginal
-                                        d'imposition plus le taux de prélèvement sociaux de 17.2%
-                                        pour calculer l'impot sur les revenus locatifs.
-                                    </p>
-                                    <p>
-                                        Si les revenus sont supérieur à 15 300€ par an le régime
-                                        "réel" est appliqué obligatoirement.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        Exemple de M. Dupont<br>
-                                        Revenus locatifs hors charge:<br>
-                                        8 000€ <br>
-                                        Taux marginal d'imposition:
-                                        <br>30%<br>
-                                        Abattement forfaitaire:
-                                        <br>30% <br>8000 * 0.3 = 2 400€<br>
-                                        Assiete imposable:
-                                        <br>8 000€ - 2 400€ = 5 600€<br>
-                                        Impots sur revenus locatifs:
-                                        <br>5600 * (0.3 + 0.172) = 2643€
-                                        <br>
-                                        Conclusion: Quelque soit le montant des charges liées à la
-                                        location de son bien, M.Dupont payera 2 643€ au titre de
-                                        l'impot sur revenus fonciers.
-                                    </p>
-                                    <p class="relative container-btn-download flex flex-col gap-2">
-                                        <button class="btn-download btn btn-secondary btn-outline" type="button"
-                                            data-download="tab_res">
-                                            Télécharger un tableau récapitulatif
-                                        </button>
-                                        <span class="error-download text-error text-sm"></span>
-                                    </p>
-                                </div>
-                            </details>
-        
-                            <details class="article-subdetails" id="reel-a">
-                                <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                                        <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                                    </svg>
-                                    <h4 id="r1">Réel</h4>
-                                </summary>
-        
-                                <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
-                                    <p>
-                                        Dans ce mode d'imposition les charges déductibles
-                                        comprendront un système d'amortissement sur le bien ,les
-                                        meubles, l'électricite etc...<br>
-                                        Pour faire simple ces amortissemnts reflette l'usure, donc
-                                        la perte de valeur d'un élément du bien.<br>
-                                        Cette perte de valeur est imputable aux revenus locatifs,
-                                        ce qui a pour effet de diminuer votre assiette
-                                        imposable.<br>
-                                        On soustrait les charges déductibles aux revenus locatifs.
-                                        On apllique ensuite le taux marginal d'imposition plus le
-                                        taux de prélèvement social(17.2%) pour calculer l'impôt.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        Exemple de M. Dupont<br>
-                                        Revenus locatifs hors charge:<br>
-                                        8 000€ <br>
-                                        Taux marginal d'imposition: <br>
-                                        30%<br>
-                                        Charges déductibles + amortissements:<br>
-                                        7 000€<br>
-                                        Assiete imposable:<br>
-                                        8 000€ - 7 000€ = 1 000€<br>
-                                        Impots sur revenus locatifs:<br>
-                                        1000 * (0.3 + 0.172) = 472€
-                                        <br>
-                                    </p>
-                                    <p>
-                                        Conclusion:<br>
-                                        M.Dupont payera 472€ au titre de l'impot sur les revenus
-                                        fonciers.<br>
-                                    </p>
-                                    <p>
-                                        Le régime d'imposition au "réel" devient avantageux
-                                        lorsque les charges déductibles sont supérieures à
-                                        l'abattement forfaitaire de 30% du régime forfaitaire.<br>
-                                        Encore mieux lorsque que l'on crée du déficite foncier.<br>
-                                        Les charges déductibles sont alors supérieures aux revenus
-                                        locatifs.
-                                    </p>
-                                    <p>
-                                        Le déficite foncier est imputable au revenu global dans
-                                        une limite de 10 700€
-                                    </p>
-                                    <p>Listes des charges déductibles:</p>
-                                    <ul class="list-exemple">
-                                        <li class="list-exemple-li">
-                                            Les frais de gestion et d'administration du bien
-                                            (rémunération d'un concierge ou frais d'une agence
-                                            immobilière ou d'un syndic de copropriété par exemple)
-                                        </li>
-                                        <li class="list-exemple-li">
-                                            Les impôts liés au logement et non récupérables auprès
-                                            du locataire telle que la taxe foncière.
-                                        </li>
-                                        <li class="list-exemple-li">
-                                            Les dépenses de réparation et d'entretien.
-                                        </li>
-                                        <li class="list-exemple-li">
-                                            Les provisions pour charge dans le cadre d'une
-                                            copropriété
-                                        </li>
-                                        <li class="list-exemple-li">
-                                            Les charges locatives, si vous n'êtes pas parvenu à les
-                                            récupérer auprès du locataire au 31 décembre de l'année
-                                            suivant son départ.
-                                        </li>
-                                        <li class="list-exemple-li">
-                                            L'indemnité d'éviction ou de relogement d'un locataire.
-                                        </li>
-                                        <li class="list-exemple-li">Les primes d'assurance.</li>
-                                        <li class="list-exemple-li">
-                                            Les intérêts et frais d'emprunt.
-                                        </li>
-                                    </ul>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        Les intérêts et frais d'emprunt ne sont pas imputable au
-                                        revenu global.
-                                    </p>
-                                    <p>
-                                        Ce régime est nécessairement beaucoup plus complexe que le
-                                        "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
-                                        comptabilité et établir un plan d'amortissement.
-                                    </p>
-                                    <p>
-                                        En outre, d'un point de vue fiscal, vous devez remplir une
-                                        déclaration n° 2033 comportant un bilan, un tableau des
-                                        immobilisations et amortissements et un relevé des
-                                        provisions.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        En pratique, compte tenu de la grande complexité du
-                                        régime, il est indispensable de vous faire assister par un
-                                        comptable ou un organisme de gestion agréé pour éviter
-                                        toute erreur et tout problème avec l'administration
-                                        fiscale.
-                                    </p>
-                                    <p class="relative container-btn-download flex flex-col gap-2">
-                                        <button class="btn-download btn btn-secondary btn-outline" type="button"
-                                            data-download="tab_res">
-                                            Télécharger un tableau récapitulatif
-                                        </button>
-                                        <span class="error-download text-error text-sm"></span>
-                                    </p>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-                </details>
-            </li>
-        
-            <li id="article-imposition-2" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
-                <details class="article-details" id="loc-meuble">
-                    <summary
-                        class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-                        <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                            <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                        </svg>
-                        <h3>Imposition et fiscalité (location meublée)</h3>
-                    </summary>
-        
-                    <div class="underline-title-h3 divider"></div>
-        
-                    <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
-                        <p>
-                            Les loyers issus de la location meublée sont dans la catégorie
-                            des bénéfices industriels et commerciaux (BIC).
-                        </p>
-                        <p>Il existe deux régimes d'imposition:</p>
-        
-                        <div class="space-y-4">
-                            <details class="article-subdetails" id="forfaitaire-b">
-                                <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                                        <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                                    </svg>
-                                    <h4 id="f2">Forfaitaire</h4>
-                                </summary>
-        
-                                <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
-                                    <p>
-                                        Dans cette situation, les revenus imposables sont
-                                        constitués des loyers charges comprises, avec un
-                                        abattement forfaitaire de 50%.<br>
-                                        Après abattement, on applique le taux marginal
-                                        d'imposition plus le taux de prélèvement social de 17.2%
-                                        pour le calcul de l'impôt.
-                                    </p>
-                                    <p>
-                                        Si les revenus sont supérieur à 72 600€ par an, le
-                                        <strong>régime "réel"</strong> est appliqué
-                                        obligatoirement.
-                                    </p>
-                                    <p>
-                                        Les revenus des locations meublées sont soumis à la
-                                        <strong>CET</strong>, (contribution économique
-                                        territoriale),qui inclu la
-                                        <strong>CFE</strong>(contribution foncières des
-                                        entreprises) <br>Comme c'est un impôt local, son montant
-                                        peut varier d'une commune à l'autre.<br>
-                                        Renseignez-vous auprès de votre centre des impôts pour en
-                                        connaître le montant.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        Exemple de M. Dupont<br>
-                                        Revenus locatifs charges comprises:<br>
-                                        10 000€<br>
-                                        Taux marginal d'imposition:<br>
-                                        30%<br>
-                                        CFE de sa commune:<br>
-                                        550€<br>
-                                        Abattement forfaitaire de 50%:<br>
-                                        5 000€<br>
-                                        Assiete imposable : 10 000€ - 5 000€ = 5 000€<br>
-                                        Montant de l'imposition sur les BIC:<br>
-                                        5000 * (0.3 + 0.172) = 2 360€
-                                        <br>
-                                        Conclusion:<br>
-                                        Quelque soit le montant des charges liées à la location de
-                                        son bien, M.Dupont payera 2 360€ au titre de l'impot sur
-                                        les BIC.<br>
-                                        A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
-                                        <br>
-                                    </p>
-                                    <p class="relative container-btn-download flex flex-col gap-2">
-                                        <button class="btn-download btn btn-secondary btn-outline" type="button"
-                                            data-download="tab_res">
-                                            Télécharger un tableau récapitulatif
-                                        </button>
-                                        <span class="error-download text-error text-sm"></span>
-                                    </p>
-                                </div>
-                            </details>
-        
-                            <details class="article-subdetails" id="reel-b">
-                                <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                                        <use xlink:href="#icon-chevron" fill="currentColor"></use>
-                                    </svg>
-                                    <h4 id="r2">Réel</h4>
-                                </summary>
-        
-                                <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
-                                    <p>
-                                        Dans ce mode d'imposition les charges déductibles
-                                        comprendront un système d'amortissement sur le bien ,les
-                                        meubles, l'electricite etc...<br>
-                                        Pour faire simple ces amortissemnts reflette l'usure, donc
-                                        la perte de valeur d'un élément du bien.<br>
-                                        Cette perte de valeur est imputable aux revenus locatifs,
-                                        ce qui a pour effet de diminuer votre assiette
-                                        imposable.<br>
-                                        On soustrait les charges déductibles aux revenus locatifs.
-                                        On apllique ensuite le taux marginal d'imposition plus le
-                                        taux de prélèvement social(17.2%) pour calculer l'impôt.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        Exemple de M. Dupont<br>
-                                        Revenus locatifs charges comprises:<br>
-                                        10 000€<br>
-                                        Taux marginal d'imposition:<br>
-                                        30%<br>
-                                        CFE de sa commune: <br>
-                                        550€<br>
-                                        Charges déductibles et amortissements:<br>
-                                        11 500€<br>
-                                        Déficite foncier:<br>
-                                        10 000€ - 11 500€ = 1 500€<br>
-                                        Pas d'imposition sur les revenus locatifs.
-                                        <br>
-                                        Conclusion:<br>
-                                        Seule la CFE de 550€ doit être acquitée. <br>
-                                    </p>
-                                    <p>
-                                        Avec ce mode de location et ce regime d'imposition les
-                                        déficites fonciers ne sont pas imputables au revenu
-                                        global, mais uniquement sur le même type de revenus.<br>
-                                    </p>
-                                    <p>
-                                        Ce régime est nécessairement beaucoup plus complexe que le
-                                        "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
-                                        comptabilité et établir un plan d'amortissement.
-                                    </p>
-                                    <p>
-                                        En outre, d'un point de vue fiscal, vous devez remplir une
-                                        déclaration n° 2033 comportant un bilan, un tableau des
-                                        immobilisations et amortissements et un relevé des
-                                        provisions.
-                                    </p>
-                                    <p
-                                        class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                                        En pratique, compte tenu de la grande complexité du
-                                        régime, il est indispensable de vous faire assister par un
-                                        comptable ou un organisme de gestion agréé pour éviter
-                                        toute erreur et tout problème avec l'administration
-                                        fiscale.
-                                    </p>
-                                    <p class="relative container-btn-download flex flex-col gap-2">
-                                        <button class="btn-download btn btn-secondary btn-outline" type="button"
-                                            data-download="tab_res">
-                                            Télécharger un tableau récapitulatif
-                                        </button>
-                                        <span class="error-download text-error text-sm"></span>
-                                    </p>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-                </details>
-            </li>
-        </ul>
-        <div class="cta-simulateur w-full flex flex-col items-center py-12">
-            <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html"> SIMULATEUR
-                <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
-                    <use xlink:href="#icon-arrow" fill="currentColor"></use>
-                </svg>
+        <ul class="introduction-banner">
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-taeg">
+              TAEG
             </a>
-        </div>
-
-    </div>
-    <footer
-        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-10 gap-6 md:flex-row md:justify-evenly">
-        <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
-            <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
-            <ul class="menu-footer gap-2 text-sm">
-                <li class="menu-footer-li text-base-content/80">
-                    <a id="footer-lien-accueil" class="link link-hover text-base-content font-semibold"
-                        href="/index.html">Accueil</a>
-                </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a id="footer-lien-contact" class="link link-hover text-base-content font-semibold"
-                        href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
-                </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a id="footer-lien-contact" class="link link-hover text-base-content font-semibold"
-                        href="/html/contact.html">Contact</a>
-                </li>
-
-                
-                <li class="menu-footer-li text-base-content/80">
-                    <a id="footer-lien-cgu" class="link link-hover text-base-content font-semibold"
-                        href="/html/cgu.html">Conditions générales d'utilisation (CGU)</a>
-                </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a id="footer-lien-politique" class="link link-hover text-base-content font-semibold"
-                        href="/html/politique-de-confidentialite.html">Politique de
-                        confidentialité</a>
-                </li>
-            </ul>
-        </div>
-        <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
-            <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Pour approfondir le
-                sujet
+          </li>
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md outline-[0px] md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-mensualite">
+              Mensualités
+            </a>
+          </li>
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-emprunt">
+              Coût d'un emprunt
+            </a>
+          </li>
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-location">
+              Type de location
+            </a>
+          </li>
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-revenu">
+              Revenus locatifs
+            </a>
+          </li>
+          <li>
+            <a class="btn-banner btn btn-outline btn-info border-[2px] btn-md md:btn-lg rounded-full font-semibold tracking-wide"
+              href="#article-imposition-1">
+              Fiscalité
+            </a>
+          </li>
+        </ul>
+        <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html">
+          SIMULATEUR
+          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
+            <use xlink:href="#icon-arrow" fill="currentColor"></use>
+          </svg>
+        </a>
+      </div>
+    </header>
+    <main class="flex flex-col justify-start items-center gap-10">
+      <div class="text-base-content/80 space-y-4 px-4 max-w-[800px]">
+        <p class="introduction-text">
+          Investir dans l'immobilier, est-ce le bon choix? Une
+          <strong>rente locative</strong>, oui mais à quelle condition? Les
+          revenus locatifs ont un coût, qui selon le cas est loin d'être
+          négligeable.
+        </p>
+        <p class="introduction-text">
+          Notre petit<strong> calculateur</strong> va nous simplifier la vie en
+          faisant une<strong>
+            simulation de prêt immobilier ammortissable à taux fixe </strong>.(le plus courant)
+        </p>
+        <p class="introduction-text">
+          Il va calculer pour nous les <strong>mensualités</strong>,
+          <strong>le coût de l'emprunt</strong>, établir un bilan avant et après
+          imposition en fonction des différentes charges.
+        </p>
+        <p class="introduction-text">
+          Cela nous permettra de voir un peu plus clair, et de ce fait, de
+          prendre de meilleures&nbsp;décisions.
+        </p>
+      </div>
+      <p class="main-title-article h2 title text-3xl font-bold text-center text-base-content">
+        Quelques notions pour bien se comprendre...
+      </p>
+      <ul class="container-article flex-column-start-start space-y-4 w-full max-w-5xl">
+        <li id="article-taeg" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Taux annuel effectif global</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Le TAEG est un élément important du plan de financement, il
+                intègre l'ensemble des <strong>coûts liés au crédit</strong>. De
+                ce fait, il est le premier indice de comparaison des offres
+                bancaires.
+              </p>
+              <p>
+                Il intègre les coûts liés aux assurances, aux frais de dossier,
+                aux frais annexes et naturellement aux interêts bancaires.
+              </p>
+              <p>Pour calculer vos mensualités il faut utiliser le TAEG.</p>
             </div>
-            <ul class="menu-footer gap-2 text-sm">
-                <li class="menu-footer-li text-base-content/80">
-                    <a class="link link-hover text-base-content font-semibold"
-                        href="https://www.service-public.fr/particuliers/vosdroits/F1165"
-                        target="blank">Servicepublic.fr</a>
+          </details>
+        </li>
+        <li id="article-mensualite" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Mensualités</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Les
+                <strong>mensualités d'un prêt amortissable à taux fixe</strong>
+                ont un montant constant tout au long de la période d'emprunt.
+                Elles incluent à la fois le capital et les intérêts.
+              </p>
+              <p>
+                Les <strong>prêts amortissables à taux fixe</strong> sont les
+                plus courant.Ils permettent d'avoir une vision claire et
+                simplifiée des mensualités. En effet il est plus facile de
+                prévoir un endettement lorsque les charges sont fixes tout au
+                long de l'année.
+              </p>
+              <p>
+                Calculer le montant de la mensualité de crédit permet ainsi de
+                définir la faisabilité de votre projet.
+              </p>
+            </div>
+          </details>
+        </li>
+        <li id="article-emprunt" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Coût du crédit immobilier</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Le <strong>coût du crédit immobilier</strong> est imputable aux
+                interêts bancaires, aux frais liés aux assurances, aux frais de
+                dossier, aux frais annexes.
+              </p>
+              <p>
+                Le coût global de votre emprunt est égal à la différence entre
+                le total des mensualités et le montant de l'emprunt. Ce chiffre
+                doit également vous être communiqué par votre banquier.
+              </p>
+              <p>
+                Le coût du crédit = (montant des mensualités * nombre
+                d'échéances) - capital emprunté.
+              </p>
+            </div>
+          </details>
+        </li>
+        <li id="article-location" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Location nue ou meublée</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Une <strong>location "meublée"</strong> doit au minimum
+                comprendre :
+              </p>
+              <ul class="list-exemple">
+                <li class="list-exemple-li">Réfrigérateur</li>
+                <li class="list-exemple-li">
+                  Appareil de cuisson(gazinière, plaque...)
                 </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a class="link link-hover text-base-content font-semibold"
-                        href="https://www.jedeclaremonmeuble.com/guide-lmnp/" target="blank">JD2M</a>
+                <li class="list-exemple-li">Four ou four à micro-onde</li>
+                <li class="list-exemple-li">
+                  Congélateur ou compartiment à congélation du réfrigérateur
+                  d'une température maximale de -6°
                 </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a class="link link-hover text-base-content font-semibold"
-                        href="https://www.pap.fr/bailleur/choisir-investissement" target="blank">Particulier à
-                        particulier (PAP)</a>
+                <li class="list-exemple-li">
+                  Vaisselle en quantité suffisante pour que les locataires
+                  puissent prendre les repas
                 </li>
-                <li class="menu-footer-li text-base-content/80">
-                    <a class="link link-hover text-base-content font-semibold"
-                        href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
-                        target="blank">Meilleurtaux.com</a>
+                <li class="list-exemple-li">Sièges</li>
+                <li class="list-exemple-li">Table</li>
+                <li class="list-exemple-li">Ustensiles de cuisine</li>
+                <li class="list-exemple-li">Étagères de rangement</li>
+                <li class="list-exemple-li">Literie complète</li>
+                <li class="list-exemple-li">
+                  Volets ou rideaux dans les chambres
                 </li>
-            </ul>
+                <li class="list-exemple-li">Luminaires</li>
+                <li class="list-exemple-li">
+                  Matériel d'entretien ménager adapté aux caractéristiques du
+                  logement.
+                </li>
+              </ul>
+              <p>
+                Un location ne comprenant pas au minimum ces éléments, est une
+                <strong>location "nue"</strong>.
+              </p>
+            </div>
+          </details>
+        </li>
+        <li id="article-revenu" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Revenus locatifs</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Qu'il s'agisse de revenus fonciers (location nue) ou de
+                bénéfices industriels et commerciaux (location meublée) ils
+                doivent être déclarés puisqu'ils sont soumis à l'impôt sur le
+                revenu et aux prélèvements sociaux.
+              </p>
+              <p>
+                Ils peuvent être déclarés selon deux modalités : le régime
+                forfaitaire, simple mais pas toujours optimal, et le régime
+                réel, De plus, les propriétaires bayeurs en meublé doivent
+                s'acquitter la CFE (Cotisation foncière des entreprises).
+              </p>
+            </div>
+          </details>
+        </li>
+        <li id="article-imposition-1" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details" id="loc-nue">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Imposition et fiscalité (location nue)</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Les loyers issus d'une
+                <strong>location "nue"</strong> constituent des revenus
+                fonciers.<br>Il existe deux régimes d'imposition:
+              </p>
+              <div class="space-y-4">
+                <details class="article-subdetails" id="forfaitaire-a">
+                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
+                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
+                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    </svg>
+                    <h4 id="f1">Forfaitaire</h4>
+                  </summary>
+                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
+                    <p>
+                      Dans cette situation les revenus imposables sont
+                      constitués des loyers hors charge, avec un abattement
+                      forfaitaire de 30%.<br>
+                      Après abattement, on applique le taux marginal
+                      d'imposition plus le taux de prélèvement sociaux de 17.2%
+                      pour calculer l'impot sur les revenus locatifs.
+                    </p>
+                    <p>
+                      Si les revenus sont supérieur à 15 300€ par an le régime
+                      "réel" est appliqué obligatoirement.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Exemple de M. Dupont<br>
+                      Revenus locatifs hors charge:<br>
+                      8 000€ <br>
+                      Taux marginal d'imposition:
+                      <br>30%<br>
+                      Abattement forfaitaire:
+                      <br>30% <br>8000 * 0.3 = 2 400€<br>
+                      Assiete imposable:
+                      <br>8 000€ - 2 400€ = 5 600€<br>
+                      Impots sur revenus locatifs:
+                      <br>5600 * (0.3 + 0.172) = 2643€
+                      <br>
+                      Conclusion: Quelque soit le montant des charges liées à la
+                      location de son bien, M.Dupont payera 2 643€ au titre de
+                      l'impot sur revenus fonciers.
+                    </p>
+                    <p class="relative container-btn-download flex flex-col gap-2">
+                      <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      <span class="error-download text-error text-sm"></span>
+                    </p>
+                  </div>
+                </details>
+                <details class="article-subdetails" id="reel-a">
+                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
+                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
+                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    </svg>
+                    <h4 id="r1">Réel</h4>
+                  </summary>
+                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
+                    <p>
+                      Dans ce mode d'imposition les charges déductibles
+                      comprendront un système d'amortissement sur le bien ,les
+                      meubles, l'électricite etc...<br>
+                      Pour faire simple ces amortissemnts reflette l'usure, donc
+                      la perte de valeur d'un élément du bien.<br>
+                      Cette perte de valeur est imputable aux revenus locatifs,
+                      ce qui a pour effet de diminuer votre assiette
+                      imposable.<br>
+                      On soustrait les charges déductibles aux revenus locatifs.
+                      On apllique ensuite le taux marginal d'imposition plus le
+                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Exemple de M. Dupont<br>
+                      Revenus locatifs hors charge:<br>
+                      8 000€ <br>
+                      Taux marginal d'imposition: <br>
+                      30%<br>
+                      Charges déductibles + amortissements:<br>
+                      7 000€<br>
+                      Assiete imposable:<br>
+                      8 000€ - 7 000€ = 1 000€<br>
+                      Impots sur revenus locatifs:<br>
+                      1000 * (0.3 + 0.172) = 472€
+                      <br>
+                    </p>
+                    <p>
+                      Conclusion:<br>
+                      M.Dupont payera 472€ au titre de l'impot sur les revenus
+                      fonciers.<br>
+                    </p>
+                    <p>
+                      Le régime d'imposition au "réel" devient avantageux
+                      lorsque les charges déductibles sont supérieures à
+                      l'abattement forfaitaire de 30% du régime forfaitaire.<br>
+                      Encore mieux lorsque que l'on crée du déficite foncier.<br>
+                      Les charges déductibles sont alors supérieures aux revenus
+                      locatifs.
+                    </p>
+                    <p>
+                      Le déficite foncier est imputable au revenu global dans
+                      une limite de 10 700€
+                    </p>
+                    <p>Listes des charges déductibles:</p>
+                    <ul class="list-exemple">
+                      <li class="list-exemple-li">
+                        Les frais de gestion et d'administration du bien
+                        (rémunération d'un concierge ou frais d'une agence
+                        immobilière ou d'un syndic de copropriété par exemple)
+                      </li>
+                      <li class="list-exemple-li">
+                        Les impôts liés au logement et non récupérables auprès
+                        du locataire telle que la taxe foncière.
+                      </li>
+                      <li class="list-exemple-li">
+                        Les dépenses de réparation et d'entretien.
+                      </li>
+                      <li class="list-exemple-li">
+                        Les provisions pour charge dans le cadre d'une
+                        copropriété
+                      </li>
+                      <li class="list-exemple-li">
+                        Les charges locatives, si vous n'êtes pas parvenu à les
+                        récupérer auprès du locataire au 31 décembre de l'année
+                        suivant son départ.
+                      </li>
+                      <li class="list-exemple-li">
+                        L'indemnité d'éviction ou de relogement d'un locataire.
+                      </li>
+                      <li class="list-exemple-li">Les primes d'assurance.</li>
+                      <li class="list-exemple-li">
+                        Les intérêts et frais d'emprunt.
+                      </li>
+                    </ul>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Les intérêts et frais d'emprunt ne sont pas imputable au
+                      revenu global.
+                    </p>
+                    <p>
+                      Ce régime est nécessairement beaucoup plus complexe que le
+                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
+                      comptabilité et établir un plan d'amortissement.
+                    </p>
+                    <p>
+                      En outre, d'un point de vue fiscal, vous devez remplir une
+                      déclaration n° 2033 comportant un bilan, un tableau des
+                      immobilisations et amortissements et un relevé des
+                      provisions.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      En pratique, compte tenu de la grande complexité du
+                      régime, il est indispensable de vous faire assister par un
+                      comptable ou un organisme de gestion agréé pour éviter
+                      toute erreur et tout problème avec l'administration
+                      fiscale.
+                    </p>
+                    <p class="relative container-btn-download flex flex-col gap-2">
+                      <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      <span class="error-download text-error text-sm"></span>
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </details>
+        </li>
+        <li id="article-imposition-2" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details" id="loc-meuble">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
+                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Imposition et fiscalité (location meublée)</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Les loyers issus de la location meublée sont dans la catégorie
+                des bénéfices industriels et commerciaux (BIC).
+              </p>
+              <p>Il existe deux régimes d'imposition:</p>
+              <div class="space-y-4">
+                <details class="article-subdetails" id="forfaitaire-b">
+                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
+                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
+                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    </svg>
+                    <h4 id="f2">Forfaitaire</h4>
+                  </summary>
+                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
+                    <p>
+                      Dans cette situation, les revenus imposables sont
+                      constitués des loyers charges comprises, avec un
+                      abattement forfaitaire de 50%.<br>
+                      Après abattement, on applique le taux marginal
+                      d'imposition plus le taux de prélèvement social de 17.2%
+                      pour le calcul de l'impôt.
+                    </p>
+                    <p>
+                      Si les revenus sont supérieur à 72 600€ par an, le
+                      <strong>régime "réel"</strong> est appliqué
+                      obligatoirement.
+                    </p>
+                    <p>
+                      Les revenus des locations meublées sont soumis à la
+                      <strong>CET</strong>, (contribution économique
+                      territoriale),qui inclu la
+                      <strong>CFE</strong>(contribution foncières des
+                      entreprises) <br>Comme c'est un impôt local, son montant
+                      peut varier d'une commune à l'autre.<br>
+                      Renseignez-vous auprès de votre centre des impôts pour en
+                      connaître le montant.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Exemple de M. Dupont<br>
+                      Revenus locatifs charges comprises:<br>
+                      10 000€<br>
+                      Taux marginal d'imposition:<br>
+                      30%<br>
+                      CFE de sa commune:<br>
+                      550€<br>
+                      Abattement forfaitaire de 50%:<br>
+                      5 000€<br>
+                      Assiete imposable : 10 000€ - 5 000€ = 5 000€<br>
+                      Montant de l'imposition sur les BIC:<br>
+                      5000 * (0.3 + 0.172) = 2 360€
+                      <br>
+                      Conclusion:<br>
+                      Quelque soit le montant des charges liées à la location de
+                      son bien, M.Dupont payera 2 360€ au titre de l'impot sur
+                      les BIC.<br>
+                      A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
+                      <br>
+                    </p>
+                    <p class="relative container-btn-download flex flex-col gap-2">
+                      <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      <span class="error-download text-error text-sm"></span>
+                    </p>
+                  </div>
+                </details>
+                <details class="article-subdetails" id="reel-b">
+                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
+                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
+                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    </svg>
+                    <h4 id="r2">Réel</h4>
+                  </summary>
+                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
+                    <p>
+                      Dans ce mode d'imposition les charges déductibles
+                      comprendront un système d'amortissement sur le bien ,les
+                      meubles, l'electricite etc...<br>
+                      Pour faire simple ces amortissemnts reflette l'usure, donc
+                      la perte de valeur d'un élément du bien.<br>
+                      Cette perte de valeur est imputable aux revenus locatifs,
+                      ce qui a pour effet de diminuer votre assiette
+                      imposable.<br>
+                      On soustrait les charges déductibles aux revenus locatifs.
+                      On apllique ensuite le taux marginal d'imposition plus le
+                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Exemple de M. Dupont<br>
+                      Revenus locatifs charges comprises:<br>
+                      10 000€<br>
+                      Taux marginal d'imposition:<br>
+                      30%<br>
+                      CFE de sa commune: <br>
+                      550€<br>
+                      Charges déductibles et amortissements:<br>
+                      11 500€<br>
+                      Déficite foncier:<br>
+                      10 000€ - 11 500€ = 1 500€<br>
+                      Pas d'imposition sur les revenus locatifs.
+                      <br>
+                      Conclusion:<br>
+                      Seule la CFE de 550€ doit être acquitée. <br>
+                    </p>
+                    <p>
+                      Avec ce mode de location et ce regime d'imposition les
+                      déficites fonciers ne sont pas imputables au revenu
+                      global, mais uniquement sur le même type de revenus.<br>
+                    </p>
+                    <p>
+                      Ce régime est nécessairement beaucoup plus complexe que le
+                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
+                      comptabilité et établir un plan d'amortissement.
+                    </p>
+                    <p>
+                      En outre, d'un point de vue fiscal, vous devez remplir une
+                      déclaration n° 2033 comportant un bilan, un tableau des
+                      immobilisations et amortissements et un relevé des
+                      provisions.
+                    </p>
+                    <p
+                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      En pratique, compte tenu de la grande complexité du
+                      régime, il est indispensable de vous faire assister par un
+                      comptable ou un organisme de gestion agréé pour éviter
+                      toute erreur et tout problème avec l'administration
+                      fiscale.
+                    </p>
+                    <p class="relative container-btn-download flex flex-col gap-2">
+                      <button class="btn-download btn btn-secondary btn-outline" type="button" data-download="tab_res">
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      <span class="error-download text-error text-sm"></span>
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </details>
+        </li>
+      </ul>
+      <div class="cta-simulateur w-full flex flex-col items-center py-12">
+        <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html"> SIMULATEUR
+          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
+            <use xlink:href="#icon-arrow" fill="currentColor"></use>
+          </svg>
+        </a>
+      </div>
+
+    </main>
+
+    <footer class="flex flex-col justify-start items-center w-full">
+      <div
+        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-5 gap-6 md:flex-row md:justify-evenly">
+        <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
+          <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
+          <ul class="menu-footer gap-2 text-sm">
+            <li class="menu-footer-li text-base-content/80">
+              <a id="footer-lien-accueil" class="text-base-content font-semibold" href="/index.html">Accueil</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a id="footer-lien-contact" class="text-base-content font-semibold"
+                href="/html/simulateur-rentabilite-locative.html">Simulateur</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a id="footer-lien-contact" class="text-base-content font-semibold" href="/html/contact.html">Contact</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a id="footer-lien-cgu" class="text-base-content font-semibold" href="/html/cgu.html">Conditions générales
+                d'utilisation (CGU)</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a id="footer-lien-politique" class="text-base-content font-semibold"
+                href="/html/politique-de-confidentialite.html">Politique de
+                confidentialité</a>
+            </li>
+          </ul>
         </div>
-    </footer>
-    <p>
+        <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
+          <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Pour approfondir le
+            sujet
+          </div>
+          <ul class="menu-footer gap-2 text-sm">
+            <li class="menu-footer-li text-base-content/80">
+              <a class="text-base-content font-semibold"
+                href="https://www.service-public.fr/particuliers/vosdroits/F1165" target="blank">Servicepublic.fr</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a class="text-base-content font-semibold" href="https://www.jedeclaremonmeuble.com/guide-lmnp/"
+                target="blank">JD2M</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a class="text-base-content font-semibold" href="https://www.pap.fr/bailleur/choisir-investissement"
+                target="blank">Particulier à
+                particulier (PAP)</a>
+            </li>
+            <li class="menu-footer-li text-base-content/80">
+              <a class="text-base-content font-semibold"
+                href="https://www.meilleurtaux.com/credit-immobilier/le-guide-de-l-investissement-locatif/optimisation-fiscale.html"
+                target="blank">Meilleurtaux.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="py-2 bg-base-200 w-full text-center">
         Powered by
-        <a class="link link-info inline-block p-2" href="https://helveclick.ch" target="blank">Helveclick</a>
-    </p>
+        <a class="link link-info" href="https://helveclick.ch" target="blank">Helveclick</a>
+      </p>
+    </footer>
+  </div>
 </body>
 
 </html>

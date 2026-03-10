@@ -1,2 +1,2 @@
 /******* genere les icons pour la PWA ********
-npx pwa-asset-generator public/logo-mpl-v2.png public/icons --background "#ffffff" --padding "20%" --manifest public/manifest.webmanifest --index index.html --type png
+npx pwa-asset-generator public/logo-mpl.png public/icons --background "transparent" --padding "20%" --manifest public/manifest.webmanifest --index index.html --type png --no-manifest-update --manifest-only
