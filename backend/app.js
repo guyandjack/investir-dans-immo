@@ -13,8 +13,6 @@ const path = require("node:path");
 // methode de journalsiation des evenements
 const logger = require("./logger");
 
-const notFound = require("./middelware/noFound.middelware.js");
-const errorHandler = require("./middelware/errorHandler.middelware.js");
 
 //Import des routes "conctact"
 const routeApiContact = require("./routes/contactRoute");
@@ -109,8 +107,6 @@ appli.get("/test", (req, res) => {
   });
 });
 
-appli.use(notFound);
-appli.use(errorHandler);
 
 //Routes principales
 appli.use("/", routeApiContact);

@@ -42,22 +42,9 @@ async function getLatestIrl(req, res, next) {
   }
 }
 
-async function healthCheck(req, res, next) {
-  try {
-    const meta = await getIrlMeta();
 
-    return res.json({
-      ok: true,
-      service: "irl-api",
-      ...meta,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
 
 module.exports = {
   getIrl,
-  getLatestIrl,
-  healthCheck,
+  getLatestIrl
 };

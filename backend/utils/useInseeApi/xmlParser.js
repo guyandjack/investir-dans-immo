@@ -8,6 +8,7 @@ function parseXml(xmlString) {
     trimValues: true,
   });
 
+  
   return parser.parse(xmlString);
 }
 
