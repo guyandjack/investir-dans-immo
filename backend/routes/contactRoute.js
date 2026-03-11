@@ -7,7 +7,7 @@ const express = require("express");
 const {
   checkDataUserForm,
 } = require("../middelware/checkDataUserForm.middelware");
-const { handleContactForm } = require("../controler/contactForm.controler");
+const { handleContactForm } = require("../controller/contactForm.controller");
 
 const router = express.Router();
 

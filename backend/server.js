@@ -9,6 +9,16 @@ const http = require("node:http");
 const morgan = require("morgan");
 const logger = require("./logger");
 const appli = require("./app");
+const { ensureJsonFile } = require("./utils/useInseeApi/storeDataJson.js");
+const { runIrlJob, startIrlCronJob } = require("./utils/useInseeApi/insee-cron.js");
+
+async function bootstrap() {
+  await ensureJsonFile();
+  await runIrlJob();
+  startIrlCronJob();
+
+  
+}
 
 
 
@@ -30,6 +40,8 @@ const normalizePort = (val) => {
 
 const port = normalizePort(process.env.PORT || "3000");
 appli.set("port", port);
+
+
 
 const server = http.createServer(appli);
 
@@ -79,5 +91,9 @@ process.on("uncaughtException", (err) => {
     process.exit(1);
   });
 });
+
+
+
+bootstrap();
 
 server.listen(port);

@@ -13,11 +13,17 @@ const path = require("node:path");
 // methode de journalsiation des evenements
 const logger = require("./logger");
 
+const notFound = require("./middelware/noFound.middelware.js");
+const errorHandler = require("./middelware/errorHandler.middelware.js");
+
 //Import des routes "conctact"
 const routeApiContact = require("./routes/contactRoute");
 
 //Import des routes "download"
 const routeApiDownload = require("./routes/downloadRoute");
+
+//Import des routes service INSEE
+const routeInsee = require("./routes/inseeRoute.js");
 
 //Appli express
 const appli = express();
@@ -103,9 +109,14 @@ appli.get("/test", (req, res) => {
   });
 });
 
+appli.use(notFound);
+appli.use(errorHandler);
+
 //Routes principales
 appli.use("/", routeApiContact);
 
 appli.use("/", routeApiDownload);
+
+appli.use("/", routeInsee);
 
 module.exports = appli;

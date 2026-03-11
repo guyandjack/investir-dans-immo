@@ -24,10 +24,10 @@ html {
 }
 
 /**** liens # page politique *******/
-/**** liens # page cgu *******/
 #collecte,
 #cookies,
 #droits,
+/**** liens # page cgu *******/
 #article-1,
 #article-2,
 #article-3,
@@ -37,7 +37,14 @@ html {
 #article-9,
 #article-10,
 #article-11,
-#article-12{
+#article-12,
+/**** liens # page index *******/
+#article-taeg,
+#article-mensualite,
+#article-emprunt,
+#article-location,
+#article-revenu,
+#article-imposition-1{
  scroll-margin-top: var(--nav-height);
 
 }
@@ -56,6 +63,7 @@ html {
 main{
   width: 100%;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .main-other-page{
@@ -69,8 +77,6 @@ main{
   max-width: 1000px;
   padding: 0 1rem;
  }
-
- 
 
 
  .container-banner {
@@ -259,6 +265,8 @@ main{
   transform: rotateZ(-90deg);
 }
 
+
+
 .container-article summary h3:hover,
 .container-article summary h4:hover{
   color: var(--color-info);
@@ -415,7 +423,7 @@ footer a:hover{
 
 @layer components {
   .container-page {
-    @apply relative w-full max-w-[2000px] overflow-hidden flex flex-col justify-start items-center gap-10  bg-gradient-to-b from-base-100 via-base-200 to-base-300 ;
+    @apply relative w-full max-w-[2000px] overflow-hidden flex flex-col justify-start items-center gap-10 ;
   }
 
   .container-loader {

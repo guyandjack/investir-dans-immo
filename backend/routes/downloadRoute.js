@@ -2,7 +2,7 @@
 /**************  definission de toutes les routes "invest immo" **************/
 /***************************************************************************** */
 ///import du controler qui gere les download
-const { sendFile } = require("../controler/download.controler");
+const { sendFile } = require("../controller/download.controller");
 const express = require("express");
 
 const router = express.Router();

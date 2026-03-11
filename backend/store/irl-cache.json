@@ -1,0 +1,34 @@
+{
+  "idbank": "001515333",
+  "label": "Indice de référence des loyers (IRL)",
+  "currentYear": 2026,
+  "previousYear": 2025,
+  "currentYearData": [],
+  "previousYearData": [
+    {
+      "period": "2025-Q1",
+      "value": 145.47
+    },
+    {
+      "period": "2025-Q2",
+      "value": 146.68
+    },
+    {
+      "period": "2025-Q3",
+      "value": 145.77
+    },
+    {
+      "period": "2025-Q4",
+      "value": 145.78
+    }
+  ],
+  "latest": {
+    "period": "2025-Q4",
+    "value": 145.78
+  },
+  "previousSameQuarter": null,
+  "updatedAt": "2026-03-11T15:46:45.691Z",
+  "source": "INSEE BDM SDMX",
+  "lastFetchStatus": "success",
+  "lastFetchError": null
+}
