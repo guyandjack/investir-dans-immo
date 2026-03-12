@@ -35,7 +35,6 @@ import {
   inputNumberDuree,
   inputNumberFoncier,
   inputNumberGestion,
-  inputNumberHabitation,
   inputNumberPrix,
   inputNumberRevenuChargeComprise,
   inputNumberRevenuHorsCharge,
@@ -50,7 +49,6 @@ import {
   inputRangeDuree,
   inputRangeFoncier,
   inputRangeGestion,
-  inputRangeHabitation,
   inputRangePrix,
   inputRangeRevenuChargeComprise,
   inputRangeRevenuHorsCharge,
@@ -188,7 +186,6 @@ function initInputValue() {
     apno,
     ali,
     foncier,
-    habitation,
     cfe,
     nondeductible,
     deductible,
@@ -219,7 +216,6 @@ function initInputValue() {
   setPairValue(inputNumberApno, inputRangeApno, apno);
   setPairValue(inputNumberAli, inputRangeAli, ali);
   setPairValue(inputNumberFoncier, inputRangeFoncier, foncier);
-  setPairValue(inputNumberHabitation, inputRangeHabitation, habitation);
   setPairValue(inputNumberCfe, inputRangeCfe, cfe);
   setPairValue(
     inputNumberChargeNondeductible,
@@ -335,13 +331,8 @@ const chargeGroups = {
       inputNumberApno,
       inputNumberAli,
       inputNumberFoncier,
-      inputNumberHabitation,
     ],
-    reel: [
-      inputNumberHabitation,
-      inputNumberChargeNondeductible,
-      inputNumberChargeDeductible,
-    ],
+    reel: [inputNumberChargeNondeductible, inputNumberChargeDeductible],
   },
   meuble: {
     forfaitaire: [
@@ -350,11 +341,9 @@ const chargeGroups = {
       inputNumberApno,
       inputNumberAli,
       inputNumberFoncier,
-      inputNumberHabitation,
       inputNumberCfe,
     ],
     reel: [
-      inputNumberHabitation,
       inputNumberChargeNondeductible,
       inputNumberChargeDeductible,
       inputNumberCfe,

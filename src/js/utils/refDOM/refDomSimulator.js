@@ -73,9 +73,6 @@ const inputNumberGestion = document.querySelector("input[name='number-gestion']"
 const inputNumberApno = document.querySelector("input[name='number-apno']");
 const inputNumberAli = document.querySelector("input[name='number-ali']");
 const inputNumberFoncier = document.querySelector("input[name='number-foncier']");
-const inputNumberHabitation = document.querySelector(
-  "input[name='number-habitation']",
-);
 const inputNumberCfe = document.querySelector("input[name='number-cfe']");
 const inputNumberChargeNondeductible = document.querySelector(
   "input[name='number-nondeductible']",
@@ -89,7 +86,6 @@ const inputRangeGestion = document.querySelector("input[name='range-gestion']");
 const inputRangeApno = document.querySelector("input[name='range-apno']");
 const inputRangeAli = document.querySelector("input[name='range-ali']");
 const inputRangeFoncier = document.querySelector("input[name='range-foncier']");
-const inputRangeHabitation = document.querySelector("input[name='range-habitation']");
 const inputRangeCfe = document.querySelector("input[name='range-cfe']");
 const inputRangeChargeNondeductible = document.querySelector(
   "input[name='range-nondeductible']",
@@ -169,7 +165,6 @@ export {
   inputNumberApno,
   inputNumberAli,
   inputNumberFoncier,
-  inputNumberHabitation,
   inputNumberCfe,
   inputNumberChargeNondeductible,
   inputNumberChargeDeductible,
@@ -178,7 +173,6 @@ export {
   inputRangeApno,
   inputRangeAli,
   inputRangeFoncier,
-  inputRangeHabitation,
   inputRangeCfe,
   inputRangeChargeNondeductible,
   inputRangeChargeDeductible,

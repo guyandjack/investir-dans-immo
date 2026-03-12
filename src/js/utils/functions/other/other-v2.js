@@ -61,6 +61,24 @@ const changeBlockState = (list, from, to) => {
   list.forEach((item) => toggleClass(item, from, to));
 };
 
+const toNumberOrZero = (value) => {
+  if (value === "" || value === null || value === undefined) return 0;
+  const normalized =
+    typeof value === "string" ? value.replace(",", ".") : value;
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const setLinkedInputValue = (input, numericValue) => {
+  if (!input) return;
+  const safeValue = Number.isFinite(numericValue) ? numericValue : 0;
+  if (input.type === "number") {
+    input.value = safeValue === 0 ? "" : String(safeValue);
+    return;
+  }
+  input.value = String(safeValue);
+};
+
 
 
 const toggleRefs = {
@@ -157,9 +175,8 @@ function linkInput(evt) {
   const linked = getLinkedInputElement(`${oppositeType}-${name}`);
   if (!linked || linked === target) return;
 
-  if (linked.value !== target.value) {
-    linked.value = target.value;
-  }
+  const numericValue = toNumberOrZero(target.value);
+  setLinkedInputValue(linked, numericValue);
 }
 
 function hideInputRadioRegimeFiscal() {

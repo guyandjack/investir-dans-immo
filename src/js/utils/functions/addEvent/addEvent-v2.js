@@ -95,6 +95,30 @@ const scheduleMicrotask = (fn) => {
   };
 };
 
+const zeroDisplaySelector = ".calculette-number";
+let zeroDisplayListenerAttached = false;
+
+const ensureZeroDisplayHandler = () => {
+  if (zeroDisplayListenerAttached) return;
+  zeroDisplayListenerAttached = true;
+
+  document.addEventListener(
+    "blur",
+    (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      if (target.type !== "number") return;
+      if (!target.matches(zeroDisplaySelector)) return;
+      if (target.value === "") return;
+      const numericValue = Number(target.value);
+      if (Number.isFinite(numericValue) && numericValue === 0) {
+        target.value = "";
+      }
+    },
+    true,
+  );
+};
+
 /* ------------------------- Recalculs centralisés ------------------------- */
 
 function recalcMonthlyIfValid(e) {
@@ -274,6 +298,7 @@ function addEventOnLinkBanner() {
 function addEventOnInputMonthly() {
   if (delegatedInputsMonthly) return;
   delegatedInputsMonthly = true;
+  ensureZeroDisplayHandler();
 
   document.addEventListener("input", (e) => {
     const t = e.target;
