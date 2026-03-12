@@ -17,16 +17,16 @@ const inputRangeDuree = document.querySelector("input[name='range-duree']");
 const gainAdvice = document.querySelector(".gain-advice");
 const uniteGain = document.querySelector("#gain");
 
-const containerResultat = document.querySelector("#cont-result");
-const containerInterest = document.querySelector("#cont-interest");
+//const containerResultat = document.querySelector("#cont-result");
+//const containerInterest = document.querySelector("#cont-interest");
 
-const mensualiteTextStart = document.querySelector("#mensualite-text-start");
+//const mensualiteTextStart = document.querySelector("#mensualite-text-start");
 const resultat = document.querySelector("#mensualite");
-const mensualiteTextEnd = document.querySelector("#mensualite-text-end");
+//const mensualiteTextEnd = document.querySelector("#mensualite-text-end");
 
-const interestTextStart = document.querySelector("#interest-text-start");
+//const interestTextStart = document.querySelector("#interest-text-start");
 const interestCredit = document.querySelector("#interest");
-const interestTextEnd = document.querySelector("#interest-text-end");
+//const interestTextEnd = document.querySelector("#interest-text-end");
 
 const resultatError = document.querySelector("#resultat-error-calculette");
 
@@ -139,14 +139,14 @@ export {
   inputRangeDuree,
   gainAdvice,
   uniteGain,
-  containerResultat,
-  containerInterest,
-  mensualiteTextStart,
+  //containerResultat,
+  //containerInterest,
+  //mensualiteTextStart,
   resultat,
-  mensualiteTextEnd,
-  interestTextStart,
+  //mensualiteTextEnd,
+  //interestTextStart,
   interestCredit,
-  interestTextEnd,
+  //interestTextEnd,
   resultatError,
   inputRadioLocationNue,
   inputRadioLocationMeuble,

@@ -59,8 +59,8 @@ const dataValueInit = {
   //mensualite
   price: 0,
   rateAdvice: 0,
-  taeg: 1,
-  periode: 20,
+  taeg: 0,
+  periode: 0,
 
   //type de location
   locationtype: "nue",

@@ -2,7 +2,7 @@
   "name": "Mon Projet Locatif",
   "short_name": "MPL",
   "description": "Simulateur immobilier pour estimer les mensualités, charges et fiscalité de votre projet locatif.",
-  "id": "/mpl",
+  "id": "org.monprojetlocatif.twa",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
@@ -17,29 +17,18 @@
   ],
   "icons": [
     {
-      "src": "public/icons/manifest-icon-192.maskable.png",
+      "src": "/icons/manifest-icon-192.maskable.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "public/icons/manifest-icon-192.maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "public/icons/manifest-icon-512.maskable.png",
+      "src": "/icons/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "public/icons/manifest-icon-512.maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
+    
   ],
   "shortcuts": [
     {
@@ -48,7 +37,7 @@
       "url": "/?source=shortcut#calculette",
       "icons": [
         {
-          "src": "/icons/manifest-icon-192.png",
+          "src": "/icons/manifest-icon-192.maskable.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -59,7 +48,7 @@
       "url": "/contact.html?source=shortcut",
       "icons": [
         {
-          "src": "/icons/manifest-icon-192.png",
+          "src": "/icons/manifest-icon-192.maskable.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -70,7 +59,7 @@
       "url": "/cgu.html?source=shortcut",
       "icons": [
         {
-          "src": "/icons/manifest-icon-192.png",
+          "src": "/icons/manifest-icon-192.maskable.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -79,28 +68,28 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/home-desktop.png",
+      "src": "/screenshots/desk-home.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Simulateur immobilier"
     },
     {
-      "src": "/screenshots/results-desktop.png",
+      "src": "/screenshots/desk-result.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Résultats détaillés"
     },
     {
-      "src": "/screenshots/mobile-simulateur.png",
+      "src": "/screenshots/mobile-result.png",
       "sizes": "540x742",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Simulation sur mobile"
     },
     {
-      "src": "/screenshots/mobile-results.png",
+      "src": "/screenshots/mobile-home.png",
       "sizes": "540x742",
       "type": "image/png",
       "form_factor": "narrow",

@@ -56,10 +56,10 @@ import {
   inputRangeRevenuHorsCharge,
   inputRangeTaeg,
   interestCredit,
-  interestTextEnd,
-  interestTextStart,
-  mensualiteTextEnd,
-  mensualiteTextStart,
+  //interestTextEnd,
+  //interestTextStart,
+  //mensualiteTextEnd,
+  //mensualiteTextStart,
   resultat,
   simulationTitre,
   titreRegimeImposition,
@@ -70,6 +70,8 @@ import {
   inputRadioRegimeForfaitaire,
   inputRadioRegimeReel,
   inputRadioTauxMarginalDefault,
+  //containerResultat,
+  //containerInterest,
 } from "../../refDOM/refDomSimulator.js";
 
 import { calculatedValue, dataValueInit } from "../../data/data.js";
@@ -84,9 +86,11 @@ const toFiniteNumber = (value) => {
 const toPositiveInt = (value) => Math.max(0, Math.round(toFiniteNumber(value)));
 
 const setPairValue = (numberInput, rangeInput, rawValue) => {
+  if (!numberInput || !rangeInput) return;
   const value = toPositiveInt(rawValue);
-  if (numberInput) numberInput.value = value;
-  if (rangeInput) rangeInput.value = value;
+  numberInput.value = value === 0 ? null : value;
+  rangeInput.value = value;
+ 
   return value;
 };
 
@@ -110,17 +114,27 @@ const swapClasses = (node, removeClass, addClass) => {
 };
 
 function mensualite(montant, apport, taeg, periode) {
+
+  /* setTextContent(mensualiteTextStart, "Vos mensualit\u00E9s: ");
+  setTextContent(mensualiteTextEnd, " \u20AC"); */
+
+  if (montant < 1 || apport < 1 || taeg < 1 || periode < 1) {
+    setTextContent(resultat, "");
+    return false
+  }
+
+  
   const capitalEmprunte = toFiniteNumber(montant) - toFiniteNumber(apport);
   const months = Math.max(1, Math.round(toFiniteNumber(periode) * MONTHS_PER_YEAR));
   const yearlyRate = toFiniteNumber(taeg) / 100;
   const monthlyRate = yearlyRate / MONTHS_PER_YEAR;
 
-  if (capitalEmprunte <= 0) {
+   if (capitalEmprunte <= 0) {
     calculatedValue.capital = 0;
     calculatedValue.mensualite = "0.00";
     resultat && (resultat.textContent = "0");
-    return;
-  }
+    return false;
+  } 
 
   calculatedValue.capital = Math.round(capitalEmprunte);
 
@@ -134,24 +148,31 @@ function mensualite(montant, apport, taeg, periode) {
 
   const fixed = Number.isFinite(monthlyPayment) ? monthlyPayment.toFixed(2) : "0.00";
   calculatedValue.mensualite = fixed;
+  
 
-  setTextContent(mensualiteTextStart, "Vos mensualit\u00E9s: ");
+  
   setTextContent(resultat, fixed);
-  setTextContent(mensualiteTextEnd, " \u20AC");
+  return true
 }
 
-function coutDuCredit() {
+function coutDuCredit(isCalculated) {
+ /*  setTextContent(interestTextEnd, " \u20AC");
+  setTextContent(interestTextStart, "Co\u00FBt de l'emprunt: "); */
+
+  if (!isCalculated) {
+    setTextContent(interestCredit, "");
+    return
+  }
+  
   const capital = toFiniteNumber(calculatedValue.capital);
   const mensualiteValue = toFiniteNumber(calculatedValue.mensualite);
   const duree = Math.max(0, toFiniteNumber(inputNumberDuree?.value));
-
+  
   const interest = mensualiteValue * duree * MONTHS_PER_YEAR - capital;
   const result = Math.max(0, interest);
   calculatedValue.interet = result.toFixed(2);
-
-  setTextContent(interestTextStart, "Co\u00FBt de l'emprunt: ");
+  
   setTextContent(interestCredit, result.toFixed(2));
-  setTextContent(interestTextEnd, " \u20AC");
 }
 
 function initInputValue() {

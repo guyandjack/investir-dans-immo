@@ -21,7 +21,8 @@ import {
 import { checkValueUserRadioFiscal } from "./utils/functions/checkValueUser/checkValueUser.js";
 import {
   eventToggleSwitch,
-  useThemeColor,
+  initToggleSwitch,
+  
   
 } from "./utils/functions/other/other-ui-v2.js";
 import { changeColor } from "./utils/functions/other/other-v2.js";
@@ -97,8 +98,8 @@ const initEvents = () => {
 };
 
 
+initToggleSwitch();
 eventToggleSwitch();
-useThemeColor();
 initSimulator();
 initEvents();
 registerServiceWorker();

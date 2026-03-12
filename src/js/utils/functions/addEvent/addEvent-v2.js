@@ -102,13 +102,20 @@ function recalcMonthlyIfValid(e) {
   const isValid = checkValueUserMonthly(e);
   if (!isValid) return;
 
-  mensualite(
+  const isCaculated = mensualite(
     inputNumberPrix.value,
     inputNumberApport.value,
     inputNumberTaeg.value,
     inputNumberDuree.value,
   );
-  coutDuCredit();
+
+  //si une valeur est egal a zero l' input affiche un champ vide
+  /* inputNumberPrix.value = inputNumberPrix.value === 0 ? null : inputNumberPrix.value;
+  inputNumberApport.value = inputNumberApport.value === 0 ? null : inputNumberApport.value;
+  inputNumberTaeg.value = inputNumberTaeg.value === 0 ? null : inputNumberTaeg.value;
+  inputNumberDuree.value = inputNumberDuree.value === 0 ? null : inputNumberDuree.value; */
+  
+  coutDuCredit(isCaculated);
   changeColor();
 
   balance();

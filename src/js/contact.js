@@ -5,7 +5,8 @@
 //import des functions
 import {
   eventToggleSwitch,
-  useThemeColor,
+  initToggleSwitch,
+  
 } from "./utils/functions/other/other-ui-v2.js";
 
 import { getRuntimeEnv } from "../js/utils/functions/getRuntimeEnv/getRuntimeEnv.js";
@@ -413,9 +414,7 @@ function addEventControlOnInput() {
   let buttonSubmit = document.querySelector("#btn");
   let validDiv = document.querySelector(".valid");
 
-  //switch dark mode
-  eventToggleSwitch();
-
+  
   //input user
   inputCivilite.addEventListener("input", (e) => {
     checkUserValueCivilite(e.target.id, e.target.value || "error");
@@ -450,6 +449,8 @@ function addEventControlOnInput() {
 }
 
 /*************************** script principal **************************/
+initToggleSwitch();
+eventToggleSwitch();
 addEventControlOnInput();
-useThemeColor();
+
 

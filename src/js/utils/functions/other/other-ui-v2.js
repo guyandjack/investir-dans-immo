@@ -16,13 +16,6 @@ const getToggleCheckbox = () => {
   return toggleRefs.checkbox;
 };
 
-/* const getToggleSwitch = () => {
-  if (toggleRefs.switch && toggleRefs.switch.isConnected) {
-    return toggleRefs.switch;
-  }
-  toggleRefs.switch = document.querySelector(".switch");
-  return toggleRefs.switch;
-}; */
 
 const getToggleSwap = () => {
   if (toggleRefs.swap && toggleRefs.swap.isConnected) {
@@ -43,14 +36,23 @@ function storeThemeColor() {
 
 function useThemeColor() {
   const checkbox = getToggleCheckbox();
-  const body = document.body;
   const stored = localStorage.getItem("themeColor");
   const theme = stored === themeDark ? themeDark : themeClear;
 
-  body.dataset.theme = theme;
+  document.documentElement.setAttribute("data-theme", theme);
   if (checkbox) {
     checkbox.checked = theme === themeDark;
   }
+}
+
+function initToggleSwitch() {
+  const checkbox = getToggleCheckbox();
+  if (!checkbox) return;
+  let value = false;
+  const theme = localStorage.getItem("themeColor");
+  value = theme === themeDark ? true : false;
+  checkbox.checked = value;
+  console.log("init check box a: ", value);
 }
 
 
@@ -62,6 +64,7 @@ function eventToggleSwitch() {
 
   toggleSwitchListenerAttached = true;
   toggleSwitch.addEventListener("click", () => {
+    
     storeThemeColor();
     useThemeColor();
   });
@@ -69,6 +72,7 @@ function eventToggleSwitch() {
 
 export {
   
+  initToggleSwitch,
   eventToggleSwitch,
   useThemeColor,
   

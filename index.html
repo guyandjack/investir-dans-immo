@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="winter">
 
 <head>
 
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="winter dim">
   <title>Mon projet locatif, ce qu'il va me coûter en réalité</title>
   <meta name="description"
     content="Calculer ce que va vous couter en réalité, votre projet locatif. En cinq minutes, ce simulateur gratuit, vous permet de calculer les mensualités d'un crédit immobilier, le coût des intérêts et d'établir un bilan après imposition. Cela vous permettra de voir plus clair pour prendre de meilleurs décisions.">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- indique au navigateur le theme utiliser, evite l' effet de clignotemet a l' ouverture de la page -->
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("themeColor");
+      if (savedTheme === "winter" || !savedTheme ) return;
+       document.documentElement.setAttribute("data-theme", savedTheme);
+    })();
+  </script>
 
   <!--preload du css non blocant, pour ensuite applique le css une fois chargé-->
   <link rel="preload" href="/src/style/main.css" as="style" onload="this.rel='stylesheet'">
@@ -43,6 +53,7 @@
   <link rel="apple-touch-icon" href="/icons/apple-icon-180.png">
 
   <!-- Favicon classique -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
@@ -50,7 +61,6 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
   <link rel="icon" type="image/png" sizes="180x180" href="/favicons/apple-touch-icon-precomposed.png">
   <link rel="icon" type="image/png" sizes="180x180" href="/favicons/apple-touch-icon.png">
-  <link rel="icon" href="/favicon.ico" sizes="any">
 
   <!-- Feuilles de style-->
   <noscript>
@@ -61,7 +71,7 @@
   <script type="module" src="/src/js/index.js"></script>
 </head>
 
-<body data-theme="winter" class="w-full text-base-content antialiased flex flex-col justify-start items-center">
+<body class="w-full text-base-content antialiased flex flex-col justify-start items-center">
 
   <!--icon svg information -->
   <svg xmlns="http://www.w3.org/2000/svg" height="0px" width="0px">
@@ -105,9 +115,9 @@
           <input id="main-drawer" type="checkbox" class="drawer-toggle" />
         
           <div class="drawer-content flex w-full justify-end">
-            <label for="main-drawer" class="label-target cursor-pointer p-2">
-              <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
-                <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
+            <label for="main-drawer" class="cursor-pointer">
+              <svg id="icon-menu" viewBox="0 -960 960 960">
+                <use xlink:href="#svg-icon-menu"></use>
               </svg>
             </label>
           </div>
@@ -115,7 +125,7 @@
           <div class="drawer-side">
             <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
         
-            <ul class="menu bg-base-300 text-base-content min-h-full w-80 p-6 space-y-4">
+            <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-6 space-y-4">
               <li>
                 <a id="nav-lien-accueil"
                   class="text-secondary hover:bg-transparent hover:text-accent justify-start normal-case text-lg" href="/">

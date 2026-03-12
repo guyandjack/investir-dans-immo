@@ -1,3 +1,4 @@
+import { initToggleSwitch } from "./utils/functions/other/other-ui-v2.js";
 import { registerServiceWorker } from "./utils/registerServiceWorker.js";
 
 const once = (fn) => {
@@ -46,12 +47,11 @@ const loadAddEventModule = () => {
 };
 
 const initHeaderSection = once(async () => {
-  const [{ eventToggleSwitch, useThemeColor }, { addEventOnLinkBanner }] =
+  const [{ eventToggleSwitch, initToggleSwitch }, { addEventOnLinkBanner }] =
     await Promise.all([loadUiModule(), loadAddEventModule()]);
 
-  
+  initToggleSwitch();
   eventToggleSwitch();
-  useThemeColor();
   addEventOnLinkBanner();
   registerServiceWorker();
 });
