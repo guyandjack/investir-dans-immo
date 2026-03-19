@@ -4,6 +4,7 @@
 import {
   chargeForfaitaireList,
   chargeReelList,
+  chargeAmortissableList,
   containerInputCfe,
   containerInputRadioFiscal,
   gainAdvice,
@@ -12,6 +13,7 @@ import {
   inputRadioLocationMeuble,
   inputRadioLocationNue,
   uniteGain,
+  containerTotalChargeAmortissement,
 } from "../../refDOM/refDomSimulator.js";
 import { calculatedValue } from "../../data/data.js";
 
@@ -167,6 +169,7 @@ function changeColor() {
 function linkInput(evt) {
   const target = evt?.target;
   if (!(target instanceof HTMLInputElement)) return;
+  console.log("target type: ", target);
 
   const [type, name] = target.name.split("-");
   if (!name) return;
@@ -195,13 +198,14 @@ function hideInputCfe() {
   return toggleClass(containerInputCfe, "display-taxe", "hide-taxe");
 }
 
-function displayChargeForfaitaire() {
-  changeBlockState(chargeForfaitaireList, "hide-taxe", "display-taxe");
+ function displayTotalAmortissement() {
+  toggleClass(containerTotalChargeAmortissement, "hide-el-flex", "show-el-flex");
 }
 
-function hideChargeForfaitaire() {
-  changeBlockState(chargeForfaitaireList, "display-taxe", "hide-taxe");
-}
+function hideTotalAmortissement() {
+  toggleClass(containerTotalChargeAmortissement, "show-el-flex", "hide-el-flex");
+} 
+ 
 
 function displayChargeReel() {
   changeBlockState(chargeReelList, "hide-taxe", "display-taxe");
@@ -209,6 +213,13 @@ function displayChargeReel() {
 
 function hideChargeReel() {
   changeBlockState(chargeReelList, "display-taxe", "hide-taxe");
+}
+function displayChargeAmortissable() {
+  changeBlockState(chargeAmortissableList, "hide-taxe", "display-taxe");
+}
+
+function hideChargeAmortissable() {
+  changeBlockState(chargeAmortissableList, "display-taxe", "hide-taxe");
 }
 
 function getLocationType() {
@@ -317,18 +328,20 @@ export {
   changeColor,
   
   displayAElement,
-  displayChargeForfaitaire,
+  displayTotalAmortissement,
   displayChargeReel,
   displayInputCfe,
   displayInputRadioRegimeFiscal,
+  displayChargeAmortissable,
   eventToggleSwitch,
   
   getIdOfParentElementHover,
   getLocationType,
   getTauxMarginalImposition,
   hideAElement,
-  hideChargeForfaitaire,
+  hideTotalAmortissement,
   hideChargeReel,
+  hideChargeAmortissable,
   hideInputCfe,
   hideInputRadioRegimeFiscal,
   

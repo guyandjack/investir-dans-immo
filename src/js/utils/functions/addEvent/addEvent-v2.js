@@ -29,11 +29,18 @@ import {
 } from "../../refDOM/refDomUi.js";
 import {
   loader,
+  inputSelectCalculator,
   inputNumberApport,
   inputNumberDuree,
   inputNumberPrix,
   inputNumberTaeg,
+  inputRangeApport,
+  inputRangeDuree,
+  inputRangePrix,
+  inputRangeTaeg,
   totalRevenuReferenceValue,
+  calculatorMensualite,
+  containerResultat
 } from "../../refDOM/refDomSimulator.js";
 
 import { calculatedValue } from "../../data/data.js";
@@ -41,11 +48,17 @@ import { calculatedValue } from "../../data/data.js";
 import {
   changeColor,
   
-  displayChargeForfaitaire,
+  displayChargeAmortissable,
+  displayTotalAmortissement,
+  
+  //displayChargeForfaitaire,
   displayChargeReel,
   displayInputCfe,
   
-  hideChargeForfaitaire,
+  hideChargeAmortissable,
+  hideTotalAmortissement,
+  
+  //hideChargeForfaitaire,
   hideChargeReel,
   hideInputCfe,
   
@@ -119,6 +132,148 @@ const ensureZeroDisplayHandler = () => {
   );
 };
 
+const monthlyInputsConfig = [
+  { number: () => inputNumberPrix, range: () => inputRangePrix },
+  { number: () => inputNumberApport, range: () => inputRangeApport },
+  { number: () => inputNumberTaeg, range: () => inputRangeTaeg },
+  { number: () => inputNumberDuree, range: () => inputRangeDuree },
+];
+
+let savedMonthlyInputs = null;
+
+const captureMonthlyInputs = () => {
+  savedMonthlyInputs = monthlyInputsConfig.map(({ number, range }) => {
+    const numberInput = number();
+    const rangeInput = range();
+    return {
+      numberValue: numberInput?.value ?? "",
+      rangeValue: rangeInput?.value ?? "",
+    };
+  });
+};
+
+const restoreMonthlyInputs = () => {
+  if (!savedMonthlyInputs) return;
+  savedMonthlyInputs.forEach(({ numberValue, rangeValue }, index) => {
+    const { number, range } = monthlyInputsConfig[index];
+    const numberInput = number();
+    const rangeInput = range();
+    if (numberInput) {
+      numberInput.value = numberValue ?? "";
+    }
+    if (rangeInput) {
+      rangeInput.value = rangeValue ?? "";
+    }
+  });
+};
+
+const getNumberValue = (input) => {
+  if (!input) return 0;
+  const parsed = Number.parseFloat(input.value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const recalcAfterMonthlyToggle = () => {
+  const isCalculated = mensualite(
+    getNumberValue(inputNumberPrix),
+    getNumberValue(inputNumberApport),
+    getNumberValue(inputNumberTaeg),
+    getNumberValue(inputNumberDuree),
+  );
+  coutDuCredit(isCalculated);
+  balance();
+  const checked = checkValueUserRadioFiscal();
+  if (checked) {
+    calculeImpotRevenuFoncier();
+    bilanApresImposition();
+  }
+};
+
+const disableMonthlyCalculator = () => {
+  captureMonthlyInputs();
+  calculatorMensualite?.classList.add("hide-calculette");
+  calculatedValue.useLoan = false;
+  calculatedValue.capital = 0;
+  calculatedValue.mensualite = 0;
+  //resultat && (resultat.textContent = "");
+  coutDuCredit(false);
+  balance();
+  const checked = checkValueUserRadioFiscal();
+  if (checked) {
+    calculeImpotRevenuFoncier();
+    bilanApresImposition();
+  }
+};
+
+const enableMonthlyCalculator = () => {
+  calculatorMensualite?.classList.remove("hide-calculette");
+  calculatedValue.useLoan = true;
+  restoreMonthlyInputs();
+  recalcAfterMonthlyToggle();
+};
+
+const displayCharge = () => {
+  const isReal = calculatedValue.fiscalChoice === "reel" ? true : false;
+  const isMeuble = calculatedValue.locationType === "meuble" ? true : false;
+
+  //si location nue regime forfaitaire
+  if (!isMeuble && !isReal) {
+    hideInputCfe();
+    hideChargeAmortissable();
+    hideTotalAmortissement();
+    calculatedValue.useAmortissable = false;
+    calculatedValue.useCfe = false;
+    totalRevenuReferenceValue.innerHTML = calculatedValue.income * 12;
+    const checked = checkValueUserRadioFiscal();
+    if (!checked) return;
+
+    //controlValueOfIncome();
+    recalcAfterRadio();
+    return;
+  }
+  //si location nue regime reel
+  if (!isMeuble && isReal) {
+    hideInputCfe();
+    hideChargeAmortissable();
+    hideTotalAmortissement();
+    calculatedValue.useAmortissable = false;
+    calculatedValue.useCfe = false;
+    totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
+    //controlValueOfIncome();
+    recalcAfterRadio();
+    return;
+  }
+
+  //si location meuble regime forfaitaire
+  if (isMeuble && !isReal) {
+    displayInputCfe();
+    hideChargeAmortissable();
+    hideTotalAmortissement();
+    calculatedValue.useAmortissable = false;
+    calculatedValue.useCfe = true;
+    totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
+    //controlValueOfIncome();
+    recalcAfterRadio();
+    return;
+  }
+
+  //si location meuble regime reel
+  if (isMeuble && isReal) {
+    displayInputCfe();
+    displayChargeAmortissable();
+    displayTotalAmortissement();
+    calculatedValue.useAmortissable = true;
+    calculatedValue.useCfe = true;
+    totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
+    //controlValueOfIncome();
+    recalcAfterRadio();
+    return;
+  }
+
+
+  
+};
+
 /* ------------------------- Recalculs centralisés ------------------------- */
 
 function recalcMonthlyIfValid(e) {
@@ -133,12 +288,7 @@ function recalcMonthlyIfValid(e) {
     inputNumberDuree.value,
   );
 
-  //si une valeur est egal a zero l' input affiche un champ vide
-  /* inputNumberPrix.value = inputNumberPrix.value === 0 ? null : inputNumberPrix.value;
-  inputNumberApport.value = inputNumberApport.value === 0 ? null : inputNumberApport.value;
-  inputNumberTaeg.value = inputNumberTaeg.value === 0 ? null : inputNumberTaeg.value;
-  inputNumberDuree.value = inputNumberDuree.value === 0 ? null : inputNumberDuree.value; */
-  
+   
   coutDuCredit(isCaculated);
   changeColor();
 
@@ -165,8 +315,8 @@ function recalcIncomeIfValid(e) {
     calculatedValue.incomeCc = e.target.value;
   }
 
-  const isValidIncome = checkValueUserIncome();
-  if (!isValidIncome) return;
+  /* const isValidIncome = checkValueUserIncome();
+  if (!isValidIncome) return; */
 
   // Détermine type / contrôle
   controlValueOfIncome();
@@ -196,15 +346,10 @@ function recalcIncomeIfValid(e) {
 }
 
 function recalcDutyIfValid(e) {
-  linkInput(e);
-  const isValid = checkValueUserDuty();
-  if (!isValid) return;
-
-  // stocke les charges deductibles
-  const n = e.target?.name;
-  if (n === "number-deductible" || n === "range-deductible") {
-    calculatedValue.dutyDeductible = e.target.value;
-  }
+  
+   linkInput(e);
+  /*const isValid = checkValueUserDuty();
+  if (!isValid) return; */
 
   balance();
   calculeImpotRevenuFoncier();
@@ -231,8 +376,9 @@ let delegatedInputsDuty = false;
 let delegatedRadioImpot = false;
 let delegatedRadioTypeLocation = false;
 let delegatedRadioFiscal = false;
-let delegatedArticles = false;
+let delegatedRadioAmortissement = false;
 let delegatedDownloads = false;
+let delegatedNeedLoanToggle = false;
 
 /* ------------------------- Loader ------------------------- */
 
@@ -273,7 +419,7 @@ function addEventOnPageLoading() {
   setTimeout(hideLoader, 3000);
 }
 
-/* ------------------------- Banner  ------------------------- */
+/* /* ------------------------- Banner  ------------------------- */
 
 
 
@@ -308,12 +454,36 @@ function addEventOnInputMonthly() {
     // correspond à: #calculette-mensualite input.calculette-number / input.calculette-range
     if (
       t.matches(
-        "#calculette-mensualite input.calculette-number, #calculette-mensualite input.calculette-range",
+        "#calculette-mensualite input[type='number'], #calculette-mensualite input[type='range']",
       )
     ) {
       recalcMonthlyDebounced(e);
+      
     }
   });
+}
+
+function addEventOnNeedLoanToggle() {
+  if (delegatedNeedLoanToggle) return;
+  delegatedNeedLoanToggle = true;
+
+  captureMonthlyInputs();
+
+  const handleToggle = () => {
+    const shouldUseLoan = inputSelectCalculator?.checked ?? false;
+    if (shouldUseLoan) {
+      enableMonthlyCalculator();
+    } else {
+      disableMonthlyCalculator();
+
+    }
+    recalcAfterMonthlyToggle();
+  };
+
+  if (inputSelectCalculator) {
+    inputSelectCalculator.addEventListener("click", handleToggle);
+  }
+  handleToggle();
 }
 
 function addEventOnInputIncome() {
@@ -326,7 +496,7 @@ function addEventOnInputIncome() {
 
     if (
       t.matches(
-        "#revenu-locatif input[type='number'], #revenu-locatif input[type='range']",
+        "#revenu-locatif input[type='number'], #revenu-locatif input[type='range']"
       )
     ) {
       recalcIncomeDebounced(e);
@@ -344,8 +514,7 @@ function addEventOnInputDuty() {
 
     if (
       t.matches(
-        "#charge-taxe input[type='number'], #charge-taxe input[type='range']",
-      )
+        "#charge-taxe input[type='number'], #charge-taxe input[type='range']" )
     ) {
       recalcDutyDebounced(e);
     }
@@ -385,27 +554,8 @@ function addEventOnInputRadioTypeLocation() {
 
     const inputValue = t.value;
     calculatedValue.locationType = inputValue;
-
-    if (calculatedValue.locationType === "meuble") {
-      displayInputCfe();
-      totalRevenuReferenceValue.innerHTML = calculatedValue.incomeCc * 12;
-
-      controlValueOfIncome();
-      recalcAfterRadio();
-      return;
-    }
-
-    if (calculatedValue.locationType === "nue") {
-      hideInputCfe();
-      totalRevenuReferenceValue.innerHTML = calculatedValue.income * 12;
-
-      const checked = checkValueUserRadioFiscal();
-      if (!checked) return;
-
-      controlValueOfIncome();
-      recalcAfterRadio();
-      return;
-    }
+    displayCharge();
+    recalcAfterRadio();
   });
 }
 
@@ -424,21 +574,40 @@ function addEventOnInputRadioFiscal() {
     const result = t.value;
     calculatedValue.fiscalChoice = result;
     calculatedValue.fiscalChoiceMemo = result;
-
-    if (calculatedValue.fiscalChoice === "forfaitaire") {
-      controlValueOfIncome();
-      hideChargeReel();
-      displayChargeForfaitaire();
-    }
-
-    if (calculatedValue.fiscalChoice === "reel") {
-      controlValueOfIncome();
-      hideChargeForfaitaire();
-      displayChargeReel();
-    }
+    displayCharge()
 
     recalcAfterRadio();
   });
+}
+
+function addEventOnInputRadioAmortissable() {
+  if (delegatedRadioAmortissement) return;
+  delegatedRadioAmortissement = true;
+
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    if (!(t instanceof HTMLInputElement)) return;
+    if (
+      !t.matches(
+        "#charge-amortissable-batiment input[type='radio'], #charge-amortissable-mobilier input[type='radio'], #charge-amortissable-travaux input[type='radio']"
+      )
+    )
+      return;
+    const result = t.value;
+    const name = t.name;
+    console.log("valeur radio amortissable: ", result + "and name:" + name);
+
+    if (t.name === "duree-batiment") {
+      calculatedValue.dureeBat = result;
+    };
+    if (t.name === "duree-mobilier") {
+      calculatedValue.dureeMobilier = result;
+    };
+    if (t.name === "duree-travaux") {
+      calculatedValue.dureeTravaux = result;
+    };
+    recalcAfterRadio();
+  })
 }
 
 /* -------------------------  download ------------------------- */
@@ -466,15 +635,14 @@ function addEventOnButtonDownload() {
 
 export {
   addEventOnPageLoading,
-  
+  addEventOnNeedLoanToggle,
   addEventOnLinkBanner,
   addEventOnButtonDownload,
-  
   addEventOnInputDuty,
   addEventOnInputIncome,
   addEventOnInputMonthly,
   addEventOnInputRadioFiscal,
   addEventOnInputRadioImpot,
   addEventOnInputRadioTypeLocation,
-  
+  addEventOnInputRadioAmortissable,
 };

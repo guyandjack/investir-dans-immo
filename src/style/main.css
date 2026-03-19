@@ -9,7 +9,6 @@
 :root {
   --nav-height: 80px;
   --dim-logo: calc(var(--nav-height) - 20px);
-  
 }
 
 @media screen and (min-width: 992px) {
@@ -140,8 +139,6 @@ main {
 .logo {
   width: var(--dim-logo);
   height: var(--dim-logo);
-  
- 
 }
 
 .logo img {
@@ -150,20 +147,31 @@ main {
   height: 100%;
 }
 
-#icon-menu {
-  
-  border-radius: 50%;
+#svg-icon-menu {
   width: var(--dim-logo);
   height: var(--dim-logo);
   fill: var(--color-secondary);
-  
 }
-/* #icon-menu:hover {
-  border: 2px solid var(--color-accent);
-} */
 
-#icon-menu:hover {
+#svg-icon-menu:hover {
   fill: var(--color-accent);
+}
+
+
+
+#svg-icon-close-btn {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-secondary);
+  transition: color 0.2s ease;
+}
+
+.dropdown-close-trigger:hover #svg-icon-close-btn {
+  color: var(--color-accent);
+}
+
+.hide-calculette {
+  display: none !important;
 }
 
 .drawer-side > ul li {
@@ -285,10 +293,137 @@ summary::-webkit-details-marker {
 .article-subdetails[open] > summary svg use {
   fill: var(--color-info);
 }
+
+
+/**************************** concerne la page simulateur ********************
+*********************************************************** start  ***********/
+
+
+.form,
+.fieldset,
+.calculette-mensualite,
+.container-resultat,
+.container-resultat-simulation{
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+.form{
+  margin: 0px auto;
+  max-width: 600px;
+  gap: 80px;
+}
+
+
+.fieldset {
+  gap: 10px;
+  background-color: var(--color-base-100);
+  border: solid 1px var(--color-base-300);
+  border-radius: 24px;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+}
+
+.fieldset-title{
+align-self: flex-end;
+text-align: end;
+font-size: 20px;
+font-weight: 600;
+color: var(--color-secondary);
+margin-bottom: 1.2rem;
+
+
+}
+
+.calculette-mensualite,
+#charge-taxe,
+#revenu-locatif
+{
+  gap: 1.5rem;
+}
+
+
+
+.container-resultat {
+  flex-flow: row wrap;
+  justify-content: space-around;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 1rem;
+  border: 2px solid var(--color-base-300);
+  border-radius:20px;
+
+}
+
+.container-resultat .resultat{
+  width: 200px;
+}
+
+.resultat-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  text-align: center;
+ align-content: center;
+ font-size: 1.2rem;
+  color: black;
+  white-space: pre-line;
+}
+
 .main-container-input {
   position: relative;
   width: 95%;
 }
+ .container-label{
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  align-self: flex-start;
+} 
+
+.container-label .label{
+  text-transform:uppercase;
+  font-weight: 600;
+  
+}
+
+.container-radio{
+  min-width: 150px;
+}
+
+
+
+.svg-icon-helper {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-info);
+  cursor: pointer;
+}
+
+.svg-icon-close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0.5rem;
+  right: 0.5rem;
+  fill: rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+
+
+
 
 .container-input-number {
   position: relative;
@@ -302,15 +437,32 @@ summary::-webkit-details-marker {
   display: block;
 }
 
+.hide-el-flex{
+  display:none;
+}
+
+.show-el-flex{
+  display: flex ;
+}
+
+.container-input-duree,
+.wrapper-duree{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.input-duree{
+width: 64px;
+}
+
 .calculette-span {
   position: absolute;
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-}
-
-.resultat-error.hide {
-  height: 0px;
 }
 
 .result-positif {
@@ -333,6 +485,53 @@ summary::-webkit-details-marker {
   border-width: 0;
 }
 
+/********* concerne le fieldset resultat simulation *****************/
+.container-resultat-simulation{
+  background-color: var(--color-base-100);
+  border: 2px solid var(--color-base-300);
+  padding: 20px;
+  border-radius: 24px;
+  gap:0.8rem;
+}
+
+.final{
+  justify-content: center;
+}
+
+.simulation-titre{
+text-align: center;
+font-weight: 700;
+font-size: 24px;
+padding: 20px 0px;
+}
+
+.border-negatif {
+  border: 2px solid var(--color-error);
+}
+
+.border-positif {
+  border: 2px solid var(--color-success);
+}
+.titre-negatif {
+  color: var(--color-error);
+}
+
+.titre-positif {
+  color: var(--color-success);
+}
+
+.result-negatif {
+  border: 1px solid var(--color-error);
+}
+
+.result-negatif span {
+  color: var(--color-error);
+}
+
+
+
+/**************************** concerne la page simulateur ********************
+*********************************************************** end  ***********/
 .menu-footer {
   display: flex;
   flex-flow: column nowrap;
@@ -357,28 +556,7 @@ summary::-webkit-details-marker {
   color: black;
 }
 
-.border-negatif {
-  border: 2px solid var(--color-warning);
-}
 
-.border-positif {
-  border: 2px solid var(--color-success);
-}
-.titre-negatif {
-  color: var(--color-warning);
-}
-
-.titre-positif {
-  color: var(--color-success);
-}
-
-.result-negatif {
-  border: 1px solid var(--color-warning);
-}
-
-.result-negatif span {
-  color: var(--color-warning);
-}
 
 footer a {
   color: var(--color-secondary);

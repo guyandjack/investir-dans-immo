@@ -34,20 +34,40 @@ const calculatedValue = {
   income: 0,
   incomeCc: 0,
   assietteimposable: 0,
+  //flag pour retrancher les amortissement au bilan avant imposition
+  
 
   //charges et taxes
   duty: 0,
   dutyDeductible: 0,
-  balance: 0,
-
+  cfe: 0,
+  amortissableBat: 0,
+  amortissableMobilier: 0,
+  amortissableTravaux: 0,
+  amortissementYear:0,
+  //flag type de charge
+  useLoan: true,
+  useAmortissable: false,
+  useCfe: false,
+  //duree amortissement
+  dureeBat: 0,
+  dureeMobilier: 0,
+  dureeTravaux:0,
+  
   //type de location
   locationType: "",
-  cfe: 0,
+  
+  //bilan avant imposition et avant amortissement
+  balance: 0,
+
 
   //impot
+
+  //abatement fiscal forfaitaire
   rateIncome: 0,
   fiscalChoice: "",
   fiscalChoiceMemo: "",
+  //montant de l'impot foncier
   impotFoncier: 0,
 };
 
@@ -77,6 +97,10 @@ const dataValueInit = {
   cfe: 0,
   nondeductible: 0,
   deductible: 0,
+  amortissableBat: 0,
+  amortissableMobilier: 0,
+  amortissabletravaux: 0,
+  autreCharge: 0,
 
   //taux marginal imposition
   tauxImpotRevenu: 0,

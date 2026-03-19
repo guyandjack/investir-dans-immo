@@ -6,6 +6,8 @@ import {
   addEventOnInputRadioImpot,
   addEventOnInputRadioTypeLocation,
   addEventOnPageLoading,
+  addEventOnNeedLoanToggle,
+  addEventOnInputRadioAmortissable
   
 } from "./utils/functions/addEvent/addEvent-v2.js";
 import {
@@ -88,6 +90,7 @@ const initSimulator = () => {
 };
 
 const initEvents = () => {
+  addEventOnNeedLoanToggle();
   addEventOnInputMonthly();
   addEventOnInputIncome();
   addEventOnInputDuty();
@@ -95,6 +98,7 @@ const initEvents = () => {
   addEventOnInputRadioImpot();
   addEventOnInputRadioFiscal();
   addEventOnPageLoading();
+  addEventOnInputRadioAmortissable();
 };
 
 
@@ -103,4 +107,3 @@ eventToggleSwitch();
 initSimulator();
 initEvents();
 registerServiceWorker();
-
