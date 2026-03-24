@@ -6,8 +6,10 @@ import {
   addEventOnInputRadioImpot,
   addEventOnInputRadioTypeLocation,
   addEventOnPageLoading,
+  addEventOnArrowScroll,
   addEventOnNeedLoanToggle,
-  addEventOnInputRadioAmortissable
+  addEventOnInputRadioAmortissable,
+  addEventOnInputNavigation,
   
 } from "./utils/functions/addEvent/addEvent-v2.js";
 import {
@@ -99,6 +101,8 @@ const initEvents = () => {
   addEventOnInputRadioFiscal();
   addEventOnPageLoading();
   addEventOnInputRadioAmortissable();
+  addEventOnInputNavigation();
+  addEventOnArrowScroll();
 };
 
 

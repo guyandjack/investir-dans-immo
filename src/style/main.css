@@ -157,8 +157,6 @@ main {
   fill: var(--color-accent);
 }
 
-
-
 #svg-icon-close-btn {
   width: 1.25rem;
   height: 1.25rem;
@@ -297,8 +295,7 @@ summary::-webkit-details-marker {
 
 /**************************** concerne la page simulateur ********************
 *********************************************************** start  ***********/
-
-
+.container-arrow-scroll,
 .form,
 .fieldset,
 .calculette-mensualite,
@@ -310,6 +307,54 @@ summary::-webkit-details-marker {
   align-items: center;
   width: 100%;
 }
+
+.container-arrow-scroll{
+  width:fit-content;
+  height:fit-content;
+  display: none;
+  position: fixed;
+  z-index: 20;
+  right: 10%;
+  bottom: 250px; 
+  gap:1rem;
+  
+}
+
+@media screen and (min-width:992px) {
+  .container-arrow-scroll{
+    display:flex;
+  }
+}
+@media screen and (min-width:1300px) {
+  .container-arrow-scroll{
+     right: 20%;
+  }
+}
+
+.arrow-scroll{
+
+  width:60px;
+  height:60px;
+  padding: 1rem;
+  border-radius: 50%;
+  border: solid 1px var(--color-info);
+  background-color: var(--color-base-100);
+  fill: var(--color-info);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.arrow-scroll:hover{
+  border: solid 1px var(--color-error);
+  fill: var(--color-error);
+
+}
+
+
+
+ .down{
+  transform: rotateZ(180deg);
+} 
 
 .form{
   margin: 0px auto;
@@ -570,11 +615,15 @@ footer a:hover {
     @apply relative w-full max-w-[2000px] flex flex-col justify-start items-center gap-10;
   }
 
-  .container-loader {
+  .container-loader
+ 
+  {
     @apply fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-base-100/80 backdrop-blur transition-all duration-300;
   }
 
-  .container-loader.hide {
+  .container-loader.hide
+  
+  {
     @apply opacity-0 pointer-events-none;
   }
 

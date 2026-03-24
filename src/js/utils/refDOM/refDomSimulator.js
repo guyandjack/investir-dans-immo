@@ -3,9 +3,14 @@
  * Chargées uniquement lorsque le simulateur est initialisé.
  ****************************************************************************/
 const loader = document.querySelector(".container-loader");
-
 const inputSelectCalculator = document.querySelector("input[name='besoin-emprunt']");
+//fieldset simulateur
 const calculatorMensualite = document.querySelector("#calculette-mensualite");
+const fieldsetRevenuLocatif = document.querySelector("#revenu-locatif");
+const fieldsetTypeLocation = document.querySelector("#type-location");
+const fieldsetFiscal = document.querySelector("#fiscal");
+const fieldsetChargeTaxe = document.querySelector("#charge-taxe");
+const fieldsetSimulation = document.querySelector("#simulation");
 
 const inputNumberPrix = document.querySelector("input[name='number-prix']");
 const inputNumberApport = document.querySelector("input[name='number-apport']");
@@ -168,6 +173,11 @@ export {
   loader,
   inputSelectCalculator,
   calculatorMensualite,
+  fieldsetRevenuLocatif,
+  fieldsetTypeLocation,
+  fieldsetFiscal,
+  fieldsetChargeTaxe,
+  fieldsetSimulation,
   inputNumberPrix,
   inputNumberApport,
   inputNumberTaeg,

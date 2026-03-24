@@ -98,14 +98,6 @@ const getToggleCheckbox = () => {
   return toggleRefs.checkbox;
 };
 
-/* const getToggleSwitch = () => {
-  if (toggleRefs.switch && toggleRefs.switch.isConnected) {
-    return toggleRefs.switch;
-  }
-  toggleRefs.switch = document.querySelector(".switch");
-  return toggleRefs.switch;
-}; */
-
 const getToggleSwap = () => {
   if (toggleRefs.swap && toggleRefs.swap.isConnected) {
     return toggleRefs.swap;
@@ -114,13 +106,7 @@ const getToggleSwap = () => {
   return toggleRefs.swap;
 };
 
-/* const getToggleText = () => {
-  if (toggleRefs.text && toggleRefs.text.isConnected) {
-    return toggleRefs.text;
-  }
-  toggleRefs.text = document.querySelector(".toggle-text");
-  return toggleRefs.text;
-}; */
+
 
 const safeNumber = (value) => {
   const parsed = parseFloat(value);

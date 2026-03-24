@@ -69,13 +69,29 @@
         <path
           d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
       </symbol>
+
+      <!-- arrow to up -->
+      <symbol id="icon-arrow-up" viewBox="0 -960 960 960">
+        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
+      </symbol>
     </defs>
   </svg>
   <div class="container-page">
+    <!-- container loader -->
     <aside class="container-loader  flex">
       <div class="loader"></div>
       <span class="loader-text">Chargement...</span>
     </aside>
+    <!-- container arrow up / down -->
+    <aside class="container-arrow-scroll">
+      <svg class="arrow-scroll">
+        <use href="#icon-arrow-up" ></use>
+      </svg>
+      <svg class="arrow-scroll down">
+        <use href="#icon-arrow-up" ></use>
+      </svg>
+    </aside>
+
     <header class="header">
       <nav class="nav">
         <a class="logo" href="/">
@@ -154,7 +170,7 @@
           checked>
       </div>
       <form class="form" action="calculmensualite.js">
-        <fieldset id="" class="fieldset">
+        <fieldset class="fieldset">
           <div id="calculette-mensualite" class="calculette-mensualite">
             <h2 class="fieldset-title">Financement du projet</h2>
 
@@ -626,7 +642,7 @@
             </div>
           </div>
           <div id="autre-charge"
-            class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm hide-taxe">
+            class="main-container-input charge-forfaitaire display-taxe grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm ">
             <div id="autrecharge" class="container-label mb-3">
               <label for="input-autre" class="label  text-base-content/70">Autres charges</label>
             </div>
@@ -854,8 +870,9 @@
           </div>
           <div id="charge-total" class="container-resultat-simulation  ">
             <h4 class="titre  text-lg font-semibold text-base-content">Total des charges</h4>
-            <span class="definition text-sm text-center text-base-content/70">Ensemble des charges et taxes réeles liées à la location.
-              </span>
+            <span class="definition text-sm text-center text-base-content/70">Ensemble des charges et taxes réeles liées
+              à la location.
+            </span>
             <div class="resultat  flex items-baseline justify-center gap-2 text-primary">
               <span id="charge-total-value" class="value text-3xl font-bold text-base-content"></span>
               <span class="unity text-base text-base-content/60"> €/an</span>
@@ -863,8 +880,9 @@
           </div>
           <div id="charge-amortissable" class="container-resultat-simulation hide-el-flex">
             <h4 class="titre  text-lg font-semibold text-base-content">Total des amortissements</h4>
-            <span class="definition text-sm text-center text-base-content/70">Ensemble des charges comptables liées à la perte de valeur des biens et travaux.
-              </span>
+            <span class="definition text-sm text-center text-base-content/70">Ensemble des charges comptables liées à la
+              perte de valeur des biens et travaux.
+            </span>
             <div class="resultat  flex items-baseline justify-center gap-2 text-primary">
               <span id="charge-total-amortissement-value" class="value text-3xl font-bold text-base-content"></span>
               <span class="unity text-base text-base-content/60"> €/an</span>
@@ -936,7 +954,7 @@
     </main>
     <footer class="flex flex-col justify-start items-center w-full">
       <div
-        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-5 gap-6 md:flex-row md:justify-evenly">
+        class="flex flex-col justify-start items-center w-full bg-base-300/70 px-6 py-5 gap-6 lg:flex-row lg:justify-evenly">
         <div class="flex flex-col justify-start items-center w-full max-w-4xl space-y-3 md:w-[50%]">
           <div class="title-list-footer uppercase tracking-[0.25em] text-xs text-base-content/60">Navigation</div>
           <ul class="menu-footer gap-2 text-sm">
