@@ -218,9 +218,41 @@ main {
   padding: 1rem;
 }
 
+.wrapper-icon-intro{
+display:flex;
+flex-flow:column;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+padding: 1rem;
+border: 1px solid var(--color-base-300);
+border-radius: 12px;
+
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper-icon-intro{
+    gap: 2rem;
+    flex-flow: row;
+  }
+}
+
+.svg-icon-intro{
+  width: 50px;
+  height: 50px;
+  fill:var(--color-base-300);
+}
+
 .introduction-text {
   text-align: center;
   font-size: larger;
+  width:100%;
+}
+
+@media screen and (min-width: 992px) {
+  .introduction-text{
+    width: 80%;
+  }
 }
 
 .btn-simulateur {
@@ -269,10 +301,7 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-.article-details > summary,
-.article-subdetails > summary {
-  list-style: none;
-}
+
 
 .article-subdetails {
   margin-left: 1rem;
@@ -291,6 +320,8 @@ summary::-webkit-details-marker {
 .article-subdetails[open] > summary svg use {
   fill: var(--color-info);
 }
+
+ 
 
 
 /**************************** concerne la page simulateur ********************

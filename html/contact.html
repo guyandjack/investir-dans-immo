@@ -43,9 +43,9 @@
     <defs>
   
       <!-- icon menu -->
-      <g id="svg-icon-menu">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
-      </g>
+      <symbol id="icon-menu" viewBox="0 -960 960 960">
+        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+      </symbol>
     </defs>
   </svg>
     <div class="container-page">
@@ -62,9 +62,9 @@
         
             <div class="drawer-content flex w-full justify-end">
               <label for="main-drawer" class="label-target cursor-pointer p-2">
-                <svg id="icon-menu" width="100px" height="100px" viewBox="0 -960 960 960">
-                  <use xlink:href="#svg-icon-menu" class="svg-icon-menu"></use>
-                </svg>
+              <svg id="svg-icon-menu">
+                <use href="#icon-menu"></use>
+              </svg>
               </label>
             </div>
         
@@ -123,7 +123,7 @@
           <p class="text-lg text-base-content/80">
             Question sur un calcul, besoin de signaler un dysfonctionnement ou envie de proposer une amélioration ? Laissez-nous un message détaillé et nous revenons vers vous dès que possible.
           </p>
-          <div class="contact-highlights">
+          <!-- <div class="contact-highlights">
             <div>
               <span>01</span>
               <p>Support personnalisé pour comprendre vos simulations.</p>
@@ -136,7 +136,7 @@
               <span>03</span>
               <p>Retour d'expérience bienvenu pour améliorer la plateforme.</p>
             </div>
-          </div>
+          </div> -->
         </section>
 
         

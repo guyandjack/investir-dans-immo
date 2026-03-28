@@ -82,6 +82,25 @@
         <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
       </symbol>
 
+      <!-- icon intro -->
+       <symbol id="icon-save-money" viewBox="0 -960 960 960">
+        <path
+          d="M668.5-531.5Q680-543 680-560t-11.5-28.5Q657-600 640-600t-28.5 11.5Q600-577 600-560t11.5 28.5Q623-520 640-520t28.5-11.5ZM320-600h200v-80H320v80ZM180-120q-34-114-67-227.5T80-580q0-92 64-156t156-64h200q29-38 70.5-59t89.5-21q25 0 42.5 17.5T720-820q0 6-1.5 12t-3.5 11q-4 11-7.5 22.5T702-751l91 91h87v279l-113 37-67 224H480v-80h-80v80H180Zm60-80h80v-80h240v80h80l62-206 98-33v-141h-40L620-720q0-20 2.5-38.5T630-796q-29 8-51 27.5T547-720H300q-58 0-99 41t-41 99q0 98 27 191.5T240-200Zm240-298Z" />
+       </symbol>
+       <symbol id="icon-balance" viewBox="0 -960 960 960">
+        <path
+          d="M80-120v-80h360v-447q-26-9-45-28t-28-45H240l120 280q0 50-41 85t-99 35q-58 0-99-35t-41-85l120-280h-80v-80h247q12-35 43-57.5t70-22.5q39 0 70 22.5t43 57.5h247v80h-80l120 280q0 50-41 85t-99 35q-58 0-99-35t-41-85l120-280H593q-9 26-28 45t-45 28v447h360v80H80Zm585-320h150l-75-174-75 174Zm-520 0h150l-75-174-75 174Zm335-280q17 0 28.5-11.5T520-760q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760q0 17 11.5 28.5T480-720Z" />
+       </symbol>
+       <symbol id="icon-finance" viewBox="0 -960 960 960">
+      <path
+        d="M320-414v-306h120v306l-60-56-60 56Zm200 60v-526h120v406L520-354ZM120-216v-344h120v224L120-216Zm0 98 258-258 142 122 224-224h-64v-80h200v200h-80v-64L524-146 382-268 232-118H120Z" />
+       </symbol>
+       <symbol id="icon-fingerprint" viewBox="0 -960 960 960">
+      <path
+        d="M481-781q106 0 200 45.5T838-604q7 9 4.5 16t-8.5 12q-6 5-14 4.5t-14-8.5q-55-78-141.5-119.5T481-741q-97 0-182 41.5T158-580q-6 9-14 10t-14-4q-7-5-8.5-12.5T126-602q62-85 155.5-132T481-781Zm0 94q135 0 232 90t97 223q0 50-35.5 83.5T688-257q-51 0-87.5-33.5T564-374q0-33-24.5-55.5T481-452q-34 0-58.5 22.5T398-374q0 97 57.5 162T604-121q9 3 12 10t1 15q-2 7-8 12t-15 3q-104-26-170-103.5T358-374q0-50 36-84t87-34q51 0 87 34t36 84q0 33 25 55.5t59 22.5q34 0 58-22.5t24-55.5q0-116-85-195t-203-79q-118 0-203 79t-85 194q0 24 4.5 60t21.5 84q3 9-.5 16T208-205q-8 3-15.5-.5T182-217q-15-39-21.5-77.5T154-374q0-133 96.5-223T481-687Zm0-192q64 0 125 15.5T724-819q9 5 10.5 12t-1.5 14q-3 7-10 11t-17-1q-53-27-109.5-41.5T481-839q-58 0-114 13.5T260-783q-8 5-16 2.5T232-791q-4-8-2-14.5t10-11.5q56-30 117-46t124-16Zm0 289q93 0 160 62.5T708-374q0 9-5.5 14.5T688-354q-8 0-14-5.5t-6-14.5q0-75-55.5-125.5T481-550q-76 0-130.5 50.5T296-374q0 81 28 137.5T406-123q6 6 6 14t-6 14q-6 6-14 6t-14-6q-59-62-90.5-126.5T256-374q0-91 66-153.5T481-590Zm-1 196q9 0 14.5 6t5.5 14q0 75 54 123t126 48q6 0 17-1t23-3q9-2 15.5 2.5T744-191q2 8-3 14t-13 8q-18 5-31.5 5.5t-16.5.5q-89 0-154.5-60T460-374q0-8 5.5-14t14.5-6Z" />
+       </symbol>
+
+
 
       <!-- helper dropdown icon -->
       <symbol id="icon-helper" viewBox="0 -960 960 960">
@@ -249,28 +268,44 @@
     </header>
     <main class="flex flex-col justify-start items-center gap-10">
       <div class="text-base-content/80 space-y-4 px-4 max-w-[800px]">
+        <div class="wrapper-icon-intro">
+          <svg class="svg-icon-intro">
+            <use href="#icon-save-money"></use>
+          </svg>
+          <p class="introduction-text">
+            
+            Percevoir une <strong>rente locative</strong> peut être intéressant, mais encore faut-il tenir compte de tous les
+            coûts liés à l’investissement.<br>
+            Selon votre situation, la fiscalité et les charges peuvent avoir un impact important sur la <strong>rentabilité locative</strong>.
+          </p>
+        </div>
+      
+        <div class="wrapper-icon-intro">
+          <svg class="svg-icon-intro">
+            <use href="#icon-balance"></use>
+          </svg>
         <p class="introduction-text">
-          Investir dans l'immobilier, est-ce le bon choix? Une
-          <strong>rente locative</strong>, oui mais à quelle condition? Les
-          revenus locatifs ont un coût, qui selon le cas est loin d'être
-          négligeable.
+          Notre <strong>calculateur</strong> réalise une <strong>simulation de prêt immobilier amortissable à taux fixe</strong>, en calculant les <strong>mensualités</strong>et le <strong>coût total de l’emprunt</strong>.<br>Il permet également d'établir un <strong>bilan avant et après imposition</strong> en tenant compte des différentes spécificitées liées à la location.
         </p>
+        </div>
+      
+        <div class="wrapper-icon-intro">
+          <svg class="svg-icon-intro">
+            <use href="#icon-finance"></use>
+          </svg>
         <p class="introduction-text">
-          Notre petit<strong> calculateur</strong> va nous simplifier la vie en
-          faisant une<strong>
-            simulation de prêt immobilier ammortissable à taux fixe </strong>.(le plus courant)
+          Vous pourrez ainsi mieux évaluer la <strong>rentabilité de votre projet</strong> et prendre des décisions plus éclairées.
         </p>
+        </div>
+      
+        <div class="wrapper-icon-intro">
+          <svg class="svg-icon-intro">
+            <use href="#icon-fingerprint"></use>
+          </svg>
         <p class="introduction-text">
-          Il va calculer pour nous les <strong>mensualités</strong>,
-          <strong>le coût de l'emprunt</strong>, établir un bilan avant et après
-          imposition en fonction des différentes charges.
+          Ce simulateur est destiné aux <strong>locationss nues</strong> et aux <strong>loueurs de meublés non professionnels(LMNP)</strong>.
         </p>
-        <p class="introduction-text">
-          Cela nous permettra de voir un peu plus clair, et de ce fait, de
-          prendre de meilleures&nbsp;décisions.
-        </p>
-        <p class="introduction-text">
-          Ce simulateur fonctionne pour les loueurs non professionnel.</p>
+        </div>
       </div>
       <p class="main-title-article h2 title text-3xl font-bold text-center text-base-content">
         Quelques notions pour bien se comprendre...
@@ -285,20 +320,26 @@
               </svg>
               <h3>Taux annuel effectif global</h3>
             </summary>
+            
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Le TAEG est un élément important du plan de financement, il
-                intègre l'ensemble des <strong>coûts liés au crédit</strong>. De
-                ce fait, il est le premier indice de comparaison des offres
-                bancaires.
+                Le <strong>TAEG</strong> (Taux Annuel Effectif Global) est un élément essentiel de votre financement.
+                Il regroupe l’ensemble des <strong>coûts liés à votre crédit</strong>, ce qui en fait le meilleur indicateur pour
+                comparer différentes offres bancaires.
               </p>
+            
               <p>
-                Il intègre les coûts liés aux assurances, aux frais de dossier,
-                aux frais annexes et naturellement aux interêts bancaires.
+                Il inclut notamment :
+                les intérêts bancaires, les assurances, les frais de dossier ainsi que les éventuels frais annexes.
               </p>
-              <p>Pour calculer vos mensualités il faut utiliser le TAEG.</p>
+            
+              <p>
+                Pour calculer correctement vos <strong>mensualités</strong>, il est important d’utiliser le TAEG, car il reflète le
+                coût réel de votre emprunt.
+              </p>
             </div>
+            
           </details>
         </li>
         <li id="article-mensualite" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
@@ -313,21 +354,23 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Les
-                <strong>mensualités d'un prêt amortissable à taux fixe</strong>
-                ont un montant constant tout au long de la période d'emprunt.
-                Elles incluent à la fois le capital et les intérêts.
+                Les <strong>mensualités d’un prêt amortissable à taux fixe</strong> sont
+                <strong>constantes</strong> pendant toute la durée de l’emprunt.
+                Elles comprennent à la fois le <strong>remboursement du capital</strong> et
+                le paiement des <strong>intérêts</strong>.
               </p>
+            
               <p>
-                Les <strong>prêts amortissables à taux fixe</strong> sont les
-                plus courant.Ils permettent d'avoir une vision claire et
-                simplifiée des mensualités. En effet il est plus facile de
-                prévoir un endettement lorsque les charges sont fixes tout au
-                long de l'année.
+                Les <strong>prêts amortissables à taux fixe</strong> sont les plus courants.
+                Ils offrent une <strong>vision claire et prévisible</strong> de votre
+                financement. Grâce à des <strong>mensualités fixes</strong>, il est plus
+                simple d’anticiper votre <strong>taux d’endettement</strong> et de gérer votre budget sur le long terme.
               </p>
+            
               <p>
-                Calculer le montant de la mensualité de crédit permet ainsi de
-                définir la faisabilité de votre projet.
+                Calculer le montant des <strong>mensualités de crédit immobilier</strong>
+                permet ainsi d’évaluer la <strong>faisabilité de votre projet immobilier</strong>
+                et de sécuriser votre investissement.
               </p>
             </div>
           </details>
@@ -344,18 +387,32 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Le <strong>coût du crédit immobilier</strong> est imputable aux
-                interêts bancaires, aux frais liés aux assurances, aux frais de
-                dossier, aux frais annexes.
+                Le <strong>coût du crédit immobilier</strong> correspond à l’ensemble des
+                <strong>frais liés à votre emprunt</strong> : les
+                <strong>intérêts bancaires</strong>, les <strong>assurances</strong>, les
+                <strong>frais de dossier</strong> ainsi que les éventuels
+                <strong>frais annexes</strong>.
               </p>
+            
               <p>
-                Le coût global de votre emprunt est égal à la différence entre
-                le total des mensualités et le montant de l'emprunt. Ce chiffre
-                doit également vous être communiqué par votre banquier.
+                Le <strong>coût total de votre crédit</strong> est égal à la différence entre
+                le <strong>montant total remboursé</strong> et le
+                <strong>capital emprunté</strong>. Cette information doit également vous être
+                fournie par votre banque.
               </p>
+            
               <p>
-                Le coût du crédit = (montant des mensualités * nombre
-                d'échéances) - capital emprunté.
+                Le <strong>coût du crédit immobilier</strong> est directement lié au
+                <strong>TAEG</strong>, mais il s’exprime de manière globale sur toute la
+                <strong>durée de l’emprunt</strong>.
+              </p>
+            
+              <p>
+                Formule :
+                <br>
+                <strong>
+                  Coût du crédit = (mensualité × nombre d’échéances) - capital emprunté
+                </strong>
               </p>
             </div>
           </details>
@@ -372,10 +429,15 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Une <strong>location "nue"</strong> est un logement loué sans mobilier suffisant pour y vivre immédiatement.
+                Une <strong>location nue</strong> est un logement loué
+                <strong>sans mobilier suffisant</strong> pour permettre au locataire d’y vivre immédiatement.
               </p>
-              <p>Si le logement contient des meubles mais pas assez pour vivre normalement, il reste juridiquement une location nue.</p>
-              
+            
+              <p>
+                Même si le logement contient quelques meubles, il reste considéré comme une
+                <strong>location nue</strong> dès lors qu’il ne dispose pas de
+                <strong>l’équipement nécessaire à une occupation normale</strong>.
+              </p>
             </div>
           </details>
         </li>
@@ -391,50 +453,74 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Il existe deux status, la location meublée non professionnelle (LMNP) et la location meublée professionnelle (LMP).<br>
-                Une activité comme LMNP doit être declarée, il faut obtenir un numéro siret aupres de l'INPI.<br>
-                Pour avoir le status de LMNP il faut valider deux conditions:
+                Il existe deux statuts en <strong>location meublée</strong> :
+                le <strong>LMNP (Loueur Meublé Non Professionnel)</strong> et le
+                <strong>LMP (Loueur Meublé Professionnel)</strong>.
               </p>
-              <ul class="list-exemple">
-                <li class="list-exemple-li">Le montant des loyers perçus ne doit pas exeder 23 000€ par an.</li>
-                <li class="list-exemple-li">Le montant des loyers perçus ne doit pas exeder 50% des revenus globaux du foyer fiscal sur une année.</li>
-              </ul>
-
+            
               <p>
-                Une <strong>location "meublée"</strong> doit au minimum
-                comprendre :
+                Pour exercer en <strong>LMNP</strong>, l’activité doit être déclarée.
+                Vous devez obtenir un <strong>numéro SIRET</strong> via le guichet unique de l’INPI.
               </p>
+            
+              <p>
+                Pour bénéficier du statut <strong>LMNP</strong>, vous devez remplir au moins
+                <strong>une des deux conditions suivantes</strong> :
+              </p>
+            
               <ul class="list-exemple">
-                <li class="list-exemple-li">Réfrigérateur</li>
                 <li class="list-exemple-li">
-                  Appareil de cuisson(gazinière, plaque...)
-                </li>
-                <li class="list-exemple-li">Four ou four à micro-onde</li>
-                <li class="list-exemple-li">
-                  Congélateur ou compartiment à congélation du réfrigérateur
-                  d'une température maximale de -6°
+                  Les <strong>recettes locatives annuelles</strong> ne dépassent pas
+                  <strong>23 000 €</strong>.
                 </li>
                 <li class="list-exemple-li">
-                  Vaisselle en quantité suffisante pour que les locataires
-                  puissent prendre les repas
-                </li>
-                <li class="list-exemple-li">Sièges</li>
-                <li class="list-exemple-li">Table</li>
-                <li class="list-exemple-li">Ustensiles de cuisine</li>
-                <li class="list-exemple-li">Étagères de rangement</li>
-                <li class="list-exemple-li">Literie complète</li>
-                <li class="list-exemple-li">
-                  Volets ou rideaux dans les chambres
-                </li>
-                <li class="list-exemple-li">Luminaires</li>
-                <li class="list-exemple-li">
-                  Matériel d'entretien ménager adapté aux caractéristiques du
-                  logement.
+                  Les <strong>recettes locatives</strong> représentent moins de
+                  <strong>50 % des revenus globaux du foyer fiscal</strong>.
                 </li>
               </ul>
+            
               <p>
-                Un location ne comprenant pas au minimum ces éléments, est une
-                <strong>location "nue"</strong>.
+                Une <strong>location meublée</strong> doit obligatoirement comporter un
+                <strong>équipement minimum</strong> permettant au locataire d’y vivre immédiatement.
+              </p>
+            
+              <ul class="list-exemple">
+                <li class="list-exemple-li"><strong>Réfrigérateur</strong></li>
+                <li class="list-exemple-li">
+                  <strong>Appareil de cuisson</strong> (gazinière, plaques…)
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Four ou four à micro-ondes</strong>
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Congélateur</strong> ou compartiment de congélation (≤ -6 °C)
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Vaisselle en quantité suffisante</strong>
+                </li>
+                <li class="list-exemple-li"><strong>Sièges</strong></li>
+                <li class="list-exemple-li"><strong>Table</strong></li>
+                <li class="list-exemple-li">
+                  <strong>Ustensiles de cuisine</strong>
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Étagères de rangement</strong>
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Literie complète</strong>
+                </li>
+                <li class="list-exemple-li">
+                  <strong>Volets ou rideaux</strong> dans les chambres
+                </li>
+                <li class="list-exemple-li"><strong>Luminaires</strong></li>
+                <li class="list-exemple-li">
+                  <strong>Matériel d’entretien ménager</strong> adapté au logement
+                </li>
+              </ul>
+            
+              <p>
+                Si le logement ne comprend pas ces éléments, il est considéré comme une
+                <strong>location nue</strong>.
               </p>
             </div>
           </details>
@@ -451,16 +537,24 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Qu'il s'agisse de revenus fonciers (location nue) ou de
-                bénéfices industriels et commerciaux (location meublée) ils
-                doivent être déclarés puisqu'ils sont soumis à l'impôt sur le
-                revenu et aux prélèvements sociaux.
+                Que vous perceviez des <strong>revenus fonciers</strong> (location nue) ou des
+                <strong>bénéfices industriels et commerciaux (BIC)</strong> (location meublée),
+                ces revenus doivent être <strong>déclarés</strong>.
+                Ils sont soumis à l’<strong>impôt sur le revenu</strong> ainsi qu’aux
+                <strong>prélèvements sociaux</strong>.
               </p>
+            
               <p>
-                Ils peuvent être déclarés selon deux modalités : le régime
-                forfaitaire, simple mais pas toujours optimal, et le régime
-                réel, De plus, les propriétaires bayeurs en meublé doivent
-                s'acquitter la CFE (Cotisation foncière des entreprises).
+                Deux régimes d’imposition sont possibles :
+                le <strong>régime forfaitaire</strong> (micro), simple à utiliser mais pas
+                toujours le plus avantageux, et le <strong>régime réel</strong>, qui permet de
+                déduire les <strong>charges réelles</strong>.
+              </p>
+            
+              <p>
+                En <strong>location meublée</strong>, les propriétaires bailleurs doivent
+                également s’acquitter de la
+                <strong>CFE (Cotisation Foncière des Entreprises)</strong>.
               </p>
             </div>
           </details>
@@ -487,39 +581,52 @@
                     <svg class="svg-icon-chevron" width="20px" height="20px">
                       <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
-                    <h4 id="f1">Forfaitaire</h4>
+                    <h4 id="f1">Forfaitaire (micro-foncier)</h4>
                   </summary>
                   <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
                     <p>
-                      Dans cette situation les revenus imposables sont
-                      constitués des loyers hors charge, avec un abattement
-                      forfaitaire de 30%.<br>
-                      Après abattement, on applique le taux marginal
-                      d'imposition plus le taux de prélèvement sociaux de <span class="prelevement-sociaux">17.2</span> %
-                      pour calculer l'impot sur les revenus locatifs.
+                      Dans le cadre du <strong>régime micro-foncier</strong>, les
+                      <strong>revenus imposables</strong> correspondent aux
+                      <strong>loyers hors charges</strong>, auxquels est appliqué un
+                      <strong>abattement forfaitaire de 30 %</strong>.
                     </p>
+                  
                     <p>
-                      Si les revenus sont supérieur à 15 300€ par an le régime
-                      "réel" est appliqué obligatoirement.
+                      Après cet abattement, le montant restant est soumis à
+                      l’<strong>impôt sur le revenu</strong> selon votre
+                      <strong>taux marginal d’imposition</strong>, ainsi qu’aux
+                      <strong>prélèvements sociaux</strong> (taux actuel :
+                      <span class="prelevement-sociaux">17.2</span> %).
                     </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                  
+                    <p>
+                      Si vos <strong>revenus locatifs</strong> dépassent
+                      <strong>15 000 € par an</strong>, le
+                      <strong>régime réel</strong> s’applique obligatoirement.
+                    </p>
+                  
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
                       Exemple de M. Dupont<br>
-                      Revenus locatifs hors charge:<br>
-                      8 000€ <br>
-                      Taux marginal d'imposition:
-                      <br>30%<br>
-                      Abattement forfaitaire:
-                      <br>30% <br>8000 * 30% = 2 400€<br>
-                      Assiete imposable:
-                      <br>8 000€ - 2 400€ = 5 600€<br>
-                      Impots sur revenus locatifs:
-                      <br>5600 * (30% + <span class="prelevement-sociaux"></span>%) = 2722€
-                      <br>
-                      Conclusion: Quelque soit le montant des charges liées à la
-                      location de son bien, M.Dupont payera 2 722€ au titre de
-                      l'impot de ses revenus fonciers.
+                      Revenus locatifs hors charges :<br>
+                      8 000 €<br><br>
+                  
+                      Taux marginal d’imposition :<br>
+                      30 %<br><br>
+                  
+                      Abattement forfaitaire (30 %) :<br>
+                      8 000 × 30 % = 2 400 €<br><br>
+                  
+                      Revenu imposable :<br>
+                      8 000 € - 2 400 € = 5 600 €<br><br>
+                  
+                      Impôt sur les revenus locatifs :<br>
+                      5 600 × (30 % + <span class="prelevement-sociaux">17.2</span> %) = 2 643 €<br><br>
+                  
+                      Conclusion :<br>
+                      Quel que soit le montant des charges réelles, M. Dupont paiera
+                      <strong>2 643 €</strong> d’impôts avec le régime micro-foncier.
                     </p>
+                  
                     <p class="relative container-btn-download flex flex-col gap-2">
                       <button class="btn-download btn btn-success btn-outline size-fit" type="button" data-download="tab_res">
                         Télécharger un tableau récapitulatif
@@ -538,102 +645,124 @@
                 
                   <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
                     <p>
-                      En location nue, le régime réel permet de déduire vos charges réelles de vos revenus locatifs hors charges.<br>
+                      En <strong>location nue</strong>, le <strong>régime réel</strong> permet de déduire vos
+                      <strong>charges réelles</strong> de vos <strong>revenus locatifs hors charges</strong>.<br>
                       Le principe est simple :<br>
-                      <strong>revenus locatifs (hc) - charges déductibles = revenu foncier imposable</strong>.<br>
-                      Ce revenu imposable s'ajoute à vos autres revenus et sera soumis à l'impôt sur le revenu selon votre plus haute tranche
-                      d'imposition, ainsi qu'aux prélèvements sociaux de <span class="prelevement-sociaux">17.2</span> %.<br>Le choix de ce regime est irrevocable surr 3 ans.
+                      <strong>revenus locatifs (hors charges) - charges déductibles = revenu foncier imposable</strong>.<br>
+                      Ce revenu imposable s’ajoute à vos autres revenus. Il est ensuite soumis à
+                      l’<strong>impôt sur le revenu</strong>, selon votre
+                      <strong>taux marginal d’imposition</strong>, ainsi qu’aux
+                      <strong>prélèvements sociaux</strong> de
+                      <span class="prelevement-sociaux">17.2</span> %.<br>
+                      L’option pour le <strong>régime réel</strong> est en principe engagée pour
+                      <strong>3 ans</strong>.
                     </p>
-                
+                  
                     <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
                       Exemple de M. Dupont<br>
                       Revenus locatifs hors charges :<br>
-                      8 000 €<br>
-                      Taux marginal d'imposition :<br>
-                      30 %<br>
+                      8 000 €<br><br>
+                  
+                      Taux marginal d’imposition :<br>
+                      30 %<br><br>
+                  
                       Charges déductibles :<br>
-                      7 000 €<br>
+                      7 000 €<br><br>
+                  
                       Revenu foncier imposable :<br>
-                      8 000 € - 7 000 € = 1 000 €<br>
+                      8 000 € - 7 000 € = 1 000 €<br><br>
+                  
                       Impôt et prélèvements sociaux sur les revenus locatifs :<br>
-                      1 000 × (30% + <span class="prelevement-sociaux"></span>%) = 486 €<br>
-                      Conclusion :
-                      M. Dupont paiera 486 € au titre de l'imposition de ses revenus fonciers.
+                      1 000 × (30 % + <span class="prelevement-sociaux">17.2</span> %) = 472 €<br><br>
+                  
+                      Conclusion :<br>
+                      M. Dupont paiera <strong>472 €</strong> au titre de l’imposition de ses
+                      revenus fonciers.
                     </p>
-                
-                                
-                                    
+                  
                     <p>
-                      Le régime réel devient souvent intéressant lorsque vos charges déductibles sont supérieures à l'abattement
-                      forfaitaire de 30 % du régime micro-foncier.
+                      Le <strong>régime réel</strong> devient souvent intéressant lorsque vos
+                      <strong>charges déductibles</strong> sont supérieures à l’<strong>abattement forfaitaire de 30 %</strong>
+                      du <strong>régime micro-foncier</strong>.
                     </p>
-                
+                  
                     <p>
-                      Il peut être encore plus avantageux lorsqu'il crée un <strong>déficit foncier</strong>, c'est-à-dire lorsque les
-                      charges déductibles sont supérieures aux loyers perçus.
+                      Il peut être encore plus avantageux lorsqu’il crée un
+                      <strong>déficit foncier</strong>, c’est-à-dire lorsque les
+                      <strong>charges déductibles</strong> sont supérieures aux
+                      <strong>loyers perçus</strong>.
                     </p>
-                
+                  
                     <p>
-                      Le déficit foncier provenant des charges autres que les intérêts d'emprunt peut être imputé sur le revenu global
-                      dans la limite annuelle de 10 700 €.
+                      Le <strong>déficit foncier</strong> provenant des charges autres que les
+                      <strong>intérêts d’emprunt</strong> peut être imputé sur le
+                      <strong>revenu global</strong> dans la limite annuelle de
+                      <strong>10 700 €</strong>.
                     </p>
-                
-                    <p>Principales charges déductibles :</p>
+                  
+                    <p><strong>Principales charges déductibles :</strong></p>
                     <ul class="list-exemple">
                       <li class="list-exemple-li">
-                        Les frais de gestion et d'administration du bien
-                        (par exemple les honoraires d'agence ou certains frais de syndic).
+                        Les <strong>frais de gestion et d’administration</strong> du bien
+                        (par exemple les honoraires d’agence ou certains frais de syndic).
                       </li>
                       <li class="list-exemple-li">
-                        Les impôts liés au logement restant à la charge du propriétaire, comme la taxe foncière.
+                        Les <strong>impôts liés au logement</strong> restant à la charge du propriétaire,
+                        comme la <strong>taxe foncière</strong>.
                       </li>
                       <li class="list-exemple-li">
-                        Les dépenses de réparation et d'entretien.
+                        Les <strong>dépenses de réparation et d’entretien</strong>.
                       </li>
                       <li class="list-exemple-li">
-                        Les provisions pour charges de copropriété.
+                        Les <strong>provisions pour charges de copropriété</strong>.
                       </li>
                       <li class="list-exemple-li">
-                        Les charges locatives non récupérées sur le locataire dans certains cas.
+                        Les <strong>charges locatives non récupérées</strong> sur le locataire dans certains cas.
                       </li>
                       <li class="list-exemple-li">
-                        L'indemnité d'éviction ou de relogement d'un locataire.
+                        L’<strong>indemnité d’éviction</strong> ou de relogement d’un locataire.
                       </li>
                       <li class="list-exemple-li">
-                        Les primes d'assurance.
+                        Les <strong>primes d’assurance</strong>.
                       </li>
                       <li class="list-exemple-li">
-                        Les intérêts d'emprunt et certains frais liés à l'emprunt.
+                        Les <strong>intérêts d’emprunt</strong> et certains
+                        <strong>frais liés à l’emprunt</strong>.
                       </li>
                     </ul>
-                
+                  
                     <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      Important : en location nue, vous ne pouvez pas pratiquer d'amortissement sur le bien, les meubles ou les
-                      équipements.<br>
-                      L'amortissement concerne la location meublée.
+                      Important : en <strong>location nue</strong>, vous ne pouvez pas pratiquer
+                      d’<strong>amortissement</strong> sur le bien, les meubles ou les équipements.<br>
+                      L’amortissement concerne la <strong>location meublée</strong>.
                     </p>
-                
+                  
                     <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      Important : les intérêts et frais d'emprunt ne sont pas imputables sur le revenu global.<br>
-                      Ils peuvent seulement réduire ou créer un déficit foncier reportable sur les revenus fonciers des années
-                      suivantes.
+                      Important : les <strong>intérêts d’emprunt</strong> et les
+                      <strong>frais d’emprunt</strong> ne sont pas imputables sur le
+                      <strong>revenu global</strong>.<br>
+                      Ils peuvent seulement réduire ou créer un
+                      <strong>déficit foncier</strong> reportable sur les
+                      <strong>revenus fonciers des années suivantes</strong>.
                     </p>
-                
+                  
                     <p>
-                      Ce régime est plus complexe que le micro-foncier, car vous devez conserver vos justificatifs et déclarer
-                      précisément vos revenus et vos charges.
+                      Ce régime est plus complexe que le <strong>micro-foncier</strong>, car vous devez
+                      conserver vos <strong>justificatifs</strong> et déclarer précisément vos
+                      <strong>revenus</strong> et vos <strong>charges</strong>.
                     </p>
-                
+                  
                     <p>
-                      En pratique, les revenus fonciers au régime réel se déclarent au moyen de la <strong>déclaration n° 2044</strong>,
-                      en complément de la déclaration de revenus.
+                      En pratique, les <strong>revenus fonciers au régime réel</strong> se déclarent au moyen de la
+                      <strong>déclaration n° 2044</strong>, en complément de la déclaration de revenus.
                     </p>
-                
+                  
                     <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      En cas de doute, surtout si vous avez des travaux, un emprunt ou un déficit foncier, il peut être utile de vous
-                      faire accompagner pour éviter une erreur de déclaration.
+                      En cas de doute, surtout si vous avez des <strong>travaux</strong>, un
+                      <strong>emprunt</strong> ou un <strong>déficit foncier</strong>, il peut être utile de
+                      vous faire accompagner afin d’éviter une erreur de déclaration.
                     </p>
-                
+                  
                     <p class="relative container-btn-download flex flex-col gap-2">
                       <button class="btn-download btn btn-success btn-outline size-fit" type="button" data-download="tab_res">
                         Télécharger un tableau récapitulatif
@@ -658,135 +787,81 @@
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
               <p>
-                Les loyers issus de la location meublée sont dans la catégorie
-                des bénéfices industriels et commerciaux (BIC).
+                Les <strong>revenus issus de la location meublée</strong> relèvent de la catégorie des
+                <strong>bénéfices industriels et commerciaux (BIC)</strong>.
               </p>
-              <p>Il existe deux régimes d'imposition:</p>
+            
+              <p>
+                Il existe deux <strong>régimes d’imposition</strong> :
+              </p>
+            
               <div class="space-y-4">
+            
+                <!-- MICRO BIC -->
                 <details class="article-subdetails" id="forfaitaire-b">
                   <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
                     <svg class="svg-icon-chevron" width="20px" height="20px">
                       <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
-                    <h4 id="f2">Forfaitaire</h4>
+                    <h4 id="f2">Forfaitaire (micro-BIC)</h4>
                   </summary>
+            
                   <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
                     <p>
-                      Dans cette situation, les revenus imposables sont
-                      constitués des loyers charges comprises, avec un
-                      abattement forfaitaire de 50%.<br>
-                      Après abattement, on applique le taux marginal
-                      d'imposition plus le taux de prélèvement social de <span class="prelevement-sociaux">17.2</span> %
-                      pour le calcul de l'impôt.
+                      Dans le <strong>régime micro-BIC</strong>, les
+                      <strong>revenus imposables</strong> correspondent aux
+                      <strong>loyers charges comprises</strong>, auxquels est appliqué un
+                      <strong>abattement forfaitaire de 50 %</strong>.
                     </p>
+            
                     <p>
-                      Si les revenus sont supérieur à 77 700€ par an, le
-                      <strong>régime "réel"</strong> est appliqué
-                      obligatoirement.
+                      Après cet abattement, le montant restant est soumis à
+                      l’<strong>impôt sur le revenu</strong> selon votre
+                      <strong>taux marginal d’imposition</strong>, ainsi qu’aux
+                      <strong>prélèvements sociaux</strong> de
+                      <span class="prelevement-sociaux">17.2</span> %.
                     </p>
+            
                     <p>
-                      Les revenus des locations meublées sont soumis à la
-                      <strong>CET</strong>, (contribution économique
-                      territoriale),qui inclu la
-                      <strong>CFE</strong>(contribution foncières des
-                      entreprises) <br>Comme c'est un impôt local, son montant
-                      peut varier d'une commune à l'autre.<br>
-                      Renseignez-vous auprès de votre centre des impôts pour en
-                      connaître le montant.
+                      Si vos <strong>revenus locatifs</strong> dépassent
+                      <strong>77 700 € par an</strong>, le
+                      <strong>régime réel</strong> s’applique obligatoirement.
                     </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+            
+                    <p>
+                      Les <strong>revenus issus de la location meublée</strong> sont également soumis à la
+                      <strong>CET (Contribution Économique Territoriale)</strong>, qui comprend notamment la
+                      <strong>CFE (Cotisation Foncière des Entreprises)</strong>.<br>
+                      Cet impôt étant <strong>local</strong>, son montant varie selon la
+                      <strong>commune</strong>.
+                    </p>
+            
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
                       Exemple de M. Dupont<br>
-                      Revenus locatifs charges comprises:<br>
-                      10 000€<br>
-                      Taux marginal d'imposition:<br>
-                      30%<br>
-                      CFE de sa commune:<br>
-                      550€<br>
-                      Abattement forfaitaire de 50%:<br>
-                      5 000€<br>
-                      Assiete imposable : 10 000€ - 5 000€ = 5 000€<br>
-                      Montant de l'imposition sur les BIC:<br>
-                      5000 * (30% + <span class="prelevement-sociaux"></span>%) = 2 430€
-                      <br>
-                      Conclusion:<br>
-                      Quelque soit le montant des charges liées à la location de
-                      son bien, M.Dupont payera 2 430€ au titre de l'impot sur
-                      les BIC.<br>
-                      A cela se rajoute la CFE de 550€, soit au total : 2 980 €.
-                      <br>
+                      Revenus locatifs charges comprises :<br>
+                      10 000 €<br><br>
+            
+                      Taux marginal d’imposition :<br>
+                      30 %<br><br>
+            
+                      CFE de sa commune :<br>
+                      550 €<br><br>
+            
+                      Abattement forfaitaire (50 %) :<br>
+                      10 000 × 50 % = 5 000 €<br><br>
+            
+                      Revenu imposable :<br>
+                      10 000 € - 5 000 € = 5 000 €<br><br>
+            
+                      Impôt sur les BIC :<br>
+                      5 000 × (30 % + <span class="prelevement-sociaux">17.2</span> %) = 2 360 €<br><br>
+            
+                      Conclusion :<br>
+                      M. Dupont paiera <strong>2 360 €</strong> d’impôts.<br>
+                      À cela s’ajoute la <strong>CFE</strong> de 550 €, soit un total de
+                      <strong>2 910 €</strong>.
                     </p>
-                    <p class="relative container-btn-download flex flex-col gap-2">
-                      <button class="btn-download btn btn-success size-fit btn-outline " type="button" data-download="tab_res">
-                        Télécharger un tableau récapitulatif
-                      </button>
-                      <span class="error-download text-error text-sm"></span>
-                    </p>
-                  </div>
-                </details>
-                <details class="article-subdetails" id="reel-b">
-                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                    <svg class="svg-icon-chevron" width="20px" height="20px"> width="20px" height="20px" viewBox="0 -960 960 960">
-                      <use href="#icon-chevron" fill="currentColor"></use>
-                    </svg>
-                    <h4 id="r2">Réel</h4>
-                  </summary>
-                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
-                    <p>
-                      Dans ce mode d'imposition les charges déductibles
-                      comprendront un système d'amortissement sur le bien ,les
-                      meubles, l'electricite etc...<br>
-                      Pour faire simple ces amortissemnts reflette l'usure, donc
-                      la perte de valeur d'un élément du bien.<br>
-                      Cette perte de valeur est imputable aux revenus locatifs,
-                      ce qui a pour effet de diminuer votre assiette
-                      imposable.<br>
-                      On soustrait les charges déductibles aux revenus locatifs.
-                      On apllique ensuite le taux marginal d'imposition plus le
-                      taux de prélèvement social(<span class="prelevement-sociaux">17.2</span> %) pour calculer l'impôt.
-                    </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      Exemple de M. Dupont<br>
-                      Revenus locatifs charges comprises:<br>
-                      10 000€<br>
-                      Taux marginal d'imposition:<br>
-                      30%<br>
-                      CFE de sa commune: <br>
-                      550€<br>
-                      Charges déductibles et amortissements:<br>
-                      11 500€<br>
-                      Déficite foncier:<br>
-                      10 000€ - 11 500€ = 1 500€<br>
-                      Pas d'imposition sur les revenus locatifs.
-                      <br>
-                      Conclusion:<br>
-                      Seule la CFE de 550€ doit être acquitée. <br>
-                    </p>
-                    <p>
-                      Avec ce mode de location et ce regime d'imposition les
-                      déficites fonciers ne sont pas imputables au revenu
-                      global, mais uniquement sur le même type de revenus.<br>
-                    </p>
-                    <p>
-                      Ce régime est nécessairement beaucoup plus complexe que le
-                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
-                      comptabilité et établir un plan d'amortissement.
-                    </p>
-                    <p>
-                      En outre, d'un point de vue fiscal, vous devez remplir une
-                      déclaration n° 2033 comportant un bilan, un tableau des
-                      immobilisations et amortissements et un relevé des
-                      provisions.
-                    </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      En pratique, compte tenu de la grande complexité du
-                      régime, il est indispensable de vous faire assister par un
-                      comptable ou un organisme de gestion agréé pour éviter
-                      toute erreur et tout problème avec l'administration
-                      fiscale.
-                    </p>
+            
                     <p class="relative container-btn-download flex flex-col gap-2">
                       <button class="btn-download btn btn-success size-fit btn-outline" type="button" data-download="tab_res">
                         Télécharger un tableau récapitulatif
@@ -795,6 +870,86 @@
                     </p>
                   </div>
                 </details>
+            
+                <!-- REEL -->
+                <details class="article-subdetails" id="reel-b">
+                  <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
+                    <svg class="svg-icon-chevron" width="20px" height="20px">
+                      <use href="#icon-chevron" fill="currentColor"></use>
+                    </svg>
+                    <h4 id="r2">Réel</h4>
+                  </summary>
+            
+                  <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
+                    <p>
+                      Dans le <strong>régime réel</strong>, vous pouvez déduire vos
+                      <strong>charges réelles</strong> ainsi que pratiquer des
+                      <strong>amortissements</strong> sur le bien, le mobilier et certains équipements.<br>
+                      Ces amortissements correspondent à la <strong>perte de valeur liée à l’usure</strong>.
+                    </p>
+            
+                    <p>
+                      Le principe est le suivant :<br>
+                      <strong>revenus locatifs - charges - amortissements = résultat imposable</strong>.<br>
+                      Ce résultat est ensuite soumis à l’<strong>impôt sur le revenu</strong> et aux
+                      <strong>prélèvements sociaux</strong> de
+                      <span class="prelevement-sociaux">17.2</span> %.
+                    </p>
+            
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Exemple de M. Dupont<br>
+                      Revenus locatifs charges comprises :<br>
+                      10 000 €<br><br>
+            
+                      Taux marginal d’imposition :<br>
+                      30 %<br><br>
+            
+                      CFE de sa commune :<br>
+                      550 €<br><br>
+            
+                      Charges et amortissements :<br>
+                      11 500 €<br><br>
+            
+                      Résultat fiscal :<br>
+                      10 000 € - 11 500 € = -1 500 €<br><br>
+            
+                      Conclusion :<br>
+                      Aucun impôt sur les revenus locatifs.<br>
+                      Seule la <strong>CFE</strong> de 550 € reste due.
+                    </p>
+            
+                    <p>
+                      En <strong>location meublée</strong>, le déficit est
+                      <strong>reportable sur les revenus de même nature</strong>
+                      (BIC), mais il n’est pas imputable sur le
+                      <strong>revenu global</strong> en LMNP.
+                    </p>
+            
+                    <p>
+                      Ce régime est plus complexe que le <strong>micro-BIC</strong>, car il nécessite
+                      une <strong>comptabilité</strong> et un suivi des
+                      <strong>amortissements</strong>.
+                    </p>
+            
+                    <p>
+                      D’un point de vue fiscal, vous devez notamment remplir une
+                      <strong>déclaration n° 2033</strong> (liasses fiscales simplifiées).
+                    </p>
+            
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Compte tenu de la complexité du <strong>régime réel</strong>, il est souvent recommandé
+                      de se faire accompagner par un <strong>expert-comptable</strong> afin d’éviter toute erreur.
+                    </p>
+            
+                    <p class="relative container-btn-download flex flex-col gap-2">
+                      <button class="btn-download btn btn-success size-fit btn-outline" type="button" data-download="tab_res">
+                        Télécharger un tableau récapitulatif
+                      </button>
+                      <span class="error-download text-error text-sm"></span>
+                    </p>
+                  </div>
+                </details>
+            
               </div>
             </div>
           </details>
