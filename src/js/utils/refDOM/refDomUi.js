@@ -14,6 +14,8 @@ const btnDownloadList = document.querySelectorAll(".btn-download");
 
 const containerLinkBanner = document.querySelector(".introduction-banner");
 
+const prelevementSociauxList = document.querySelectorAll(".prelevement-sociaux");
+
 /***** partie 3 liens du footer **********/
 /***** reference à créer lorsque le footer est visible a l' ecran ***** */
 
@@ -24,4 +26,5 @@ export {
   iconClose,
   btnMenu,
   btnDownloadList,
+  prelevementSociauxList
   };

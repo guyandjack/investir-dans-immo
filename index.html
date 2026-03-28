@@ -78,30 +78,29 @@
     <defs>
 
       <!-- icon menu -->
-      <g id="svg-icon-menu">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
-      </g>
+      <symbol id="icon-menu" viewBox="0 -960 960 960">
+        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+      </symbol>
 
 
-      <!-- information -->
-      <g id="icon-info">
+      <!-- helper dropdown icon -->
+      <symbol id="icon-helper" viewBox="0 -960 960 960">
         <path
-          d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
-        </path>
-      </g>
+          d="M513.5-254.5Q528-269 528-290t-14.5-35.5Q499-340 478-340t-35.5 14.5Q428-311 428-290t14.5 35.5Q457-240 478-240t35.5-14.5ZM442-394h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </symbol>
+
 
       <!-- chevron collapse -->
-      <g id="icon-chevron">
+      <symbol id="icon-chevron" viewBox="0 -960 960 960">
         <path d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z">
         </path>
-      </g>
+      </symbol>
 
       <!-- arrow btn simulateur -->
-      <g id="icon-arrow">
+      <symbol id="icon-arrow" viewBox="0 -960 960 960">
         <path
-          d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z">
-        </path>
-      </g>
+          d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </symbol>
     </defs>
   </svg>
   <div class="container-page">
@@ -115,13 +114,13 @@
           <input id="main-drawer" type="checkbox" class="drawer-toggle" />
         
           <div class="drawer-content flex w-full justify-end">
-            <label for="main-drawer" class="cursor-pointer">
-              <svg id="icon-menu" viewBox="0 -960 960 960">
-                <use xlink:href="#svg-icon-menu"></use>
+            <label for="main-drawer" class="label-target cursor-pointer p-2">
+              <svg id="svg-icon-menu">
+                <use href="#icon-menu"></use>
               </svg>
             </label>
           </div>
-        
+
           <div class="drawer-side">
             <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
         
@@ -242,8 +241,8 @@
         </ul>
         <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html">
           SIMULATEUR
-          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
-            <use xlink:href="#icon-arrow" fill="currentColor"></use>
+          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]">
+            <use href="#icon-arrow" fill="currentColor"></use>
           </svg>
         </a>
       </div>
@@ -270,6 +269,8 @@
           Cela nous permettra de voir un peu plus clair, et de ce fait, de
           prendre de meilleures&nbsp;décisions.
         </p>
+        <p class="introduction-text">
+          Ce simulateur fonctionne pour les loueurs non professionnel.</p>
       </div>
       <p class="main-title-article h2 title text-3xl font-bold text-center text-base-content">
         Quelques notions pour bien se comprendre...
@@ -279,8 +280,8 @@
           <details class="article-details">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
               <h3>Taux annuel effectif global</h3>
             </summary>
@@ -304,8 +305,8 @@
           <details class="article-details">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
               <h3>Mensualités</h3>
             </summary>
@@ -335,8 +336,8 @@
           <details class="article-details">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
               <h3>Coût du crédit immobilier</h3>
             </summary>
@@ -363,13 +364,42 @@
           <details class="article-details">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
-              <h3>Location nue ou meublée</h3>
+              <h3>Location nue</h3>
             </summary>
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Une <strong>location "nue"</strong> est un logement loué sans mobilier suffisant pour y vivre immédiatement.
+              </p>
+              <p>Si le logement contient des meubles mais pas assez pour vivre normalement, il reste juridiquement une location nue.</p>
+              
+            </div>
+          </details>
+        </li>
+        <li id="article-location" class="article card bg-base-100 shadow-xl border border-base-300 p-6 rounded-3xl">
+          <details class="article-details">
+            <summary
+              class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
+              </svg>
+              <h3>Location meublée</h3>
+            </summary>
+            <div class="underline-title-h3 divider"></div>
+            <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
+              <p>
+                Il existe deux status, la location meublée non professionnelle (LMNP) et la location meublée professionnelle (LMP).<br>
+                Une activité comme LMNP doit être declarée, il faut obtenir un numéro siret aupres de l'INPI.<br>
+                Pour avoir le status de LMNP il faut valider deux conditions:
+              </p>
+              <ul class="list-exemple">
+                <li class="list-exemple-li">Le montant des loyers perçus ne doit pas exeder 23 000€ par an.</li>
+                <li class="list-exemple-li">Le montant des loyers perçus ne doit pas exeder 50% des revenus globaux du foyer fiscal sur une année.</li>
+              </ul>
+
               <p>
                 Une <strong>location "meublée"</strong> doit au minimum
                 comprendre :
@@ -413,8 +443,8 @@
           <details class="article-details">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
               <h3>Revenus locatifs</h3>
             </summary>
@@ -439,8 +469,8 @@
           <details class="article-details" id="loc-nue">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
               <h3>Imposition et fiscalité&nbsp; (location&nbsp;nue)</h3>
             </summary>
@@ -454,8 +484,8 @@
               <div class="space-y-4">
                 <details class="article-subdetails" id="forfaitaire-a">
                   <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    <svg class="svg-icon-chevron" width="20px" height="20px">
+                      <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
                     <h4 id="f1">Forfaitaire</h4>
                   </summary>
@@ -465,7 +495,7 @@
                       constitués des loyers hors charge, avec un abattement
                       forfaitaire de 30%.<br>
                       Après abattement, on applique le taux marginal
-                      d'imposition plus le taux de prélèvement sociaux de 17.2%
+                      d'imposition plus le taux de prélèvement sociaux de <span class="prelevement-sociaux">17.2</span> %
                       pour calculer l'impot sur les revenus locatifs.
                     </p>
                     <p>
@@ -480,15 +510,15 @@
                       Taux marginal d'imposition:
                       <br>30%<br>
                       Abattement forfaitaire:
-                      <br>30% <br>8000 * 0.3 = 2 400€<br>
+                      <br>30% <br>8000 * 30% = 2 400€<br>
                       Assiete imposable:
                       <br>8 000€ - 2 400€ = 5 600€<br>
                       Impots sur revenus locatifs:
-                      <br>5600 * (0.3 + 0.172) = 2643€
+                      <br>5600 * (30% + <span class="prelevement-sociaux"></span>%) = 2722€
                       <br>
                       Conclusion: Quelque soit le montant des charges liées à la
-                      location de son bien, M.Dupont payera 2 643€ au titre de
-                      l'impot sur revenus fonciers.
+                      location de son bien, M.Dupont payera 2 722€ au titre de
+                      l'impot de ses revenus fonciers.
                     </p>
                     <p class="relative container-btn-download flex flex-col gap-2">
                       <button class="btn-download btn btn-success btn-outline size-fit" type="button" data-download="tab_res">
@@ -500,112 +530,110 @@
                 </details>
                 <details class="article-subdetails" id="reel-a">
                   <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    <svg class="svg-icon-chevron" width="20px" height="20px">
+                      <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
                     <h4 id="r1">Réel</h4>
                   </summary>
+                
                   <div class="container-text-article space-y-4 leading-relaxed text-base-content/80 pt-4">
                     <p>
-                      Dans ce mode d'imposition les charges déductibles
-                      comprendront un système d'amortissement sur le bien ,les
-                      meubles, l'électricite etc...<br>
-                      Pour faire simple ces amortissemnts reflette l'usure, donc
-                      la perte de valeur d'un élément du bien.<br>
-                      Cette perte de valeur est imputable aux revenus locatifs,
-                      ce qui a pour effet de diminuer votre assiette
-                      imposable.<br>
-                      On soustrait les charges déductibles aux revenus locatifs.
-                      On apllique ensuite le taux marginal d'imposition plus le
-                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                      En location nue, le régime réel permet de déduire vos charges réelles de vos revenus locatifs hors charges.<br>
+                      Le principe est simple :<br>
+                      <strong>revenus locatifs (hc) - charges déductibles = revenu foncier imposable</strong>.<br>
+                      Ce revenu imposable s'ajoute à vos autres revenus et sera soumis à l'impôt sur le revenu selon votre plus haute tranche
+                      d'imposition, ainsi qu'aux prélèvements sociaux de <span class="prelevement-sociaux">17.2</span> %.<br>Le choix de ce regime est irrevocable surr 3 ans.
                     </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
                       Exemple de M. Dupont<br>
-                      Revenus locatifs hors charge:<br>
-                      8 000€ <br>
-                      Taux marginal d'imposition: <br>
-                      30%<br>
-                      Charges déductibles + amortissements:<br>
-                      7 000€<br>
-                      Assiete imposable:<br>
-                      8 000€ - 7 000€ = 1 000€<br>
-                      Impots sur revenus locatifs:<br>
-                      1000 * (0.3 + 0.172) = 472€
-                      <br>
+                      Revenus locatifs hors charges :<br>
+                      8 000 €<br>
+                      Taux marginal d'imposition :<br>
+                      30 %<br>
+                      Charges déductibles :<br>
+                      7 000 €<br>
+                      Revenu foncier imposable :<br>
+                      8 000 € - 7 000 € = 1 000 €<br>
+                      Impôt et prélèvements sociaux sur les revenus locatifs :<br>
+                      1 000 × (30% + <span class="prelevement-sociaux"></span>%) = 486 €<br>
+                      Conclusion :
+                      M. Dupont paiera 486 € au titre de l'imposition de ses revenus fonciers.
                     </p>
+                
+                                
+                                    
                     <p>
-                      Conclusion:<br>
-                      M.Dupont payera 472€ au titre de l'impot sur les revenus
-                      fonciers.<br>
+                      Le régime réel devient souvent intéressant lorsque vos charges déductibles sont supérieures à l'abattement
+                      forfaitaire de 30 % du régime micro-foncier.
                     </p>
+                
                     <p>
-                      Le régime d'imposition au "réel" devient avantageux
-                      lorsque les charges déductibles sont supérieures à
-                      l'abattement forfaitaire de 30% du régime forfaitaire.<br>
-                      Encore mieux lorsque que l'on crée du déficite foncier.<br>
-                      Les charges déductibles sont alors supérieures aux revenus
-                      locatifs.
+                      Il peut être encore plus avantageux lorsqu'il crée un <strong>déficit foncier</strong>, c'est-à-dire lorsque les
+                      charges déductibles sont supérieures aux loyers perçus.
                     </p>
+                
                     <p>
-                      Le déficite foncier est imputable au revenu global dans
-                      une limite de 10 700€
+                      Le déficit foncier provenant des charges autres que les intérêts d'emprunt peut être imputé sur le revenu global
+                      dans la limite annuelle de 10 700 €.
                     </p>
-                    <p>Listes des charges déductibles:</p>
+                
+                    <p>Principales charges déductibles :</p>
                     <ul class="list-exemple">
                       <li class="list-exemple-li">
                         Les frais de gestion et d'administration du bien
-                        (rémunération d'un concierge ou frais d'une agence
-                        immobilière ou d'un syndic de copropriété par exemple)
+                        (par exemple les honoraires d'agence ou certains frais de syndic).
                       </li>
                       <li class="list-exemple-li">
-                        Les impôts liés au logement et non récupérables auprès
-                        du locataire telle que la taxe foncière.
+                        Les impôts liés au logement restant à la charge du propriétaire, comme la taxe foncière.
                       </li>
                       <li class="list-exemple-li">
                         Les dépenses de réparation et d'entretien.
                       </li>
                       <li class="list-exemple-li">
-                        Les provisions pour charge dans le cadre d'une
-                        copropriété
+                        Les provisions pour charges de copropriété.
                       </li>
                       <li class="list-exemple-li">
-                        Les charges locatives, si vous n'êtes pas parvenu à les
-                        récupérer auprès du locataire au 31 décembre de l'année
-                        suivant son départ.
+                        Les charges locatives non récupérées sur le locataire dans certains cas.
                       </li>
                       <li class="list-exemple-li">
                         L'indemnité d'éviction ou de relogement d'un locataire.
                       </li>
-                      <li class="list-exemple-li">Les primes d'assurance.</li>
                       <li class="list-exemple-li">
-                        Les intérêts et frais d'emprunt.
+                        Les primes d'assurance.
+                      </li>
+                      <li class="list-exemple-li">
+                        Les intérêts d'emprunt et certains frais liés à l'emprunt.
                       </li>
                     </ul>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      Les intérêts et frais d'emprunt ne sont pas imputable au
-                      revenu global.
+                
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Important : en location nue, vous ne pouvez pas pratiquer d'amortissement sur le bien, les meubles ou les
+                      équipements.<br>
+                      L'amortissement concerne la location meublée.
                     </p>
+                
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      Important : les intérêts et frais d'emprunt ne sont pas imputables sur le revenu global.<br>
+                      Ils peuvent seulement réduire ou créer un déficit foncier reportable sur les revenus fonciers des années
+                      suivantes.
+                    </p>
+                
                     <p>
-                      Ce régime est nécessairement beaucoup plus complexe que le
-                      "micro-Bic" ou "forfaitaire" puisque vous devez tenir une
-                      comptabilité et établir un plan d'amortissement.
+                      Ce régime est plus complexe que le micro-foncier, car vous devez conserver vos justificatifs et déclarer
+                      précisément vos revenus et vos charges.
                     </p>
+                
                     <p>
-                      En outre, d'un point de vue fiscal, vous devez remplir une
-                      déclaration n° 2033 comportant un bilan, un tableau des
-                      immobilisations et amortissements et un relevé des
-                      provisions.
+                      En pratique, les revenus fonciers au régime réel se déclarent au moyen de la <strong>déclaration n° 2044</strong>,
+                      en complément de la déclaration de revenus.
                     </p>
-                    <p
-                      class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
-                      En pratique, compte tenu de la grande complexité du
-                      régime, il est indispensable de vous faire assister par un
-                      comptable ou un organisme de gestion agréé pour éviter
-                      toute erreur et tout problème avec l'administration
-                      fiscale.
+                
+                    <p class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
+                      En cas de doute, surtout si vous avez des travaux, un emprunt ou un déficit foncier, il peut être utile de vous
+                      faire accompagner pour éviter une erreur de déclaration.
                     </p>
+                
                     <p class="relative container-btn-download flex flex-col gap-2">
                       <button class="btn-download btn btn-success btn-outline size-fit" type="button" data-download="tab_res">
                         Télécharger un tableau récapitulatif
@@ -622,10 +650,10 @@
           <details class="article-details" id="loc-meuble">
             <summary
               class="title-article title flex-row-start-center flex items-center gap-3 text-xl font-semibold cursor-pointer">
-              <svg class="svg-icon-chevron-colapse" width="20px" height="20px" viewBox="0 -960 960 960">
-                <use xlink:href="#icon-chevron" fill="currentColor"></use>
+              <svg class="svg-icon-chevron-colapse" width="20px" height="20px">
+                <use href="#icon-chevron" fill="currentColor"></use>
               </svg>
-              <h3>Imposition et fiscalité&nbsp; (location&nbsp;meublée)</h3>
+              <h3>Imposition et fiscalité&nbsp;(LMNP)</h3>
             </summary>
             <div class="underline-title-h3 divider"></div>
             <div class="container-text-article space-y-4 leading-relaxed text-base-content/80">
@@ -637,8 +665,8 @@
               <div class="space-y-4">
                 <details class="article-subdetails" id="forfaitaire-b">
                   <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    <svg class="svg-icon-chevron" width="20px" height="20px">
+                      <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
                     <h4 id="f2">Forfaitaire</h4>
                   </summary>
@@ -648,11 +676,11 @@
                       constitués des loyers charges comprises, avec un
                       abattement forfaitaire de 50%.<br>
                       Après abattement, on applique le taux marginal
-                      d'imposition plus le taux de prélèvement social de 17.2%
+                      d'imposition plus le taux de prélèvement social de <span class="prelevement-sociaux">17.2</span> %
                       pour le calcul de l'impôt.
                     </p>
                     <p>
-                      Si les revenus sont supérieur à 72 600€ par an, le
+                      Si les revenus sont supérieur à 77 700€ par an, le
                       <strong>régime "réel"</strong> est appliqué
                       obligatoirement.
                     </p>
@@ -679,13 +707,13 @@
                       5 000€<br>
                       Assiete imposable : 10 000€ - 5 000€ = 5 000€<br>
                       Montant de l'imposition sur les BIC:<br>
-                      5000 * (0.3 + 0.172) = 2 360€
+                      5000 * (30% + <span class="prelevement-sociaux"></span>%) = 2 430€
                       <br>
                       Conclusion:<br>
                       Quelque soit le montant des charges liées à la location de
-                      son bien, M.Dupont payera 2 360€ au titre de l'impot sur
+                      son bien, M.Dupont payera 2 430€ au titre de l'impot sur
                       les BIC.<br>
-                      A cela se rajoute la CFE de 550€, soit au total : 2 910 €.
+                      A cela se rajoute la CFE de 550€, soit au total : 2 980 €.
                       <br>
                     </p>
                     <p class="relative container-btn-download flex flex-col gap-2">
@@ -698,8 +726,8 @@
                 </details>
                 <details class="article-subdetails" id="reel-b">
                   <summary class="subtitle-article flex items-center gap-3 cursor-pointer">
-                    <svg class="svg-icon-chevron" width="20px" height="20px" viewBox="0 -960 960 960">
-                      <use xlink:href="#icon-chevron" fill="currentColor"></use>
+                    <svg class="svg-icon-chevron" width="20px" height="20px"> width="20px" height="20px" viewBox="0 -960 960 960">
+                      <use href="#icon-chevron" fill="currentColor"></use>
                     </svg>
                     <h4 id="r2">Réel</h4>
                   </summary>
@@ -715,7 +743,7 @@
                       imposable.<br>
                       On soustrait les charges déductibles aux revenus locatifs.
                       On apllique ensuite le taux marginal d'imposition plus le
-                      taux de prélèvement social(17.2%) pour calculer l'impôt.
+                      taux de prélèvement social(<span class="prelevement-sociaux">17.2</span> %) pour calculer l'impôt.
                     </p>
                     <p
                       class="text-exemple italic text-base-content/80 bg-base-200/60 border border-base-200 rounded-2xl p-4">
@@ -774,8 +802,8 @@
       </ul>
       <div class="cta-simulateur w-full flex flex-col items-center py-12">
         <a class="btn-simulateur lg:text-xl" href="/html/simulateur-rentabilite-locative.html"> SIMULATEUR
-          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]" viewBox="0 -960 960 960">
-            <use xlink:href="#icon-arrow" fill="currentColor"></use>
+          <svg class="svg-icon-arrow w-[25px] h-[25px] lg:w-[50px] lg:h-[50px]">
+            <use href="#icon-arrow" fill="currentColor"></use>
           </svg>
         </a>
       </div>

@@ -106,7 +106,7 @@ const dataValueInit = {
   tauxImpotRevenu: 0,
 
   //taux prelevement sociaux
-  tauxImpoFoncier: 17.2,
+  tauxImpoFoncier: 18.6,
 
   //choix imposition
   fiscalChoice: "forfaitaire",

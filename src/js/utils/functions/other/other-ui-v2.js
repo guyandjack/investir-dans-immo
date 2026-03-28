@@ -1,3 +1,5 @@
+import { prelevementSociauxList } from "../../refDOM/refDomUi.js";
+import { dataValueInit } from "../../data/data.js";
 
 const themeDark = "dim";
 const themeClear = "winter";
@@ -70,10 +72,20 @@ function eventToggleSwitch() {
   });
 }
 
+function displaySocialRateTaxe(){
+  if (prelevementSociauxList.length < 1) return;
+
+  prelevementSociauxList.forEach((el) => {
+    el.textContent = dataValueInit.tauxImpoFoncier;
+  })
+  console.log("social taxe displayed: ", dataValueInit.tauxImpoFoncier);
+}
+
 export {
   
   initToggleSwitch,
   eventToggleSwitch,
   useThemeColor,
+  displaySocialRateTaxe
   
 };

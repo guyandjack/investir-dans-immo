@@ -1,5 +1,7 @@
 import { initToggleSwitch } from "./utils/functions/other/other-ui-v2.js";
 import { registerServiceWorker } from "./utils/registerServiceWorker.js";
+import { displaySocialRateTaxe } from "./utils/functions/other/other-ui-v2.js";
+
 
 const once = (fn) => {
   let promise = null;
@@ -61,6 +63,7 @@ const initArticleSection = once(async () => {
     await loadAddEventModule();
 
   addEventOnButtonDownload();
+  displaySocialRateTaxe();
 });
 
 observeSection("header", () => initHeaderSection());
