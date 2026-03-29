@@ -16,8 +16,6 @@ async function fetchAndBuildIrlData() {
   const xml = await fetchIrlRawXml(startPeriod);
   const xmlObject = parseXml(xml);
 
-  console.log("xmlObject: ", xmlObject);
-
   const observations = collectObs(xmlObject)
     .filter((obs) => /^\d{4}-Q[1-4]$/.test(obs.period))
     .filter((obs) => {

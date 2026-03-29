@@ -416,7 +416,6 @@ function getAmortissableDuty() {
   const result =
     amortissementBat + amortissementMobilier + amortissementTravaux || 0;
   setTextContent(toltalChargeAmortissementValue, result);
-  console.log("amortissement dans la fonction de calcul: ", result);
   return result;
 }
 
@@ -464,7 +463,6 @@ function getTotalDuty() {
   }
 
   const dutyTotal = Math.round(globalCharge);
-  console.log("charge globale: ", globalCharge);
   //charge classique qui peuvent etre deductible selon le regime d'imposition
   calculatedValue.duty = dutyTotal;
   setTextContent(toltalChargeValue, dutyTotal);
@@ -486,13 +484,11 @@ function getCapitalAverage() {
 //bilan avant imposition revenu - charge reeles
 function balance() {
   const totalDuty = getTotalDuty();
-  console.log("total charge dans la fonction balance:", totalDuty);
   const yearlyIncome =
     toFiniteNumber(calculatedValue.incomeCc) * MONTHS_PER_YEAR;
   let balanceValue = Math.round(yearlyIncome - totalDuty);
   calculatedValue.balance = balanceValue;
   calculatedValue.duty = totalDuty;
-  console.log("balance", balanceValue);
 
   setTextContent(toltalChargeValue, calculatedValue.duty);
   setTextContent(bilanAvantImpotValue, balanceValue);
@@ -539,7 +535,6 @@ function getAssietteImposable() {
     //les amortissements peuvent uniquement reduire à zero l'asiette imposable
     if (calculatedValue.useAmortissable && balance > 1) {
       const amortissable = getAmortissableDuty();
-      console.log("charge totale amortissable: ", amortissable);
       assietteImposable = Math.max(0, base - totalDuty - amortissable);
       calculatedValue.dutyDeductible = toFiniteNumber(totalDuty + amortissable);
       //setTextContent(toltalChargeValue, calculatedValue.dutyDeductible);

@@ -871,7 +871,6 @@ function addEventOnInputRadioAmortissable() {
       return;
     const result = t.value;
     const name = t.name;
-    console.log("valeur radio amortissable: ", result + "and name:" + name);
 
     if (t.name === "duree-batiment") {
       calculatedValue.dureeBat = result;

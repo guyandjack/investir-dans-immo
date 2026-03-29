@@ -9,7 +9,6 @@ const refDownloadFile = {
 //declaration des fonctions
 function downloadError(elementCliked, errorMessage) {
   let divError = elementCliked.nextElementSibling;
-  console.log("diverror: " + divError);
   
   
     divError.textContent = errorMessage;

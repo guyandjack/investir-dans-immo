@@ -54,7 +54,6 @@ function initToggleSwitch() {
   const theme = localStorage.getItem("themeColor");
   value = theme === themeDark ? true : false;
   checkbox.checked = value;
-  console.log("init check box a: ", value);
 }
 
 
@@ -78,7 +77,6 @@ function displaySocialRateTaxe(){
   prelevementSociauxList.forEach((el) => {
     el.textContent = dataValueInit.tauxImpoFoncier;
   })
-  console.log("social taxe displayed: ", dataValueInit.tauxImpoFoncier);
 }
 
 export {

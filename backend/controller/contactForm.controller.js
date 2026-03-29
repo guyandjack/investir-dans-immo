@@ -13,22 +13,18 @@ const validationResponse = {
 };
 const handleContactForm = (req, res) => {
   const isProd = process.env.NODE_ENV;
-  console.log("isprod: ", isProd);
   const ADRESS =
     isProd === "prod"
       ? process.env.MAILBOX_PROD_ADRESS
       : process.env.MAILBOX_DEV_ADRESS;
-  console.log("adress: ", ADRESS);
   const PASSWORD =
     isProd === "prod"
       ? process.env.MAILBOX_PROD_PASSWORD
       : process.env.MAILBOX_DEV_PASSWORD;
-  console.log("password: ", PASSWORD);
   const HOST =
     isProd === "prod"
       ? process.env.MAILBOX_PROD_HOST
       : process.env.MAILBOX_DEV_HOST;
-  console.log("host: ", HOST);
 
   if (!isProd || !ADRESS || !PASSWORD || !HOST) {
     return res.status(500).json({

@@ -182,7 +182,6 @@ function changeColor() {
 function linkInput(evt) {
   const target = evt?.target;
   if (!(target instanceof HTMLInputElement)) return;
-  console.log("target type: ", target);
 
   const [type, name] = target.name.split("-");
   if (!name) return;

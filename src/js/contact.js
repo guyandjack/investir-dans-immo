@@ -182,7 +182,6 @@ function checkUserValueLastname(id, lastname) {
     return true;
   } else {
     let message = selectErrorMessage(id);
-    console.log("message d'erreur à afficher: " + message);
     displayErrorMessage(id, message);
     valueControl.lastname = false;
     bodyRequest.lastname = "";
@@ -309,7 +308,6 @@ function submitForm(e) {
 
         .catch((error) => {
           displayValidDiv("Une erreur est survenue... 😞");
-          console.log(error);
         });
     }
   });

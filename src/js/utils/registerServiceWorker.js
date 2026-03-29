@@ -24,7 +24,6 @@ export const registerServiceWorker = () => {
     try {
       const regs = await navigator.serviceWorker.getRegistrations();
       await Promise.all(regs.map((r) => r.unregister()));
-      console.log("Service Workers supprimés (mode dev)");
     } catch (e) {
       console.warn("Impossible de nettoyer les SW en dev:", e);
     }
