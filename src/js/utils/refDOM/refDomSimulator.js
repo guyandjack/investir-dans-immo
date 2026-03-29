@@ -55,9 +55,9 @@ const inputRangeRevenuChargeComprise = document.querySelector(
   "input[name='range-revenu_charge_comprise']",
 );
 
-/* const inputNumberRevenuList = document.querySelectorAll(
-  "#revenu-locatif input[type='number']",
-); */
+ const inputRevenuList = document.querySelectorAll(
+   "#revenu-locatif input[type='number'], #revenu-locatif input[type='range']",
+ );
 
 const incomeOnYear = document.querySelector(".income-year");
 const incomeOnYearCc = document.querySelector(".income-year-cc");
@@ -226,7 +226,6 @@ export {
   //inputNumberChargeDeductible,
   inputNumberAmortissableMobilier,
   inputNumberAmortissableBat,
-
   inputNumberAmortissableTravaux,
   inputRangeCopro,
   inputRangeGestion,
@@ -265,4 +264,5 @@ export {
   /* inputRadioAmortissableDureeBat,
   inputRadioAmortissableDureeMobilier,
   inputRadioAmortissableDureeTravaux */
+  inputRevenuList,
 };

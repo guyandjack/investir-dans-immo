@@ -10,6 +10,12 @@ import {
   gainAdvice,
   inputNumberApport,
   inputNumberPrix,
+  //inputNumberRevenuChargeComprise,
+  //inputNumberRevenuHorsCharge,
+  //inputRangeRevenuChargeComprise,
+  //inputRangeRevenuHorsCharge,
+  inputRevenuList,
+  fieldsetRevenuLocatif,
   inputRadioLocationMeuble,
   inputRadioLocationNue,
   uniteGain,
@@ -113,6 +119,27 @@ const safeNumber = (value) => {
   return Number.isFinite(parsed) ? parsed : 0;
 };
 
+//add limit to input revenu if inputradiomeuble is checked
+function addLimitToInputRevenu() {
+  if (inputRevenuList.length !== 4) return;
+  
+    inputRevenuList.forEach((input) => {
+      input.setAttribute("max", "1916");
+    });
+  
+}
+function removeLimitToInputRevenu() {
+  if (inputRevenuList.length !== 4) return;
+  
+    inputRevenuList.forEach((input) => {
+      input.setAttribute("max", "10000");
+    });
+  
+}
+
+
+
+
 
 
 let lastColorApplied = "";
@@ -211,11 +238,13 @@ function hideChargeAmortissable() {
 function getLocationType() {
   if (inputRadioLocationNue?.checked) {
     calculatedValue.locationType = "nue";
+    
     return true;
   }
 
   if (inputRadioLocationMeuble?.checked) {
     calculatedValue.locationType = "meuble";
+    
     return true;
   }
 
@@ -309,6 +338,9 @@ function eventToggleSwitch() {
 
 
 export {
+
+  addLimitToInputRevenu,
+  removeLimitToInputRevenu,
   
   InsertTextInAElement,
   changeColor,

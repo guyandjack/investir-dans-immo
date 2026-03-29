@@ -323,61 +323,12 @@
           ****** end *********************************************************************-->
 
         </fieldset>
-        <!-- ****************************************************************************
-            *******************container revenu locatif *****************************
-            ****** start *********************************************************************-->
-        <fieldset id="revenu-locatif" class="fieldset">
-
-          <h2 class="fieldset-title">Revenus locatifs</h2>
-
-          <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <div class="container-label">
-              <label id="label-revenu" for="input-revenu-hors-charge" class="label  text-base-content/70">Loyer hors
-                charge</label>
-            </div>
-            <div class="container-input-number flex items-center gap-3 w-full">
-              <input id="input-revenu-hors-charge"
-                class="calculette-number input input-bordered input-primary w-full text-2xl font-semibold text-center"
-                type="number" name="number-revenu_hors_charge" max="10000" min="0" step="1" required="">
-              <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ /
-                Mois</span>
-            </div>
-            <div class="income-year text-xs text-base-content/70 italic"></div>
-            <label class="label  text-base-content/70"></label>
-            <div class="container-input-range w-full pt-2">
-              <input class="calculette-range range range-primary range-xs w-full" type="range"
-                name="range-revenu_hors_charge" max="10000" min="0" step="1">
-            </div>
-          </div>
-          <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
-            <div class="container-label">
-              <label id="label-revenu-cc" for="input-revenu-charge-comprise" class="label  text-base-content/70">Loyer
-                charges
-                comprises</label>
-            </div>
-            <div class="container-input-number flex items-center gap-3 w-full">
-              <input id="input-revenu-charge-comprise"
-                class="calculette-number input input-bordered input-primary w-full text-2xl font-semibold text-center"
-                type="number" name="number-revenu_charge_comprise" max="10000" min="0" step="1" required="">
-              <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ /
-                Mois</span>
-            </div>
-            <div class="income-year-cc text-xs text-base-content/70 italic"></div>
-            <label class="label  text-base-content/70"></label>
-            <div class="container-input-range w-full pt-2">
-              <input class="calculette-range range range-primary range-xs w-full" type="range"
-                name="range-revenu_charge_comprise" max="10000" min="0" step="1">
-            </div>
-          </div>
-        </fieldset>
-        <!-- ****************************************************************************
-            ******************* container revenu locatif *****************************
-            ****** end *******************************************************************-->
+        
         <!-- ****************************************************************************
             ******************* container type de location *****************************
             ****** start *******************************************************************-->
         <fieldset id="type-location" class="fieldset">
-          <h3 class="fieldset-title">Modele de location</h3>
+          <h3 class="fieldset-title">Modèle de location</h3>
           <div id="type" class="container-label">
             <h4 class="label  text-base-content/70">Type de location</h4>
             <div class="dropdown dropdown-bottom dropdown-center">
@@ -392,9 +343,14 @@
                     <use href="#icon-close"></use>
                   </svg>
                   <h5 class="card-title text-sm font-semibold text-base-content hidden"></h5>
-                  <p class="block text-center text-black/70">Le type de location<br>a pour effet de modifier le revenu
-                    locatif de référence pour le calcul de l'impôt foncier. La CFE
-                    est redevable dans certains cas.</p>
+                  <p class="block text-center text-black/70">
+                    Le <strong>type de location</strong> a un impact direct sur le
+                    <strong>revenu locatif de référence</strong> utilisé pour le calcul de
+                    l’<strong>impôt</strong>, ainsi que sur le
+                    <strong>seuil de basculement vers le régime réel</strong>.<br>
+                    Dans certains cas, la <strong>CFE (Cotisation Foncière des Entreprises)</strong>
+                    peut également être due.
+                  </p>
                 </div>
               </div>
             </div>
@@ -418,6 +374,57 @@
         <!-- ****************************************************************************
             ******************* container type de location ********************************
             ****** end *********************************************************************-->
+            <!-- ****************************************************************************
+                        *******************container revenu locatif *****************************
+                        ****** start *********************************************************************-->
+            <fieldset id="revenu-locatif" class="fieldset">
+            
+              <h2 class="fieldset-title">Revenus locatifs</h2>
+               <p class="legende text-xs text-base-content/60 text-center">Remplir les deux champs avec la même valeur s’il n’y a aucune charge incluse dans le loyer.</p>
+            
+              <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
+                <div class="container-label">
+                  <label id="label-revenu" for="input-revenu-hors-charge" class="label  text-base-content/70">Loyer hors
+                    charge</label>
+                </div>
+                <div class="container-input-number flex items-center gap-3 w-full">
+                  <input id="input-revenu-hors-charge"
+                    class="calculette-number input input-bordered input-primary w-full text-2xl font-semibold text-center"
+                    type="number" name="number-revenu_hors_charge" max="10000" min="0" step="1" required="">
+                  <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ /
+                    Mois</span>
+                </div>
+                <div class="income-year text-xs text-base-content/70 italic"></div>
+                <label class="label  text-base-content/70"></label>
+                <div class="container-input-range w-full pt-2">
+                  <input class="calculette-range range range-primary range-xs w-full" type="range" name="range-revenu_hors_charge"
+                    max="10000" min="0" step="1">
+                </div>
+              </div>
+              <div class="main-container-input grid gap-3 p-4 rounded-2xl border border-base-200 bg-base-100/70 shadow-sm">
+                <div class="container-label">
+                  <label id="label-revenu-cc" for="input-revenu-charge-comprise" class="label  text-base-content/70">Loyer
+                    charges
+                    comprises</label>
+                </div>
+                <div class="container-input-number flex items-center gap-3 w-full">
+                  <input id="input-revenu-charge-comprise"
+                    class="calculette-number input input-bordered input-primary w-full text-2xl font-semibold text-center"
+                    type="number" name="number-revenu_charge_comprise"  min="0" max="10000" step="1" required="">
+                  <span class="calculette-span badge badge-outline px-3 py-1 text-xs uppercase tracking-wide">€ /
+                    Mois</span>
+                </div>
+                <div class="income-year-cc text-xs text-base-content/70 italic"></div>
+                <label class="label  text-base-content/70"></label>
+                <div class="container-input-range w-full pt-2">
+                  <input class="calculette-range range range-primary range-xs w-full" type="range"
+                    name="range-revenu_charge_comprise"  min="0" max="10000" step="1">
+                </div>
+              </div>
+            </fieldset>
+            <!-- ****************************************************************************
+                        ******************* container revenu locatif *****************************
+                        ****** end *******************************************************************-->
         <!-- ****************************************************************************
             ******************* container type imposition ********************************
             ****** start*********************************************************************-->
@@ -518,6 +525,7 @@
         <!-- ****************************************************************************
             ******************* container type imposition ********************************
             ******end *********************************************************************-->
+            
 
         <!-- ****************************************************************************
                         ******************* container charge et taxe ********************************

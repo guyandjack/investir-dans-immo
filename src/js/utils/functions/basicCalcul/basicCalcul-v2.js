@@ -73,6 +73,7 @@ import {
   titreRegimeImposition,
   toltalChargeValue,
   toltalChargeAmortissementValue,
+  
   totalRevenuLocatifValue,
   totalRevenuReferenceValue,
 } from "../../refDOM/refDomSimulator.js";
@@ -83,7 +84,7 @@ const MONTHS_PER_YEAR = 12;
 
 const toFiniteNumber = (value) => {
   const parsed = Number(value);
-  return Number.isFinite(parsed) ? Math.round(parsed) : 0;
+  return Number.isFinite(parsed) ? parsed : 0;
 };
 
 const toPositiveInt = (value) => Math.max(0, Math.round(toFiniteNumber(value)));
@@ -327,22 +328,27 @@ function incomeByYear() {
 }
 
 //si les revenu locatif atteigne un certain seuil le regime d'imposition change automatiquement
+//location nue: si income > 15300 => imposition reel obligatoire
+//location meuble: si incommeCC > 77700 => imposition reel obligatoire
+ 
 function controlValueOfIncome() {
   const income = toFiniteNumber(calculatedValue.income) * MONTHS_PER_YEAR;
   const incomeCC = toFiniteNumber(calculatedValue.incomeCc) * MONTHS_PER_YEAR;
   const typeLocation = calculatedValue.locationType ?? "nue";
   const seuil = typeLocation === "nue" ? 15300 : 77700;
   const incomeReference = typeLocation === "nue" ? income : incomeCC;
-  const fiscalChoiceSave = calculatedValue.fiscalChoiceMemo ?? "forfaitaire";
+  //const fiscalChoiceSave = calculatedValue.fiscalChoiceMemo ?? "forfaitaire";
 
   if (incomeReference > seuil) {
     inputRadioRegimeReel && (inputRadioRegimeReel.checked = true);
     calculatedValue.fiscalChoice = "reel";
+    titreRegimeImposition.classList.add("text-red-500");
     setTextContent(titreRegimeImposition, "R\u00E9gime r\u00E9el obligatoire");
     hideInputRadioRegimeFiscal();
     return "no-choice";
   }
-
+  
+  titreRegimeImposition.classList.remove("text-red-500");
   setTextContent(titreRegimeImposition, "Choix du r\u00E9gime d'imposition");
   displayInputRadioRegimeFiscal();
 

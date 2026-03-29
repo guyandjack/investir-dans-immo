@@ -51,6 +51,9 @@ import {
 import { calculatedValue } from "../../data/data.js";
 
 import {
+addLimitToInputRevenu,
+removeLimitToInputRevenu,
+
   changeColor,
   
   displayChargeAmortissable,
@@ -89,6 +92,7 @@ import {
 } from "../checkValueUser/checkValueUser.js";
 
 import { FetchForDownload } from "../http/download.js";
+import {toggleToast } from "../toast/toggleToast.js";
 
 /* ----------------------------- Helpers perf ----------------------------- */
 
@@ -118,8 +122,8 @@ const scheduleMicrotask = (fn) => {
 // éléments cibles du DOM
 const targetElements = [
   calculatorMensualite,
-  fieldsetRevenuLocatif,
   fieldsetTypeLocation,
+  fieldsetRevenuLocatif,
   fieldsetFiscal,
   fieldsetChargeTaxe,
   fieldsetSimulation,
@@ -578,8 +582,15 @@ function recalcIncomeIfValid(e) {
     calculatedValue.incomeCc = e.target.value;
   }
 
-  /* const isValidIncome = checkValueUserIncome();
-  if (!isValidIncome) return; */
+  //gere le toast error pour filedset revenu
+  const isDisplay =
+    (calculatedValue.incomeCc !== 0 &&
+      calculatedValue.income !== 0 &&
+      calculatedValue.income > calculatedValue.incomeCc) ? true : false;
+  const message = "Les revnus hors charge doivent être inferieur aux revenus charges comprises!"
+  
+    toggleToast(isDisplay, fieldsetRevenuLocatif, "error", message);
+  
 
   // Détermine type / contrôle
   controlValueOfIncome();
@@ -816,6 +827,8 @@ function addEventOnInputRadioTypeLocation() {
       return;
 
     const inputValue = t.value;
+    const action = inputValue === "nue" ? removeLimitToInputRevenu : addLimitToInputRevenu;
+    action();
     calculatedValue.locationType = inputValue;
     displayCharge();
     recalcAfterRadio();
