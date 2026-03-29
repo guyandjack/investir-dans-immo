@@ -458,7 +458,7 @@ const disableMonthlyCalculator = () => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const top =
-        fieldsetRevenuLocatif.getBoundingClientRect().top +
+        fieldsetTypeLocation.getBoundingClientRect().top +
         window.scrollY -
         offSetNavBar;
 

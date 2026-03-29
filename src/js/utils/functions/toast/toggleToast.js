@@ -1,4 +1,4 @@
-//import  iconClose  from "./icons/icon-close-v2.svg"
+//import  iconClose  from "/icons/icon-close-v2.svg"
 
 /**
  * @param {boolean} isDisplay
@@ -17,7 +17,8 @@ function toggleToast(isDisplay, element, type, message) {
 
     const toastElement = document.createElement("div");
     const imgElement = document.createElement("img");
-    imgElement.setAttribute("src", "../public/icons/icon-close-v2.svg");
+    imgElement.src = "/icons/icon-close-v2.svg";
+    imgElement.alt = "Boutton pour fermer le popup d'alerte";
     
 
     toastElement.classList.add("toast", classType);
